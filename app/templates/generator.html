@@ -1,0 +1,49 @@
+{% extends 'bare.html' %}
+{% block navbar %}
+  {% include 'navbar.html' %}
+{% endblock %}
+{% block content %}
+  <div class="container">
+    <div class="row justify-content-center">
+      <form class="form-group mt-5" action="{{ url_for('generator') }}"
+            method="post" name="htmlgenerator">
+        {{ form.hidden_tag() }}
+        <legend>Generatore Pagine Moduli Tradotti</legend>
+        <hr>
+        <fieldset>
+          {{ form.csrf_token }}
+          <div class="form-group">
+            <label for="moduli">Moduli</label>
+            {{ form.modules(size=50, class="form-control",
+            placeholder="Nomi modulo da generare, senza estensione, separati da spazio", value=defname) }}
+          </div>
+          <div class="form-group form-check">
+            {{ form.spellcheck(class="form-check-input") }}
+            <label for="spellckeck">Verifica Sintassi (Spuntare per il controllo
+              ortografico)</label>
+          </div>
+          <div class="form-group form-check">
+            {{ form.rebuild_index(class="form-check-input") }}
+            <label for="rebuild_index">Indici (Spuntare per ricostruire i file
+              indice)</label>
+          </div>
+          <div class="form-group form-check">
+            {{ form.rebuild_table(class="form-check-input")}}
+            <label for="rebuild_table">Tabella Moduli (Spuntare per
+            ricostruire la tabella moduli)</label>
+          </div>
+          <div class="form-group form-check">
+            {{ form.fixed_sidebar(class="form-check-input") }}
+            <label for="fixed_sidebar">Indice Modulo Fisso (Spuntare
+            se l'indice articolo deve essere fisso durante lo scorrimento
+            verticale)</label>
+          </div>
+          <hr>
+          <button class="btn btn-primary" onclick="loading()">Genera Pagina
+          </button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  <!-- <h3>{{ log | safe }}</h3> -->
+{% endblock %}

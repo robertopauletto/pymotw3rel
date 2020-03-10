@@ -1,0 +1,35 @@
+{% extends 'bare.html' %}
+{% block content %}
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="jumbotron card card-img-overlay"
+           style="background-image: url({{ url_for('static', filename='img/eco-pink.jpg') }});">
+        <ul class="nav justify-content-end ">
+          <li class="nav-item">
+            <a class="nav-link jumbo-lnk" href="#">Articoli</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link jumbo-lnk" href="{{ url_for("main.generator") }}">Generatore</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link jumbo-lnk" href="{{ url_for('main.new_article') }}">Nuovo Articolo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link jumbo-lnk" href="#">Categorie</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link jumbo-lnk" href="{{ url_for('main.config') }}">Configurazione</a>
+          </li>
+        </ul>
+        <div class="text-white text-center py-5 px-4 mt-5">
+          <div>
+            <h2 class="card-title pt3 mb-5 font-weight-bold"><strong>PyMOTW-it
+              Manager</strong></h2>
+            <p class="mx-5 mb-5">Gestisce il sito PyMotw-it 3</p>
+            <a href="#" class="btn btn-outline-light">Accedi</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
