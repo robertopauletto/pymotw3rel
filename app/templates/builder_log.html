@@ -1,0 +1,23 @@
+{% extends 'bare.html' %}
+{% block navbar %}
+  {% include 'navbar.html' %}
+{% endblock %}
+{% block content %}
+  <div class="container">
+    <div class="row justify-content-center mt-5">
+        <h3>Risultato dell'elaborazione</h3>
+    </div>
+    <div class="row justify-content-center">
+      <form action="" method="post" name="builderlog">
+        {{ form.hidden_tag() }}
+        {{ form.csrf_token }}
+        <div class="form-group">
+          <textarea class="form-control"  id="logResults" rows="15" cols="108">{{ logcontent | safe }}</textarea>
+        </div>
+        <button class="btn btn-primary" name="generatore" title="Torna al generatore di pagine">Generatore</button>
+        <button class="btn btn-secondary" name="apri" title="Apri la pagina generata (in un altra scheda)">Vai alla pagina generata</button>
+      </form>
+    </div>
+  </div>
+  <!-- <h3>{{ log | safe }}</h3> -->
+{% endblock %}

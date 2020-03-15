@@ -5,7 +5,7 @@
 {% block content %}
   <div class="container">
     <div class="row justify-content-center">
-      <form class="form-group mt-5" action="{{ url_for('generator') }}"
+      <form class="form-group mt-5" action="{{ url_for('main.generator') }}"
             method="post" name="htmlgenerator">
         {{ form.hidden_tag() }}
         <legend>Generatore Pagine Moduli Tradotti</legend>
@@ -13,7 +13,7 @@
         <fieldset>
           {{ form.csrf_token }}
           <div class="form-group">
-            <label for="moduli">Moduli</label>
+            <label for="moduli">Moduli da Generare</label>
             {{ form.modules(size=50, class="form-control",
             placeholder="Nomi modulo da generare, senza estensione, separati da spazio", value=defname) }}
           </div>

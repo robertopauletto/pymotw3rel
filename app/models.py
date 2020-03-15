@@ -24,6 +24,11 @@ class GeneratorConfig(db.Model):
         self.conf_tabname = ''.join(self.conf_key)
 
     @staticmethod
+    def get_value(key: str):
+        item = GeneratorConfig.query.filter_by(conf_key=key).first()
+        return item.conf_value
+
+    @staticmethod
     def parse_config() -> Tuple[DefaultDict[str, List['GeneratorConfig']],
                                 List['GeneratorConfig']]:
         """
@@ -36,6 +41,24 @@ class GeneratorConfig(db.Model):
             retval[rk.conf_tabname].append(rk)
             objlist.append(rk)
         return retval, objlist
+
+    @staticmethod
+    def update_config(objlist: list, form: dict):
+        """
+        Aggiornamento parametri di configurazione
+        :param objlist:
+        :param form:
+        :return:
+        """
+        for genform in objlist:
+            value = form[f'value_{genform.id}']
+            tip = form[f'tip_{genform.id}']
+            if value != genform.conf_value:
+                genform.conf_value = value
+            if tip and tip != genform.conf_tip:
+                genform.conf_tip = tip
+            db.session.add(genform)
+            db.session.commit()
 
     def __repr__(self):
         return f'<GeneratorConfig {self.conf_key}: {self.conf_value}>'

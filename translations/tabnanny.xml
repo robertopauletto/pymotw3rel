@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="Latin-1"?>
+<categoria>strumenti dello sviluppatore</categoria><!-- # tag <descrizione> contiene le voci per la tabella di riepilogo iniziale -->
+<!-- # tag <titolo_1> titolo principale -->
+<!-- tag <testo_normale> contiene il testo normale dell'articolo -->
+<!-- tag <titolo_2> contiene il testo per l'intestazione di un paragrafo -->
+<!-- tag <py_code> contiene il testo che rappresenta delle istruzioni python -->
+<!-- tag <py_output> contiene il testo che rappresenta l'output di uno script python -->
+<!-- tag <vedi_anche> contiene il testo che rappresentano i riferimenti esterni -->
+<!-- tag <lista> ogni riga all'interno del tag rappresenta una riga di una lista non ordinata'-->
+<documento_tradotto>
+<titolo_1>
+tabnanny - Validatore di Indentazione
+</titolo_1>
+<descrizione>
+Scorre il codice sorgente di Python alla ricerca di indentazioni sospette
+
+</descrizione>
+<testo_normale>
+L'uso di una indentazione consistente è importante in un linguaggio come Python dove gli spazi sono significativi. Il modulo <strong>tabnanny</strong> fornisce un lettore di codice capace di segnalare un uso ambiguo dell'indentazione.
+</testo_normale>
+<titolo_2>
+Esecuzione da Riga di Comando
+</titolo_2>
+<testo_normale>
+Il modo più semplice di utilizzare <stron>tabnanny</stron> è di eseguirlo da riga di comando, passando i nomi dei file da verificare. Se si passano nomi di directory, esse sono attraversate ricorsivamente per trovare file con suffisso <code>.py</code> da verificare.
+</testo_normale>
+<testo_normale>
+L'esecuzione di <strong>tabnanny</strong> contro il codice sorgente di PyMOTW-it ha esposto un vecchio modulo con tabulazioni invece che spazi.
+</testo_normale>
+<py_output>
+$ python3 -m tabnanny .
+</py_output>
+<testo_normale>
+La riga 59 di <code>fetch_podcasts.py</code> ha due tabulazioni invece che 8 spazi. Questo non viene evidenziato in un editor di testi, che è stato configurato con le interruzioni di tabulazione ogni 4 spazi, quindi visivamente non vi è alcuna differenza.
+</testo_normale>
+<py_code_lineno>
+# fetch_podcasts.py
+</py_code_lineno>
+<testo_normale>
+Se si vogliono verificare i file ma non si vogliono vedere i dettagli degli errori, si uilizzi l'opzione <code>-q</code> per sopprimere tutte le informazioni a parte il nome del file.
+</testo_normale>
+<py_output>
+$ python3 -m tabnanny -q .
+</py_output>
+<testo_normale>
+Per poter vedere maggiori informazioni sui file esaminati, si usi l'opzione <code>-v</code>
+</testo_normale>
+<py_output>
+$ python3 -m tabnanny -v fetch_podcasts.py
+</py_output>
+<vedi_anche>
+https://docs.python.org/3.6/library/tabnanny.html|tabnanny|La documentazione della libreria standard per questo modulo.
+#|tokenize|Scanner lessicale per codice sorgente Python
+https://pypi.python.org/pypi/flake8|flake8|Verifica modulare del codice sorgente
+https://pycodestyle.readthedocs.io/en/latest/|pycodestyle|Verifica lo stile guida di Python
+https://pypi.python.org/pypi/pylint|pylint|Verifica statica del codice python
+</vedi_anche>
+</documento_tradotto>
