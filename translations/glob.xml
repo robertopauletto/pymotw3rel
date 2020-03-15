@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="Latin-1"?>
+<target>3</target>
+<categoria>Il File System</categoria><!-- # tag <descrizione> contiene le voci per la tabella di riepilogo iniziale -->
+<!-- # tag <titolo_1> titolo principale -->
+<!-- # tag <titolo_1> titolo principale -->
+<!-- tag <testo_normale> contiene il testo normale dell'articolo -->
+<!-- tag <titolo_2> contiene il testo per l'intestazione di un paragrafo -->
+<!-- tag <py_code> contiene il testo che rappresenta delle istruzioni python -->
+<!-- tag <py_output> contiene il testo che rappresenta l'outpuy di uno script python -->
+<!-- tag <vedi_anche> contiene il testo che rappresentano i riferimenti esterni -->
+<documento_tradotto>
+<titolo_1>
+glob - Corrispondenza su un modello di nome di file
+</titolo_1>
+<descrizione>
+Usa le regole della shell UNIX per trovare nomi di file che corrispondono ad un modello.
+
+</descrizione>
+<testo_normale>
+Sebbene l'<a href="https://it.wikipedia.org/wiki/Application_programming_interface">API</a> di <strong>glob</strong> sia piccola, il modulo è dotato di molta potenza. E' utile in qualsiasi situazione nella quale un programma debba cercare nel file system una lista di file i cui nomi corrispondono ad un modello. Per creare una lista di nomi di file che abbiano tutti una certa estensione, prefisso od altra stringa comune all'interno, si utilizzi <strong>glob</strong> piuttosto che scrivere del proprio codice per esaminare il contenuto di una directory.
+</testo_normale>
+<testo_normale>
+Le regole del modello per <strong>glob</strong> non solo le stesse delle espressioni regolari utilizzate dal modulo <code>re</code>. Viceversa esse seguono le regole standard UNIX per l'espansione del percorso. Ci sono solo alcuni caratteri speciali utilizzati per implementare due diversi intervalli di caratteri e <a href="https://it.wikipedia.org/wiki/Metacarattere">caratteri jolly</a>. Le regole del modello sono applicate a segmenti del nome di file (che si interrompono al separatore di percorso, /). I percorsi nel modello possono essere relativi od assoluti. I nomi di variabile della shell ed il carattere tilde (~) non sono espansi.
+</testo_normale>
+<titolo_2>
+Dati di Esempio
+</titolo_2>
+<testo_normale>
+Gli esempi di questa sezione assumono che i seguenti file di prova siano presenti nella directory di lavoro corrente. Questa struttura di esempio può essere creata con il seguente script:
+</testo_normale>
+<py_code>
+# glob_maketestdata.py
+
+import os
+import os.path
+import glob
+
+if not os.path.exists('dir'):
+    os.mkdir('dir')
+if not os.path.exists('dir/subdir'):
+    os.mkdir('dir/subdir')
+os.chdir('dir')
+fh = open('file.txt', 'w')
+fh.close()
+fh = open('file1.txt', 'w')
+fh.close()
+fh = open('file2.txt', 'w')
+fh.close()
+fh = open('filea.txt', 'w')
+fh.close()
+fh = open('fileb.txt', 'w')
+fh.close()
+fh = open('file?.txt', 'w')
+fh.close()
+fh = open('file*.txt', 'w')
+fh.close()
+fh = open('file[.txt', 'w')
+fh.close()
+fh = open('subdir/subfile.txt', 'w')
+fh.close()
+print("\n".join(glob.glob('dir')))
+print("\n".join(sorted(glob.glob('dir/*'))))
+print("\n".join(glob.glob('dir/subdir/*')))
+</py_code>
+<py_output>
+$ python3 glob_maketestdata.py
+
+dir
+dir/file*.txt
+dir/file.txt
+dir/file1.txt
+dir/file2.txt
+dir/file?.txt
+dir/file[.txt
+dir/filea.txt
+dir/fileb.txt
+dir/subdir
+dir/subdir/subfile.txt
+</py_output>
+<titolo_2>
+Caratteri Jolly
+</titolo_2>
+<testo_normale>
+Un asterisco (<code>*</code>) corrisponde a zero o più caratteri in un segmento di un nome. Ad esempio <code>dir/*</code>.
+</testo_normale>
+<py_code>
+# glob_asterisk.py
+
+import glob
+for name in sorted(glob.glob('dir/*')):
+    print(name)
+</py_code>
+<testo_normale>
+Il modello trova corrispondenza per ogni nome di percorso (file o directory) nella directory <code>dir</code>, senza effettuare una ricorsione nelle sottodirectory. I dati restituiti da <code>glob()</code> non sono ordinati, quindi gli esempi di seguito applicano un ordinamento per facilitare l'esame dei risultati.
+</testo_normale>
+<py_output>
+$ python3 glob_asterisk.py
+
+dir/file*.txt
+dir/file.txt
+dir/file1.txt
+dir/file2.txt
+dir/file?.txt
+dir/file[.txt
+dir/filea.txt
+dir/fileb.txt
+dir/subdir
+</py_output>
+<testo_normale>
+Per elencare i file in una sottodirectory, essa deve essere inclusa nel modello.
+</testo_normale>
+<py_code>
+# glob_subdir.py
+
+import glob
+
+print('Nominata esplicitamente:')
+for name in sorted(glob.glob('dir/subdir/*')):
+    print('\t', name)
+
+print('nominata con caratteri jolly:')
+for name in sorted(glob.glob('dir/*/*')):
+    print('\t', name)
+</py_code>
+<testo_normale>
+Il primo caso nell'esempio qui sopra elenca la sottodirectory esplicitamente, il secondo si affida ai caratteri jolly per trovare la sottodirectory
+</testo_normale>
+<py_output>
+$ python3 glob_subdir.py
+
+Nominata esplicitamente:
+         dir/subdir/subfile.txt
+nominata con caratteri jolly:
+         dir/subdir/subfile.txt
+</py_output>
+<testo_normale>
+I risultati, in questo caso, sono identici. Se ci fosse stata un'altra sottodirectory, i caratteri jolly avrebbero consentito una corrispondenza con entrambe le sottodirectory e sarebbero stati elencati i file presenti in entrambe.
+</testo_normale>
+<titolo_2>
+Carattere Jolly per Singolo Carattere
+</titolo_2>
+<testo_normale>
+Un punto interrogativo (<code>?</code>) è un altro carattere jolly. Trova corrispondenza con qualsiasi carattere singolo in quella posizione nel nome.
+</testo_normale>
+<py_code>
+# glob_question.py
+
+import glob
+
+for name in sorted(glob.glob('dir/file?.txt')):
+    print(name)
+</py_code>
+<testo_normale>
+Nell'esempio qui sopra si trova corrispondenza con tutti i nomi di file che iniziano con <code>file</code>, hanno un ulteriore carattere di qualunque tipo, e finiscono con <code>.txt</code>
+</testo_normale>
+<py_output>
+$ python3 glob_question.py
+
+dir/file*.txt
+dir/file1.txt
+dir/file2.txt
+dir/file?.txt
+dir/file[.txt
+dir/filea.txt
+dir/fileb.txt
+</py_output>
+<titolo_2>
+Gruppi di Caratteri
+</titolo_2>
+<testo_normale>
+Si utilizza un gruppo di caratteri (<code>[a-z]</code>) al posto del punto interrogativo per cercare corrispondenza con uno di parecchi caratteri. Questo esempio cerca tutti i file con una cifra nel nome prima dell'estensione.
+</testo_normale>
+<py_code>
+# glob_charrange.py
+
+import glob
+for name in sorted(glob.glob('dir/*[0-9].*')):
+    print(name)
+</py_code>
+<testo_normale>
+Il gruppo di caratteri <code>[0-9]</code> trova corrispondenza con qualsiasi cifra. Il gruppo viene ordinato in base al codice del carattere di ciascuna lettera/cifra, mentre il trattino indica un gruppo sequenziale ininterrotto di caratteri. Lo stesso gruppo di valori avrebbe potuto essere scritto come <code>[0123456789]</code>.
+</testo_normale>
+<py_output>
+$ python3 glob_charrange.py
+
+dir/file1.txt
+dir/file2.txt
+</py_output>
+<titolo_2>
+Considerare Meta-caratteri Come Parte di una Ricerca
+</titolo_2>
+<testo_normale>
+Talvolta è necessario cercare dei file con nomi che contengono gli speciali meta-caratteri che <strong>glob</strong> utilizza per i suoi modelli. La funzione <code>escape()</code>  costruisce un modello appropriato con i caratteri speciali trattati in modo da non venire espansi od interpretati come speciali da <strong>glob</strong>
+</testo_normale>
+<py_code>
+# glob_escape.py
+
+import glob
+
+specials = '?*['
+
+for char in specials:
+    pattern = 'dir/*' + glob.escape(char) + '.txt'
+    print('Ricerca di: {!r}'.format(pattern))
+    for name in sorted(glob.glob(pattern)):
+        print(name)
+    print()
+</py_code>
+<testo_normale>
+Ogni carattere speciale non viene considerato come tale costruendo un gruppo di caratteri che contiene un singolo elemento.
+</testo_normale>
+<py_output>
+$ python3 glob_escape.py
+Ricerca di: 'dir/*[?].txt'
+dir/file?.txt
+
+Ricerca di: 'dir/*[*].txt'
+dir/file*.txt
+
+Ricerca di: 'dir/*[[].txt'
+dir/file[.txt
+</py_output>
+<vedi_anche>
+http://docs.python.org/3.5/library/glob.html|glob|La documentazione della libreria standard per questo modulo.
+http://www.opengroup.org/onlinepubs/000095399/utilities/xcu_chap02.html#tag_02_13|Pattern Matching Notation|Spiegazione (in inglese) del globbing secondo le specifiche del linguaggio dei comandi della Shell da parte di Open Group
+fnmatch.html|fnmatch|Implementazione della corrispondenza del nome di file
+riferimenti_moduli_modificati.html#glob|Note di portabilità per glob|
+</vedi_anche>
+</documento_tradotto>

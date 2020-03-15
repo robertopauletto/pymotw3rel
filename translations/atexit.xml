@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="Latin-1"?>
+<categoria>componenti dell'applicazione</categoria>
+<documento_tradotto>
+<titolo_1>
+atexit - Callback alla Chiusura di un Programma
+</titolo_1>
+<descrizione>
+Registra una o più funzioni (<a href='https://www.wikiwand.com/it/Callback' target='_blank'>callback</a>) che saranno chiamate quando un programma è in chiusura
+
+</descrizione>
+<testo_normale>
+Il modulo <strong>atexit</strong> fornisce una interfaccia per registrare funzioni che saranno chiamate quando un programma si sta normalmente chiudendo.
+</testo_normale>
+<titolo_2>
+Registrare Callback in Uscita
+</titolo_2>
+<testo_normale>
+Il seguente è un esempio per registrare una funzione chiamando esplicitamnente <code>register()</code>:
+</testo_normale>
+<py_code>
+# atexit_simple.py
+</py_code>
+<testo_normale>
+Visto che il programma non fa null'altro, <code>all_done()</code> viene chiamata immediatamente.
+</testo_normale>
+<py_output>
+$ python3 atexit_simple.py
+</py_output>
+<testo_normale>
+E' anche possibile registrare più di una funzione, e fornire argomenti alle funzioni registrate. Questo può essere utile per disconnettersi in modo pulito da database, rimuovere file termporanei ecc.. Invece che mantenere una lista di risorse che devoono essere liberate, si può registrare una funzione di pulizia separata per ogni risorsa.
+</testo_normale>
+<py_code>
+# atexit_multiple.py
+</py_code>
+<testo_normale>
+L'ordine di chiamata delle funzioni in uscita è inverso rispetto a quello di registrazione. Questo metodo consente di pulire i moduli nell'ordine inverso rispetto a quello di importazione (e di conseguenza di registrazione delle loro funzioni <code>atexit</code>), il che dovrebbe ridurre i conflitti di dipendenza.
+</testo_normale>
+<py_output>
+$ python3 atexit_multiple.py
+</py_output>
+<titolo_2>
+Sintassi per Decoratore
+</titolo_2>
+<testo_normale>
+Le funzioni che non richiedono argomenti possono essere registrate utilizzando <code>register()</code> come un decoratore. Questa sintassi alternativa è conveniente per funzioni di pulizia che operano su dati globali a livello di modulo.
+</testo_normale>
+<py_code>
+# atexit_decorator.py
+</py_code>
+<testo_normale>
+Visto che la funzione è registrata così com'è definita, è anche importante assicurarsi che essa funzioni regolarmente anche se nessun altra attività viene eseguita dal modulo. Se le risorse che si suppone debbano essere pulite non sono mai inizializzate, la chiamata della funzione di uscita non dovrebbe produrre un errore.
+</testo_normale>
+<py_output>
+$ python3 atexit_decorator.py
+</py_output>
+<titolo_2>
+Cancellare Callback
+</titolo_2>
+<testo_normale>
+Per cancellare un <em>callback</em> di uscita, lo si rimuova dal registro usando <code>unregister()</code>.
+</testo_normale>
+<py_code>
+# atexit_unregister.py
+</py_code>
+<testo_normale>
+Tutte le chiamate allo stesso <em>callback</em> sono cancellate, a prescindere da quante volte è stato registrato.
+</testo_normale>
+<py_output>
+$ python3 atexit_unregister.py
+</py_output>
+<testo_normale>
+La rimozione di un <em>callback</em> che non era stato precedentemente registrato non viene considerato un errore
+</testo_normale>
+<py_code>
+# atexit_unregister_not_registered.py
+</py_code>
+<testo_normale>
+Visto che ignora in modo silente <em>callback</em> sconosciuti, <code>unregister()</code> può essere usato anche quando la sequenza delle registrazioni potrebbe non essere nota.
+</testo_normale>
+<py_output>
+$ python3 atexit_unregister_not_registered.py
+</py_output>
+<titolo_2>
+Quando Ci Sono Callaback Di atexit Non Chiamati?
+</titolo_2>
+<testo_normale>
+I <em>callback</em> registrati con <strong>atexit</strong> non sono chiamati se si verifica almeno una delle seguenti condizioni:
+</testo_normale>
+<lista>
+Il programma termina a causa di un segnale
+<code>os._exit()</code> viene invocato direttamente
+Viene rilevato un errore fatale nell'interprete
+</lista>
+<testo_normale>
+Un esempio dall'articolo su <a href='subprocess.html' target='_blank'>subprocess</a> può essere aggiornato per mostrare cosa succede quando un programma viene terminato da un segnale. Sono coinvolti due file, il programma genitore ed il figlio. Il genitore fa partire il figlio, si mette in pausa, quindi lo termina.
+</testo_normale>
+<py_code>
+# atexit_signal_parent.py
+</py_code>
+<testo_normale>
+Il figlio imposta un <em>callback</em> <strong>atexit</strong> di uscita, poi si mette in pausa fino a che arriva il segnale
+</testo_normale>
+<py_code>
+# atexit_signal_child.py
+</py_code>
+<testo_normale>
+Quando eseguito, questo è il risultato.
+</testo_normale>
+<py_output>
+$ python3 atexit_signal_parent.py
+</py_output>
+<testo_normale>
+Il figlio non stampa il messaggio inserito in <code>not_called()</code>.
+</testo_normale>
+<testo_normale>
+Se il programma usa <code>os._exit()</code>, può evitare la chiamata dei <strong>callback</strong> <code>atexit</code>.
+</testo_normale>
+<py_code>
+# atexit_os_exit.py
+</py_code>
+<testo_normale>
+Visto che l'esempio salta il normale percorso di uscita, il <em>callback</em> non viene eseguito. Anche la stampa del risultato non viene scaricata, quindi l'esempio è eseguito con l'opzione <code>-u</code> per abiltare l'I/O senza buffer.
+</testo_normale>
+<py_output>
+$ python3 -u atexit_os_exit.py
+</py_output>
+<testo_normale>
+Per assicurarsi che i <em>callback</em> vengano eseguiti, si consenta al programma di terminare esaurendo le istruzioni da eseguire oppure chiamando <code>sys.exit()</code>.
+</testo_normale>
+<py_code>
+# atexit_sys_exit.py
+</py_code>
+<testo_normale>
+Questo esempio chiama <code>sys.exit()</code>, quindi i <em>callback</em> registrati vengono chiamati.
+</testo_normale>
+<py_output>
+$ python3 atexit_sys_exit.py
+</py_output>
+<titolo_2>
+Gestire Eccezioni
+</titolo_2>
+<testo_normale>
+I <a href='https://www.wikiwand.com/en/Stack_trace' target='_blank'>traceback</a> per le eccezioni sollevate in <strong>atexit</strong> sono stampati alla console e l'ultima eccezione sollevata viene risollevata in modo da essere l'ultimo messaggio di errore del programma.
+</testo_normale>
+<py_code>
+# atexit_exception.py
+</py_code>
+<testo_normale>
+L'ordine di registrazione controlla l'ordine di esecuzione. Se un errore in un <em>callback</em> ne introduce un errore in un altro (registrato in precedenza ma chiamato successivamente), il messaggio di errore finale potrebbe non essere quello più utile da mostrare all'utente.
+</testo_normale>
+<py_output>
+$ python3 atexit_exception.py
+</py_output>
+<vedi_anche>
+https://docs.python.org/3.7/library/atexit.html|atexit|La documentazione della libreria standard per questo modulo
+#|Gestione delle eccezioni (di prossima traduzione)|Gestione globale delle eccezioni non catturate
+riferimenti_moduli_modificati.html#4|Note di portabilità per atexit|
+</vedi_anche>
+</documento_tradotto>
+</documento_tradotto>
