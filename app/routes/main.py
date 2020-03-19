@@ -10,7 +10,7 @@ from flask import (
 
 from mylogger import add_module_handler
 from app.extensions import db
-from app.models import GeneratorConfig
+from app.models import GeneratorConfig, Category, Article
 from app.forms import HTMLGeneratorForm, BuilderLog
 from app.site_builder.builder import (
     build_module, build_index, build_module_table,
@@ -82,6 +82,13 @@ def generator():
 @main.route('/new_article', methods=['GET', 'POST'])
 def new_article():
     return "<h3>Test</h3>"
+
+
+@main.route('/category', methods=['GET', 'POST'])
+def category():
+    categories = Category.query.all()
+    data = dict(categories=categories, headers=('ID', 'NOME', 'NR. ARTICOLI'))
+    return render_template('categorie.html', data=data)
 
 
 @main.route('/builder_log', methods=['GET', 'POST'])

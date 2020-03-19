@@ -53,12 +53,16 @@ def import_articles(folder):
         logger.info("Importazione abbandonata dall'utente")
         return
     _trunc_table(Article)
-    _trunc_table(Category)
+    # _trunc_table(Category)
     bycat = defaultdict(list)
     [bycat[art.categ].append(art) for art in get_info(folder)]
-    for categ in bycat.keys():
-        logger.info(f'Adding {categ}')
-        db.session.add(Category(categ))
+    for categ, articles in bycat.items():
+        categ = Category.query.filter_by(descr=categ).first()
+        for art in articles:
+            article = Article(art.title, categ.id, art.filename,
+                              art.lastmod, art.size, art.indexed)
+            logger.info(f'Inserting {article} ({categ})')
+            db.session.add(article)
     db.session.commit()
     # with open(filename) as fh:
     #     for rk in [row.strip().split(';')
@@ -67,6 +71,13 @@ def import_articles(folder):
     #         art = Article(*rk)
     #         db.session.add(art)
     #     db.session.commit()
+
+
+def _add_categ(categories):
+    for categ in categories:
+        logger.info(f'Adding {categ}')
+        db.session.add(Category(categ))
+    db.session.commit()
 
 
 def _trunc_table(obj):

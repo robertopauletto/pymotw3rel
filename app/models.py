@@ -70,30 +70,35 @@ class Article(db.Model):
     __tablename__ = 'articles'
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255))
-    categ = db.Column(db.String(255))
+    categ_id = db.Column(db.Integer, db.ForeignKey('categories.id'))
     filename = db.Column(db.String(255), nullable=False, unique=True)
     lastmod = db.Column(db.DateTime)
     size = db.Column(db.Integer)
+    indexed = db.Column(db.Integer)
 
-    def __init__(self, title: str, categ: str, filename: str,
-                 lastmod: str, size: str):
+    def __init__(self, title: str, categ_id: int, filename: str,
+                 lastmod: str, size: str, indexed: str):
         self.title = title
-        self.categ = categ
+        self.categ_id = categ_id
         self.filename = filename
         self.lastmod = datetime.strptime(lastmod, '%Y/%m/%d')
         self.size = int(size)
+        self.indexed = int(indexed)
 
     def __repr__(self):
-        return f'<Article {self.id} - {self.title} ({self.lastmod})'
+        return f'<Article {self.id} - {self.title} ({self.lastmod})>'
 
 
 class Category(db.Model):
+    """Rappresenta una categoria del modulo"""
     __tablename__ = 'categories'
     id = db.Column(db.Integer, primary_key=True)
     descr = db.Column(db.String(255), nullable=False)
+    articles = db.relationship('Article', backref='category',
+                               lazy='dynamic')
 
     def __init__(self, name: str):
         self.descr = name
 
     def __repr__(self):
-        return f'<Category {self.id} - {self.descr}'
+        return f'<Category {self.id} - {self.descr}>'

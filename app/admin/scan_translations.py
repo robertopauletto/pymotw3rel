@@ -10,6 +10,7 @@ __doc__ = "Scansiona la dir traduzioni e raccoglie info sui file .xml"
 
 RE_TITLE = re.compile(r'(\n<titolo_1>)(.*)(</titolo_1>)', re.DOTALL)
 RE_CATEG = re.compile(r'(\n<categoria>)(.*)(</categoria>)', re.DOTALL)
+RE_INDIC = re.compile(r'(\n<indicizza>)(.*)(</indicizza>)', re.DOTALL)
 EXT = '.xml'
 
 
@@ -31,7 +32,9 @@ def _strip_text(regex: re.Pattern, text: str, group_no: int) -> str:
     return ''
 
 
-ArticleFromFolder = namedtuple('Article', 'title categ filename lastmod size')
+ArticleFromFolder = namedtuple(
+    'Article', 'title categ filename lastmod size indexed'
+)
 
 
 def get_info(folder: str, ext: str = EXT) -> List[ArticleFromFolder]:
@@ -53,12 +56,18 @@ def get_info(folder: str, ext: str = EXT) -> List[ArticleFromFolder]:
             text = fh.read()
         title = _strip_text(RE_TITLE, text, 1)
         categ = _strip_text(RE_CATEG, text, 1).lower()
+        if _strip_text(RE_INDIC, text, 1).lower() == 'no':
+            indicizza = False
+        else:
+            indicizza = True
         filename = os.path.split(fn)[-1]
         lastmod = datetime.datetime.fromtimestamp(os.stat(fn).st_mtime)
         size = os.stat(fn).st_size
         articles.append(
-            ArticleFromFolder(title, categ, filename,
-                              lastmod.strftime('%Y/%m/%d'), str(size))
+            ArticleFromFolder(
+                title, categ, filename, lastmod.strftime('%Y/%m/%d'),
+                str(size), str(int(indicizza))
+            )
         )
     return articles
 
