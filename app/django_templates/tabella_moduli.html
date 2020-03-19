@@ -11,15 +11,14 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-12">
-                  <h2><p class="lead">
-                    {% for letter, href in modulo.get_indice.iteritems %}
+                  <h2 class="lead">
+                    {% for letter, href in modulo.get_indice.items %}
                       {% if href %}
                         <a href="#{{ href }}">{{ letter }}</a>
                       {% else %}
                         <a href="#">{{ letter }}</a>
                       {% endif %}
                     {% endfor %}
-                    </p>
                   </h2>
                 </div>
             </div>

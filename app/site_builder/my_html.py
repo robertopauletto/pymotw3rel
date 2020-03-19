@@ -324,7 +324,9 @@ class MyHtml(object):
         if 'splichar' in kwargs:
             splitchar = kwargs['splitchar']
         tag = 'td' if not is_header else 'th'
+        print(values)
         for value in values.split(splitchar):
+            print(value)
             output.append(self._get_start_end_tag(
                 tag, value=value, **kwargs
             ))

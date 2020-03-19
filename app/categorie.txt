@@ -1,0 +1,20 @@
+Algoritmi
+Caratteristiche della Fase di Esecuzione
+Componenti Dell'Applicazione
+Compressione ed Archiviazione Dati
+Concomitanze con Processi, Thread e Coroutine
+Crittografia
+Date ed Orari
+Email
+Il File System
+Internazionalizzazione e Localizzazione
+Internet
+Matematica
+Moduli e Pacchetti
+Persistenza e Scambio Dati
+Reti
+Servizi Specifici Unix
+Strumenti del Linguaggio
+Strumenti dello Sviluppatore
+Strutture Dati
+Testo

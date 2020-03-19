@@ -21,5 +21,6 @@ def ottieni_tabella(elenco_moduli: List[Modulo]):
     """
     Rendering nel tag <table> di `elenco_moduli`
     """
-    for_tbl = [modulo.per_tabella_indice() for modulo in elenco_moduli]
+    for_tbl = [';'.join(modulo.per_tabella_indice())
+               for modulo in elenco_moduli]
     return h.table(for_tbl, False)

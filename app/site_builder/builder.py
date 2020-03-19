@@ -246,8 +246,8 @@ def crea_pagine_indice(template_name, file_indice, mod_per_pagina, footer):
 
     Crea le pagine indice, che contengono i teaser per 12 moduli ognuna
     """
-    moduli =  sorted(elenco_per_indice(builder_conf['tran_dir']),
-                     key=lambda x: x.nome.lower())
+    moduli = sorted(elenco_per_indice(builder_conf['tran_dir']),
+                    key=lambda x: x.nome.lower())
     categ_per_indice = _categorie_per_indice(moduli)
 
     # Gestione sezione ultimi moduli aggiornati

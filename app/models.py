@@ -1,6 +1,7 @@
 # models.py
 
 from collections import defaultdict
+from datetime import datetime
 from typing import Union, Tuple, DefaultDict, List
 
 from .extensions import db
@@ -63,3 +64,36 @@ class GeneratorConfig(db.Model):
     def __repr__(self):
         return f'<GeneratorConfig {self.conf_key}: {self.conf_value}>'
 
+
+class Article(db.Model):
+    """Rappresenta un articolo tradotto"""
+    __tablename__ = 'articles'
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(255))
+    categ = db.Column(db.String(255))
+    filename = db.Column(db.String(255), nullable=False, unique=True)
+    lastmod = db.Column(db.DateTime)
+    size = db.Column(db.Integer)
+
+    def __init__(self, title: str, categ: str, filename: str,
+                 lastmod: str, size: str):
+        self.title = title
+        self.categ = categ
+        self.filename = filename
+        self.lastmod = datetime.strptime(lastmod, '%Y/%m/%d')
+        self.size = int(size)
+
+    def __repr__(self):
+        return f'<Article {self.id} - {self.title} ({self.lastmod})'
+
+
+class Category(db.Model):
+    __tablename__ = 'categories'
+    id = db.Column(db.Integer, primary_key=True)
+    descr = db.Column(db.String(255), nullable=False)
+
+    def __init__(self, name: str):
+        self.descr = name
+
+    def __repr__(self):
+        return f'<Category {self.id} - {self.descr}'

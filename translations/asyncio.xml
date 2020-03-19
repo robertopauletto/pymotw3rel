@@ -1,6 +1,6 @@
 <xml version="1.0" encoding="Latin-1"?>
 <target>3</target>
-<categoria>Concomitanza con processi, thread e coroutines</categoria>
+<categoria>Concomitanze con processi, thread e coroutine</categoria>
 <documento_tradotto>
 <titolo_1>
 asyncio - I/O Asincrono, ciclo di eventi e strumenti per la gestione della concorrenza
