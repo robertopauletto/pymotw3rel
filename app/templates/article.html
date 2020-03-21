@@ -10,26 +10,30 @@
         <thead class="thead-dark">
           <tr>
             {% for header in data.headers %}
-            <th scope="col" style="text-align: center">{{ header }}</th>
+            <th scope="col" class="align-top" style="text-align: center">{{ header }}</th>
             {% endfor %}
           </tr>
         </thead>
         <tbody>
-          {% for category in data.categories | sort(attribute='descr') %}
+          {% for article in data.articles | sort(attribute='title') %}
           <tr>
             <td><button class="btn btn-sm"
                         data-toggle="modal"
-                        data-target="#modal{{category.id}}">{{ category.id }}</button></td>
-            <td>{{ category.descr | title }}</td>
-            <td style="text-align: right">{{ category.articles | list | length }}</td>
+                        data-target="#modal{{ article.id}}">{{ article.id }}</button></td>
+            <td>{{ article.title }}</td>
+            <td>{{ article.artcat.descr }}</td>
+            <td>{{ article.filename }}</td>
+            <td>{{ article.lastmod.strftime("%d/%m/%Y") }}</td>
+            <td style="text-align: right">{{ "%d"|format(article.size) }}</td>
+            <td style="text-align: center">{% if article.indexed == 1 %}SI{% else %}NO{% endif %}</td>
           </tr>
           {% endfor %}
         </tbody>
       </table>
       </div>
     </div>
-    {% for category in data.categories %}
-    <div class="modal fade" id="modal{{category.id}}" role="dialog">
+<!--    {% for article in data.articles %}
+    <div class="modal fade" id="modal{{article.id}}" role="dialog">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -40,12 +44,12 @@
             <div class="form-group">
               <label for="idcat">ID</label>
               <input type="text" class="form-control" readonly
-                     id="idcat{{ category.id }}" name="catid" value="{{ category.id }}">
+                     id="idcat{{ article.id }}" name="catid" value="{{ article.id }}">
             </div>
             <div class="form-group">
               <label for="idcat">DESCRIZIONE</label>
               <input type="text" class="form-control"
-                     id="descrcat{{ category.id }}" name="catdescr" value="{{ category.descr }}">
+                     id="descrcat{{ article.id }}" name="catdescr" value="{{ article.descr }}">
               <small class="form-text text-muted">Il case dell'elemento viene gestito internamente</small>
             </div>
             <div class="modal-footer">
@@ -60,5 +64,5 @@
 
   </div>
   {% endfor %}
-
+-->
 {% endblock %}

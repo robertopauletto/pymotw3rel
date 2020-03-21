@@ -26,8 +26,8 @@ class NewArticleForm(FlaskForm):
     # editor = CKEditorField('test')
 
 
-class CategorieForm(FlaskForm):
-    nome = StringField('catname')
+class CategoryForm(FlaskForm):
+    descr = StringField('catname')
 
 
 class HTMLGeneratorForm(FlaskForm):

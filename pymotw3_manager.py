@@ -22,4 +22,5 @@ if __name__ == '__main__':
         logger.info(f'Ambiente: {os.getenv("FLASK_ENV")}')
         app.run(debug=True)
     except Exception as exc:
+        print(exc)
         logger.exception(exc)
