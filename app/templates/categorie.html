@@ -21,7 +21,9 @@
                         data-toggle="modal"
                         data-target="#modal{{category.id}}">{{ category.id }}</button></td>
             <td>{{ category.descr | title }}</td>
-            <td style="text-align: right">{{ category.articles | list | length }}</td>
+            <td style="text-align: right">
+              <a href="{{ url_for('main.article', key=category.id) }} "
+              title="Vai agli articoli che appartengono alla categoria">{{ category.articles | list | length }}</a></td>
           </tr>
           {% endfor %}
         </tbody>

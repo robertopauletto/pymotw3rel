@@ -4,35 +4,51 @@
 {% endblock %}
 {% block content %}
   <div class="container">
-    <div class="row justify-content-center mt-5">
-      <div class="table-responsive">
+  <div class="row justify-content-center mt-5">
+    <div class="table-responsive">
       <table class="table table-striped">
         <thead class="thead-dark">
-          <tr>
-            {% for header in data.headers %}
-            <th scope="col" class="align-top" style="text-align: center">{{ header }}</th>
-            {% endfor %}
-          </tr>
+        <tr>
+          {% for header in data.headers %}
+            <th scope="col" class="align-top"
+                style="text-align: center">{{ header }}</th>
+          {% endfor %}
+        </tr>
         </thead>
         <tbody>
-          {% for article in data.articles | sort(attribute='title') %}
+        {% for article in data.articles.items | sort(attribute='title') %}
           <tr>
-            <td><button class="btn btn-sm"
-                        data-toggle="modal"
-                        data-target="#modal{{ article.id}}">{{ article.id }}</button></td>
+            <td>
+              <button class="btn btn-sm"
+                      data-toggle="modal"
+                      data-target="#modal{{ article.id }}">{{ article.id }}</button>
+            </td>
             <td>{{ article.title }}</td>
             <td>{{ article.artcat.descr }}</td>
-            <td>{{ article.filename }}</td>
+            {# <td><a href="../{{ data.source_articles_folder }}/{{ article.filename }}">{{ article.filename }}</a></td> #}
+            <td><a href="{{ url_for('main.source') }}">{{ article.filename }}</a></td>
             <td>{{ article.lastmod.strftime("%d/%m/%Y") }}</td>
             <td style="text-align: right">{{ "%d"|format(article.size) }}</td>
-            <td style="text-align: center">{% if article.indexed == 1 %}SI{% else %}NO{% endif %}</td>
+            <td style="text-align: center">{% if article.indexed == 1 %}
+              SI{% else %}NO{% endif %}</td>
           </tr>
-          {% endfor %}
+        {% endfor %}
         </tbody>
       </table>
-      </div>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          {% if data.prev %}
+            <li class="page-item"><a class="page-link" href="{{ data.prev  }}">Pagina Precedente</a></li>
+          {% endif %}
+          {% if data.next %}
+            <li class="page-item"><a class="page-link" href="{{ data.next  }}">Pagina Successiva</a></li>
+          {% endif %}
+
+        </ul>
+      </nav>
     </div>
-<!--    {% for article in data.articles %}
+  </div>
+  <!--    {% for article in data.articles.items %}
     <div class="modal fade" id="modal{{article.id}}" role="dialog">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -44,12 +60,14 @@
             <div class="form-group">
               <label for="idcat">ID</label>
               <input type="text" class="form-control" readonly
-                     id="idcat{{ article.id }}" name="catid" value="{{ article.id }}">
+                     id="idcat{{ article.id }}" name="catid" value="
+    {{ article.id }}">
             </div>
             <div class="form-group">
               <label for="idcat">DESCRIZIONE</label>
               <input type="text" class="form-control"
-                     id="descrcat{{ article.id }}" name="catdescr" value="{{ article.descr }}">
+                     id="descrcat{{ article.id }}" name="catdescr" value="
+    {{ article.descr }}">
               <small class="form-text text-muted">Il case dell'elemento viene gestito internamente</small>
             </div>
             <div class="modal-footer">

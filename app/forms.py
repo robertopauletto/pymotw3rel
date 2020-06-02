@@ -3,8 +3,9 @@
 from flask_wtf import FlaskForm
 from wtforms import (
     BooleanField, StringField, TextAreaField, SubmitField,
-    SelectField, DateField
+    SelectField
 )
+from wtforms.fields.html5 import DateField
 from wtforms.validators import DataRequired, InputRequired
 # from flask_ckeditor import CKEditorField
 
@@ -18,10 +19,10 @@ class NewArticleForm(FlaskForm):
 
     template = StringField('templatename')
     name = StringField('articlename')
-    description = StringField('articledescr')
-    purpose = StringField('articlenpurpos')
+    description = TextAreaField('articledescr')
+    purpose = TextAreaField('articlenpurpos')
     categ = SelectField('categ')
-    publish_date = DateField('publishdate', format='%d/%M/%Y')
+    publish_date = DateField('publishdate', format='%Y-%m-%d')
     add_to_index = BooleanField('addtoindex', default=True)
     # editor = CKEditorField('test')
 

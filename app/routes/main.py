@@ -1,6 +1,8 @@
 # main.py
 
+import datetime
 import logging
+from math import ceil
 import os
 import re
 import webbrowser
@@ -9,10 +11,13 @@ from flask import (
     render_template, redirect, Blueprint, request, url_for, session
 )
 
+
 from mylogger import add_module_handler
 from app.extensions import db
 from app.models import GeneratorConfig, Category, Article
-from app.forms import HTMLGeneratorForm, BuilderLog, CategoryForm
+from app.forms import (
+    HTMLGeneratorForm, BuilderLog, CategoryForm, NewArticleForm
+)
 from app.site_builder.builder import (
     build_module, build_index, build_module_table,
     get_categorie, crea_nuovo_articolo, save_categorie
@@ -82,7 +87,31 @@ def generator():
 
 @main.route('/new_article', methods=['GET', 'POST'])
 def new_article():
-    return "<h3>Test</h3>"
+    form = NewArticleForm()
+    categories = Category.query.order_by(Category.descr).all()
+    choices = [(categ.id, categ.descr) for categ in categories]
+    def_template = GeneratorConfig.query.filter_by(
+        conf_key='new_article_template_name'
+    ).first()
+    form.template.data = def_template.conf_value
+    choices.insert(0, (-1, '--Selezionare una categoria--'))
+    form.categ.choices = choices
+
+    data = dict()
+    error = None
+
+    if form.validate_on_submit():
+        title = form.name.data
+        filename = f'{title}.xml'
+        dtmod = datetime.datetime.strptime(form.publish_date.data, '%Y-%m-%d')
+        cat_id = form.categ.id
+        is_ind = form.add_to_index.data
+        print()
+
+    return render_template(
+        "new_article.html", error=error, form=form, title="Nuovo Articolo",
+        categorie=categories, def_template=def_template
+    )
 
 
 @main.route('/category', methods=['GET', 'POST'])
@@ -145,15 +174,35 @@ def builder_log():
 
 @main.route('/article/<string:key>', methods=['GET', 'POST'])
 def article(key):
-    if key and re.match(r'^\d+$', key):
-        articles = Article.query.filter_by(categ_id=int(key))
-    else:
-        articles = Article.query.all()
+    parameters, objlist = GeneratorConfig.parse_config()
+    diz = dict()
+    for obj in objlist:
+        diz[obj.conf_key] = obj.conf_value
 
-    data = dict(articles=articles,
+    page = request.args.get('page', 1, type=int)
+    if key and re.match(r'^\d+$', key):
+        articles = Article.query.filter_by(
+            categ_id=int(key)
+        ).paginate(page, 10, False)
+    else:
+        articles = Article.query.paginate(
+            page, 10, False
+        )
+    next_url = url_for('main.article', key='all', page=articles.next_num) \
+        if articles.has_next else None
+    prev_url = url_for('main.article', key='all', page=articles.prev_num) \
+        if articles.has_prev else None
+
+    data = dict(articles=articles, next=next_url, prev=prev_url,
+                source_articles_folder=diz['tran_dir'],
                 headers='ID,TITOLO,CATEGORIA,NOME FILE,ULTIMO AGG.,'
                         'DIMENSIONE, INDICIZZATO'.split(','))
     return render_template('article.html', key=None, data=data)
+
+
+@main.route('/source', methods=['GET', 'POST'])
+def source():
+    return render_template('source.html')
 
 
 @main.route('/article_new', methods=['GET', 'POST'])

@@ -1,0 +1,21 @@
+{% extends 'bare.html' %}
+{% block links %}
+  <script src="https://unpkg.com/codeflask/build/codeflask.min.js"></script>
+{% endblock %}
+{% block navbar %}
+  {% include 'navbar.html' %}
+{% endblock %}
+{% block content %}
+  <div class="container">
+  <div class="row justify-content-center mt-5">
+    <div id="editor">
+
+    </div>
+  </div>
+  </div>
+{% endblock %}
+{% block scripts %}
+  <script>
+  const flask = new CodeFlask('editor', {language: 'js'})
+  </script>
+{% endblock %}

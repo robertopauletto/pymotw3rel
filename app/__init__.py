@@ -5,9 +5,10 @@ import os
 
 from .settings import DevConfig
 
-from flask import Flask
+from flask import Flask, g
 
-from app.extensions import db, migrate
+
+from app.extensions import db, migrate, ckeditor
 from app.models import GeneratorConfig, Article, Category
 from app.routes.main import main
 from app.site_builder.builder import set_builder_conf
@@ -21,6 +22,7 @@ def create_app(fs: str = 'settings.py'):
     else:
         app.config.from_object(DevConfig)
 
+    ckeditor.init_app(app)
     db.init_app(app)
     migrate.init_app(app, db)
 

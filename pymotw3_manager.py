@@ -17,10 +17,10 @@ add_module_handler(logger, folder='logs')
 
 if __name__ == '__main__':
     try:
-        app = create_app()
+        myapp = create_app()
         logger.info('App creata')
         logger.info(f'Ambiente: {os.getenv("FLASK_ENV")}')
-        app.run(debug=True)
+        myapp.run(debug=True)
     except Exception as exc:
         print(exc)
         logger.exception(exc)
