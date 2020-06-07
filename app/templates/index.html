@@ -6,7 +6,7 @@
            style="background-image: url({{ url_for('static', filename='img/eco-pink.jpg') }});">
         <ul class="nav justify-content-end ">
           <li class="nav-item">
-            <a class="nav-link jumbo-lnk" href="#">Articoli</a>
+            <a class="nav-link jumbo-lnk" href="{{ url_for('main.article', key="all") }}">Articoli</a>
           </li>
           <li class="nav-item">
             <a class="nav-link jumbo-lnk" href="{{ url_for("main.generator") }}">Generatore</a>

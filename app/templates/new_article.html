@@ -6,97 +6,48 @@
   <div class="container">
     <div class="row justify-content-center mt-5 col-10">
       <form class="form-group mt-5" action="{{ url_for('main.new_article') }}"
-            method="post" name="newCategory">
-      <h3>Nuovo Articolo<br><br></h3>
+            method="post" name="newArticle">
+        <h3>Nuovo Articolo<br><br></h3>
         {{ form.hidden_tag() }}
         {{ form.csrf_token }}
         <div class="form-group">
           <label for="template">Template</label>
-          {%  if not error  %}
-            {{ form.template(class="form-control",  size="50") }}
-          {% else %}
-            {{ form.template(class="form-control is-invalid", size="50") }}
-          {% endif %}
-          <div class="invalid-feedback">
-            {{ error }}
-          </div>
-          <!--<small class="form-text text-muted">Il case dell'elemento viene gestito internamente</small>-->
+          {{ form.template(class="form-control",  size="50") }}
         </div>
         <div class="form-group">
           <label for="articlename">Nome Articolo</label>
-          {%  if not error  %}
-            {{ form.name(class="form-control",  size="50", value="",
-                placeholder="Indicare il nome del modulo")}}
-          {% else %}
-            {{ form.name(class="form-control is-invalid",  size="50", value="") }}
-          {% endif %}
-          <div class="invalid-feedback">
-            {{ error }}
-          </div>
-          <!--<small class="form-text text-muted">Il case dell'elemento viene gestito internamente</small>-->
+          {{ form.name(class="form-control",  size="50",
+              placeholder="Indicare il nome del modulo") }}
         </div>
         <div class="form-group">
           <label for="articledescr">Descrizione</label>
-          {%  if not error  %}
-            {{ form.description(class="form-control",  rows="3") }}
-          {% else %}
-            {{ form.description(class="form-control is-invalid",  rows="3") }}
-          {% endif %}
-          <div class="invalid-feedback">
-            {{ error }}
-          </div>
-          <!--<small class="form-text text-muted">Il case dell'elemento viene gestito internamente</small>-->
+          {{ form.description(class="form-control",  rows="3") }}
         </div>
         <div class="form-group">
           <label for="articlepurpos">Scopo</label>
-          {%  if not error  %}
-            {{ form.purpose(class="form-control",  rows="3") }}
-          {% else %}
-            {{ form.purpos(class="form-control is-invalid", rows="3") }}
-          {% endif %}
-          <div class="invalid-feedback">
-            {{ error }}
-          </div>
-          <!--<small class="form-text text-muted">Il case dell'elemento viene gestito internamente</small>-->
+          {{ form.purpose(class="form-control",  rows="3") }}
         </div>
         <div class="form-group">
           <label for="categ">Categoria</label>
-          {%  if not error  %}
+          {% if not form.categ.errors %}
             {{ form.categ(class="form-control") }}
           {% else %}
             {{ form.categ(class="form-control is-invalid") }}
+            {% for error in form.categ.errors %}
+              <p>{{ error }}</p>
+            {% endfor %}
           {% endif %}
-          <div class="invalid-feedback">
-            {{ error }}
-          </div>
-          <!--<small class="form-text text-muted">Il case dell'elemento viene gestito internamente</small>-->
         </div>
         <div class="form-group">
           <label for="publishdate">Data Creazione</label>
-          {%  if not error  %}
-            {{ form.publish_date(class="form-control") }}
-          {% else %}
-            {{ form.publish_date(class="form-control is-invalid") }}
-          {% endif %}
-          <div class="invalid-feedback">
-            {{ error }}
-          </div>
-          <!--<small class="form-text text-muted">Il case dell'elemento viene gestito internamente</small>-->
+          {{ form.publish_date(class="form-control") }}
         </div>
         <div class="form-group form-check">
-          {%  if not error  %}
-            {{ form.add_to_index(class="form-check-input") }}
-            <label for="add_to_index">Indicizza</label>
-          {% else %}
-            {{ form.add_to_index(class="form-control is-invalid") }}
-          {% endif %}
-          <div class="invalid-feedback">
-            {{ error }}
-          </div>
-          <!--<small class="form-text text-muted">Il case dell'elemento viene gestito internamente</small>-->
+          {{ form.add_to_index(class="form-check-input") }}
+          <label for="add_to_index"
+                 title="Se spuntato aggiunge l'articolo all'elenco moduli ">Indicizza</label>
         </div>
-
-        <button class="btn btn-primary">inserisci</button>
+        <button class="btn btn-primary">{{ action }}</button>
       </form>
     </div>
   </div>

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="Latin-1"?>
-<categoria>Concomitanze con Processi, Thread e Coroutine</categoria>
+<categoria>${categoria}</categoria>
+<indicizza>${indicizza}</indicizza>
 <documento_tradotto>
 <titolo_1>
-threading - Gestire Operazioni Concomitanti all'Interno di un Processo
+${modulo} - ${scopo}
 </titolo_1>
 <descrizione>
-Gestisce parecchi thread di esecuzioni
+${descrizione}
 
 </descrizione>
 <testo_normale>
 </testo_normale>
 <titolo_2>
-Oggetti Thread
 </titolo_2>
 <vedi_anche>
 </vedi_anche>

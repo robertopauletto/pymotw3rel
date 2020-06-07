@@ -1,7 +1,9 @@
 # models.py
 
 from collections import defaultdict
-from datetime import datetime
+from datetime import datetime, date
+import os
+import string
 from typing import Union, Tuple, DefaultDict, List
 
 from .extensions import db
@@ -61,6 +63,30 @@ class GeneratorConfig(db.Model):
             db.session.add(genform)
             db.session.commit()
 
+    @staticmethod
+    def get_template_def_name() -> str:
+        return GeneratorConfig.query.filter_by(
+            conf_key='new_article_template_name'
+        ).first().conf_value
+
+    @staticmethod
+    def get_boilerplate_article_path() -> str:
+        """Ottiene il nome del file contentente il codice boilerplate"""
+        folder = GeneratorConfig.query.filter_by(
+            conf_key='translated_modules_dir'
+        ).first().conf_value
+        fn = GeneratorConfig.query.filter_by(
+            conf_key='new_article_template_name'
+        ).first().conf_value
+        return os.path.join(folder, fn)
+
+    @staticmethod
+    def get_translations_folder() -> str:
+        """Ottiene il percorso della cartella traduzioni"""
+        return GeneratorConfig.query.filter_by(
+            conf_key='translated_modules_dir'
+        ).first().conf_value
+
     def __repr__(self):
         return f'<GeneratorConfig {self.conf_key}: {self.conf_value}>'
 
@@ -78,16 +104,24 @@ class Article(db.Model):
     indexed = db.Column(db.Integer)
 
     def __init__(self, title: str, categ_id: int, filename: str,
-                 lastmod: str, size: str, indexed: str):
+                 lastmod: Union[str, datetime.date],
+                 size: Union[str, None], indexed: str):
         self.title = title
         self.categ_id = categ_id
         self.filename = filename
-        self.lastmod = datetime.strptime(lastmod, '%Y/%m/%d')
-        self.size = int(size)
+        if isinstance(lastmod, date):
+            self.lastmod = lastmod
+        else:
+            self.lastmod = datetime.strptime(lastmod, '%Y/%m/%d')
+        self.size = int(size) if size else 0
         self.indexed = int(indexed)
 
     def __repr__(self):
         return f'<Article {self.id} - {self.title} ({self.lastmod})>'
+
+    @staticmethod
+    def exists(name: str) -> bool:
+        return Article.query.like(name).count() > 0
 
 
 class Category(db.Model):
@@ -103,3 +137,16 @@ class Category(db.Model):
 
     def __repr__(self):
         return f'<Category {self.id} - {self.descr}>'
+
+    @staticmethod
+    def get_list(as_title: bool = False) -> List[Tuple[int, str]]:
+        """
+        Ottiene l'elenco delle categorie e dell'id associato
+        :param as_title: se `True` ritorna la versione *title* della descrizione
+        :return:
+        """
+        categories = Category.query.order_by(Category.descr).all()
+        choices = [(categ.id, categ.descr) for categ in categories]
+        if as_title:
+            choices = [(categ[0], categ[1].title()) for categ in choices]
+        return choices

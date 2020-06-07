@@ -3,9 +3,13 @@
 import datetime
 from os import name
 import os.path
+import shutil
+import string
 import sys
 import re
 from typing import Union, List
+
+from app.models import Article
 
 __doc__ = "Utility varie"
 
@@ -17,10 +21,42 @@ PATHS = {
     'win32': r'c:\users\robby',
 }
 
-OLD_HTML_FOLDER = r'Dropbox/Code/python/pymotw-it/html'
-OLD_TRAN_FOLDER = r'Dropbox/Code/python/pymotw-it2.0/tran'
 
-OLD_TRAN_FOLDER3 = r'Dropbox/Code/python/pymotw-it3.0/tran'
+def get_article_boilerplate(model: str, article: Article,
+                            descr: str) -> str:
+    """
+    Genera contenuto boilerplate per un nuovo articolo
+    Passare il contenuto di questa funzione a `create_new_article_file`
+    :param model: il template di partenza
+    :param article:
+    :param descr: la descrizione del modulo
+    :return: la stringa boilerplate
+    """
+    tmpl = string.Template(model)
+    name, purpose = article.title.split('-')
+    values = {
+        'categoria': article.artcat.descr,
+        'modulo': name.strip().title(),
+        'scopo': purpose,
+        'descrizione': descr,
+        'indicizza': 'sì' if article.indexed else 'no'
+    }
+    return tmpl.safe_substitute(values)
+
+
+def create_new_article_file(outfile: str, boilerplate: str,
+                            overwrite: bool = False) -> None:
+    """
+    Scrive il testo boilerplate di un articolo, sovrascrive il file `overwrite`
+    :param outfile:
+    :param boilerplate:
+    :param overwrite:
+    :return:
+    """
+    if not overwrite and os.path.exists(outfile):
+        shutil.copyfile(outfile, f'{outfile}.bk')
+    with open(outfile, mode='w') as fh:
+        fh.write(outfile)
 
 
 # def get_root(paths: dict = PATHS, fixed_path: str = ''):

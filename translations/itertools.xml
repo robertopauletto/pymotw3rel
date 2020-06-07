@@ -975,7 +975,7 @@ riferimenti_moduli_modificati.html#itertools_porting|Note di portabilità per it
 http://www.standardml.org/Basis/|The Standard ML Basis Library|La libreria per SML (in inglese)
 http://www.haskell.org/definition/|Definition of Haskell and the Standard Libraries|Definizione di Haskell e librerie standard (in inglese).
 http://clojure.org/|Clojure|Clojure è un linguaggio dinamico funzionale the viene eseguito sulla Java Virtual Machine
-https://it.wikipedia.org/wiki/Tee_(Unix)|tee|Strumento UNIX da riga di comando che dividere un input in molteplici flussi di output identici.
+https://it.wikipedia.org/wiki/Tee_(Unix)|tee|Strumento UNIX da riga di comando che divide un input in molteplici flussi di output identici.
 https://it.wikipedia.org/wiki/Prodotto_cartesiano|Prodotto Cartesiano|Definizione matematica del prodotto cartesiano di due sequenze.
 </vedi_anche>
 </documento_tradotto>
