@@ -1,0 +1,20 @@
+# Messaggi da gettext_example.py
+# Copyright (C) 2017
+# RP <pymotw@robyp.x10host.com>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PyMOTW-3\n"
+"Report-Msgid-Bugs-To: RP <pymotw@robyp.x10host.com>\n"
+"POT-Creation-Date: 2017-11-28 18:18+0100\n"
+"PO-Revision-Date: 2017-11-28 18:18+0100\n"
+"Last-Translator: Mario Rossi <mariorossi@dominio.it>\n"
+"Language-Team: Italiano RP <pymotw@robyp.x10host.com>\n"
+"Language: Italiano\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: gettext_example.py:12
+msgid "Questo messaggio si trova nello script."
+msgstr "Questo messaggio si trova nel catalogo it_IT."

@@ -1,0 +1,2 @@
+Questa stringa ha incorporati "doppi apici" e 'singoli apici', ed anche  
+" un 'esempio di annidamento'".

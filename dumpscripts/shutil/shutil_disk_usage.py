@@ -1,0 +1,1 @@
+Content of /tmp/example/shutil_disk_usage.py

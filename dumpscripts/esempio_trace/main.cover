@@ -1,0 +1,12 @@
+       # esempio_trace/main.py
+       
+    1: from recurse import recurse
+       
+       
+    1: def main():
+    1:     print('Questo è il programma principale.')
+    1:     recurse(2)
+       
+       
+    1: if __name__ == '__main__':
+    1:     main()

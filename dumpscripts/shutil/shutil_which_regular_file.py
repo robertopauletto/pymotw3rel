@@ -1,0 +1,1 @@
+Content of /tmp/example/shutil_which_regular_file.py

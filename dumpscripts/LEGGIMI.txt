@@ -1,0 +1,1 @@
+Gli esempi per i moduli zipfile e tarfile usano questo file.

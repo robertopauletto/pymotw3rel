@@ -1,0 +1,1 @@
+Content of /tmp/example/shutil_get_unpack_formats.py

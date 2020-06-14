@@ -1,0 +1,2 @@
+interprete : ('64bit', 'WindowsPE')
+/bin/ls    : ('64bit', '')

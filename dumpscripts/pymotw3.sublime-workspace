@@ -1,0 +1,1250 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"urlli",
+				"urllib.request"
+			],
+			[
+				"DECO",
+				"DECODIFICATI"
+			],
+			[
+				"ba",
+				"base64"
+			],
+			[
+				"al",
+				"alarm_thread\tstatement"
+			],
+			[
+				"riferi",
+				"riferimenti_moduli_modificati.xml"
+			],
+			[
+				"Text",
+				"TextIOWrapper\tclass"
+			],
+			[
+				"C",
+				"Corrispondenza"
+			],
+			[
+				"corrisp",
+				"corrispondenza"
+			],
+			[
+				"corri",
+				"corrispondenze"
+			],
+			[
+				"pro",
+				"proprietà"
+			],
+			[
+				"S",
+				"Studente"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"def",
+				"definire"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"b",
+				"bolder"
+			],
+			[
+				"padd",
+				"padding-left"
+			],
+			[
+				"op",
+				"opacity"
+			],
+			[
+				"c",
+				"code"
+			],
+			[
+				"o",
+				"OrderedDict\tclass"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"dede",
+				"dedented_text\tstatement"
+			],
+			[
+				"testo",
+				"testo_normale"
+			],
+			[
+				"ti",
+				"titolo_2"
+			],
+			[
+				"test",
+				"testo_normale"
+			],
+			[
+				"innerH",
+				"innerHTML\tElement"
+			],
+			[
+				"le",
+				"length\tString"
+			],
+			[
+				"substr",
+				"substringRegex〔variable〕"
+			],
+			[
+				"titol",
+				"titolo_3"
+			],
+			[
+				"tit",
+				"titolo_3"
+			],
+			[
+				"expo",
+				"exports〔function〕"
+			],
+			[
+				"gre",
+				"greet1〔variable〕"
+			],
+			[
+				"la",
+				"layout〔variable〕"
+			],
+			[
+				"ad",
+				"addWidget"
+			],
+			[
+				"publi",
+				"publisher"
+			],
+			[
+				"text",
+				"textarea\tTag"
+			],
+			[
+				"de",
+				"description"
+			],
+			[
+				"bo",
+				"bookSchema"
+			],
+			[
+				"Cate",
+				"Category"
+			],
+			[
+				"on",
+				"only_dirs"
+			],
+			[
+				"app",
+				"application"
+			],
+			[
+				"lo",
+				"loadAlbumList"
+			],
+			[
+				"epi",
+				"episodes"
+			],
+			[
+				"sc",
+				"script"
+			],
+			[
+				"mainim",
+				"mainImageName"
+			],
+			[
+				"paddin",
+				"padding"
+			],
+			[
+				"bac",
+				"background"
+			],
+			[
+				"inlin",
+				"inline-block"
+			],
+			[
+				"expr",
+				"expressValidator"
+			],
+			[
+				"tab",
+				"tableBody〔variable〕"
+			],
+			[
+				"sele",
+				"selectBook"
+			],
+			[
+				"Book",
+				"form#Book"
+			],
+			[
+				"book",
+				"bookCount〔variable〕"
+			],
+			[
+				"boo",
+				"books〔variable〕"
+			],
+			[
+				"local",
+				"localStorage"
+			],
+			[
+				"books",
+				"booksString〔variable〕"
+			],
+			[
+				"st",
+				"style.css"
+			],
+			[
+				"list",
+				"list-style-type"
+			],
+			[
+				"bor",
+				"border-radius"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"ca",
+				"candidatePassword"
+			],
+			[
+				"co",
+				"comparePassword"
+			],
+			[
+				"User",
+				"UserSchema〔variable〕"
+			],
+			[
+				"sty",
+				"stylesheet"
+			],
+			[
+				"write",
+				"writeHead"
+			],
+			[
+				"wri",
+				"writeHead"
+			],
+			[
+				"mime",
+				"mimeTypes〔variable〕"
+			],
+			[
+				"proy",
+				"proxyFunc"
+			],
+			[
+				"appen",
+				"appendTo"
+			],
+			[
+				"manip",
+				"manipolazione"
+			],
+			[
+				"elee",
+				"elemento"
+			],
+			[
+				"ogge",
+				"oggetto"
+			],
+			[
+				"inde",
+				"index_pro_js_devel.rst"
+			],
+			[
+				"boni",
+				"bonifico〔variable〕"
+			],
+			[
+				"Coo",
+				"CoordBancarie"
+			],
+			[
+				"for",
+				"for\tfor (…) {…}"
+			],
+			[
+				"get",
+				"getElementById〔function〕"
+			],
+			[
+				"func",
+				"function〔keyword〕"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"font-",
+				"font-family"
+			],
+			[
+				"ui",
+				"jquery-ui-1.10.4.custom.min.css"
+			],
+			[
+				"addc",
+				"addClass〔function〕"
+			],
+			[
+				"next",
+				"nextAll\t.nextAll()"
+			],
+			[
+				"backgr",
+				"background-color"
+			],
+			[
+				"ho",
+				"horizontal"
+			],
+			[
+				"ready",
+				"ready〔function〕"
+			],
+			[
+				"list-s",
+				"list-style-position"
+			],
+			[
+				"rea",
+				"ready\tdocument.ready - $(function(){})"
+			],
+			[
+				"font-s",
+				"font-style"
+			],
+			[
+				"marg",
+				"margin-bottom"
+			],
+			[
+				"pad",
+				"padding-top"
+			],
+			[
+				"tassi",
+				"tassi_1_50"
+			],
+			[
+				"loa",
+				"loads\tfunction"
+			],
+			[
+				"__",
+				"__main__〔variable〕"
+			],
+			[
+				"fro",
+				"from_file\tparam"
+			],
+			[
+				"to",
+				"token_secret\tfunction"
+			],
+			[
+				"tok",
+				"token_access\tfunction"
+			],
+			[
+				"std",
+				"StdOutListener\tclass"
+			],
+			[
+				"_",
+				"__name__\tclass"
+			],
+			[
+				"Use",
+				"UserCredentials\tclass"
+			],
+			[
+				"fr",
+				"from_file"
+			],
+			[
+				"Stre",
+				"StreamListener\tclass"
+			],
+			[
+				"sph",
+				"sphinx_bootstrap_theme\tmodule"
+			],
+			[
+				"cou",
+				"Counter\tclass"
+			],
+			[
+				"num",
+				"numbers\tparam"
+			],
+			[
+				"nu",
+				"numbers\tparam"
+			],
+			[
+				"qapp",
+				"QApplication\tclass"
+			],
+			[
+				"Qt",
+				"QtGui\tmodule"
+			],
+			[
+				"QDia",
+				"QDialog\tclass"
+			],
+			[
+				"che",
+				"check_output\tfunction"
+			],
+			[
+				"sup",
+				"subprocess\tmodule"
+			],
+			[
+				"proto",
+				"prototype"
+			],
+			[
+				"prot",
+				"prototype"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 400.0,
+		"last_filter": "save",
+		"selected_items":
+		[
+			[
+				"save",
+				"File: Save All"
+			],
+			[
+				"themes",
+				"Themr: List themes"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"file cop",
+				"File: Copy Path"
+			],
+			[
+				"sve",
+				"SublimeREPL: Python - virtualenv"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"emmet",
+				"Set Syntax: Emmet"
+			],
+			[
+				"wra",
+				"Word Wrap: Toggle"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: List Packages"
+			],
+			[
+				"color",
+				"Color Picker"
+			],
+			[
+				"wrap",
+				"Word Wrap: Toggle"
+			],
+			[
+				"wr",
+				"Word Wrap: Toggle"
+			],
+			[
+				"wo",
+				"Word Wrap: Toggle"
+			],
+			[
+				"close",
+				"File: Close All"
+			],
+			[
+				"closa",
+				"File: Close All"
+			],
+			[
+				"sal",
+				"File: Save All"
+			],
+			[
+				"sav",
+				"File: Save All"
+			],
+			[
+				"closea",
+				"File: Close All"
+			],
+			[
+				"sa",
+				"File: Save All"
+			],
+			[
+				"colo",
+				"Color Picker"
+			],
+			[
+				"termin",
+				"Preferences: Terminal Key Bindings – Default"
+			],
+			[
+				"pac",
+				"Package Control: Remove Package"
+			],
+			[
+				"proj",
+				"Project Manager: Add Folder"
+			],
+			[
+				"projec",
+				"Project Manager: Open Project"
+			],
+			[
+				"project",
+				"Project Manager"
+			],
+			[
+				"file c",
+				"File: Copy Path"
+			],
+			[
+				"save as",
+				"Project: Save As"
+			],
+			[
+				"user ",
+				"Preferences: Settings - User"
+			],
+			[
+				"save ",
+				"File: Save All"
+			],
+			[
+				"wor",
+				"Word Wrap: Toggle"
+			],
+			[
+				"dock",
+				"DocBlockr: Decorate line comment"
+			],
+			[
+				"word",
+				"Word Wrap: Toggle"
+			],
+			[
+				"save al",
+				"File: Save All"
+			],
+			[
+				"sidebar",
+				"View: Toggle Side Bar"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"emm",
+				"Set Syntax: Emmet"
+			],
+			[
+				"package",
+				"Package Control: Remove Package"
+			],
+			[
+				"install pa",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 601.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/socketserver_threaded.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/socketserver_echo_simple.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/socketserver_echo.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/SocketServer_echo.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/socketserver_echo.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/http_server_send_header.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/http_server_errors.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/http_server_threads.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/http_server_POST.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/http_server_GET.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/html/abc.html",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/html/assets/css/docs.css",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/tran/riferimenti_ref.xml",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/tran/datetime.xml",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/datetime_timedelta.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/tran/csv.xml",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/csv_dictwriter.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/csv_list_dialects.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/tran/os.xml",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/os_waitpid_example.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/.gitignore",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/http_cookies_Morsel.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/tran/http_cookies_Morsel.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/http_cookies_js_output.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/http_cookies_parse.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/http_cookies_coded_value.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/html/random.html",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/tran/random.xml",
+		"/tmp/.fr-691GIT/US_client3432.ovpn",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/http_cookies_setheaders.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/webbrowser_get.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/urllib_parse_urlunparseextra.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/webbrowser_open.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/urllib_parse_unquote.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/urllib_parse_quote.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/urllib_parse_parse_qs.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/urllib_parse_urlencode_doseq.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/urllib_parse_urlencode.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/tran/urllib_parse_urljoin_with_path.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/urllib_request_request_post.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/urllib_parse_urljoin.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/urllib_parse_urlunparse.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/urllib_parse_geturl.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/urllib_parse_urldefrag.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/urllib_parse_urlsplit.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/urllib_parse_urlparseattrs.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/urllib_parse_urlparse.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/urllib_request_urlopen_post.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/urllib_request_nfs_handler.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/urllib_request_upload_files.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/urllib_request_request_header.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/urllib_robotparser_simple.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/urllib_request_http_get_args.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/urllib_request_urlopen_iterator.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/urllib_request_urlopen.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/json_encoder_default.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/urllib_robotparser_longlived.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/json_dump_default.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/robots.txt",
+		"/dati2/ownCloud/code/webdev/bs4/jquery-3.2.1.slim.min.js",
+		"/dati2/ownCloud/code/docker/first/first.yaml",
+		"/home/robby/xx.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/example.json",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/json_mixed_data.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/json_load_file.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/json_dump_file.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/json_decoder_object_hook.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/json_encoder_iterable.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/json_load_object_hook.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/base64_urlsafe.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/json_myobj.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/json_skipkeys.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/json_compact_encoding.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/json_indent.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/json_sort_keys.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/json_simple_types_decode.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/json_simple_types.py",
+		"/dati2/ownCloud/edu/git_notes/getting_started.rst",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/base64_base85.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/base64_b64encode.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/base64_b64decode.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/base64_base16.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/base64_base32.py",
+		"/media/robby/SONY_32X/pw.dat",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/decimal_context_manager.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/decimal_thread_context.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/decimal_instance_context.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/decimal_rounding.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/decimal_precision.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/decimal_getcontext.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/decimal_special.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/decimal_operators.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/decimal_format.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/decimal_tuple.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/decimal_create.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/math_sqrt.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/tran/statistics.xml",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/math_erfc.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/math_erf.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/math_hyperbolic.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/math_inverse_trig.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/math_distance_2_points.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/math_hypot.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/math_trig.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/math_degrees.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/math_radians.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/math_expm1.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/math_exp.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/math_log1p.py",
+		"/home/robby/.config/sublime-text-3/Packages/User/pymotw_href.sublime-snippet",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/math_log2.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/math_log10.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/math_log.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/math_pow.py",
+		"/tmp/.fr-msI4Mj/_READ_THIS_FIRST.txt",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/math_gcd.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/math_fmod.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/math_lgamma.py",
+		"/dati2/ownCloud/apps/ownnote/README.md",
+		"/dati2/ownCloud/apps/ownnote/appinfo/routes.php",
+		"/dati2/ownCloud/apps/ownnote/js/admin.js",
+		"/dati2/ownCloud/Notes/note title.htm",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/math_gamma.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/math_factorial.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/math_fsum.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/math_copysign.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/math_fabs.py",
+		"/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts/math_isclose.py"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"${ebk}",
+			"${sbk}",
+			"strong",
+			"print('Server in esecuzione, usare &lt;Ctrl-C&gt; per terminare')",
+			"&lg;",
+			"print('Avvio del server, usare &lt;Ctrl-C&gt; per interrompere')",
+			">",
+			"\">",
+			"<",
+			"&gt",
+			"&gt;",
+			"<",
+			">",
+			"&lt;",
+			"<",
+			">",
+			"cookies",
+			"4",
+			"8",
+			"#\\w",
+			"# os_process_user_example.py",
+			"s_process_user_example.",
+			"uuid",
+			"urllib.parse",
+			">",
+			"<",
+			"encoded_value_cookie",
+			"restricted_cookie",
+			"with_max_age",
+			"racchiusi",
+			" tra o <= 1.0",
+			"uuid",
+			"}\n",
+			"urllib.reuqest",
+			"una",
+			"</code>",
+			"T</code",
+			"<code>",
+			"puoi",
+			"</descrizione>",
+			"<descrizione>",
+			"jsonpickle",
+			">",
+			"<",
+			">",
+			"<",
+			">",
+			"<",
+			">",
+			"<",
+			">",
+			"DATA",
+			"allineamento",
+			"name",
+			"decimal",
+			">\n",
+			"&#928;",
+			"&",
+			"tempfile",
+			"come",
+			"id",
+			"em",
+			"${ebk}",
+			"${sbk}",
+			"nella destinazione",
+			"numero pos",
+			"em",
+			"file_to_change.txt",
+			"em",
+			"${ebk}",
+			"${sbk}",
+			"numerata",
+			"em",
+			"PARENT",
+			"strong",
+			"PARENT",
+			"strong",
+			"CHILD",
+			"strong",
+			"is",
+			"bytes",
+			"Have",
+			"${ebk}",
+			"${sbk}",
+			"segnali",
+			"fork_",
+			"fork",
+			"os",
+			"PARENT",
+			"\\d{3}\\s{2}",
+			"^\\d{3}",
+			"THIS",
+			"Child process",
+			"value",
+			"VALUE",
+			"value",
+			"${ebk}",
+			" ${sbk}",
+			"GROUP",
+			"group",
+			"Group",
+			"effective",
+			"actual",
+			"root",
+			"rename_finish",
+			"Creating",
+			"strong",
+			"w+",
+			"</em>",
+			"<em",
+			"${ebk}",
+			"${sbk}",
+			"grp",
+			"pwd",
+			"OroCogio",
+			"stema",
+			"orologio",
+			"Orologio",
+			"orologio",
+			"Orologio",
+			"time",
+			"nome:",
+			"${eev}",
+			"${sev}",
+			"strong",
+			"${ebk}",
+			"${sbk}",
+			"strong"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"</code>",
+			"<code>",
+			"<code>\n",
+			"print('Avvio del server, usare <Ctrl-C> per interrompere')\n",
+			"&gt;",
+			"print('Avvio del server, usare <Ctrl-C> per interrompere')",
+			"&#960;",
+			"</code>",
+			"<code>",
+			"</code>",
+			"<code>",
+			"</code>",
+			"<code>",
+			"",
+			"</code>",
+			"<code>",
+			"</code>",
+			"<code>",
+			"sistema",
+			"</code>",
+			"<code>",
+			"</code>",
+			"<code>",
+			"Paragrafo",
+			"Candidato",
+			"è",
+			"open(",
+			"',\\n",
+			";",
+			",",
+			"print",
+			"sicurezza",
+			"</code>",
+			"<code>",
+			"",
+			"code",
+			"eta=",
+			"nome=",
+			"code",
+			"rotazione",
+			"print(",
+			"<code>",
+			"partial",
+			"assegnazione",
+			".highlight",
+			"inizializzatore",
+			"wrapped",
+			"direttamente",
+			"chiamata di ",
+			"Docstring per",
+			"con:",
+			"chiamato ",
+			"</code>",
+			"<code>",
+			"Titolo",
+			"&lt;",
+			"riga",
+			"Titolo",
+			"apici",
+			"Titolo",
+			"riga",
+			"Titolo",
+			"</code>",
+			"<code>",
+			"</code>",
+			"<code>",
+			"titolo_2",
+			"titolo_3",
+			"<code>",
+			"</code>",
+			", ",
+			"&ugrave;",
+			"&ograve;",
+			"&igrave;",
+			"&egrave;",
+			"&agrave;",
+			";",
+			"</code>",
+			"<code>",
+			"</code>",
+			"<code>",
+			"</code>",
+			"<code>",
+			"&ugrave;",
+			"&ograve;",
+			"&igrave;",
+			"&agrave;",
+			"&egrave;",
+			"fr_FR",
+			"",
+			"=",
+			"",
+			"=es_ES;",
+			"=fr_FR;",
+			"=fr_FR",
+			"",
+			"\"",
+			"",
+			"()",
+			";",
+			"=",
+			"un riferimento debole",
+			"riferimento debole",
+			"<em>garbage collector</em>",
+			",",
+			"</code>",
+			"<code>",
+			"Costruisc",
+			"<a href='http://it.wikipedia.org/wiki/Application_programming_interface'>API</a>",
+			"  <a href='http://it.wikipedia.org/wiki/Bytecode'>bytecode</a> ",
+			" <a href='http://it.wikipedia.org/wiki/Stack'>stack</a> ",
+			"<a href='http://it.wikipedia.org/wiki/Stack'>stack</a>",
+			"py_code_lineno>"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/Python/Python.sublime-build",
+	"project": "pymotw3.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"re_test_patter",
+				"dumpscripts/re_test_patterns_groups.py"
+			],
+			[
+				"it.j",
+				"locale/it/it.js"
+			],
+			[
+				"it.",
+				"locale/it/it.js"
+			],
+			[
+				"pro",
+				"prop.js"
+			],
+			[
+				"details.",
+				"public/templates/books/details.dust"
+			],
+			[
+				"sty",
+				"public/css/style.css"
+			],
+			[
+				"inde",
+				"ch4/rouxmeet/views/index.jade"
+			],
+			[
+				"app",
+				"app.js"
+			],
+			[
+				"de",
+				"prj_1/src/view/deleteBook.js"
+			],
+			[
+				"upda",
+				"prj_1/src/view/updateBook.js"
+			],
+			[
+				"updat",
+				"prj_1/updateBook.html"
+			],
+			[
+				"ind",
+				"prj_1/index.html"
+			],
+			[
+				"lis",
+				"prj_1/listBooks.html"
+			],
+			[
+				"list",
+				"prj_1/src/view/listBooks.js"
+			],
+			[
+				"",
+				"prj_1/src/model/Books.js"
+			],
+			[
+				"up",
+				"prj_1/updateBook.html"
+			],
+			[
+				"upd",
+				"prj_1/updateBook.html"
+			],
+			[
+				"creat",
+				"prj_1/createBook.html"
+			],
+			[
+				"create",
+				"prj_1/createBook.html"
+			],
+			[
+				"wrap",
+				"nodeauth/node_modules/mongoose/node_modules/kareem/test/wrap.test.js"
+			],
+			[
+				"indice",
+				"html/indice_alfabetico.html"
+			],
+			[
+				"dis.ht",
+				"html/dis.html"
+			],
+			[
+				"dis.htm",
+				"html/dis.html"
+			],
+			[
+				"ecce",
+				"tran/eccezioni.xml"
+			],
+			[
+				"dis.xm",
+				"tran/dis.xml"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 216.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

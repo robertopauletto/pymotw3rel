@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<top>
+  <child>Testo normale.</child>
+  <child_with_tail>Testo normale.</child_with_tail>testo "in coda".
+  <with_attributes name="value" foo="bar" />
+  <entity_expansion attribute="Questo &#38; Quello">
+    Quello &#38; Questo
+  </entity_expansion>
+</top>
