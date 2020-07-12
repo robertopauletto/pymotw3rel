@@ -1,0 +1,118 @@
+29.03.2016  textwrap - Formatta paragrafi di testo
+29.03.2016  functools - Strumenti per generare decoratori ed altri wrapper di funzione
+29.03.2016  csv - File con Valori Separati da Virgola
+29.03.2016  abc - Classi Base Astratte
+29.03.2016  enum - Tipo Enumerazione
+11.04.2016  collections - Tipi di Dato Contenitore
+11.04.2016  ChainMap - ricerca su molteplici dizionari
+11.04.2016  Counter - Conta oggetti hashable
+11.04.2016  defaultdict - le chiavi mancanti ritornano un valore predefinito
+11.04.2016  Deque - coda a doppia entrata
+11.04.2016  namedtuple - Sottoclasse di tuple con campi nominativi
+11.04.2016  OrderedDict - ricorda l'ordine con il quale si aggiungono chiavi ad un dizionario
+11.04.2016  collections.abc - Classi base astratte per contenitori
+22.04.2016  array - Sequenza di dati di tipo fisso
+22.04.2016  bisect - Mantiene le liste in ordinamento
+05.05.2016  queue - Una implementazione FIFO thread-safe
+16.05.2016  pprint - Stampa Pretty-print di Strutture Dati
+05.06.2016  contextlib - Utilità per la Gestione di Contesto
+19.06.2016  datetime - Manipolazione dei Valori di Data ed Orario
+19.06.2016  calendar - Lavorare con le Date
+02.07.2016  copy - Duplica oggetti
+16.07.2016  random - Generatori Pseudocasuali di Numeri
+16.07.2016  fractions - Numeri Razionali
+13.08.2016  glob - Corrispondenza su un modello di nome di file
+13.08.2016  fnmatch - Corrispondenza su Modello Stile Unix Glob
+03.10.2016  operator - Interfaccia Funzionale agli Operatori Built-in
+03.10.2016  itertools - Funzioni di Iterazione
+13.11.2016  weakref - Riferimenti Non Permanenti ad Oggetti
+25.11.2016  gc - Gestisce la memoria usata dagli oggetti Python
+03.12.2016  io - Strumenti I/O per flussi grezzi, di testo e binari
+11.12.2016  time - Tempo di clock
+01.01.2017  tempfile - Oggetti Temporanei di File System
+07.01.2017  linecache - Leggere Efficientemente i File di Testo
+29.01.2017  os - Accesso portabile alle funzionalità specifiche di un sistema operativo
+03.02.2017  signal - Eventi di Sistema Asincroni
+14.02.2017  subprocess - Genera Processi Addizionali
+20.02.2017  shutil - Operazioni di alto livello su file.
+26.02.2017  uuid - Identificatori Universalmente Univoci
+16.03.2017  statistics - Calcoli Statistici
+26.03.2017  math - Funzioni Matematiche
+03.04.2017  decimal - Matematica per Valori Fissi ed a Virgola Mobile
+09.04.2017  base64 - Codifica Dati Binari con ASCII
+22.04.2017  json - JavaScript Object Notation
+30.04.2017  urllib.robotparser - Controllo Accesso degli Spider Internet
+07.05.2017  urllib.request - Accesso a Risorse in Rete
+07.05.2017  urllib.parse - Divide un URL nei suoi Componenti
+14.05.2017  webbrowser - Visualizza Pagine Web
+03.06.2017  http.cookies - Cookie HTTP
+18.06.2017  http.server - Classe Base per Implementare Server Web
+24.06.2017  socketserver - Creare Server di Rete
+09.07.2017  select - Gestisce con efficienza l'attesa per I/O
+09.07.2017  selectors - Astrazioni Multiplexing per I/O
+13.08.2017  socket - Comunicazione di Rete
+26.08.2017  pathlib - Percorsi di Filesystem come Oggetti
+02.09.2017  os.path - Manipolazione Indipendente dalla Piattaforma di Nomi di File
+12.09.2017  filecmp - Confrontare File
+01.10.2017  difflib - Confrontare sequenze
+17.10.2017  re - Espressioni Regolari
+29.10.2017  string - Costanti di Testo e Template
+19.12.2017  argparse - Analizzatore di opzioni e di argomenti di riga di comando
+30.12.2017  configparser - Lavora con i File di Configurazione
+27.01.2018  pydoc - Aiuto in Linea per Moduli
+03.02.2018  inspect - Ispeziona Oggetti Vivi
+10.02.2018  pyclbr - Browser di Classe
+17.02.2018  venv - Crea Ambienti Virtuali
+24.02.2018  ensurepip - Installare Python Package Installer
+04.03.2018  unittest - Struttura per Automatizzare Test
+10.03.2018  trace - Seguire il Flusso del Programma
+18.03.2018  importlib - Il Meccanismo di Importazione di Python
+25.03.2018  traceback - Eccezioni e Tracciature di Stack
+31.03.2018  cgitb - Report Dettagliati di Traceback
+15.04.2018  profile e pstats - Analisi delle Prestazioni
+21.04.2018  timeit - Cronometra l'esecuzione di piccoli frammenti di codice Python.
+28.04.2018  doctest - Test Tramite Documentazione
+05.05.2018  compileall - Compilazione in Byte-code di File Sorgente
+12.05.2018  heapq - Algoritmo di Ordinamento Heapsort
+01.06.2018  pickle - Serializzazione di oggetti
+09.06.2018  shelve - Conservazione Persistente di Oggetti
+16.06.2018  dbm - Database Unix Chiave-Valore
+30.06.2018  sqlite3 - Database Relazionale Integrato
+14.07.2018  hmac - Firma Crittografica e Verifica di Messaggi
+21.07.2018  hashlib - Hashing Crittografico
+29.07.2018  zipfile - Accede ad un Archivio ZIP
+05.08.2018  zlib - Compressione zlib GNU
+12.08.2018  zipimport - Carica Codice Python da Archivi ZIP
+19.08.2018  pkgutil - Utilità per Pacchetti
+26.08.2018  site - Configurazione a Livello di Sito
+02.09.2018  pwd - Database Password di Unix
+09.09.2018  grp - Database dei Gruppi di Unix
+16.09.2018  tabnanny - Validatore di Indentazione
+30.09.2018  gzip - Legge e Scrive File zip GNU
+14.10.2018  bz2 - Compressione bzip2
+11.11.2018  string - Costanti di Testo e Modelli
+18.11.2018  getopt - Elabora le Opzioni di Riga di Comando
+25.11.2018  readline - La Libreria GNU readline
+01.12.2018  getpass - Prompt di Password Sicuro
+09.12.2018  cmd - Processori di Riga di Comando
+16.12.2018  shlex - Analisi delle Sintassi Stile Shell
+24.12.2018  logging - Segnala messaggi di stato, di errore e informativi
+30.12.2018  warnings - Avvisi non fatali
+06.01.2019  dis - Disassemblatore di Bytecode Python
+14.01.2019  sysconfig - Configurazione Interprete in Fase di Compilazione
+23.01.2019  platform - Informazioni sulla Versione del Sistema
+27.01.2019  resource - Gestione delle Risorse di Sistema
+16.02.2019  concurrent.futures - Gestisce Insiemi di Compiti Concomitanti
+11.03.2019  atexit - Callback alla Chiusura di un Programma
+23.03.2019  threading - Gestire Operazioni Concomitanti all'Interno di un Processo
+01.04.2019  fileinput - Struttura di Filtri da Riga di Comando
+07.04.2019	struct - Strutture Dati Binari
+14.04.2019	smtplib - Client Simple Mail Transfer Protocol
+21.04.2019	smtpd - SMTP Server
+28.04.2019  mailbox - Manipola Archivi Email
+05.05.2019  imaplib - Libreria Client IMAP4
+12.05.2019	sched - Pianificatore di Eventi Temporizzati
+01.06.2019	ipaddress - Indirizzi Internet
+29.09.2019  multiprocessing - Gestisce Processi come Thread
+18.01.2020  asyncio - I/O Asincrono, ciclo di eventi e strumenti per la gestione della concorrenza
+12.07.2020  xml.etree.ElementTree - Genera ed elabora documenti XML
