@@ -19,8 +19,8 @@ Versione %s %s
 """ % ( __version__, __date__ )
 
 
-
 # La classe Pyg viene rimpiazzata dalle funzioni sottostanti
+
 
 def _get_lexer(lexer_name):
     """(str)
@@ -32,6 +32,7 @@ def _get_lexer(lexer_name):
     except IndexError as ie:
         raise 'Errore: manca il lexer %s\n%s' % (lexer_name, ie.message)
 
+
 def _prepara_testo(testo):
     """(object)
     
@@ -42,12 +43,11 @@ def _prepara_testo(testo):
     """
     if isinstance(testo, list) or isinstance(testo, tuple):
         return "\n".join(testo)
-    elif isinstance(testo, basestring):
+    elif isinstance(testo, str):
         return testo
     else:
         return str(testo)
     
-
 
 def colora_codice(testo, numera_righe=False, lexer_name='python'):
     """([str] [,str] [,str]) -> str
@@ -58,9 +58,6 @@ def colora_codice(testo, numera_righe=False, lexer_name='python'):
     formatter = HtmlFormatter(linenos=numera_righe)
     return highlight(_prepara_testo(testo), _get_lexer(lexer_name), formatter) 
     
-
-
-
 
 class Pyg(object):
     """
@@ -112,7 +109,6 @@ class Pyg(object):
         except IndexError as ie:
             raise 'Errore: manca il lexer %s\n%s' % (lexer_name, ie.message)
         
-    
     def ottieni_codice(self):
         """([str] [,str] [,str]) -> str
         Ottiene il pezzo di codice HTML formattato che racchiude il codice

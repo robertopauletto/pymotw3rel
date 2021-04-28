@@ -39,7 +39,7 @@ class RSS2Feed:
         if bld_date is not None:
             self._set_date('lastBuildDate', bld_date)
             
-    def _set_date(self, tag_name: str, date: datetime):
+    def _set_date(self, tag_name: str, date: datetime.date):
         """
         Sets `tag_name`  with `date`
         """
@@ -62,7 +62,7 @@ class RSS2Feed:
     def append_item(self, title: Union[None, str] = None,
                     link: Union[None, str] = None,
                     description: Union[None, str] = None,
-                    pub_date: Union[datetime, None] = None,
+                    pub_date: Union[datetime.date, None] = None,
                     guid: Union[None, str] = None):
         """Append the specified item to the feed.
 
@@ -102,7 +102,7 @@ class RSS2Feed:
     def get_xml(self, pretty_print=True, encoding=None):
         """Return the XML for the feed.
 
-        :pretty_print: if `True` returns a pretty print representation 
+        :param pretty_print: if `True` returns a pretty print representation
         :returns: XML representation of the RSS feed
         """
         return self._document.toxml(encoding) \

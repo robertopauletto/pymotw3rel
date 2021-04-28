@@ -1,68 +1,65 @@
 {% extends "base.html" %}
+
 {% block content %}
+  <div class="row">
+    <!-- article and see also section content -->
+    <div class="col s12 m9">
 
-    <div class="row row-offcanvas row-offcanvas-right">
-        <div class="col-xs-12 col-sm-9">
-            <p class="pull-right visible-xs">
-            </p>
-            <div class="jumbotron" >
-                <h3 class="pymotwit-jumbo-title" >{{ modulo.titolo|safe }}</h3>
-                <table class="pymotwit-jumbo">
-                    {% if modulo.descrizione %}
-                    <tr>
-                        <td class="pymotwit-jumbo-key">Scopo:</td>
-                        <td class="pymotwit-jumbo-def">{{ modulo.descrizione|safe }}</td>
-                    </tr>
-                        
-                    {% endif %}
-                </table>
-            </div>
-            {% if modulo.lnkzip %}
-              <div class="row">
-                <div class="col-xs-8 col-md-8">
-                </div>
-                <div class="col-xs-4 col-md-4">
-                  <p class="text-right">
-                    <a href="{{ modulo.lnkzip|safe }}" class="dlLink btn btn-info btn-sm">
-                      <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Scarica gli esempi
-                    </a>
-                  </p>
-                </div>
-              </div>
-            {% endif %}
-            <div class="row">
-                <div class="col-xs-12 col-sm-12">
-                  {{ modulo.main_content|safe }}
-                </div><!--/span-->
-            </div><!--/row-->
-            <p> <hr /> </p>
-
-        </div><!--/span-->
-
-
-        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-            <!-- La barra dell'indice viene composta se esiste almeno un elemento -->
-            {% if modulo.indice_laterale %}
-            <div class="well sidebar-nav" style='position: {{ modulo.sidebarnav_type }};'>
-                <h4>Indice articolo</h4>
-                <ul class="nav">
-                    {% for voce in modulo.indice_laterale %}
-                        <li>{{ voce|safe }}</li>
-                    {% endfor %}
-                </ul>
-            </div><!--/.well -->
-            {% endif %}
-        </div><!--/span-->
-
-    </div><!--/row-->
-    <footer class="footer">
-      <div class="container">
-          <p class="text-muted">{{ modulo.footer.nome_sito }}
-          {{ modulo.footer.periodo }} /
-          Documento aggiornato il: {{ modulo.footer.data_agg }}
-          Contatto: pymotw-it(at)robyp.x10host.com</p>
+      <!-- Module description card (jumbo) -->
+      <div class="card blue-grey lighten-4">
+        <div class="card-content">
+          <h2>{{ modulo.titolo|safe }}</h2>
+          {% if modulo.descrizione %}
+            <p>Scopo: {{ modulo.descrizione|safe }}</p>
+          {% endif %}
+        </div>
       </div>
-    </footer>
 
+      <!-- download esempi -->
+      {% if modulo.descrizione %}
+        <div class="col s12 offset-12">
+          <a href="{{ modulo.lnkzip|safe }}"
+             class="btn btn-small right blue-grey waves-effect waves-light"><i
+              class="material-icons left">file_download</i>Scarica gli
+            esempi</a>
+        </div>
+      {% endif %}
+
+      <!-- Contenuto articolo -->
+      <div class="col s12">
+        {{ modulo.main_content|safe }}
+      </div>
+
+      <!-- sezione bibliografica -->
+      <div class="col s12">
+        <div class="card blue-grey lighten-4">
+          <div class="card-content">
+            <p><strong>Vedere anche:</strong></p>
+            {{ modulo.vedi_anche|safe }}
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sidebar indice articolo -->
+    <div class="col s12 m3">
+      <section>
+        <!-- La barra dell'indice viene composta se esiste almeno un elemento -->
+        {% if modulo.indice_laterale %}
+          <div class="card blue-grey lighten-4">
+          <div class="card-content">
+            <h6>Indice articolo:</h6>
+            <ul>
+              {% for voce in modulo.indice_laterale %}
+                <li>{{ voce|safe }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      </section>
+    </div>
+  </div>
 {% endblock %}
+
 

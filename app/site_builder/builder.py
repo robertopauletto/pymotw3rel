@@ -14,6 +14,7 @@ try:
     import string
     import sys
     import traceback
+    from typing import List, Union, Any, Tuple
     from urllib.parse import urlparse, urljoin
 
     from django import template, setup
@@ -35,9 +36,9 @@ except ImportError as imperr:
     raise ImportError('Errore importazione modulo ' + imperr.name)
 
 
-__date__=''
-__version__='1.0'
-__doc__="""
+__date__ = ''
+__version__ = '1.0'
+__doc__ = """
 Il punto di entrata dell'applicazione (nella modalità console)
 
 ** da agosto 2017 l'entrata dal modulo è DEPRECATA **, utilizzare l'interfaccia
@@ -241,6 +242,37 @@ def crea_nuovo_articolo(filetemplate, outfile, categoria, nome_modulo, scopo,
     return os.path.abspath(outfile)
 
 
+def create_privacy_page(template_name: str) -> None:
+    """
+
+    :param template_name:
+    :return:
+    """
+    moduli, categ_per_indice = _get_modules_and_categories_for_sidebar(
+        builder_conf['tran_dir']
+    )
+    indice = Indice(moduli, 0, categ_per_indice, 0, 0)
+
+    # moduli = sorted(elenco_per_indice(builder_conf['tran_dir']),
+    #                 key=lambda x: x.nome.lower())
+    # categ_per_indice = _categorie_per_indice(moduli)
+
+    # Gestione sezione ultimi moduli aggiornati
+    cronology_path = os.path.join(
+            builder_conf['translated_modules_dir'],
+            builder_conf["translated_modules_name"]
+        )
+    last_ten = _get_last_ten(cronology_path,
+                             int(builder_conf['show_last_updated']), True)
+
+    privacy_content = builder_conf['privacy_content']
+    render_dic = {'indice': indice, 'last_ten': last_ten,
+                  'privacy_content': privacy_content}
+
+    build(template_name, render_dic,
+          os.path.join(builder_conf["html_dir"], fn))
+
+
 def crea_pagine_indice(template_name, file_indice, mod_per_pagina, footer):
     """(str, str, int, Footer)
 
@@ -251,18 +283,13 @@ def crea_pagine_indice(template_name, file_indice, mod_per_pagina, footer):
     categ_per_indice = _categorie_per_indice(moduli)
 
     # Gestione sezione ultimi moduli aggiornati
-    cronology = os.path.join(
-        builder_conf['translated_modules_dir'],
-        builder_conf["translated_modules_name"]
-    )
-    with open(cronology) as fh:
-        last_ten = lt.lastten_factory(
-            [row.strip() for row in fh.readlines()]
+    cronology_path = os.path.join(
+            builder_conf['translated_modules_dir'],
+            builder_conf["translated_modules_name"]
         )
-    nr_ultimi_agg = int(builder_conf['show_last_updated'])
-    last_ten = last_ten[-nr_ultimi_agg:] \
-        if len(last_ten) > nr_ultimi_agg else last_ten
-    last_ten.reverse()
+    last_ten = _get_last_ten(cronology_path,
+                             int(builder_conf['show_last_updated']), True)
+
     #  render_dic = dict()
 
     moduli_per_pagina = _crea_pagina_indice(
@@ -273,8 +300,7 @@ def crea_pagine_indice(template_name, file_indice, mod_per_pagina, footer):
     for pagina, moduli in moduli_per_pagina.items():
         indice = Indice(moduli, footer, categ_per_indice, pagina, pagine)
 
-        render_dic = {'indice': indice,}
-        render_dic['last_ten'] = last_ten
+        render_dic = {'indice': indice, 'last_ten': last_ten}
         fn = '{}{}.html'.format(
             file_indice, '_' + str(pagina) if pagina else ''
         )
@@ -323,14 +349,14 @@ def crea_pagina_modulo(template_name: str, file_modulo: str,
     :param is_sidebar_fixed: se `True` la spalla destra con indice articolo sarà
                              fissa durante lo scorrimento verticale
     """
-    indice, main_content, is_ind, check_sintassi, zipfile = \
+    indice, main_content, is_ind, vedi_anche, check_sintassi, zipfile = \
         xml2html.render_articolo(
             file_modulo, builder_conf["examples_dir"],
             builder_conf["zip_files_dir"], tag_ind, log, builder_conf
         )
     fn = os.path.splitext(os.path.basename(file_modulo))[0]
     modulo = Modulo.ottieni_modulo(builder_conf["tran_dir"], fn)
-    m = DjModulo(indice, main_content, modulo, footer, zipfile,
+    m = DjModulo(indice, main_content, vedi_anche, modulo, footer, zipfile,
                  sidebar_is_fixed=is_sidebar_fixed)
 
     fn += '.html'
@@ -374,7 +400,6 @@ def abbina_cronologia(cronologia, moduli, data_fmt='%d.%m.%Y'):
                 break
         if not modulo.data_pub:
             print(modulo.nome)
-            print()
 
 
 def crea_feed_rss(base_path, outfile, title, description=''):
@@ -409,9 +434,37 @@ def crea_feed_rss(base_path, outfile, title, description=''):
         )
         feed.add_item(item)
         # print(modulo.nome, modulo.descrizione)
-
+    logging.info(f"Inseriti {feed.count_items} elementi")
     with codecs.open(local_feed, mode='w', encoding='utf-8') as fh:
         fh.write(feed.get_feed())
+    logging.info(f"Scritto {local_feed}")
+
+
+def _get_last_ten(cronology_file: str,
+                  nr_displayed: int, reverse: bool = True) -> List[lt.LastTen]:
+    """
+    Ottiene elenco degli ultimi moduli tradotti
+
+    :param cronology_file: percorso completo file cronologia
+    :param nr_displayed: numero elementi da visualizzare
+    :param reverse: se `True` ritorna i più recenti
+    """
+    with open(cronology_file) as fh:
+        last_ten = lt.lastten_factory(
+            [row.strip() for row in fh.readlines()]
+        )
+    # nr_ultimi_agg = nr_displayed
+    last_ten = last_ten[-nr_displayed:] \
+        if len(last_ten) > nr_displayed else last_ten
+    if reverse:
+        last_ten.reverse()
+    return last_ten
+
+
+def _get_modules_and_categories_for_sidebar(tran_dir: str) -> tuple:
+    modules = sorted(elenco_per_indice(tran_dir), key=lambda x: x.nome.lower())
+    categories = _categorie_per_indice(moduli)
+    return modules, categories
 
 
 def crea_tabella_indice(template_name: str):
@@ -420,13 +473,28 @@ def crea_tabella_indice(template_name: str):
 
     :param template_name: il nome del modello per il rendering
     """
-    moduli = elenco_per_indice(builder_conf['tran_dir'])
+    cronology_path = os.path.join(
+            builder_conf['translated_modules_dir'],
+            builder_conf["translated_modules_name"]
+        )
+    last_ten = _get_last_ten(cronology_path,
+                             int(builder_conf['show_last_updated']), True)
+
+    moduli = sorted(elenco_per_indice(builder_conf['tran_dir']),
+                    key=lambda x: x.nome.lower())
+    categ_per_indice = _categorie_per_indice(moduli)
+    indice = Indice(moduli, 0, categ_per_indice, 0, 0)
+
     # corpo = ottieni_tabella(moduli)
     m = DjTabelleIndici(moduli, FOOTER)
-    diz_indice = m.get_indice
+    diz_indice = m.moduli_per_iniziale
     fn = 'indice_alfabetico.html'
-    dic = {'modulo': m,}
-    dic['idx'] = diz_indice
+    dic = {
+        'modulo': m,
+        'idx': diz_indice,
+        'indice': indice,
+        'last_ten': last_ten
+    }
     build(template_name, dic, os.path.join(builder_conf["html_dir"], fn))
 
 

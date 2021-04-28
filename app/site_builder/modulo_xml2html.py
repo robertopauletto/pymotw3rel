@@ -14,10 +14,11 @@ from django.utils.encoding import smart_text
 from app.site_builder.my_html import MyHtml
 from app.site_builder.comprimi_esempi import comprimi
 from app.site_builder.inline_sub import InlineSubs
+
 # from pymotw3_manager import add_module_handler
 
-__date__='02/07/2017'
-__version__='2.1'
+__date__ = '02/07/2017'
+__version__ = '2.1'
 
 __doc__ = """
 
@@ -38,8 +39,7 @@ leggibile e facile da elaborare. La condizione fondamentale, infatti,
 HTML sia sempre da solo **ad inizio riga**
 
 Versione %s %s
-""" % (__version__, __date__ )
-
+""" % (__version__, __date__)
 
 logger = logging.getLogger(__name__)
 # add_module_handler(logger)
@@ -56,56 +56,67 @@ RE_TAG_START = re.compile(r'^<\w+>')
 RE_TAG_END = re.compile(r'^<\/\w+>')
 RE_STRIP_TAG = re.compile(r'[<>/]')
 
-
-# Lista dei tag - serve ad is_my_tag() per accertarsi di avere trovato un 
+# Lista dei tag - serve ad is_my_tag() per accertarsi di avere trovato un
 # MIO tag e non un pezzo di codice od altro I valori sono funzioni parziali
 # per le quali viene valorizzata la parte relativa alla gestione css
 MY_TAGS = {
     'avvertimento': partial(h.warning),
-    'categoria': None, 
+    'categoria': None,
     'descrizione': None,
     'deflist': partial(h.dl),
-    'incipit': None, 
-    'inserito_il': None, 
+    'incipit': None,
+    'inserito_il': None,
     'lista': partial(h.ul),
     'lista_ordinata': partial(h.ol),
     'lista_ricorsiva': partial(h.ul),
-    'mk_xml_code': partial(h.code_xml, class_='well pre-scrollable'),
+    'mk_xml_code': partial(
+        h.code_xml,
+        class_='well pre-scrollablehighlight monospaced-frame code-snippet'),
     'mk_xml_code_lineno': partial(
         h.code_xml_with_lineno,
-        class_='well pre-scrollable'
+        class_='highlight monospaced-frame code-snippet'
     ),
     'note': partial(h.info),
     'success': partial(h.success),
     'danger': partial(h.danger),
-    'py_code': partial(h.code, class_='well pre-scrollable'),
-    'py_code_lineno': partial(h.code_with_lineno, class_='well pre-scrollable'),
+    'py_code': partial(h.code,
+                       class_='highlight monospaced-frame code-snippet',
+                       )
+    ,
+    'py_code_lineno': partial(h.code_with_lineno,
+                              class_='highlight monospaced-frame code-snippet'),
     'py_output': partial(
         h.output_console,
-        class_='well pre-scrollable console',
-        script_folder='/home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts'
+        class_='monospaced-frame console',
+        script_folder='/dati/dev/python/pymotw3restyling/dumpscripts'
     ),
     'sottotitolo': partial(h.h4),
-    'sql_code': partial(h.code_sql, class_='well pre-scrollable'),
+    'sql_code': partial(h.code_sql, class_='monospaced-frame console'),
     # 'tabella_semplice': partial(h.table, with_header=True, class_='table'),
     'tabella_1': None,
-    'testo_normale': partial(h.p), 
+    'testo_normale': partial(h.p),
     'titolo_1': None,
-    'titolo_2': partial(h.h2),
-    'titolo_3': partial(h.h3),
+    'titolo_2': partial(h.h4),
+    'titolo_3': partial(h.h5),
     'titolo_4': partial(h.h4),
-    'vedi_anche': partial(h.biblio, class_='well'),
+    'vedi_anche': partial(h.biblio, class_=''),
     'indicizza': None,
     'tabella_semplice': partial(
         h.table,
         with_header=True,
-        class_='table table-responsive table-bordered table_striped table-hover'
+        class_='table responsive-table striped'
+    ),
+    'tabella_spec_separatore': partial(
+        h.table,
+        with_header=True,
+        splitchar='|',
+        class_='table '
     ),
     'tabella_semplice_con_legenda': partial(
         h.table,
         with_header=True,
         caption=True,
-        class_='table table-responsive table-bordered table_striped table-hover'
+        class_='table '
     )
 }
 
@@ -130,8 +141,10 @@ def pulisci_tag(tag: str) -> str:
     return RE_STRIP_TAG.sub('', tag.strip())
 
 
-entities = {"à": "&agrave;", "è": "&egrave;", "ì": "&igrave;", "ò": "&ograve;",
-            "ù": "&ugrave;"}
+entities = {
+    "à": "&agrave;", "è": "&egrave;", "ì": "&igrave;", "ò": "&ograve;",
+    "ù": "&ugrave;"
+}
 
 
 def text2entity(file_name: str) -> str:
@@ -144,13 +157,13 @@ def text2entity(file_name: str) -> str:
 
     log = []
     if not os.path.exists(file_name):
-        raise IOError("Manca " + file_name)    
+        raise IOError("Manca " + file_name)
     copyfile(file_name, file_name + ".bak")
     buf = open(file_name, "r").read()
-    for k,v in entities.items():
+    for k, v in entities.items():
         logger.info(f"Sostituzione di {k} con {v} ")
         log.append(f"Sostituzione di {k} con {v} ")
-        buf = buf.replace(k,v)
+        buf = buf.replace(k, v)
 
     with open(file_name, 'w') as fh:
         fh.write(buf)
@@ -199,7 +212,7 @@ def load(xml_file: str, dir_esempi: str, log: list,
                 buf = _norm_testo_normale(buf)
             elif tag in builder_conf["output_tags"]:
                 _norm_output(buf)
-            seq_elementi.append({'tag': tag, 'buffer': buf, 'row':  i})
+            seq_elementi.append({'tag': tag, 'buffer': buf, 'row': i})
             buf = []
             tag = ''
             is_aperto = False
@@ -318,16 +331,17 @@ def check_my_tags(seq_elementi: dict) -> list:
 
 # In produzione questo sparisce
 TEMP_FATTI = ('titolo_2', 'titolo_3', 'titolo_4', 'testo_normale',
-              'lista', 'py_code', '', 
+              'lista', 'py_code', '',
               'py_output', 'vedi_anche', 'tabella_semplice',
+              'tabella_spec_separatore',
               'tabella_semplice_con_legenda', 'mk_xml_code',
-              'avvertimento', 'note', 'titolo_3', 'deflist', 'sql_code', 
+              'avvertimento', 'note', 'titolo_3', 'deflist', 'sql_code',
               'sottotitolo', 'lista_ricorsiva', 'py_code_lineno',
               'mk_xml_code_lineno', 'lista_ordinata')
 
 CHECK_SYNTAX = ('titolo_2', 'titolo_3', 'titolo_4', 'testo_normale',
                 'lista', '',
-                'tabella_semplice',
+                'tabella_semplice', 'tabella_spec_separatore',
                 'avvertimento', 'note', 'titolo_3', 'deflist',
                 'sottotitolo', 'lista_ricorsiva',
                 'lista_ordinata')
@@ -337,14 +351,14 @@ def _is_for_syntax(tag: str, tags: tuple = CHECK_SYNTAX) -> bool:
     return tag.lower() in tags
 
 
-def _raccogli_per_check_sintassi(tag: str,  row: str,  text: str,
+def _raccogli_per_check_sintassi(tag: str, row: str, text: str,
                                  check_sintassi: list):
     if _is_for_syntax(tag):
         check_sintassi.append({'row': row, 'text': striphtml(text)})
 
 
 def prepara_articolo(seq_elementi: list,
-                     tag_ind: tuple =('titolo_2', 'titolo_3'),
+                     tag_ind: tuple = ('titolo_2', 'titolo_3'),
                      log=None) -> tuple:
     """(list of str, tuple of str) -> list, list
     
@@ -355,10 +369,12 @@ def prepara_articolo(seq_elementi: list,
     - il codice per l'indice nella barra destra
     - il codice per il contenuto dell'articolo
     - Il testo per la verifica della sintassi
+    - il codice per la sezione bibliografica (vedi anche)
     """
     indice = []
     contenuti = []
     check_sintassi = []
+    vedi_anche = []
     prg = 0
     for item in seq_elementi:
         tag = item['tag']
@@ -372,22 +388,25 @@ def prepara_articolo(seq_elementi: list,
                 # if '3' in tag:
                 #     b = "&nbsp;&nbsp;&nbsp;&nbsp;" + b
                 indice.append(
-                    h.a("#"+str(prg), smart_text(b, encoding='utf-8'))
+                    h.a("#" + str(prg), smart_text(b, encoding='utf-8'))
                 )
                 contenuti.append(h.section(str(prg)))
                 prg += 1
             if tag in TEMP_FATTI:
                 codice = MY_TAGS[tag](item['buffer'])
-                contenuti.append(codice)
+                if tag.lower() == 'vedi_anche':
+                    vedi_anche.append(codice)
+                else:
+                    contenuti.append(codice)
             else:
                 # print("{0} {1}".format(tag, "da gestire"))
                 if log:
                     log.append("{0} {1}".format(tag, "non gestito"))
         else:
             print(tag)
-    return indice, contenuti, check_sintassi   
+    return indice, contenuti, vedi_anche,  check_sintassi
 
-            
+
 def striphtml(data):
     p = re.compile(r'<.*?>')
     return p.sub('', smart_text(data, encoding='utf-8'))
@@ -395,7 +414,7 @@ def striphtml(data):
 
 def render_articolo(file_xml: str, example_folder: str, zip_folder: str,
                     tag_ind: Any,
-                    log=None, builder_conf=None):
+                    log=None, builder_conf=None) -> tuple:
     """(str) -> list, list
     
     Prepara il file html con l'articolo per il modulo contenuta in
@@ -417,7 +436,8 @@ def render_articolo(file_xml: str, example_folder: str, zip_folder: str,
                 log.append(prompt)
             log.append("{0} file di esempio compressi in {1}".format(
                 len(lista_esempi), os.path.abspath(file_compresso)))
-    indice_articolo, contenuti, chk_sintassi = prepara_articolo(
+    indice_articolo, contenuti, vedi_anche, chk_sintassi = prepara_articolo(
         seq_elementi, builder_conf['tag_summary'], log
     )
-    return indice_articolo, contenuti, indicizza, chk_sintassi, file_compresso
+    return (indice_articolo, contenuti, indicizza, vedi_anche,
+            chk_sintassi, file_compresso)

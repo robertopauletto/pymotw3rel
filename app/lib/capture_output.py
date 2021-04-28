@@ -5,7 +5,7 @@
 import subprocess
 import os
 import re
-
+from typing import Union
 
 __doc__ = """
 Cattura l'output degli script di esempio
@@ -90,20 +90,23 @@ class CaptureOutputScript(object):
         self._cmdline = re.split(r'\s+', cmdline[1:].strip())
         return True
 
-    def run(self, cmdline, workfolder=None, substitute=None, decoder='utf-8'):
+    def run(self, cmdline, workfolder: Union[str, None] = None,
+            substitute: Union[list, None] = None,
+            decoder: str = 'utf-8'):
         """(str [,str] -> str
 
         Crea uno script al cui interno inserisce la riga di comando da
         eseguire
 
         :param cmdline: la riga di comando da eseguire
+        :param workfolder: la cartella di lavoro
         :param substitute: lista di tuple che contiene valori letterali
                            da sostituire ed il valore di rimpiazzo
                            nell'output ritornato (per questioni di privacy/
                            sicurezza non si vuole stampare l'intero percorso
                            del file system se richiesto, inoltre un percorso
                            lungo può generare confusione nel lettore
-        :param: il tipo di decodifica per il file
+        :param decoder: il tipo di decodifica per il file
         :return: l'output del comando o l'eventuale errore verificatosi
         """
         if not self._parse_cmd_line(cmdline):

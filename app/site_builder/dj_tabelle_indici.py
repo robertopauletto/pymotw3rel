@@ -3,41 +3,51 @@
 
 from collections import OrderedDict
 import datetime
-from app.site_builder.modulo import Modulo
+from typing import Union, List, Dict
 
-__date__=''
-__version__='0.1'
-__doc__="""Costruisce le pagine indice
+# from app.site_builder.modulo import Modulo
+from app.site_builder.modulo import Modulo
+from app.site_builder.footer import Footer
+
+
+__date__ = ''
+__version__ = '0.1'
+__doc__ = """Costruisce le pagine indice
 Versione %s %s
 """ % ( __version__, __date__ )
 
 
-class DjTabelleIndici(object):
+class DjTabelleIndici:
     base_url = 'indice.html'
+    date_fmt = "%d.%m.%Y"
     """
     Rappresenta una pagina che contiene una tabella con l'indice dei moduli
     """
-    def __init__(self, moduli, footer):
-        """(list of :py:class:Modulo, :py:class:`Footer`)"""
+    def __init__(self, moduli: List['Modulo'], footer: Footer):
+        """"""
         self._moduli = moduli
         self.footer = footer
 
     @property
-    def elenco_moduli(self):
-        """() -> list of `:py:class:Modulo`
-        Ritorna un elenco di oggetti `:py:class:Modulo` ordinati per
+    def elenco_moduli(self) -> List['Modulo']:
+        """
+        Ritorna un elenco di oggetti `Modulo` ordinati per
         nomi
         """
-        return sorted(self._moduli, key=lambda x:x.nome.lower())
+        return sorted(self._moduli, key=lambda x: x.nome.lower())
     
     @property
-    def last_upd(self):
-        return datetime.date.today().strftime("%d.%m.%Y") 
+    def last_upd(self) -> str:
+        """
+        Ottiene la data odierna formattata come `DjModulo.dtfmt`
+        """
+        return datetime.date.today().strftime(DjTabelleIndici.date_fmt)
 
     @property
-    def get_indice(self):
+    def moduli_per_iniziale(self) -> dict:
         diz = OrderedDict()
         moduli = self.elenco_moduli
+        # Da A -> Z
         for i in range(65, 91):
             letter = chr(i)
             if letter in diz:

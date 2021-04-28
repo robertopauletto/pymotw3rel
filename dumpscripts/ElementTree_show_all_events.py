@@ -6,7 +6,7 @@ from xml.etree.ElementTree import iterparse
 depth = 0
 prefix_width = 8
 prefix_dots = '.' * prefix_width
-line_template = join([
+line_template = ' '.join([
     '{prefix:<0.{prefix_len}}',
     '{event:<8}',
     '{suffix:<{suffix_len}}',

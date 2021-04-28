@@ -1,87 +1,111 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="row row-offcanvas row-offcanvas-right">
-        <div class="col-xs-12 col-sm-9">
-            <p class="pull-right visible-xs">
-                <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
-            </p>
-            <div class="jumbotron">
-                <h2>Il Modulo Python della Settimana</h2>
 
-                <p>Questo sito contiene la traduzione italiana dell'apprezzata serie
-                    <a href="http://pymotw.com/3/index.html" title="Python 3 Module of the Week">Python 3 Module of the Week</a> (PyMOTW-3), curata da
-                    <a href="http://doughellmann.com/">Doug Hellmann</a>.</p>
+  <div class="row">
 
-                <p>Questa serie di articoli offre una analisi della libreria standard Python 3 attraverso vari esempi e spiegazioni</p>
-                <p>Se cercate esempi per la serie originale <a href='http://pymotw.com/2/index.html'>PyMOTW Module of the Week (PyMOTW)</a>, riferita alla versione di Python 2, trovate la traduzione <a href='../index.html'>qui</a></p>
+    <div class="col s12 m9">
+      <div class="card blue-grey lighten-4">
+        <div class="card-content">
+          <h2>Il Modulo Python della Settimana</h2>
+          <p>Questo sito contiene la traduzione italiana dell'apprezzata serie
+            <a href="http://pymotw.com/3/index.html"
+               title="Python 3 Module of the Week">Python 3 Module of the
+              Week</a>
 
-                <!-- <p>Come neofita del linguaggio Python ho molto apprezzato gli articoli di Doug. che si sono rivelati, almeno per me, una ottima fonte di apprendimento.</p>
+            (PyMOTW-3), curata da <a href="http://doughellmann.com/">Doug
+              Hellmann</a>.</p>
+          <br>
+          <p>Questa serie di articoli offre una analisi della libreria standard
+            Python 3 attraverso vari esempi e
+            spiegazioni</p>
+          <br>
+          <p>Come neofita del linguaggio Python ho molto apprezzato gli articoli
+            di Doug. che si sono rivelati, almeno per me, una ottima fonte di
+            apprendimento.</p>
 
-                <p>Spero che questa traduzione possa aiutare coloro che programmano in Python e non hanno molta dimestichezza con la lingua inglese.</p> -->
-            </div>
-            {% for m_tre in indice.modulo_tre %}
-                <div class="row">
-                {% for modulo in m_tre %}
-                    <div class="col-6 col-sm-6 col-lg-4">
-                        <h2>{{ modulo.nome_per_teaser }}</h2>
-                        <p><strong>{{ modulo.titolo }}</strong></p>
-                        <p>{{ modulo.descrizione|safe }}</p>
-                        <p><a class="btn btn-primary btn-xs" href="{{ modulo.url|safe }}">Leggi &raquo;</a></p>
-                    </div><!--/span-->
-                {% endfor %}
-                </div><!--/row-->
-            {% endfor %}
-            <hr />
-            <p>
-            {% if indice.prev_url %}
-                <a href="{{ indice.prev_url|safe }}"
-                   class="btn btn-primary btn-sm" >
-                    <span class="glyphicon glyphicon-chevron-left"></span> Altri moduli
-                </a>
-            {% endif %}
-            {% if indice.next_url %}
-                <a href="{{ indice.next_url|safe }}"
-                   class="btn btn-primary btn-sm" >
-                    <span class="glyphicon glyphicon-chevron-right"></span> Altri moduli
-                </a>
-            {% endif %}
-            </p>
-        </div><!--/span-->
-
-        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-            <div class="well sidebar-nav">
-                    <h4>Ultimi moduli aggiunti/aggiornati</h4>
-                    <ul>
-                      {% for item in last_ten %}
-                        <li>{{ item.last_upd }}: <a style="display: block;" title="{{ item.title }}" href="{{ item.name }}.html">{{ item.name }}</a></li>
-                      {% endfor %}
-                    </ul>
-            </div><!--/.well -->
-
-            <div class="well sidebar-nav">
-                    <h3>Categorie</h3>
-                        {% for categoria, moduli in indice.elenco_categorie %}
-                            <div class='dropdown'>
-                            <a data-toggle='dropdown' href='#'>{{categoria|safe}} ({{moduli|length}})</a>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                            {% for modulo in moduli %}
-                                <li><a style='display: block;' href='{{modulo.1|safe}}'>{{modulo.0|safe}}</a></li>
-                            {% endfor %}
-                            </ul>
-                            </div>
-                        {% endfor %}
-            </div><!--/.well -->
-        </div><!--/span-->
-    </div><!--/row-->
-    <footer class="footer">
-      <div class="container">
-          <p class="text-muted">{{ indice.footer.nome_sito }}
-          {{ indice.footer.periodo }} /
-          Documento aggiornato il: {{ indice.footer.data_agg }}
-          Contatto: pymotw-it(at)robyp.x10host.com</p>
+          <p>Spero che questa traduzione possa aiutare coloro che programmano in
+            Python e non hanno molta dimestichezza con la lingua inglese.</p>
+        </div>
       </div>
-    </footer>
+
+      {% for modulo in indice.moduli %}
+        <div class="col s12 m6 l4">
+          <div class="card blue-grey lighten-4 small">
+            <div class="card-content module-cards">
+              <h6 class="module-cards-title">{{ modulo.nome_per_teaser }}</h6>
+              <p class="module-cards-riep">{{ modulo.titolo }}</p>
+              <p class="module-cards-descr">{{ modulo.descrizione|safe }}</p>
+              <div class="card-action">
+                <a href="{{ modulo.url|safe }}"
+                   class="btn waves-effect waves-light btn-small blue-grey">Leggi</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      <br>
+      <div class="col s12 offset-m5">
+        {% if indice.prev_url %}
+          <a href="{{ indice.prev_url|safe }}"
+             class="waves-effect waves-light btn blue-grey">
+            <i class="material-icons left">chevron_left</i>Altri Moduli</a>
+        {% endif %}
+        {% if indice.next_url %}
+          <a href="{{ indice.next_url|safe }}"
+             class="waves-effect waves-light btn blue-grey">
+            <i class="material-icons right">chevron_right</i>Altri Moduli</a>
+        {% endif %}
+      </div>
+
+    </div>
+
+
+    <!-- SIDEBAR -->
+    <div class="col s12 m3">
+      <section>
+        <div class="card blue-grey lighten-4">
+          <div class="card-content">
+            <h6>Ultimi moduli aggiunti</h6>
+            <ul>
+              {% for item in last_ten %}
+                <li>{{ item.last_upd }}: <a class="last-modules"
+                                            title="{{ item.title }}"
+                                            href="{{ item.name }}.html">{{ item.name }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="card blue-grey lighten-4">
+          <div class="card-content">
+            <!-- Dropdown Structures -->
+            {% for categoria, moduli in indice.elenco_categorie %}
+              <ul id="{{ categoria }}" class="dropdown-content">
+                {% for modulo in moduli %}
+                  <li><a href='{{ modulo.1|safe }}'>{{ modulo.0|safe }}</a></li>
+                {% endfor %}
+              </ul>
+            {% endfor %}
+            <!-- Dropdown Structures -->
+
+            <!-- Categories dropdown -->
+            <h6>Categorie</h6>
+            <ul>
+              {% for categoria, moduli in indice.elenco_categorie %}
+                <li><a class="dropdown-categ-trigger" href="#"
+                       data-target="{{ categoria }}">{{ categoria|safe }}
+                  ({{ moduli|length }})</a></li>
+              {% endfor %}
+            </ul>
+            <!-- Categories dropdown -->
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </div>
 
 {% endblock %}
-
 

@@ -8,7 +8,7 @@ from .settings import DevConfig
 from flask import Flask, g
 
 
-from app.extensions import db, migrate, ckeditor
+from app.extensions import db, migrate,  ckeditor
 from app.models import GeneratorConfig, Article, Category
 from app.routes.main import main
 from app.site_builder.builder import set_builder_conf

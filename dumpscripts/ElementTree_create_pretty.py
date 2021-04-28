@@ -1,8 +1,9 @@
 # ElementTree_create_pretty.py
 
 
-from xml.etree import ElementTree, SubElement, Comment
+from xml.etree.ElementTree import Element, SubElement, Comment
 from ElementTree_pretty import prettify
+
 
 top = Element('top')
 

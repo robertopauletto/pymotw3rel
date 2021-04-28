@@ -1,6 +1,7 @@
 app/static
-.env/
+.env
 .idea/
+.venv/
 site/html
 site/dumpscripts/and
 site/dumpscripts/con_*

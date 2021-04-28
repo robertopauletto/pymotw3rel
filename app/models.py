@@ -150,3 +150,17 @@ class Category(db.Model):
         if as_title:
             choices = [(categ[0], categ[1].title()) for categ in choices]
         return choices
+
+
+def search_all(value: str) -> list:
+    results = list()
+    # Find modules
+    value = f"%{value.lower()}%"
+    mod_found = Article.query.filter(Article.title.like(value))
+    for item in mod_found:
+        results.append({
+            "filename": f"{os.path.splitext(item.filename)[0]}.html",
+            "title": item.title,
+            "categ": item.artcat.descr
+        })
+    return results

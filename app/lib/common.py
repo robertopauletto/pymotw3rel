@@ -1,13 +1,14 @@
 # common.py
 
 import datetime
+import logging
 from os import name
 import os.path
 import shutil
 import string
 import sys
 import re
-from typing import Union, List
+from typing import Union, List, Dict
 
 from app.models import Article
 
@@ -56,7 +57,7 @@ def create_new_article_file(outfile: str, boilerplate: str,
     if not overwrite and os.path.exists(outfile):
         shutil.copyfile(outfile, f'{outfile}.bk')
     with open(outfile, mode='w') as fh:
-        fh.write(outfile)
+        fh.write(boilerplate)
 
 
 # def get_root(paths: dict = PATHS, fixed_path: str = ''):
@@ -137,9 +138,8 @@ def my_title(frase):
     return " ".join(retval)
 
 
-def _estrai_da_tag(righe, nome_tag, ripeti=False):
-    """(list of str, str [,bool]) -> list of str
-    
+def _estrai_da_tag(righe: list, nome_tag: str, ripeti: bool = False) -> list:
+    """
     Scansione `righe` e ritorna il testo racchiuso tra `tag` 
     Se `ripeti` == `False` ritorna non appena individua la prima occorrenza
     di `nome_tag`
@@ -166,7 +166,7 @@ def _estrai_da_tag(righe, nome_tag, ripeti=False):
 RE_CATEGORIA = re.compile(r'<categoria>(.*)</categoria>')
 
 
-def _ottieni_categoria(righe):
+def _ottieni_categoria(righe: list) -> Union[str, None]:
     for riga in righe:
         match = RE_CATEGORIA.match(riga)
         if match and len(match.groups()) == 1:
@@ -177,7 +177,7 @@ def _ottieni_categoria(righe):
 RE_INDICIZZA = re.compile(r'<indicizza>(.*)</indicizza>')
 
 
-def _is_da_indicizzare(righe):
+def _is_da_indicizzare(righe: list) -> bool:
     for riga in righe:
         match = RE_INDICIZZA.match(riga)
         if match and len(match.groups()) == 1:
@@ -190,7 +190,7 @@ def _is_da_indicizzare(righe):
 RE_DATA_ARTICOLO = re.compile(r'<data_articolo>(.*)</data_articolo>')
 
 
-def _ottieni_data_articolo(righe):
+def _ottieni_data_articolo(righe: list) -> Union[str, None]:
     for riga in righe:
         match = RE_DATA_ARTICOLO.match(riga)
         if match and len(match.groups()) == 1:
@@ -208,9 +208,8 @@ def ottieni_modulo(path_modulo, nome_modulo):
     return _ottieni_modulo(fn)
 
 
-def _ottieni_modulo(nome_file):
-    """(str) -> dict
-    
+def _ottieni_modulo(nome_file: str) -> Union[dict, None]:
+    """
     Legge `nome_file` e recupera i tag che contengono le info:
     
     - descrizione modulo
@@ -221,21 +220,21 @@ def _ottieni_modulo(nome_file):
     """
     righe = open(nome_file).readlines()
     if not righe:
+        logging.warning(f"{nome_file} è vuoto")
         return None
-    try:
-        descr, vers = _estrai_da_tag(righe, 'descrizione')
-    except ValueError:
-        descr, vers = '', ''
+
+    descr = ' '.join(_estrai_da_tag(righe, 'descrizione'))
     titolo = " ".join(_estrai_da_tag(righe, 'titolo_1'))
     categ = _ottieni_categoria(righe).strip()
-    data_articolo = _ottieni_data_articolo(righe)
     if not categ:
-        print(os.path.basename(nome_file), " manca categoria")
+        # print(os.path.basename(nome_file), " manca categoria")
+        logging.warning(f"{os.path.basename(nome_file)}, manca categoria")
         categ = 'Sconosciuta'
+    data_articolo = _ottieni_data_articolo(righe)
     ultimo_agg = datetime.date.fromtimestamp(os.stat(nome_file).st_mtime)
     indicizza = _is_da_indicizzare(righe)
     if '-' in titolo:
-        nome_modulo, titolo =  titolo.strip().split('-', 1)
+        nome_modulo, titolo = titolo.strip().split('-', 1)
     else:
         nome_modulo = titolo
     return {
@@ -243,7 +242,7 @@ def _ottieni_modulo(nome_file):
         'nome_modulo': nome_modulo,
         'titolo': titolo,
         'agg': ultimo_agg,
-        'versione': vers,
+        'versione': "",  # Non più necessaria per python3
         'categ': categ,
         'data_articolo': data_articolo,
         'indicizza': indicizza,
@@ -266,10 +265,9 @@ def ottieni_moduli_tradotti(tran_dir: str) -> dict:
     for modulo in da_elaborare:
         fn = os.path.join(tran_dir, f"{modulo}.xml")
         if not os.path.exists(fn):
-            print("Articolo non presente: %s" % os.path.basename(fn))
+            logging.warning(f"Articolo non presente: {os.path.basename(fn)}")
             continue
         retval[modulo] = _ottieni_modulo(fn)
-        
     return retval
 
 
@@ -282,4 +280,4 @@ def accenti2entity(val):
     >> accenti2entity("il colibrì è un volatile")
     >> 'il colibr&igrave; &egrave un volatile
     """
-    pass
+    p

@@ -209,6 +209,11 @@ class MyHtml(object):
     
     def code(self, value, **kwargs):
         pigmentato = self._codice(value)
+        # if 'strip_div_wrapper' in kwargs:
+        #     if kwargs['strip_div_wrapper']:
+        #         pigmentato = pigmentato.replace('<div class="highlight">', '')
+        #         pigmentato = pigmentato.replace('</div>', '')
+        #     del kwargs['strip_div_wrapper']
         return self._get_start_end_tag('div', pigmentato, **kwargs)
 
     def code_sql(self, value, **kwargs):
@@ -312,23 +317,25 @@ class MyHtml(object):
                     cmdline.append(arg)
         return ' '.join(cmdline)
 
-    def biblio(self, value, dd_class='indent', **kwargs):
+    def biblio(self, value, dd_class='', **kwargs):
         """Prepara la parte bibliografica dell'articolo"""
-        header = self.p(self.strong('Vedere anche:'))
+        # header = self.p(self.strong('Vedere anche:'))
         dl = self._vedi_anche(value, dd_class)
-        return self._get_start_end_tag('div', header + dl, **kwargs)    
+        return dl
+        # return self._get_start_end_tag('div', dl, **kwargs)
     
     def td(self, values, is_header=False, **kwargs):
         output = []
         splitchar = ";"
-        if 'splichar' in kwargs:
+        if 'splitchar' in kwargs:
             splitchar = kwargs['splitchar']
+            del kwargs['splitchar']
         tag = 'td' if not is_header else 'th'
-        print(values)
+        # print(values)
         for value in values.split(splitchar):
-            print(value)
+            # print(value)
             output.append(self._get_start_end_tag(
-                tag, value=value, **kwargs
+                tag, value=value
             ))
         return "\n".join(output)
     
@@ -346,11 +353,11 @@ class MyHtml(object):
             rows.append('<caption>{}</caption>'.format(values.pop(0)))
         for i, row in enumerate(values):
             if with_header and i == 0:
-                rows.append(self.tr(self.td(row, True)))
+                rows.append(self.tr(self.td(row, True, **kwargs)))
             else:
-                rows.append(self.tr(self.td(row)))
+                rows.append(self.tr(self.td(row, **kwargs)))
         return self._get_start_end_tag('table', "\n".join(rows), **kwargs)
-    
+
     def dl(self, values, dd_class=None, **kwargs):
         """(list of str) -> str
         

@@ -13,7 +13,7 @@ from flask import (
 
 from mylogger import add_module_handler
 from app.extensions import db
-from app.models import GeneratorConfig, Category, Article
+from app.models import GeneratorConfig, Category, Article, search_all
 from app.forms import (
     HTMLGeneratorForm, BuilderLog, CategoryForm, NewArticleForm,
     ArticleBoilerplate
@@ -36,7 +36,7 @@ main = Blueprint('main', __name__)
 @main.route('/index')
 def index():
     """Pagina principale"""
-    return render_template('index.html', titolo="T")
+    return redirect(url_for('main.article', key='all'))
 
 
 @main.route('/config', methods=['GET', 'POST'])
@@ -56,7 +56,7 @@ def generator():
     form = HTMLGeneratorForm()
 
     if form.validate_on_submit():
-        module = form.modules.data.lower()
+        module = form.modules.data
         logger.info(f"Generazione di {module} iniziata")
         is_sidebar_fixed = form.fixed_sidebar.data
         logger.info(
@@ -79,6 +79,7 @@ def generator():
         session['module'] = module
         session['check_sintassi'] = (check_sintassi if form.spellcheck.data
                                      else None)
+        flash('success', 'Codice HTML generato per il modulo')
         return redirect(url_for('main.builder_log'))
     else:
         pass
@@ -87,6 +88,13 @@ def generator():
     return render_template('generator.html',
                            titolo='Generatore Codice HTML',
                            form=form, defname=m)
+
+
+@main.route('/search', methods=['GET', 'POST'])
+def search():
+    value = request.args['sitesearch']
+    results = search_all(value)
+    return render_template('search.html', titolo='Ricerca', results=results)
 
 
 @main.route('/article/<string:key>', methods=['GET', 'POST'])

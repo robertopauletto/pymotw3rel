@@ -14,19 +14,26 @@ class Modulo:
     """Rappresenta un modulo tradotto"""
     insubs = InlineSubs()
 
-    def __init__(self, nome: str):
+    def __init__(self, nome: str, ext: str = 'html'):
         """Ottiene il nome del modulo"""
         self.nome = nome
         self.versione = None
         self.titolo = ''
         self.descrizione = ''
         self.data_agg = None
-        self.url = f'{os.path.splitext(nome)[0]}.html'
+        # self.url = f'{os.path.splitext(nome)[0]}.html'
+        self.url = f'{nome}.{ext}'
         self.categoria = ''
         self.data_pub = None
         self.nome_per_rss = None
         self.indicizza = False
         self.titolo_ref = ''
+
+    def __raw__(self):
+        return f"{self.nome} - {self.titolo}"
+
+    def __str__(self):
+        return f"{self.nome} - {self.titolo}"
 
     @property
     def nome_per_teaser(self) -> str:

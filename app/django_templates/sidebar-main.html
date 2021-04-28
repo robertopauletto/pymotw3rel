@@ -1,0 +1,44 @@
+    <!-- SIDEBAR -->
+    <div class="col s12 m3">
+      <section>
+        <div class="card blue-grey lighten-4">
+          <div class="card-content">
+            <h6>Ultimi moduli aggiunti</h6>
+            <ul>
+              {% for item in last_ten %}
+                <li>{{ item.last_upd }}: <a class="last-modules"
+                                            title="{{ item.title }}"
+                                            href="{{ item.name }}.html">{{ item.name }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="card blue-grey lighten-4">
+          <div class="card-content">
+            <!-- Dropdown Structures -->
+            {% for categoria, moduli in indice.elenco_categorie %}
+              <ul id="{{ categoria }}" class="dropdown-content">
+                {% for modulo in moduli %}
+                  <li><a href='{{ modulo.1|safe }}'>{{ modulo.0|safe }}</a></li>
+                {% endfor %}
+              </ul>
+            {% endfor %}
+            <!-- Dropdown Structures -->
+
+            <!-- Categories dropdown -->
+            <h6>Categorie</h6>
+            <ul>
+              {% for categoria, moduli in indice.elenco_categorie %}
+                <li><a class="dropdown-categ-trigger" href="#"
+                       data-target="{{ categoria }}">{{ categoria|safe }}
+                  ({{ moduli|length }})</a></li>
+              {% endfor %}
+            </ul>
+            <!-- Categories dropdown -->
+          </div>
+        </div>
+      </section>
+    </div>

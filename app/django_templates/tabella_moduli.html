@@ -1,66 +1,67 @@
 {% extends "base.html" %}
 {% block content %}
-
-    <div class="row row-offcanvas row-offcanvas-right">
-        <div class="col-xs-12 col-sm-9">
-            <p class="pull-right visible-xs">
-                <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
-            </p>
-            <div class="jumbotron" >
-                <h3>Indice Alfabetico dei Moduli</h3>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-12">
-                  <h2 class="lead">
-                    {% for letter, href in modulo.get_indice.items %}
-                      {% if href %}
-                        <a href="#{{ href }}">{{ letter }}</a>
-                      {% else %}
-                        <a href="#">{{ letter }}</a>
-                      {% endif %}
-                    {% endfor %}
-                  </h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-12">
-                <table class='table table-responsive table-bordered table_striped table-hover'>
-                      <tr>
-                          <th>MODULO</th>
-                          <th>DESCRIZIONE</th>
-                      </tr>
-                    {% for m in modulo.elenco_moduli %}
-                        <tr>
-                            {% if m.nome in modulo.get_indice.values %}
-
-                              <td><a id="{{ m.nome }}">
-                                <!-- hack per offset sezione nav -->
-                                <h1 style="padding-top: 50px; margin-top: -50px;"></h1>
-                              </a><a href='{{ m.url }}'>{{ m.nome }}</a></td>
-                            {% else %}
-                              <td><a href='{{ m.url }}'>{{ m.nome }}</a></td>
-                            {% endif %}
-                            <td>{{ m.titolo }}</td>
-                            <!-- <td>{{ m.agg }}</td> -->
-                        </tr>
-                    {% endfor %}
-                </table>
-                </div>
-            </div>
-        </div><!--/span-->
-
-        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-        </div><!--/span-->
-    </div><!--/row-->
-    <hr>
-    <footer class="footer">
-        <div class="container">
-            <p class="text-muted">{{ modulo.footer.nome_sito }}
-            {{ modulo.footer.periodo }} /
-            Documento aggiornato il: {{ modulo.footer.data_agg }}
-            - Contatto: pymotw-it(at)robyp.x10host.com</p>
+  <div class="row">
+  <div class="col s12 m9">
+    <section>
+      <div class="card blue-grey lighten-4">
+        <div class="card-content">
+          <h3>Indice Alfabetico dei Moduli</h3>
         </div>
-    </footer>
-
+      </div>
+    </section>
+    <section>
+      <div class="card blue-grey lighten-4">
+        <div class="card-content modules-index">
+          <a href="#abc">A</a>
+          <a href="#base64">B</a>
+          <a href="#calendar">C</a>
+          <a href="#datetime">D</a>
+          <a href="#ensurepip">E</a>
+          <a href="#filecmp">F</a>
+          <a href="#gc">G</a>
+          <a href="#hashlib">H</a>
+          <a href="#imaplib">I</a>
+          <a href="#json">J</a>
+          <a href="#">K</a>
+          <a href="#linecache">L</a>
+          <a href="#mailbox">M</a>
+          <a href="#namedtuple">N</a>
+          <a href="#operator">O</a>
+          <a href="#pathlib">P</a>
+          <a href="#queue">Q</a>
+          <a href="#random">R</a>
+          <a href="#sched">S</a>
+          <a href="#tabnanny">T</a>
+          <a href="#unittest">U</a>
+          <a href="#venv">V</a>
+          <a href="#warnings">W</a>
+          <a href="#xml.etree.ElementTree">X</a>
+          <a href="#">Y</a>
+          <a href="#zipfile">Z</a>
+        </div>
+      </div>
+    </section>
+    <section>
+      <table class="table  blue-grey-text text-darken-2 highlight striped"
+             style="margin-top: 50px">
+        <tr>
+          <th>MODULO</th>
+          <th>DESCRIZIONE</th>
+        </tr>
+        {% for m in modulo.elenco_moduli %}
+          <tr>
+            {% if m.nome in modulo.moduli_per_iniziale.values %}
+              <td><a id="{{ m.nome }}" class="modules-anchor">
+              </a><a href='{{ m.url }}'>{{ m.nome }}</a></td>
+            {% else %}
+              <td><a href='{{ m.url }}'>{{ m.nome }}</a></td>
+            {% endif %}
+            <td>{{ m.titolo }}</td>
+            <!-- <td></td> -->
+          </tr>
+        {% endfor %}
+      </table>
+    </section>
+  </div>
+  {% include "sidebar-main.html" %}
 {% endblock %}
-

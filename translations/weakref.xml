@@ -7,23 +7,23 @@
 <!-- tag <py_output> contiene il testo che rappresenta l'outpu di uno script python -->
 <documento_tradotto>
 <titolo_1>
-weakref - Riferimenti Non Permanenti ad Oggetti
+weakref - Riferimenti Non Permanenti a Oggetti
 </titolo_1>
 <descrizione>
-Fa riferimento ad oggetti "costosi", ma consente che la sua memoria sia reclamata dal <a href='https://www.wikiwand.com/it/Garbage_collection'>garbage collector</a> se non ci sono altri riferimenti non deboli.
+Fa riferimento a un oggetto "costoso", ma consente che la sua memoria sia reclamata dal <a href='https://www.wikiwand.com/it/Garbage_collection'>garbage collector</a> se non ci sono altri riferimenti non deboli.
 
 </descrizione>
 <note>
 In informatica, un riferimento debole (weak reference) è un riferimento che non protegge l'oggetto referenziato dall'essere raccolto da un <a href='https://www.wikiwand.com/it/Garbage_collection'>garbage collector</a> al contrario di un riferimento forte (<em>strong reference</em>). Un oggetto referenziato solo da un riferimento debole, vale a dire che "ogni catena di riferimenti che raggiunge l'oggetto comprende almeno un riferimento debole come collegamento", viene considerato <em>weakly reachable</em> e può essere trattato come irraggiungibile, pertanto può essere raccolto dal garbage collector in qualsiasi momento. Python, assieme ad altri linguaggi (Java, C#, Perl, Lisp, Shell) ha un garbage collector che supporta vari livelli di riferimento debole.
 </note>
 <testo_normale>
-Il modulo <strong>weakref</strong> supporta riferimenti deboli ad oggetti. Un normale riferimento incrementa il contatore dei riferimenti all'oggetto e lo preserva dall'essere raccolto dal <a href='https://www.wikiwand.com/it/Garbage_collection'>garbage collector</a>. Questo comportamento non sempre è desiderabile, sia quando possa essere presente un riferimento circolare oppure quando si costruisce una cache di oggetti che dovrebbero essere eliminati quando è necessaria della memoria. Un riferimento debole è un puntamento ad un oggetto che non lo esclude dell'essere pulito automaticamente.
+Il modulo <strong>weakref</strong> supporta riferimenti deboli a oggetti. Un normale riferimento incrementa il contatore dei riferimenti all'oggetto e lo preserva dall'essere raccolto dal <a href='https://www.wikiwand.com/it/Garbage_collection'>garbage collector</a>. Questo comportamento non sempre è desiderabile, sia quando possa essere presente un riferimento circolare oppure quando si costruisce una cache di oggetti che dovrebbero essere eliminati quando è necessaria della memoria. Un riferimento debole è un puntamento ad un oggetto che non lo esclude dell'essere pulito automaticamente.
 </testo_normale>
 <titolo_2>
 Riferimenti
 </titolo_2>
 <testo_normale>
-I riferimenti deboli verso gli oggetti sono gestiti tramite la classe <code>ref</code>. Per recuperare l'oggetto originale, chiama l'oggetto referenziato.
+I riferimenti deboli verso gli oggetti sono gestiti tramite la classe <code>ref</code>. Per recuperare l'oggetto originale, si chiami l'oggetto referenziato.
 </testo_normale>
 <py_code>
 # weakref_ref.py
@@ -108,7 +108,7 @@ r(): None
 Finalizzare gli Oggetti
 </titolo_2>
 <testo_normale>
-Per una gestione più robusta delle risorse quando vengono cancellati i riferimenti deboli si utilizza <code>finalize</code> per associare <a href='https://it.wikipedia.org/wiki/Callback' target='_blank'>callback</a> ad oggetti. Una istanza di <code>finalize</code> viene mantenuta fino a che l'oggetto attaccato ad essa non viene cancellato, anche se l'applicazione non mantiene un riferimento all'istanza di <code>finalize</code>
+Per una gestione più robusta delle risorse quando vengono cancellati i riferimenti deboli si utilizzi <code>finalize</code> per associare <a href='https://it.wikipedia.org/wiki/Callback' target='_blank'>callback</a> a oggetti. Una istanza di <code>finalize</code> viene mantenuta fino a che l'oggetto attaccato a essa non viene cancellato, anche se l'applicazione non mantiene un riferimento all'istanza di <code>finalize</code>
 </testo_normale>
 <py_code>
 # weakref_finalize.py
@@ -141,7 +141,7 @@ $ python3 weakref_finalize.py
 on_finalize(('argumento extra',))
 </py_output>
 <testo_normale>
-L'istanza di <code>finalize</code> ha un proprietà scrivibile chiamata <code>atexit</code> per controllare se invocare o meno il <a href='https://it.wikipedia.org/wiki/Callback' target='_blank'>callback</a> se un programma è in uscita, se non è già stato chiamato.
+L'istanza di <code>finalize</code> ha un proprietà scrivibile chiamata <code>atexit</code> per controllare il <a href='https://it.wikipedia.org/wiki/Callback' target='_blank'>callback</a> vengo invocato mentr il programma è in uscita, se non è già stato chiamato.
 </testo_normale>
 <py_code>
 # weakref_finalize_atexit.py
@@ -176,7 +176,7 @@ on_finalize(('argumento extra',))
 $ python3 weakref_finalize_atexit.py 0
 </py_output>
 <testo_normale>
-Passando a <code>finalize</code> un riferimento all'oggetto che traccia fa sì che il riferimento venga mantenuto, quindi l'oggetto non viene mai raccolto dal <a href='https://www.wikiwand.com/it/Garbage_collection' target='_blank'>garbage collector</a>
+Passando all'istanza di <code>finalize</code> un riferimento all'oggetto che traccia fa sì che il riferimento venga mantenuto, quindi l'oggetto non viene mai raccolto dal <a href='https://www.wikiwand.com/it/Garbage_collection' target='_blank'>garbage collector</a>
 </testo_normale>
 <py_code>
 # weakref_finalize_reference.py
@@ -208,7 +208,7 @@ for o in gc.get_objects():
         print('trovato oggetto non raccoglibile in gc')
 </py_code>
 <testo_normale>
-Questo esempio mostra che l'oggetto viene trattenuto e visibile dal  <a href='https://www.wikiwand.com/it/Garbage_collection' target='_blank'>garbage collector</a> attraverso <code>f</code> anche se è stata cancellato il riferimento esplicito ad <code>obj</code>.
+Questo esempio mostra che l'oggetto viene trattenuto e visibile dal  <a href='https://www.wikiwand.com/it/Garbage_collection' target='_blank'>garbage collector</a> attraverso <code>f</code> anche se è stato cancellato il riferimento esplicito a <code>obj</code>.
 </testo_normale>
 <py_output>
 $ python3 weakref_finalize_reference.py
@@ -247,7 +247,7 @@ for o in gc.get_objects():
         print('trovato oggetto non raccoglibile in gc')
 </py_code>
 <testo_normale>
-Visto che il <a href='https://it.wikipedia.org/wiki/Callback' target='_blank'>callback</a> passato a <code>finalize</code> è un oggetto legato alla istanza di <code>obj</code>, l'oggetto finalize mantiene un riferimento ad obj, il quale non può essere eliminato e raccolto dal <a href='https://www.wikiwand.com/it/Garbage_collection' target='_blank'>garbage collector</a>
+Visto che il <a href='https://it.wikipedia.org/wiki/Callback' target='_blank'>callback</a> passato a <code>finalize</code> è un oggetto legato alla istanza di <code>obj</code>, l'oggetto finalize mantiene un riferimento a obj, il quale non può essere eliminato e raccolto dal <a href='https://www.wikiwand.com/it/Garbage_collection' target='_blank'>garbage collector</a>
 </testo_normale>
 <py_output>
 $ python3 weakref_finalize_reference_method.py
@@ -258,7 +258,7 @@ trovato oggetto non raccoglibile in gc
 Proxy
 </titolo_2>
 <testo_normale>
-Talvolta è più conveniente utilizzare un proxy al posto di un riferimento debole. I proxy possono essere utilizzati come se fossero l'oggetto originale, e non devono essere chiamati prima che l'oggetto sia accessibile. Il che vuol dire che essi possono essere passati ad una libreria che non sa se sta ricevendo un riferimento in luogo dell'oggetto reale
+Talvolta è più conveniente utilizzare un proxy al posto di un riferimento debole. I proxy possono essere utilizzati come se fossero l'oggetto originale, e non devono essere chiamati prima che l'oggetto sia accessibile. Il che vuol dire che essi possono essere passati a una libreria che non sa se sta ricevendo un riferimento in luogo dell'oggetto reale
 </testo_normale>
 <py_code>
 # weakref_proxy.py
@@ -304,10 +304,10 @@ ReferenceError: weakly-referenced object no longer exists
 Cache degli Oggetti
 </titolo_2>
 <testo_normale>
-Le classi <code>ref</code> e <code>weakref</code> sono considerate classi di "basso livello". Laddove esse sono utili per mantenere riferimenti deboli ad oggetti individuali e per consentire a cicli di essere raccolti dal garbage collector, se occorre creare una cache di parecchi oggetti <code>WeakKeyDictionary</code> e <code>WeakValueDictionary</code> forniscono API più appropriate.
+Le classi <code>ref</code> e <code>proxy</code> sono considerate classi di "basso livello". Laddove esse sono utili per mantenere riferimenti deboli a oggetti individuali e per consentire a cicli di essere raccolti dal garbage collector, le classi  <code>WeakKeyDictionary</code> e <code>WeakValueDictionary</code> forniscono una API più appropriata per creare una cache di parecchi oggetti.
 </testo_normale>
 <testo_normale>
-<code>WeakValueDictionary</code> utilizza riferimenti deboli come valori da conservare, consentendo di essere poi raccolti dal <a href='https://www.wikiwand.com/it/Garbage_collection' target='_blank'>garbage collector</a> quando non vengono più utilizzati da altre parti di codice. Usando chiamate esplicite al <a href='https://www.wikiwand.com/it/Garbage_collection' target='_blank'>garbage collector</a> si dimostra la differenza tra la gestione della memoria con un normale dizionario e con <code>WeakValueDictionary</code>
+La classe <code>WeakValueDictionary</code> utilizza riferimenti deboli ai valori che conserva, consentendo di essere poi raccolti dal <a href='https://www.wikiwand.com/it/Garbage_collection' target='_blank'>garbage collector</a> quando non vengono più utilizzati da altre parti di codice. Usando chiamate esplicite al <a href='https://www.wikiwand.com/it/Garbage_collection' target='_blank'>garbage collector</a> si dimostra la differenza tra la gestione della memoria con un normale dizionario e con <code>WeakValueDictionary</code>
 </testo_normale>
 <py_code>
 # weakref_valuedict.py
@@ -417,7 +417,7 @@ TIPO CACHE: <class 'weakref.WeakValueDictionary'>
 La documentazione standard per <a href='https://docs.python.org/3.5/library/weakref.html'>weakref</a> contiene questo avvertimento:<br /><br />Cautela: Visto un un <code>WeakValueDictionary</code> è costruito sopra un dizionario Python, non deve mutare dimensione quando ci si itera sopra. Il che può essere difficile assicurare per un <code>WeakValueDictionary</code> visto che le azioni eseguite dal programma durante l'iterazione possono fare sì che gli elementi nel dizionario scompaiano "magicamente" (come effetto collaterale della raccolta del garbage collector)
 </avvertimento>
 <vedi_anche>
-https://docs.python.org/3.5/library/weakref.html|weakref|La documentazione standard della libreria per questo modulo.
+https://docs.python.org/3.7/library/weakref.html|weakref|La documentazione standard della libreria per questo modulo.
 gc.html|gc|Il modulo gc è l'interfaccia al garbage collector dell'interprete.
 https://www.python.org/dev/peps/pep-0205|PEP 205|Proposta di miglioramento per i riferimenti deboli (in inglese)
 </vedi_anche>

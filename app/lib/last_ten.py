@@ -18,7 +18,7 @@ class LastTen:
         :param descr: descrizione
         """
         self._last_upd = datetime.datetime.strptime(last_upd, LastTen.date_fmt)
-        self._name = name.lower().strip()
+        self._name = name.strip()
         self.descr = descr.strip()
 
     @property

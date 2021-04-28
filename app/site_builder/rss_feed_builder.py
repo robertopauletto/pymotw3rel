@@ -1,7 +1,7 @@
 # rss_feed_builder.py
 
 import datetime
-from typing import Union
+from typing import Union, List
 
 from app.site_builder.rss2feed import RSS2Feed
 
@@ -22,7 +22,21 @@ class FeedItem:
         self._descr = descr
         self._dt = date
         self._guid = guid
-        
+
+    def __str__(self) -> str:
+        return f"{self._title} - {self._dt}"
+
+    def item2rssfeed(self) -> dict:
+        """Ritorna una rappresentazione dizionario per alimentazione
+        del feed RSS"""
+        return {
+            "title": self._title,
+            "link":  self._lnk,
+            "description": self._descr,
+            "pub_date": self._dt,
+            "guid":  self._guid
+        }
+
 
 class Feed:
     """Rappresenta un file rss """
@@ -33,33 +47,28 @@ class Feed:
         self._title = title
         self._link = link
         self._descr = description
-        self._items = list()
-        
+        self._feeditems: List[FeedItem] = list()
+
+    @property
+    def count_items(self):
+        """Numero di elementi nel canale"""
+        return len(self._feeditems)
+
     def add_item(self, feed_item: FeedItem):
         """
         Aggiunge un elemento al feed
         """
-        self._items.append(feed_item)
+        self._feeditems.append(feed_item)
     
     def get_feed(self, pretty: bool = True):
-        """Ritorna la rappresentazione xml del feed"""
-        if not self._items:
+        """
+        Ritorna la rappresentazione xml del feed
+        :param pretty: se `True` ritorna il testo pretty-printed
+        :return: il feed in formato xml
+        """
+        if not self._feeditems:
             raise AttributeError("Almeno un elemento deve essere presente")
         feed = RSS2Feed(self._title, self._link, self._descr)
-        # with open(r'/home/robby/deb.txt', mode='w') as fh:
-        #     for item in self._items:
-        #         #print item._title
-        #         # try:
-        #         #     fh.write("%s %s %s\n" %
-        #         (item._title, item._lnk, item._descr))
-        #         # except:
-        #         #     print item._title
-        #         #     raise
-        #         feed.append_item(
-        #             title=item._title,
-        #             link=item._lnk,
-        #             description=item._descr,
-        #             pub_date=item._dt,
-        #             guid=item._guid
-        #         )
+        for item in self._feeditems:
+            feed.append_item(**item.item2rssfeed())
         return feed.get_xml(pretty, encoding='utf-8')

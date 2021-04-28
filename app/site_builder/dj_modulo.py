@@ -19,12 +19,14 @@ class DjModulo(object):
     fixed_sidebar = 20
     baseurl = 'examples'
 
-    def __init__(self, indice, corpo, modulo, footer=None, zipfile=None,
+    def __init__(self, indice, corpo, vedi_anche: list, modulo,
+                 footer=None, zipfile=None,
                  sidebar_is_fixed=True):
         """
 
         :param indice: contenuto della spalla destra (indice articolo)
         :param corpo: corpo dell'articolo
+        :param vedi_anche: sezione bibliografica
         :param modulo: info sul modulo
         :param footer:
         :param zipfile: file con gli esempi dell'articolo
@@ -35,8 +37,13 @@ class DjModulo(object):
         self.modulo = modulo
         self.footer = footer
         self._zip = zipfile
+        self._vedi_anche = vedi_anche
         isinstance(self.modulo, Modulo)
         self._fixed_sidebar = sidebar_is_fixed
+
+    @property
+    def vedi_anche(self):
+        return self._vedi_anche[0]
 
     @property
     def lnkzip(self):
