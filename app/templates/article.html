@@ -1,86 +1,56 @@
-{% extends 'bare.html' %}
-{% block navbar %}
-  {% include 'navbar.html' %}
-{% endblock %}
+{% extends 'base.html' %}
 {% block content %}
-  <div class="container">
-  <div class="row justify-content-center mt-5">
-    <div class="table-responsive">
-      <table class="table table-striped">
-        <thead class="thead-dark">
+  <div class="row">
+    <div class="col s12 m6 l12">
+      <table class="table striped indigo lighten-4 indigo-text">
+        <thead>
         <tr>
           {% for header in data.headers %}
-            <th scope="col" class="align-top"
-                style="text-align: center">{{ header }}</th>
+            <th>{{ header }}</th>
           {% endfor %}
         </tr>
         </thead>
         <tbody>
         {% for article in data.articles.items | sort(attribute='title') %}
           <tr>
-            <td>
-              <button class="btn btn-sm"
-                      data-toggle="modal"
-                      data-target="#modal{{ article.id }}">{{ article.id }}</button>
+            <td class="center-align">
+              <a class="teal-text darken-5"
+                 title="Modifica voce articolo"
+                 href="{{ url_for('main.article', key=article.id) }}">
+                <i class="material-icons">edit</i>
+              </a>
+
             </td>
-            <td>{{ article.title }}</td>
-            <td>{{ article.artcat.descr }}</td>
-            {# <td><a href="../{{ data.source_articles_folder }}/{{ article.filename }}">{{ article.filename }}</a></td> #}
-            <td><a href="{{ url_for('main.source') }}">{{ article.filename }}</a></td>
-            <td>{{ article.lastmod.strftime("%d/%m/%Y") }}</td>
-            <td style="text-align: right">{{ "%d"|format(article.size) }}</td>
-            <td style="text-align: center">{% if article.indexed == 1 %}
+            <td class="left-align">{{ article.title }}</td>
+            <td class="left-align">{{ article.artcat.descr }}</td>
+            <td class="left-align"><a class="teal-text darken-5"
+                                      title="Modifica sorgente articolo"
+                                      href="{{ url_for('main.source') }}">{{ article.filename }}</a>
+            </td>
+            <td class="center-align">{{ article.lastmod.strftime("%d/%m/%Y") }}</td>
+            <td class="right-align">{{ "%d"|format(article.size) }}</td>
+            <td class="center-align">{% if article.indexed == 1 %}
               SI{% else %}NO{% endif %}</td>
           </tr>
         {% endfor %}
+
         </tbody>
       </table>
-      <nav aria-label="Page navigation example">
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m6 l6 offset-l5 offset-m3 offset-s1">
         <ul class="pagination">
-          {% if data.prev %}
-            <li class="page-item"><a class="page-link" href="{{ data.prev  }}">Pagina Precedente</a></li>
-          {% endif %}
-          {% if data.next %}
-            <li class="page-item"><a class="page-link" href="{{ data.next  }}">Pagina Successiva</a></li>
-          {% endif %}
-
+          <li><a href="{{ data.prev }}"
+                 class="indigo darken-4 white-text waves-effect waves-light btn">Precedenti</a>
+          </li>
+          <li><a href="{{ data.next }}"
+                 class="indigo darken-4 white-text waves-effect waves-light btn">Successivi</a>
+          </li>
         </ul>
-      </nav>
+      </div>
     </div>
   </div>
-  <!--    {% for article in data.articles.items %}
-    <div class="modal fade" id="modal{{article.id}}" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4>Dettaglio Categoria</h4>
-        </div>
-        <div class="modal-body">
-          <form method="post" id="frmCat">
-            <div class="form-group">
-              <label for="idcat">ID</label>
-              <input type="text" class="form-control" readonly
-                     id="idcat{{ article.id }}" name="catid" value="
-    {{ article.id }}">
-            </div>
-            <div class="form-group">
-              <label for="idcat">DESCRIZIONE</label>
-              <input type="text" class="form-control"
-                     id="descrcat{{ article.id }}" name="catdescr" value="
-    {{ article.descr }}">
-              <small class="form-text text-muted">Il case dell'elemento viene gestito internamente</small>
-            </div>
-            <div class="modal-footer">
-              <button class="btn btn-primary" name="aggiorna">AGGIORNA</button>
-              <button class="btn btn-danger"  name="elimina">ELIMINA</button>
-              <button class="btn btn-secondary" data-dismiss="modal">CHIUDI</button>
-            </div>
-          </form>
-        </div>
-    </div>
-  </div>
-
-  </div>
-  {% endfor %}
--->
 {% endblock %}
+

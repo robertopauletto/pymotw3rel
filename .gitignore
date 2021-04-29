@@ -1,4 +1,5 @@
-app/static
+app/static/css/vendor
+app/static/js/vendor
 .env
 .idea/
 .venv/

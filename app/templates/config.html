@@ -1,44 +1,45 @@
-{% extends 'base.html' %}
-{% block title %} {{ title }} {% endblock %}
+{% extends "base.html" %}
 {% block content %}
-<ul class="nav nav-tabs m-5" >
-  {% for k, v in parameters.items() %}
-    <li class="nav-item">
-        <a href="#{{ k }}"
-           class="nav-link {% if loop.index == 1  %}active {% endif %}"
-           data-toggle="tab">{{ v[0].conf_tag | title }}</a>
-    </li>
-  {% endfor %}
-</ul>
-<div class="tab-content m-5">
-  {% for k, v in parameters.items() %}
-    <div class="tab-pane fade show " id="{{ k }}">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 mb-4">
+        <ul class="tabs" id="configTabs">
+          {% for k, v in parameters.items() %}
+            <li class="tab col s3">
+              <a href="#{{ k }}"
+                 class="{% if loop.index == 1 %}active{% endif %}">
+                <span
+                    class="indigo-text text-darken-4">{{ v[0].conf_tag | title }}</span></a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
       <form action="" id="frm{{ k }}" method="post">
-        {% for item in v %}
-          <div class="form-group row">
-            <label class="col-sm-2 col-form-label" for="value_{{ item.id }}" >{{ item.conf_key }}:</label>
-            <div class="col-sm-5">
-              <input type="text" class="form-control" value="{{ item.conf_value }}" name="value_{{ item.id }}">
+      {% for k, v in parameters.items() %}
+        <div id="{{ k }}" class="col s12">
+          {% for item in v %}
+            <div class="row">
+              <div class="input-field col s12 m4 l6">
+                <input type="text" value="{{ item.conf_value }}"
+                       name="value_{{ item.id }}">
+                <label for="value_{{ item.id }}">{{ item.conf_key }}</label>
+              </div>
+              <div class="input-field col s12 m8 l6">
+                <input type="text"
+                  {% if item.conf_tip %}
+                     value="{{ item.conf_tip }}"
+                  {% else %}
+                     placeholder="Descrizione proprietà"
+                  {% endif %}
+                >
+                <label for="value_{{ item.id }}">Descrizione elemento</label>
+              </div>
             </div>
-            <div class="col-sm-5">
-            <input type="text" class="form-control"
-                   {% if item.conf_tip  %}value="{{ item.conf_tip }}"{% else %} placeholder="Descrizione proprietà" {% endif %}
-                   name="tip_{{ item.id }}"
-            >
-            </div>
-          </div>
-          <!--
-          <div class="form-group mr-2">
-            <input type="text" class="form-control" {% if item.conf_tip  %}value="{{ item.conf_tip }}"{% else %} placeholder="Descrizione proprietà" {% endif %}>
-          </div>-->
-        {% endfor %}
-    </div>
-  {% endfor %}
-    <div class="form-group row">
-        <div class="col-sm-2 col-sm-offset-10">
-            <button type="submit" class="btn btn-primary">Salva modifiche</button>
+          {% endfor %}
         </div>
-    </div>
+      {% endfor %}
       </form>
-</div>
+    </div>
+  </div>
 {% endblock %}

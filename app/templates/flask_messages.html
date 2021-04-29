@@ -1,12 +1,17 @@
 {% with messages = get_flashed_messages(with_categories=True) %}
   <!-- success, info, warning, danger -->
   {% if messages %}
-    {% for category, message in messages %}
-      <div class="alert mt-3 alert-{{ category }} alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert"
-                aria-label="Close"><span aria-hidden="true">&times;</span>
-        </button>
-        {{ message }}
+    {% for message, category in messages %}
+      <div class="row dismissible {{ category }} valign-wrapper"
+           id="dismissible-{{ loop.index }}">
+        <div class="col s12 l11">
+          {{ message }}
+        </div>
+        <div class="col s12 l1" style="text-align: right;">
+          <a class="indigo-text text-darken-4" href="#"
+             onclick="closeMsg('dismissible-{{ loop.index }}')" ><i
+              class="material-icons">clear</i></a>
+        </div>
       </div>
     {% endfor %}
   {% endif %}
