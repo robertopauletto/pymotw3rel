@@ -1,28 +1,28 @@
 document.addEventListener('DOMContentLoaded', function () {
  console.log("Hello!")
 
-  let elems = document.querySelectorAll('.sidenav')
-  let instances = M.Sidenav.init(elems)
+  const elems = document.querySelectorAll('.sidenav')
+  const instances = M.Sidenav.init(elems)
 
-  let ddElems = document.querySelectorAll('.dropdown-trigger')
-  let ddInstances = M.Dropdown.init(ddElems, { hover: false })
+  const ddElems = document.querySelectorAll('.dropdown-trigger')
+  const ddInstances = M.Dropdown.init(ddElems, { hover: false })
 
-  let ddCateg = document.querySelectorAll('.dropdown-categ-trigger')
-  let ddCategInstances = M.Dropdown.init(ddCateg)
+  const ddCateg = document.querySelectorAll('.dropdown-categ-trigger')
+  const ddCategInstances = M.Dropdown.init(ddCateg)
 
-  let configTabElems = document.getElementById("configTabs")
-  let configTabInstance = M.Tabs.init(configTabElems)
-  console.log({configTabInstance})
+  const configTabElems = document.getElementById("configTabs")
+  const configTabInstance = M.Tabs.init(configTabElems)
 
+  const selectItems = document.querySelectorAll('select')
+  const selectInstances = M.FormSelect.init(selectItems)
 
 })
 
 /*
-  Cismiss the div containing the flashmessage with id = elementID
+  Dismiss the div containing the flashmessage with id = elementID
  */
 function closeMsg(elementId) {
   const flashMessage = document.getElementById(elementId)
-  console.log({flashMessage})
   const parent = flashMessage.parentNode
   parent.removeChild(flashMessage)
 }

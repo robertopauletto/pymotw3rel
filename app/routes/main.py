@@ -44,7 +44,8 @@ def config():
     """Gestione configurazione"""
     parameters, objlist = GeneratorConfig.parse_config()
     if request.method == 'POST':
-        GeneratorConfig.update_config(objlist, request.form)
+        category, prompt = GeneratorConfig.update_config(objlist, request.form)
+        flash(category, prompt)
         return redirect(url_for('main.config'))
     return render_template('config.html',
                            parameters=parameters, title='Configurazione')
@@ -86,7 +87,7 @@ def generator():
 
     m = session.get('module', '')
     return render_template('generator.html',
-                           titolo='Generatore Codice HTML',
+                           title='Generatore Codice HTML',
                            form=form, defname=m)
 
 
@@ -121,7 +122,7 @@ def article(key):
 
     data = dict(articles=articles, next=next_url, prev=prev_url,
                 source_articles_folder=diz['tran_dir'],
-                headers='ID,TITOLO,CATEGORIA,NOME FILE,ULTIMO AGG.,'
+                headers='#,TITOLO,CATEGORIA,NOME FILE,ULTIMO AGG.,'
                         'DIMENSIONE, INDICIZZATO'.split(','))
     return render_template('article.html', key=None, data=data)
 
@@ -244,7 +245,7 @@ def builder_log():
 
     # notify(nobj, 'Scritta pagina ' + session.get('module', ''))
     return render_template('builder_log.html',
-                           titolo="Log elaborazione",
+                           title="Log elaborazione",
                            form=form, logcontent=lc)
 
 

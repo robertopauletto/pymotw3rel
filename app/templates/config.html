@@ -1,5 +1,7 @@
 {% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
 {% block content %}
+  {% include 'flask_messages.html' %}
   <div class="container">
     <div class="row">
       <div class="col s12 mb-4">
@@ -16,29 +18,36 @@
       </div>
 
       <form action="" id="frm{{ k }}" method="post">
-      {% for k, v in parameters.items() %}
-        <div id="{{ k }}" class="col s12">
-          {% for item in v %}
-            <div class="row">
-              <div class="input-field col s12 m4 l6">
-                <input type="text" value="{{ item.conf_value }}"
-                       name="value_{{ item.id }}">
-                <label for="value_{{ item.id }}">{{ item.conf_key }}</label>
+        {% for k, v in parameters.items() %}
+          <div id="{{ k }}" class="col s12">
+            {% for item in v %}
+              <div class="row">
+                <div class="input-field col s12 m4 l6">
+                  <input type="text" value="{{ item.conf_value }}"
+                         name="value_{{ item.id }}">
+                  <label for="value_{{ item.id }}">{{ item.conf_key }}</label>
+                </div>
+                <div class="input-field col s12 m8 l6">
+                  <input type="text" name="tip_{{ item.id }}"
+                      {% if item.conf_tip %}
+                         value="{{ item.conf_tip }}"
+                      {% else %}
+                         placeholder="Descrizione proprietà"
+                      {% endif %}
+                  >
+                  <label for="value_{{ item.id }}">Descrizione elemento</label>
+                </div>
               </div>
-              <div class="input-field col s12 m8 l6">
-                <input type="text"
-                  {% if item.conf_tip %}
-                     value="{{ item.conf_tip }}"
-                  {% else %}
-                     placeholder="Descrizione proprietà"
-                  {% endif %}
-                >
-                <label for="value_{{ item.id }}">Descrizione elemento</label>
-              </div>
-            </div>
-          {% endfor %}
+            {% endfor %}
+          </div>
+        {% endfor %}
+        <div class="row">
+          <div class="col s12 offset-l10">
+            <button title="Salva modifiche" type="submit"
+                    class="btn btn-floating btn-large waves-effect waves-light indigo darken-4">
+              <i class="material-icons">save</i></button>
+          </div>
         </div>
-      {% endfor %}
       </form>
     </div>
   </div>

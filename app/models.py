@@ -53,15 +53,23 @@ class GeneratorConfig(db.Model):
         :param form:
         :return:
         """
-        for genform in objlist:
-            value = form[f'value_{genform.id}']
-            tip = form[f'tip_{genform.id}']
-            if value != genform.conf_value:
-                genform.conf_value = value
-            if tip and tip != genform.conf_tip:
-                genform.conf_tip = tip
-            db.session.add(genform)
-            db.session.commit()
+        category = "success"
+        prompt = "Aggiornamento effettuato"
+        try:
+            for genform in objlist:
+                value = form[f'value_{genform.id}']
+                tip = form[f'tip_{genform.id}']
+                if value != genform.conf_value:
+                    genform.conf_value = value
+                if tip and tip != genform.conf_tip:
+                    genform.conf_tip = tip
+                db.session.add(genform)
+                db.session.commit()
+        except Exception as exc:
+            category = "error"
+            prompt = str(exc)
+        finally:
+            return category, prompt
 
     @staticmethod
     def get_template_def_name() -> str:
