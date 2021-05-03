@@ -62,3 +62,11 @@ class ConfigurationForm(FlaskForm):
     """Configurazione procedura"""
     submit = SubmitField('Modifica configurazione')
 
+
+class SourceForm(FlaskForm):
+    """Sorgente articolo"""
+    source_text = TextAreaField()
+
+
+class SearchArticlesForm(FlaskForm):
+    filter_text = StringField('filterText', validators=[DataRequired()])

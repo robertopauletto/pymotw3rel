@@ -22,6 +22,20 @@ PATHS = {
     'win32': r'c:\users\robby',
 }
 
+SPELL_CHECK_REMOVE = [
+    '["', '"]', "['", "']",
+]
+
+
+def parse_text_for_spellcheck(data: list) -> str:
+    retval = []
+    for paragraph in data:
+        tmptext = paragraph['text']
+        for chars in SPELL_CHECK_REMOVE:
+            tmptext = tmptext.replace(chars, '')
+        retval.append(tmptext)
+    return ''.join(retval)
+
 
 def get_article_boilerplate(model: str, article: Article,
                             descr: str) -> str:

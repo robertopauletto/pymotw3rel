@@ -1,5 +1,7 @@
+app/translations/backupù
 app/static/css/vendor
 app/static/js/vendor
+app/templates/tmpold
 .env
 .idea/
 .venv/

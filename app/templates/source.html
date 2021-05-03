@@ -1,21 +1,28 @@
-{% extends 'bare.html' %}
-{% block links %}
-  <script src="https://unpkg.com/codeflask/build/codeflask.min.js"></script>
-{% endblock %}
-{% block navbar %}
-  {% include 'navbar.html' %}
-{% endblock %}
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
 {% block content %}
+  {% include 'flask_messages.html' %}
   <div class="container">
-  <div class="row justify-content-center mt-5">
-    <div id="editor">
-
+    <div class="row align-center">
+      <h5>{{ module_path }}</h5>
+    </div>
+    <div class="row">
+      <form action="{{ url_for("main.source", module_name=module_filename) }}"
+            method="post" name="builderlog">
+        {{ form.hidden_tag() }}
+        {{ form.csrf_token }}
+        <div class="col s12">
+          <button
+              class="waves-effect waves-light btn indigo darken-4 white-text"
+          >Salva Modifiche
+          </button>
+        </div>
+    </div>
+    <div class="row align-center">
+      <div class="col s12">
+        {{ form.source_text(spellcheck="false", rows="30", id="sourceTa") }}
+        </form>
+      </div>
     </div>
   </div>
-  </div>
-{% endblock %}
-{% block scripts %}
-  <script>
-  const flask = new CodeFlask('editor', {language: 'js'})
-  </script>
 {% endblock %}

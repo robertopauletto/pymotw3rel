@@ -86,7 +86,7 @@ Istanza    : True
 Implementazione Attraverso la Derivazione
 </titolo_2>
 <testo_normale>
-Derivando direttamente dalla base, si può evitare la necessità di registare la classe esplicitamente
+Derivando direttamente dalla base, si può evitare la necessità di registrare la classe esplicitamente
 </testo_normale>
 <py_code>
 # abc_subclass.py

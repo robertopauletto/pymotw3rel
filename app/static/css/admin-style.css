@@ -31,6 +31,13 @@ main {
   color: hsl(0, 97%, 35%);
 }
 
+thead {
+  background-color: #0f277b;
+  color: white;
+  font-width: bolder;
+}
+
+
 .module-cards {
   font-size: 1rem;
 }
@@ -142,4 +149,17 @@ legend {
 
 .mb-4 {
   margin-bottom: 20px;
+}
+
+#sourceTa {
+  font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+  padding: 10px;
+  border: 2px solid var(--head-color);
+  background-color: #c5cae9;
+  min-height: 500px;
+}
+
+#filterText::placeholder {
+  color: #9fa8da;
+  opacity: 1;
 }

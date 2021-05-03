@@ -25,6 +25,10 @@ def make_shell_context():
                 gc=GeneratorConfig, Article=Article, category=Category)
 
 
+def create_tables():
+    db.create_all()
+
+
 @app.cli.command('update-articles-info')
 @click.argument("folder", type=click.Path(exists=True))
 @click.argument("output", default='artinfos.csv')

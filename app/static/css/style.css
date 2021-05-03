@@ -93,7 +93,7 @@ code {
 
 .code-snippet {
   background-color: #3f3f3f;
-  height:400px;
+  min-height: 20px;
 }
 
 /* From https://github.com/richleland/pygments-css/blob/master/zenburn.css (thanks) */

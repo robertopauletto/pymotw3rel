@@ -5,7 +5,7 @@
   <div class="container">
     <div class="row align-center">
       <div class="col s12 offset-l2 l8">
-      <h3>Risultato dell'elaborazione</h3>
+        <h3>Risultato dell'elaborazione</h3>
       </div>
     </div>
     <div class="row">
@@ -21,16 +21,28 @@
           </div>
           <div class="row">
             <div class="col s12">
-                  <button
-                      class="waves-effect waves-light btn indigo darken-4 white-text"
-                      name="generatore"
-                      title="Torna al generatore di pagine"
-                      >generatore
-                  </button>
-                  <button
-                      class="waves-effect waves-light btn indigo white-text" name="apri"
-                      title="Apri la pagina generata (in un altra scheda)">Vai alla pagina generata
-                  </button>
+              <button
+                  class="waves-effect waves-light btn indigo darken-4 white-text"
+                  name="generatore"
+                  title="Torna al generatore di pagine"
+              >generatore
+              </button>
+              <button
+                  class="waves-effect waves-light btn indigo white-text"
+                  name="apri"
+                  title="Apri la pagina generata (in un altra scheda)">Vai alla
+                pagina generata
+              </button>
+              <button
+                  class="waves-effect waves-light btn indigo white-text"
+                  name="apri"
+                  {% if not session.check_syntax %}
+                    disabled
+                  {% endif %}
+                  title="Verifica la sintassi del testo nella pagina generata">
+                  verifica sintassi
+              </button>
+
             </div>
           </div>
         </form>
