@@ -244,7 +244,6 @@ def crea_nuovo_articolo(filetemplate, outfile, categoria, nome_modulo, scopo,
 
 def create_privacy_page(template_name: str) -> None:
     """
-
     :param template_name:
     :return:
     """
@@ -252,10 +251,6 @@ def create_privacy_page(template_name: str) -> None:
         builder_conf['tran_dir']
     )
     indice = Indice(moduli, 0, categ_per_indice, 0, 0)
-
-    # moduli = sorted(elenco_per_indice(builder_conf['tran_dir']),
-    #                 key=lambda x: x.nome.lower())
-    # categ_per_indice = _categorie_per_indice(moduli)
 
     # Gestione sezione ultimi moduli aggiornati
     cronology_path = os.path.join(
@@ -551,6 +546,7 @@ def build_module(moduli: list, is_sidebar_fixed: bool) -> tuple:
     :param moduli: una lista di moduli da rendere (percorso completo)
     :param is_sidebar_fixed: se `True` fissa la barra laterale sx per
                              l'articolo
+    :return: log operazione, testo per verifica sintassi, percorso modulo
     """
     # Ottengo il percorso assoluto delle directory dei template django
     tmpdirs_norm = [os.path.abspath(folder)
@@ -581,7 +577,7 @@ def build_module(moduli: list, is_sidebar_fixed: bool) -> tuple:
                 builder_conf["tag_summary"], log, is_sidebar_fixed
             )
         log.append("Costruzione pagina %s terminata" % os.path.basename(modulo))
-    return log, check_sintassi
+    return log, check_sintassi, modulo
 
 
 def build_index():

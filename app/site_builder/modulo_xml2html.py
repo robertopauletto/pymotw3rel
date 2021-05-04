@@ -339,6 +339,7 @@ TEMP_FATTI = ('titolo_2', 'titolo_3', 'titolo_4', 'testo_normale',
               'sottotitolo', 'lista_ricorsiva', 'py_code_lineno',
               'mk_xml_code_lineno', 'lista_ordinata')
 
+# Gli elementi da cui estrarre il testo per la verifica della sintassi
 CHECK_SYNTAX = ('titolo_2', 'titolo_3', 'titolo_4', 'testo_normale',
                 'lista', '',
                 'tabella_semplice', 'tabella_spec_separatore',

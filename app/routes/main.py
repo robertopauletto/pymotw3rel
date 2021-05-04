@@ -5,25 +5,27 @@ import logging
 from math import ceil
 import os
 import re
+from shutil import copy
 import webbrowser
 
 from flask import (
     render_template, redirect, Blueprint, request, url_for, session, flash
 )
+import pyperclip
 
 from mylogger import add_module_handler
 from app.extensions import db
 from app.models import GeneratorConfig, Category, Article, search_all
 from app.forms import (
     HTMLGeneratorForm, BuilderLog, CategoryForm, NewArticleForm,
-    ArticleBoilerplate
+    ArticleBoilerplate, SourceForm, SearchArticlesForm
 )
 from app.site_builder.builder import (
     build_module, build_index, build_module_table,
     get_categorie, crea_nuovo_articolo, save_categorie
 )
-from app.lib.common import get_article_boilerplate, create_new_article_file
-import pyperclip
+from app.lib.common import (get_article_boilerplate, create_new_article_file,
+                            parse_text_for_spellcheck)
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -55,6 +57,9 @@ def config():
 def generator():
     """Generatore html articoli"""
     form = HTMLGeneratorForm()
+    # Se ricevo già il nome del modulo dal url referente (pagina articoli)
+    if 'module' in request.args:
+        session['module'] = request.args['module']
 
     if form.validate_on_submit():
         module = form.modules.data
@@ -63,7 +68,8 @@ def generator():
         logger.info(
             f"Barra Indice {'fissa' if is_sidebar_fixed else 'flottante'}"
         )
-        tmplog, check_sintassi = build_module(module.split(), is_sidebar_fixed)
+        tmplog, check_syntax, modulo = build_module(
+            module.split(), is_sidebar_fixed)
         if form.spellcheck:
             pass
         log = '\n'.join(tmplog)
@@ -78,12 +84,14 @@ def generator():
 
         session['log'] = log
         session['module'] = module
-        session['check_sintassi'] = (check_sintassi if form.spellcheck.data
-                                     else None)
+        session['module_fullpath'] = modulo
+        session['check_syntax'] = (parse_text_for_spellcheck(check_syntax)
+                                   if form.spellcheck.data else None)
         flash('success', 'Codice HTML generato per il modulo')
         return redirect(url_for('main.builder_log'))
-    else:
-        pass
+
+    # else:
+    #     pass
 
     m = session.get('module', '')
     return render_template('generator.html',
@@ -98,23 +106,67 @@ def search():
     return render_template('search.html', titolo='Ricerca', results=results)
 
 
-@main.route('/article/<string:key>', methods=['GET', 'POST'])
-def article(key):
-    """Elenco articoli, `key` è il filtro per id categoria"""
+def _get_config_items():
     parameters, objlist = GeneratorConfig.parse_config()
     diz = dict()
     for obj in objlist:
         diz[obj.conf_key] = obj.conf_value
+    return diz
 
+
+@main.route('/source/<string:module_name>', methods=['GET', 'POST'])
+def source(module_name):
+    """Mostra il testo xml dell'articolo"""
+    diz = _get_config_items()
+
+    print(os.path.abspath(os.curdir))
+    if not module_name.lower().endswith('.xml'):
+        module_name = f"{module_name}.xml"
+    module_path = os.path.abspath(
+        os.path.join(diz["tran_dir"], module_name)
+    )
+    with open(module_path) as fh:
+        module_text = fh.read()
+    form = SourceForm()
+
+    if form.validate_on_submit():
+        bkfolder = os.path.join(diz["tran_dir"], "backup")
+        fn, ext = os.path.splitext(os.path.basename(module_path))
+        versioned = f"{bkfolder}/{fn}-" \
+                    f"{datetime.datetime.now().strftime('%Y%m%d%H%M%s')}{ext}"
+        copy(module_path, versioned)
+        with open(module_path, mode='w') as fh:
+            fh.write(form.source_text.data)
+        module_text = form.source_text.data
+        flash("success", 'Articolo modificato')
+
+    form.source_text.data = module_text
+    return render_template(
+        'source.html', module_text=module_text, module_path=module_path,
+        module_filename=os.path.basename(module_path), form=form
+    )
+
+
+@main.route('/article/<string:key>', methods=['GET', 'POST'])
+def article(key):
+    """Elenco articoli, `key` è il filtro per id categoria"""
+    diz = _get_config_items()
+    form = SearchArticlesForm()
     page = request.args.get('page', 1, type=int)
-    if key and re.match(r'^\d+$', key):
-        articles = Article.query.filter_by(
-            categ_id=int(key)
+
+    if request.method == 'POST':
+        articles = Article.query.filter(
+            Article.title.contains(request.form['filter_text'])
         ).paginate(page, 10, False)
     else:
-        articles = Article.query.paginate(
-            page, 10, False
-        )
+        if key and re.match(r'^\d+$', key):
+            articles = Article.query.filter_by(
+                categ_id=int(key)
+            ).paginate(page, 10, False)
+        else:
+            articles = Article.query.paginate(
+                page, 10, False
+            )
     next_url = url_for('main.article', key=key, page=articles.next_num) \
         if articles.has_next else None
     prev_url = url_for('main.article', key=key, page=articles.prev_num) \
@@ -122,17 +174,17 @@ def article(key):
 
     data = dict(articles=articles, next=next_url, prev=prev_url,
                 source_articles_folder=diz['tran_dir'],
-                headers='#,TITOLO,CATEGORIA,NOME FILE,ULTIMO AGG.,'
+                headers=',TITOLO,CATEGORIA,NOME FILE,ULTIMO AGG.,'
                         'DIMENSIONE, INDICIZZATO'.split(','))
-    return render_template('article.html', key=None, data=data)
+    return render_template('article.html', key=None, data=data, form=form)
 
 
 @main.route('/new_article', methods=['GET', 'POST'])
 def new_article():
     """Nuovo articolo"""
     form = NewArticleForm()
-    form.categ.choices = [(-1, '--Selezionare una categoria--')] +\
-        Category.get_list(True)
+    form.categ.choices = [(-1, '--Selezionare una categoria--')] + \
+                         Category.get_list(True)
     form.template.data = GeneratorConfig.get_template_def_name()
     form.publish_date.data = datetime.date.today()
 
@@ -233,6 +285,10 @@ def builder_log():
     form = BuilderLog()
     lc = session.get('log', '')
     x = request
+    check_syntax = []
+    if session['check_syntax']:
+        check_syntax = session['check_syntax']
+        pyperclip.copy(check_syntax)
     if form.validate_on_submit():
         if 'apri' in request.form:
             pwd = os.path.abspath(os.curdir)
@@ -246,11 +302,5 @@ def builder_log():
     # notify(nobj, 'Scritta pagina ' + session.get('module', ''))
     return render_template('builder_log.html',
                            title="Log elaborazione",
-                           form=form, logcontent=lc)
-
-
-@main.route('/source', methods=['GET', 'POST'])
-def source():
-    """Mostra il testo xml dell'articolo"""
-    return render_template('source.html')
-
+                           form=form, logcontent=lc,
+                           check_syntax=check_syntax)
