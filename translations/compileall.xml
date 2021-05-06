@@ -44,7 +44,7 @@ Per escludere delle directory, si usi l'argomento <code>rx</code> per fornire un
 # compileall_exclude_dirs.py
 </py_code>
 <testo_normale>
-Questa versione esclude i file nella sottdirectory <code>subdir</code>.
+Questa versione esclude i file nella sottodirectory <code>subdir</code>.
 </testo_normale>
 <py_output>
 ?preproc compileall_2.sh

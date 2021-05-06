@@ -11,8 +11,11 @@
 <!-- tag <lista> ogni riga all'interno del tag rappresenta una riga di una lista non ordinata'-->
 <documento_tradotto>
 <titolo_1>
-Moduli Modificati
+Note di Portabilità - Riepilogo Modifiche ai Moduli
 </titolo_1>
+<descrizione>
+
+</descrizione>
 <titolo_4>
 <a name='abc_porting'></a>
 </titolo_4>

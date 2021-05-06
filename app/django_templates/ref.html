@@ -8,8 +8,10 @@
       <!-- Module description card (jumbo) -->
       <div class="card blue-grey lighten-4">
         <div class="card-content">
-          <h2>Note di portabilità da Python 2 a Python 3</h2>
-          <h4>Moduli modificati</h4>
+          <h2>{{ modulo.titolo|safe }}</h2>
+          {% if modulo.descrizione %}
+            <p>Scopo: {{ modulo.descrizione|safe }}</p>
+          {% endif %}
         </div>
       </div>
 

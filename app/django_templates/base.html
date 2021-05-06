@@ -107,13 +107,14 @@
         {%  if indice %}
           {{ indice.footer.nome_sito }}
           {{ indice.footer.periodo }} /
-          Documento aggiornato il: {{ indice.footer.data_agg }}
-        {% else %}
+          Documento compilato il: {{ indice.footer.data_agg }}
+          Contatto: {{ indice.footer.email }}
+      {% else %}
           {{ modulo.footer.nome_sito }}
           {{ modulo.footer.periodo }} /
-          Documento aggiornato il: {{ modulo.footer.data_agg }}
+          Documento compilato il: {{ modulo.footer.data_agg }}
+          Contatto: {{ modulo.footer.email }}
         {% endif %}
-        Contatto: pymotw-it(at)robyp.x10host.com
       </p>
     </div>
   </div>

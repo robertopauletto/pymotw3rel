@@ -20,8 +20,7 @@ class DjModulo(object):
     baseurl = 'examples'
 
     def __init__(self, indice, corpo, vedi_anche: list, modulo,
-                 footer=None, zipfile=None,
-                 sidebar_is_fixed=True):
+                 footer=None, zipfile=None):
         """
 
         :param indice: contenuto della spalla destra (indice articolo)
@@ -38,8 +37,6 @@ class DjModulo(object):
         self.footer = footer
         self._zip = zipfile
         self._vedi_anche = vedi_anche
-        isinstance(self.modulo, Modulo)
-        self._fixed_sidebar = sidebar_is_fixed
 
     @property
     def vedi_anche(self):
@@ -81,10 +78,6 @@ class DjModulo(object):
             print(err)
             return "Errore: ", err.message
         return tmp
-
-    @property
-    def sidebarnav_type(self):
-        return "fixed" if self._fixed_sidebar else "absolute"
 
 
 if __name__ == '__main__':

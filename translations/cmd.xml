@@ -83,7 +83,7 @@ Visto che <code>do_EOF()</code> restituisce True, se si digita Ctrl-D si esce da
 Non viene stampata una nuova riga in uscita, quindi il risultato è un poco confuso.
 </testo_normale>
 <titolo_2>
-Argomenti di Comando
+Argomenti di cmd
 </titolo_2>
 <testo_normale>
 Questo esempio comprende qualche miglioria per eliminare qualche fastidio ed aggiungere un aiuto per il comando <code>greet</code>.
@@ -163,7 +163,7 @@ EOF    greet  help
 (Cmd) help
 </py_output>
 <testo_normale>
-Una volta che il comando viene riconosciuto, il completamento del argomento viene gestita dai metodi il cui nome inizia per <code>complete_</code>. Questo consente ai gestori di completamento di assemblare un elenco di possibili completamenti usando criteri arbitrari (es. interrogare un database, cercare in un file o directory nel filesystem). In questo caso, il programma ha scritto al suo interno un gruppo di "amici" che ricevono un saluto meno formale rispetto a nomi di sconosciuti od anonimi. Un vero programma probabilmente salvebbero l'elenco da qualche parte, per leggerlo interamente la prima volta, quindi conservare quanto letto per poterlo scorrere se necessario.
+Una volta che il comando viene riconosciuto, il completamento del argomento viene gestita dai metodi il cui nome inizia per <code>complete_</code>. Questo consente ai gestori di completamento di assemblare un elenco di possibili completamenti usando criteri arbitrari (es. interrogare un database, cercare in un file o directory nel filesystem). In questo caso, il programma ha scritto al suo interno un gruppo di "amici" che ricevono un saluto meno formale rispetto a nomi di sconosciuti od anonimi. Un vero programma probabilmente salverebbero l'elenco da qualche parte, per leggerlo interamente la prima volta, quindi conservare quanto letto per poterlo scorrere se necessario.
 </testo_normale>
 <py_code>
 # cmd_arg_completion.py
@@ -227,7 +227,7 @@ postcmd(True, EOF)
 postloop()
 </py_output>
 <titolo_2>
-Configurare Cmd Tramite Attributi
+Configurare cmd Tramite Attributi
 </titolo_2>
 <testo_normale>
 Oltre ai metodi sopra descritti, ci sono parecchi attributi per controllare gli interpreti di comando.
@@ -318,7 +318,7 @@ EOF
 (Cmd)
 </py_output>
 <testo_normale>
-Se si preferisce che sia un programma a leggere il file script direttamente, potrebbe essere necessario qualche altro cambiamento. Visto che <a href='readline.html'>readline</a>  interagisce con il dispositivo <i>termnal/tty</i> piuttosto che con il flusso standard di input, si dovrebbe disabilitare quando lo script andrà a leggere da un file. Inotre, per evitare la stampa di prompt superflui, si può impostare il prompt ad una stringa vuota. Questo esempio mostra come aprire un file e passarlo come input ad una versione modificata dell'esempio <code>HelloWorld</code>:
+Se si preferisce che sia un programma a leggere il file script direttamente, potrebbe essere necessario qualche altro cambiamento. Visto che <a href='readline.html'>readline</a>  interagisce con il dispositivo <i>termnal/tty</i> piuttosto che con il flusso standard di input, si dovrebbe disabilitare quando lo script andrà a leggere da un file. Inoltre, per evitare la stampa di prompt superflui, si può impostare il prompt ad una stringa vuota. Questo esempio mostra come aprire un file e passarlo come input ad una versione modificata dell'esempio <code>HelloWorld</code>:
 </testo_normale>
 <py_code>
 # cmd_file.py

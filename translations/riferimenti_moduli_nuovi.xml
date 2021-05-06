@@ -4,18 +4,82 @@
 <!-- # tag <descrizione> contiene le voci per la tabella di riepilogo iniziale -->
 <!-- # tag <titolo_1> titolo principale -->
 <!-- tag <testo_normale> contiene il testo normale dell'articolo -->
-<!-- tag <titolo_2> contiene il testo per l'intestazione di un paragrafo -->
+<!-- tag <titolo_3> contiene il testo per l'intestazione di un paragrafo -->
 <!-- tag <py_code> contiene il testo che rappresenta delle istruzioni python -->
 <!-- tag <py_output> contiene il testo che rappresenta l'output di uno script python -->
 <!-- tag <vedi_anche> contiene il testo che rappresentano i riferimenti esterni -->
 <!-- tag <lista> ogni riga all'interno del tag rappresenta una riga di una lista non ordinata'-->
 <documento_tradotto>
-<titolo_4>
-Nuovi Moduli in Python 3
-</titolo_4>
+<titolo_1>
+Note di Portabilità - Nuovi Moduli in Python 3
+</titolo_1>
+<descrizione>
+
+</descrizione>
 <titolo_2>
-asyncio
+    Moduli Nuovi
 </titolo_2>
+<titolo_3>
+<a href="asyncio.html">asyncio</a>
+</titolo_3>
 <testo_normale>
-I/O asincrono, ciclo di eventi ed altri strumenti di concorrenza
+I/O Asincrono, ciclo di eventi e strumenti per la gestione della concorrenza
 </testo_normale>
+
+<titolo_3>
+<a href="concurrent.futures.html">concurrent.futures</a>
+</titolo_3>
+<testo_normale>
+Gestisce Insiemi di Compiti Concomitanti
+</testo_normale>
+
+<titolo_3>
+<a href="ensurepip.html">ensurepip</a>
+</titolo_3>
+<testo_normale>
+Installare Python Package Installer
+</testo_normale>
+
+<titolo_3>
+<a href="enum.html">enum</a>
+</titolo_3>
+<testo_normale>
+Tipo Enumerazione
+</testo_normale>
+
+<titolo_3>
+<a href="ipaddress.html">ipaddress</a>
+</titolo_3>
+<testo_normale>
+Indirizzi Internet
+</testo_normale>
+
+<titolo_3>
+<a href="pathlib.html">pathlib</a>
+</titolo_3>
+<testo_normale>
+Percorsi di Filesystem come Oggetti
+</testo_normale>
+
+<titolo_3>
+<a href="selectors.html">selectors</a>
+</titolo_3>
+<testo_normale>
+Astrazioni Multiplexing per I/O
+</testo_normale>
+
+<titolo_3>
+<a href="statistics.html">statistics</a>
+</titolo_3>
+<testo_normale>
+Calcoli Statistici
+</testo_normale>
+
+<titolo_3>
+<a href="venv.html">venv</a>
+</titolo_3>
+<testo_normale>
+Crea Ambienti Virtuali
+</testo_normale>
+
+</documento_tradotto>

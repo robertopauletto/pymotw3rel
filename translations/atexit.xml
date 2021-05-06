@@ -15,7 +15,7 @@ Il modulo <strong>atexit</strong> fornisce una interfaccia per registrare funzio
 Registrare Callback in Uscita
 </titolo_2>
 <testo_normale>
-Il seguente è un esempio per registrare una funzione chiamando esplicitamnente <code>register()</code>:
+Il seguente è un esempio per registrare una funzione chiamando esplicitamente <code>register()</code>:
 </testo_normale>
 <py_code>
 # atexit_simple.py
@@ -27,7 +27,7 @@ Visto che il programma non fa null'altro, <code>all_done()</code> viene chiamata
 $ python3 atexit_simple.py
 </py_output>
 <testo_normale>
-E' anche possibile registrare più di una funzione, e fornire argomenti alle funzioni registrate. Questo può essere utile per disconnettersi in modo pulito da database, rimuovere file termporanei ecc.. Invece che mantenere una lista di risorse che devoono essere liberate, si può registrare una funzione di pulizia separata per ogni risorsa.
+E' anche possibile registrare più di una funzione, e fornire argomenti alle funzioni registrate. Questo può essere utile per disconnettersi in modo pulito da database, rimuovere file temporanei ecc.. Invece che mantenere una lista di risorse che devono essere liberate, si può registrare una funzione di pulizia separata per ogni risorsa.
 </testo_normale>
 <py_code>
 # atexit_multiple.py
@@ -81,7 +81,7 @@ Visto che ignora in modo silente <em>callback</em> sconosciuti, <code>unregister
 $ python3 atexit_unregister_not_registered.py
 </py_output>
 <titolo_2>
-Quando Ci Sono Callaback Di atexit Non Chiamati?
+Quando Ci Sono Callback Di atexit Non Chiamati?
 </titolo_2>
 <testo_normale>
 I <em>callback</em> registrati con <strong>atexit</strong> non sono chiamati se si verifica almeno una delle seguenti condizioni:

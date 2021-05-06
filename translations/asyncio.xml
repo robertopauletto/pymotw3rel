@@ -34,7 +34,7 @@ Un <em>future</em> è una struttura dati che rappresenta il risultato di un lavo
 Un <code>Task</code> (compito) è una sottoclasse di <code>Future</code> che sa come impacchettare e gestire l'esecuzione per una <em>coroutine</em>. I <em>task</em> possono essere pianificati con un ciclo di eventi per essere eseguiti quando le risorse a essi necessarie sono disponibili, e per produrre un risultato che può essere consumato da altre <em>coroutine</em>.
 </testo_normale>
 <titolo_2>
-Multiasking Cooperativo con Coroutine
+Multitasking Cooperativo con Coroutine
 </titolo_2>
 <testo_normale>
 Le <em>coroutine</em> sono un costrutto di linguaggio progettato per operazioni concorrenti. Una funzione <em>coroutine</em> crea un oggetto <em>coroutine</em> quando chiamata, poi il chiamante può eseguire il codice della funzione usando il metodo della <em>coroutine</em> <code>send()</code>. Una <em>coroutine</em> può mettere in pausa l'esecuzione usando la parola chiave <code>await</code> con un'altra <em>coroutine</em>. Mentre è il pausa, lo stato della <em>coroutine</em> viene mantenuto, in modo che possa essere ripreso dove era stato lasciato la prossima volta che viene chiamata in causa.
@@ -103,10 +103,10 @@ valore ritornato: ('result1', 'result2 deriva da result1')
 Generatori Invece di Coroutine
 </titolo_3>
 <testo_normale>
-Le funzioni <em>coroutine</em> sono una componente chiave della progettazione di <strong>asyncio</strong>. Esse forniscono un costrutto di linugaggio per interrompere l'esecuzione di parti di un programm, preservando lo stato di quella chiamata, e rientrando in quello stato successivamente, tutte importanti capacità per una infrastruttura di concorrenzialità.
+Le funzioni <em>coroutine</em> sono una componente chiave della progettazione di <strong>asyncio</strong>. Esse forniscono un costrutto di linguaggio per interrompere l'esecuzione di parti di un programma, preservando lo stato di quella chiamata, e rientrando in quello stato successivamente, tutte importanti capacità per una infrastruttura di concorrenzialità.
 </testo_normale>
 <testo_normale>
-Python 3.5 ha intradotto nuove caratteristiche di linguaggio per definire nativamente dette <em>coroutine</em> usando <code>async def</code> e per cedere il controllo usando <code>await</code>. Gli esempi per <strong>asyncio</strong> traggono vantaggio della nuova caratteristica. Versioni precedenti di Python 3 possono usare funzioni generatore impacchetate con il decoratore <code>asyncio.coroutine()</code> e <code>yield from</code> per ottenere lo stesso effetto.
+Python 3.5 ha introdotto nuove caratteristiche di linguaggio per definire nativamente dette <em>coroutine</em> usando <code>async def</code> e per cedere il controllo usando <code>await</code>. Gli esempi per <strong>asyncio</strong> traggono vantaggio della nuova caratteristica. Versioni precedenti di Python 3 possono usare funzioni generatore impacchettate con il decoratore <code>asyncio.coroutine()</code> e <code>yield from</code> per ottenere lo stesso effetto.
 </testo_normale>
 <py_code>
 # asyncio_generator.py
@@ -128,7 +128,7 @@ valore ritornato: ('result1', 'result2 derived from result1')
 Pianificare Chiamate a Funzioni Normali
 </titolo_2>
 <testo_normale>
-Oltre a gestire <em>coroutine</em> e <a href='https://www.wikiwand.com/it/Callback' target='_blank'>callback</a> I/O, il ciclo di eventi di <strong>asyncio</strong> può pianificare chiamate a funzioni normli in base al valore di temporizzazione conservato nel ciclo
+Oltre a gestire <em>coroutine</em> e <a href='https://www.wikiwand.com/it/Callback' target='_blank'>callback</a> I/O, il ciclo di eventi di <strong>asyncio</strong> può pianificare chiamate a funzioni normali in base al valore di temporizzazione conservato nel ciclo
 </testo_normale>
 <titolo_3>
 Pianificare un Callback "Presto"
@@ -236,7 +236,7 @@ impostazione del risultato del future a 'il risultato'
 risultato ritornato: 'il risultato'
 </py_output>
 <titolo_3>
-Callaback di Future
+Callback di Future
 </titolo_3>
 <testo_normale>
 Un <code>Future</code>, oltre che lavorare come una coroutine, può invocare <a href='https://www.wikiwand.com/it/Callback' target='_blank'><a href='https://www.wikiwand.com/it/Callback' target='_blank'>callback</a></a>  quando è completato. I <a href='https://www.wikiwand.com/it/Callback' target='_blank'><a href='https://www.wikiwand.com/it/Callback' target='_blank'>callback</a></a> sono invocati nell'ordine nel quale sono registrati
@@ -303,7 +303,7 @@ task cancellato <Task cancelling coro=<task_func() running at asyncio_cancel_tas
 catturato errore dal task cancellato
 </py_output>
 <testo_normale>
-Se l'attività è cancellata mentre sta attendento un'altra operazione concomitante, viene notificata della sua cancellazione sollevando una eccezione <code>CancelledError</code> al punto di attesa.
+Se l'attività è cancellata mentre sta attendendo un'altra operazione concomitante, viene notificata della sua cancellazione sollevando una eccezione <code>CancelledError</code> al punto di attesa.
 </testo_normale>
 <py_code>
 # asyncio_cancel_task2.py
@@ -463,7 +463,7 @@ Sebbene le applicazioni <code>asyncio</code> in genere vengano eseguite in un pr
 Bloccaggi (Locks)
 </titolo_3>
 <testo_normale>
-Un bloccaggio (<code>Lock</code>) può essre usato per sorvegliare gli accessi a una risorsa condivisa. Solo il possessore del bloccaggio può usare la risorsa. I tentativi multipl di acquisire un bloccaggio verranno fermati in modo che ci sia un solo possessore alla volta
+Un bloccaggio (<code>Lock</code>) può essere usato per sorvegliare gli accessi a una risorsa condivisa. Solo il possessore del bloccaggio può usare la risorsa. I tentativi multipli di acquisire un bloccaggio verranno fermati in modo che ci sia un solo possessore alla volta
 </testo_normale>
 <py_code>
 # asyncio_lock.py
@@ -734,7 +734,7 @@ class EchoClient(asyncio.Protocol):
         self.f = future
 </py_code>
 <testo_normale>
-Quando il client si connette con successo al server, inizia immediatamente la comunicazione. La sequenza dei messaggi viene inviata una alla vota, sebbene il codice di rete sottostante possa combinare più messaggi in un'unica tramissione. Quando tutti i messaggi sono consumati, viene inviato un EOF.
+Quando il client si connette con successo al server, inizia immediatamente la comunicazione. La sequenza dei messaggi viene inviata una alla vota, sebbene il codice di rete sottostante possa combinare più messaggi in un'unica trasmissione. Quando tutti i messaggi sono consumati, viene inviato un EOF.
 </testo_normale>
 <testo_normale>
 Anche se sembra che tutti i dati siano stati inviati immediatamente, in effetti l'oggetto trasportatore parcheggia i dati in uscita e imposta un <a href='https://www.wikiwand.com/it/Callback' target='_blank'>callback</a> per inviare effettivamente i dati quando il <a href='https://www.wikiwand.com/it/Buffer' target='_blank'><em>buffer</em>r</a>  del <a href='https://www.wikiwand.com/it/Socket_(reti)' target='_blank'><em>socket</em></a>  è pronto a ricevere dati. Tutto questo è gestito in modo trasparente, quindi il codice dell'applicazione può essere scritto come se le operazioni di I/O avvenissero immediatamente.
@@ -930,7 +930,7 @@ Sebbene la <em>coroutine</em> sia chiamata quando viene stabilita la connessione
         data = await reader.read(128)
 </py_code>
 <testo_normale>
-Se il client invia dati, sono ritornati da <code>await</code> e possono essere restituiti al client passandoli all'oggetto che li scrive. Chiamate multiple a <code>write()</code> possono essere usate per accumulare dati in uscita, per poi usare <code>drain()</code> per far uscire i dati. Visto che questa opearzione di I/O su rete può bloccare, ancora una volta viene usato <code>await</code> per riportare il controllo al ciclo di eventi, che monitora il <em>socket</em> di scrittura e chiama l'oggetto che scrive quando possibile per inviare ulteriori dati.
+Se il client invia dati, sono ritornati da <code>await</code> e possono essere restituiti al client passandoli all'oggetto che li scrive. Chiamate multiple a <code>write()</code> possono essere usate per accumulare dati in uscita, per poi usare <code>drain()</code> per far uscire i dati. Visto che questa operazione di I/O su rete può bloccare, ancora una volta viene usato <code>await</code> per riportare il controllo al ciclo di eventi, che monitora il <em>socket</em> di scrittura e chiama l'oggetto che scrive quando possibile per inviare ulteriori dati.
 </testo_normale>
 <py_code>
         if data:
@@ -959,7 +959,7 @@ server = event_loop.run_until_complete(factory)
 log.debug('in partenza su {} porta {}'.format(*SERVER_ADDRESS))
 </py_code>
 <testo_normale>
-Successivamente il ciclo di eventi deve essere eseguito per elaborare eventi e gestire le richieste del client. Se occorre attivare un un servizio che sia attivo per lunghi periodi, il metodo <code>run_forever()</code> è il modo più semplice per farlo. Quando il ciclo di eventi viene fermato, sia dal codice dell'applicazione che da un segnale inviato al processo, il server puà essere chiuso per pulire correttamente il <em>socket</em>, quindi il ciclo di eventi puà essere chiuso per finire la gestione di ogni altra <em>coroutine</em> prima che il programma esca.
+Successivamente il ciclo di eventi deve essere eseguito per elaborare eventi e gestire le richieste del client. Se occorre attivare un un servizio che sia attivo per lunghi periodi, il metodo <code>run_forever()</code> è il modo più semplice per farlo. Quando il ciclo di eventi viene fermato, sia dal codice dell'applicazione che da un segnale inviato al processo, il server può essere chiuso per pulire correttamente il <em>socket</em>, quindi il ciclo di eventi può essere chiuso per finire la gestione di ogni altra <em>coroutine</em> prima che il programma esca.
 </testo_normale>
 <py_code>
 # Entra nel ciclo di eventi permanentemente per gestire tutte le connesisoni.
@@ -1360,7 +1360,7 @@ class DFProtocol(asyncio.SubprocessProtocol):
         super().__init__()
 </py_code>
 <testo_normale>
-Così come per una comunicazione via <em>socket</em>, <code>connection_made()</code> viene chiamata quando i canali in input per il nuovo processo sono impoestati. L'argomento <code>transport</code> è una istanza di una sottoclasse di <code>BaseSubprocessTransport</code>. Può leggere dati fatti uscire dal processo e scrivere dati al canale in input per il processo, se il processo è stato configurato per ricevere input.
+Così come per una comunicazione via <em>socket</em>, <code>connection_made()</code> viene chiamata quando i canali in input per il nuovo processo sono impostati. L'argomento <code>transport</code> è una istanza di una sottoclasse di <code>BaseSubprocessTransport</code>. Può leggere dati fatti uscire dal processo e scrivere dati al canale in input per il processo, se il processo è stato configurato per ricevere input.
 </testo_normale>
 <py_code>
     def connection_made(self, transport):
@@ -1457,7 +1457,7 @@ Spazio libero:
 Chiamare Sottoprocessi con Coroutine e Canali
 </titolo_3>
 <testo_normale>
-Per usare <em>coroutine</em> per eseguire direttamente un processo, invece che accedervi tramite una sottoclasse di <code>Protocol</code>, si chiami <code>create_subprocess_exec()</code> e si specifichi quale tra <code>stdout</code>, <code>stderr</code>, e <code>stdin</code> connettere a una conduttura. Il risultato della generazione del processo da parte della <em>coroutine</em> è una istanza di <code>Process</code> che può essere usata per manipolare il sottoprocesso o comuincare con esso.
+Per usare <em>coroutine</em> per eseguire direttamente un processo, invece che accedervi tramite una sottoclasse di <code>Protocol</code>, si chiami <code>create_subprocess_exec()</code> e si specifichi quale tra <code>stdout</code>, <code>stderr</code>, e <code>stdin</code> connettere a una conduttura. Il risultato della generazione del processo da parte della <em>coroutine</em> è una istanza di <code>Process</code> che può essere usata per manipolare il sottoprocesso o comunicare con esso.
 </testo_normale>
 <py_code>
 # asyncio_subprocess_coroutine.py
@@ -1654,7 +1654,7 @@ Modificato: "\nQUESTO MESSAGGIO SARA' CONVERTITO A\nTUTTE MAIUSCOLE.\n"
 Ricevere Segnali Unix
 </titolo_2>
 <testo_normale>
-Le notifiche di eventi del sistema Unix in genere interrompono una applicazione, attivandone i propri gestori. Quando usati con <strong>asyncio</strong> i <a href='https://www.wikiwand.com/it/Callback' target='_blank'>callback</a> sono interconnessi con le altre <em>coroutine</em> e <a href='https://www.wikiwand.com/it/Callback' target='_blank'>callback</a> gestiti dal ciclo di eventi. Il che si traduce in meno funzioni interrotte, e la risultante esigenza è di fornire salvaguardie per pulire operazioni imcomplete.
+Le notifiche di eventi del sistema Unix in genere interrompono una applicazione, attivandone i propri gestori. Quando usati con <strong>asyncio</strong> i <a href='https://www.wikiwand.com/it/Callback' target='_blank'>callback</a> sono interconnessi con le altre <em>coroutine</em> e <a href='https://www.wikiwand.com/it/Callback' target='_blank'>callback</a> gestiti dal ciclo di eventi. Il che si traduce in meno funzioni interrotte, e la risultante esigenza è di fornire salvaguardie per pulire operazioni incomplete.
 </testo_normale>
 <testo_normale>
 I gestori di segnale devono essere normali chiamabili, non <em>coroutine</em>
@@ -1737,7 +1737,7 @@ cessione del controllo
 signal_handler('SIGINT')
 </py_output>
 <titolo_2>
-Combinare <em>coroutine</em> con Thread e Processi
+Combinare Coroutine con Thread e Processi
 </titolo_2>
 <testo_normale>
 Molte delle librerie esistenti non sono pronte per usare <strong>asyncio</strong> nativamente. Potrebbero bloccare, o dipendere su caratteristiche di concorrenzialità non disponibili attraverso il modulo. E' ancora possibile usare queste librerie in una applicazione basata su <strong>asyncio</strong> usando un esecutore da <a href='concurrent.futures.html' target='_blank'>concurrent.futures</a> per eseguire il codice o in un <em>thread</em> separato o in un processo separato.

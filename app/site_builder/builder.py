@@ -86,9 +86,10 @@ def set_builder_conf(dictconf):
 
 
 FOOTER = Footer(
-    'PyMOTW-it 3',
+    nome='PyMOTW-it 3',
     periodo=str(datetime.date.today().year),
-    data_agg=datetime.date.today().strftime("%d-%m-%Y")
+    data_agg=datetime.date.today().strftime("%d-%m-%Y"),
+    email='pymotwit3(at)fastmail.com'
 )
 
 
@@ -265,7 +266,9 @@ def create_privacy_page(template_name: str) -> None:
                   'privacy_content': privacy_content}
 
     build(template_name, render_dic,
-          os.path.join(builder_conf["html_dir"], fn))
+          os.path.join(builder_conf["html_dir"],
+                       os.path.basename(template_name)))
+    return [f'\ncreata pagina privacy ({os.path.basename(template_name)})']
 
 
 def crea_pagine_indice(template_name, file_indice, mod_per_pagina, footer):
@@ -329,8 +332,8 @@ def _crea_pagina_indice(moduli, mpp):
 
 
 def crea_pagina_modulo(template_name: str, file_modulo: str,
-                       footer: Footer, tag_ind: list, log: list = None,
-                       is_sidebar_fixed: bool = True) -> tuple:
+                       footer: Footer, tag_ind: list,
+                       log: list = None) -> tuple:
     """
     Crea la pagina per un modulo.
 
@@ -341,8 +344,6 @@ def crea_pagina_modulo(template_name: str, file_modulo: str,
     :param tag_ind: indici da usare per l'indice di spalla
     :param log: una lista che conterrà le info di log rilasciate dai metodi che
                 compongono la pagina
-    :param is_sidebar_fixed: se `True` la spalla destra con indice articolo sarà
-                             fissa durante lo scorrimento verticale
     """
     indice, main_content, is_ind, vedi_anche, check_sintassi, zipfile = \
         xml2html.render_articolo(
@@ -351,8 +352,7 @@ def crea_pagina_modulo(template_name: str, file_modulo: str,
         )
     fn = os.path.splitext(os.path.basename(file_modulo))[0]
     modulo = Modulo.ottieni_modulo(builder_conf["tran_dir"], fn)
-    m = DjModulo(indice, main_content, vedi_anche, modulo, footer, zipfile,
-                 sidebar_is_fixed=is_sidebar_fixed)
+    m = DjModulo(indice, main_content, vedi_anche, modulo, footer, zipfile)
 
     fn += '.html'
     dic = {'modulo': m, }
@@ -458,7 +458,7 @@ def _get_last_ten(cronology_file: str,
 
 def _get_modules_and_categories_for_sidebar(tran_dir: str) -> tuple:
     modules = sorted(elenco_per_indice(tran_dir), key=lambda x: x.nome.lower())
-    categories = _categorie_per_indice(moduli)
+    categories = _categorie_per_indice(modules)
     return modules, categories
 
 
@@ -478,7 +478,7 @@ def crea_tabella_indice(template_name: str):
     moduli = sorted(elenco_per_indice(builder_conf['tran_dir']),
                     key=lambda x: x.nome.lower())
     categ_per_indice = _categorie_per_indice(moduli)
-    indice = Indice(moduli, 0, categ_per_indice, 0, 0)
+    indice = Indice(moduli, FOOTER, categ_per_indice, 0, 0)
 
     # corpo = ottieni_tabella(moduli)
     m = DjTabelleIndici(moduli, FOOTER)
@@ -539,13 +539,25 @@ def _norm_path(modulo: str, def_dir: str, def_ext: str = '.xml') -> str:
     return os.path.abspath(os.path.join(def_dir, modulo))
 
 
+def _check_module_list(module_to_build: list, log: list) -> list:
+    transl_modules = elenco_per_indice(builder_conf['tran_dir'])
+    retval = []
+    for module in module_to_build:
+        if module.endswith('.xml'):
+            module = module.replace('.xml', '')
+        found = len([mod for mod in transl_modules if module == mod.nome])
+        if not found:
+            log.append(f"{module} non esiste o non è stato tradotto")
+            continue
+        retval.append(module)
+    return retval, log
+
+
 # Funzioni da utilizzare se modulo chiamato
-def build_module(moduli: list, is_sidebar_fixed: bool) -> tuple:
+def build_module(moduli: list) -> tuple:
     """Funzione principale per i consumatori del modulo
 
     :param moduli: una lista di moduli da rendere (percorso completo)
-    :param is_sidebar_fixed: se `True` fissa la barra laterale sx per
-                             l'articolo
     :return: log operazione, testo per verifica sintassi, percorso modulo
     """
     # Ottengo il percorso assoluto delle directory dei template django
@@ -556,6 +568,8 @@ def build_module(moduli: list, is_sidebar_fixed: bool) -> tuple:
     log = []
     check_sintassi = None
 
+    modulo = None
+    moduli, log = _check_module_list(moduli, log)
     for modulo in moduli:
         modulo = _norm_path(modulo, builder_conf["tran_dir"])
         x = os.getcwd()
@@ -574,7 +588,7 @@ def build_module(moduli: list, is_sidebar_fixed: bool) -> tuple:
             is_ind, check_sintassi = crea_pagina_modulo(
                 builder_conf["template_module_name"],
                 modulo, FOOTER,
-                builder_conf["tag_summary"], log, is_sidebar_fixed
+                builder_conf["tag_summary"], log
             )
         log.append("Costruzione pagina %s terminata" % os.path.basename(modulo))
     return log, check_sintassi, modulo

@@ -51,11 +51,12 @@ class CategoryForm(FlaskForm):
 
 class HTMLGeneratorForm(FlaskForm):
     """Generatore articolo html"""
-    modules = StringField('modules', validators=[DataRequired()])
+    modules = StringField('modules' )
     rebuild_index = BooleanField('rebindex', default=False)
     rebuild_table = BooleanField('rebtbl', default=False)
     spellcheck = BooleanField('spcheck', default=False)
     fixed_sidebar = BooleanField('sbfixed', default=True)
+    privacy_page = BooleanField('privacyPage', default=False)
 
 
 class ConfigurationForm(FlaskForm):

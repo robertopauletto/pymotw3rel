@@ -138,7 +138,7 @@ Codifica a prova di URL: b'__8='
 Altre Codifiche
 </titolo_2>
 <testo_normale>
-Oltre a Base64 il modulo fornisce anche funzioni per lavorare con dati codificati con Base85, Base32 e Base16 (esadeciamle).
+Oltre a Base64 il modulo fornisce anche funzioni per lavorare con dati codificati con Base85, Base32 e Base16 (esadecimale).
 </testo_normale>
 <py_code>
 # base64_base32.py
@@ -165,7 +165,7 @@ Codificato   : b'KF2WK43UNEQHG33ON4QGSIDEMF2GSLBANFXCAY3INFQXE3ZO'
 Decodificato : b'Questi sono i dati, in chiaro.'
 </py_output>
 <testo_normale>
-Le funzioni Base16 lavorano con l'alfabeto esadeciamle.
+Le funzioni Base16 lavorano con l'alfabeto esadecimale.
 </testo_normale>
 <py_code>
 # base64_base16.py

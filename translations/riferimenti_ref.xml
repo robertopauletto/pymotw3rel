@@ -10,12 +10,17 @@
 <!-- tag <vedi_anche> contiene il testo che rappresentano i riferimenti esterni -->
 <!-- tag <lista> ogni riga all'interno del tag rappresenta una riga di una lista non ordinata'-->
 <documento_tradotto>
-<testo_normale>
+<titolo_1>
+Note di Portabilità - Versioni e Informazioni
+</titolo_1>
+<descrizione>
+
+</descrizione>
+
 <titolo_2>
 Versioni 3.x
 </titolo_2>
 Di seguito i documenti "What's new" (Cosa c'è di nuovo - n.d.t) preparati della squadra di sviluppo e gestione dei rilasci di Python per ogni rilascio.
-</testo_normale>
 <lista>
 <a href='https://docs.python.org/3.0/whatsnew/3.0.html'>What's New in Python 3.0</a>
 <a href='https://docs.python.org/3.1/whatsnew/3.1.html'>What's New in Python 3.1</a>
@@ -25,7 +30,8 @@ Di seguito i documenti "What's new" (Cosa c'è di nuovo - n.d.t) preparati della
 <a href='https://docs.python.org/3.5/whatsnew/3.5.html'>What's New in Python 3.5</a>
 <a href='https://docs.python.org/3.6/whatsnew/3.6.html'>What's New in Python 3.6</a>
 <a href='https://docs.python.org/3.7/whatsnew/3.7.html'>What's New in Python 3.7</a>
-<a href='https://docs.python.org/3.7/whatsnew/3.8.html'>What's New in Python 3.8</a>
+<a href='https://docs.python.org/3.8/whatsnew/3.8.html'>What's New in Python 3.8</a>
+<a href='https://docs.python.org/3.9/whatsnew/3.9.html'>What's New in Python 3.9</a>
 </lista>
 <titolo_2>
 Portabilità

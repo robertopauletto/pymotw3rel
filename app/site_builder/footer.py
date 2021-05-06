@@ -8,9 +8,10 @@ Versione %s %s
 """ % ( __version__, __date__ )
 
 
-class Footer(object):
+class Footer:
     """Contiene dati da inserire in un footer"""
-    def __init__(self, nome='', periodo='', data_agg=''):
+    def __init__(self, nome: str, periodo: str, data_agg: str, email: str):
         self.nome_sito = nome
         self.periodo = periodo
         self.data_agg = data_agg
+        self.email = email

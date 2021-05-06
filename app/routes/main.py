@@ -22,7 +22,7 @@ from app.forms import (
 )
 from app.site_builder.builder import (
     build_module, build_index, build_module_table,
-    get_categorie, crea_nuovo_articolo, save_categorie
+    get_categorie, crea_nuovo_articolo, save_categorie, create_privacy_page
 )
 from app.lib.common import (get_article_boilerplate, create_new_article_file,
                             parse_text_for_spellcheck)
@@ -62,17 +62,20 @@ def generator():
         session['module'] = request.args['module']
 
     if form.validate_on_submit():
+        tmplog = ""
         module = form.modules.data
-        logger.info(f"Generazione di {module} iniziata")
-        is_sidebar_fixed = form.fixed_sidebar.data
-        logger.info(
-            f"Barra Indice {'fissa' if is_sidebar_fixed else 'flottante'}"
-        )
-        tmplog, check_syntax, modulo = build_module(
-            module.split(), is_sidebar_fixed)
+
+        if module:
+            logger.info(f"Generazione di {module} iniziata")
+            tmplog, check_syntax, modulo = build_module(module.split())
+            session['module'] = module
+        log = '\n'.join(tmplog) if tmplog else "\n"
+        if form.privacy_page.data:
+            logger.info('Ricostruzione degli indici')
+            log += '\n'.join(create_privacy_page("privacy.html"))
+            session['privacy_page'] = True
         if form.spellcheck:
             pass
-        log = '\n'.join(tmplog)
         if form.rebuild_index.data:
             logger.info('Ricostruzione degli indici')
             log += '\n'.join(build_index())
@@ -83,8 +86,8 @@ def generator():
             session['rebuild_table'] = True
 
         session['log'] = log
-        session['module'] = module
-        session['module_fullpath'] = modulo
+        if module:
+            session['module_fullpath'] = modulo
         session['check_syntax'] = (parse_text_for_spellcheck(check_syntax)
                                    if form.spellcheck.data else None)
         flash('success', 'Codice HTML generato per il modulo')
@@ -154,7 +157,7 @@ def article(key):
     form = SearchArticlesForm()
     page = request.args.get('page', 1, type=int)
 
-    if request.method == 'POST':
+    if request.method == 'POST' and request.form['filter_text']:
         articles = Article.query.filter(
             Article.title.contains(request.form['filter_text'])
         ).paginate(page, 10, False)

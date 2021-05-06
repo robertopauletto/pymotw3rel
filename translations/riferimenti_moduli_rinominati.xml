@@ -10,14 +10,21 @@
 <!-- tag <vedi_anche> contiene il testo che rappresentano i riferimenti esterni -->
 <!-- tag <lista> ogni riga all'interno del tag rappresenta una riga di una lista non ordinata'-->
 <documento_tradotto>
-<titolo_4>
+<titolo_1>
+Note di Portabilità - Moduli Rinominati
+</titolo_1>
+<descrizione>
+
+</descrizione>
+
+<titolo_2>
 Moduli rinominati
-</titolo_4>
+</titolo_2>
 <testo_normale>
 Molti moduli della libreria standard sono stati rinominati in Python 3 rispetto a Python 2 come parte del <a href="https://www.python.org/dev/peps/pep-3108">PEP 3108</a> (Riorganizzazione della Libreria Standard). Tutti i nomi dei nuovi moduli utilizzano una consistente applicazione del minuscolo ed alcuni di essi sono stati spostati in pacchetti per meglio organizzare i moduli correlati. Una lista completa dei moduli rinominati si può trovare nel dizionario <code>lib2to3.fixes.fix_imports.MAPPING</code> (le chiavi sono i nomi in Python 2 ed i valori quelli in Python 3)
 </testo_normale>
 <tabella_semplice>
-Nome in Python 2;Nome in Python 3
+NOME IN PYTHON 2;NOME IN PYTHON 3
 BaseHTTPServer;http.server
 CGIHTTPServer;http.server
 ConfigParser;configparser

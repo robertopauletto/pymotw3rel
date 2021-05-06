@@ -17,7 +17,7 @@ Mantiene una lista ordinata senza dover chiamare una operazione di ordinamento o
 
 </descrizione>
 <testo_normale>
-Il modulo <strong>bisect</strong> implementa un algoritmo per l'inserimento di elementi in una lista mantenedo la lista ordinata.
+Il modulo <strong>bisect</strong> implementa un algoritmo per l'inserimento di elementi in una lista mantenendo la lista ordinata.
 </testo_normale>
 <titolo_2>
 Inserire con Ordinamento
@@ -65,7 +65,7 @@ Nuovi Posizione Contenuto
     1         0 [1, 3, 10, 14, 26, 45, 50, 66, 77, 77, 79, 84, 85]
 </py_output>
 <testo_normale>
-Questo è un semplice esempio, e per l'ammontare dei dati che si stanno manipolando potrebbe essere più veloce costruire semplicemente la lista, per poi ordinarla una sola volta. Tuttavia, per liste lunghe, significativi risparmi di tempo e memoria possono essere raggiunti utilizzando un algoritmo di inserimento ordianto tipo questo.
+Questo è un semplice esempio, e per l'ammontare dei dati che si stanno manipolando potrebbe essere più veloce costruire semplicemente la lista, per poi ordinarla una sola volta. Tuttavia, per liste lunghe, significativi risparmi di tempo e memoria possono essere raggiunti utilizzando un algoritmo di inserimento ordinato tipo questo.
 </testo_normale>
 <titolo_2>
 Gestire Duplicati
@@ -92,7 +92,7 @@ for i in values:
     print('{:5}     {:5}'.format(i, position), l)
 </py_code>
 <testo_normale>
-Qunado gli stessi dati vengono manipolati utilizzando <code>bisect_left()</code> ed <code>insort_left()</code>, il risultato è la stessa lista ordinata ma le posizioni di inserimento sono diverse per i valori duplicati.
+Quando gli stessi dati vengono manipolati utilizzando <code>bisect_left()</code> ed <code>insort_left()</code>, il risultato è la stessa lista ordinata ma le posizioni di inserimento sono diverse per i valori duplicati.
 </testo_normale>
 <py_output>
 $ python3 bisect_example2.py

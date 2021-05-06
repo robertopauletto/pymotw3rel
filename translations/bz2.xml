@@ -19,15 +19,15 @@ Il modulo <strong>bz2</strong> è una interfaccia per la libreria bzip2, usata p
 Sono fornite tre <a href='https://www.wikiwand.com/it/Application_programming_interface' target='_blank'>API</a>:
 </testo_normale>
 <lista>
-funzioni di compressione/decompressione "una tantum" per operare su di una massa di dati
-oggetti di compressione/decompressione iterattivi per lavorare con flussi di dati
-una classe tipo file che supporta la lettura e la scrittura come un file non compresso
+- funzioni di compressione/decompressione "una tantum" per operare su di una massa di dati
+- oggetti di compressione/decompressione interattivi per lavorare con flussi di dati
+- una classe tipo file che supporta la lettura e la scrittura come un file non compresso
 </lista>
 <titolo_2>
 Operazioni in Memoria Una Tantum
 </titolo_2>
 <testo_normale>
-Il modo più semplice per lavorarare con <strong>bz2</strong> è di caricare tutti i dati da comprimere o decomprimere in memoria, quindi usare <code>compress()</code> e <code>decompress()</code> per trasformarli.
+Il modo più semplice per lavorare con <strong>bz2</strong> è di caricare tutti i dati da comprimere o decomprimere in memoria, quindi usare <code>compress()</code> e <code>decompress()</code> per trasformarli.
 </testo_normale>
 <py_code>
 # bz2_memory.py

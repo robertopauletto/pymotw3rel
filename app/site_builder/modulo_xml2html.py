@@ -104,7 +104,8 @@ MY_TAGS = {
     'tabella_semplice': partial(
         h.table,
         with_header=True,
-        class_='table responsive-table striped'
+        class_='table striped blue-grey lighten-4 blue-grey-text '\
+               'text-darken-2 mb-4'
     ),
     'tabella_spec_separatore': partial(
         h.table,
@@ -391,7 +392,7 @@ def prepara_articolo(seq_elementi: list,
                 indice.append(
                     h.a("#" + str(prg), smart_text(b, encoding='utf-8'))
                 )
-                contenuti.append(h.section(str(prg)))
+                contenuti.append(h.section(str(prg), class_='modules-anchor'))
                 prg += 1
             if tag in TEMP_FATTI:
                 codice = MY_TAGS[tag](item['buffer'])

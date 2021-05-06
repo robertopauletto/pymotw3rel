@@ -138,12 +138,12 @@ $ python3 codecs_bom_detection.py
 </py_output>
 <titolo_2>
 Gestione degli Errori
-</titolo_>
+</titolo_2>
 <testo_normale>
 La sezione precedente evidenziava la necessità di sapere in anticipo la codifica utilizzata durante la lettura e scrittura di file Unicode. Impostare correttamente la codifica è importante per due ragioni. Se la codifica è configurata nel modo sbagliato durante la lettura di un file, i dati saranno male interpretati a potrebbero corrompersi o semplicemente fallirebbe la codifica. Non tutti i caratteri Unicode possono essere rappresentati in utte le codifiche; alla stessa stregua una errata codifica in scrittura potrebbe generare errori e perdita di dati.
 </testo_normale>
 <testo_normale>
-<strong>codces</strong> usa le stesse cinque opzioni di gestione errore fornite dai metodi encode() di str e decode() di bytes, elencati di seguito:
+<strong>codecs</strong> usa le stesse cinque opzioni di gestione errore fornite dai metodi encode() di str e decode() di bytes, elencati di seguito:
 </testo_normale>
 <tabella_normale>
 MODALITA' ERRORE;DESCRIZIONE
@@ -157,7 +157,7 @@ MODALITA' ERRORE;DESCRIZIONE
 Codificare Errori
 </titolo_>
 <testo_normale>
-La condizione di errore più comune è ricevere un errore <code>UnicodeEncodeError</code> quando si scrivono dati Unicode in un canale di uscita ASCII, tipo un normale file oppure <cede>sys.stdout</cede> senza un insieme di codifica robusto. Il programma di esempio seguente piò essere usato per sperimentare le diverse modalità di gestione errori.
+La condizione di errore più comune è ricevere un errore <code>UnicodeEncodeError</code> quando si scrivono dati Unicode in un canale di uscita ASCII, tipo un normale file oppure <cede>sys.stdout</cede> senza un insieme di codifica robusto. Il programma di esempio seguente può essere usato per sperimentare le diverse modalità di gestione errori.
 </testo_normale>
 <py_code>
 # codecs_encode_error.py
