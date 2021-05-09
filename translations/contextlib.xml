@@ -476,7 +476,7 @@ finito
 Redirigere i Flussi in Uscita
 </titolo_2>
 <testo_normale>
-Del codice di libreria progettato poco accuratamente potrebbe scrivere direttamente su <code>sys.stdout</code> o <code>sys.stderr</code> senza fornire argomenti per configurare diverse destintazioni di output. I gestori di contesto <code>redirect_stdout()</code> e <code>redirect_stderr()</code> possono essere utilizzati per catturare l'output da funzioni per le quali il codice sorgente non può essere modificato per accettare nuovi argomenti per l'output.
+Del codice di libreria progettato poco accuratamente potrebbe scrivere direttamente su <code>sys.stdout</code> o <code>sys.stderr</code> senza fornire argomenti per configurare diverse destinazioni di output. I gestori di contesto <code>redirect_stdout()</code> e <code>redirect_stderr()</code> possono essere utilizzati per catturare l'output da funzioni per le quali il codice sorgente non può essere modificato per accettare nuovi argomenti per l'output.
 </testo_normale>
 <py_code>
 # contextlib_redirect.py
@@ -513,7 +513,7 @@ Sia <code>redirect_stdout()</code>   che <code>redirect_stderr()</code> modifica
 Pile di Gestori di Contesto Dinamiche
 </titolo_2>
 <testo_normale>
-La maggior parte di gestori di contesto operano su di un oggetto alla volta, tipo un singolo file od un handle di database. In questi casi, l'oggetto è noto in anticipo ed il codice che utilizza il gestore di contesto può essere costruito attorno a quel singolo oggetto. In altri casi, un programma potrebbe aver bisogno di creare un numero di oggetti sconosciuto in un contesto, volendo poi pulirli tutti quando il flusso di controllo esce dal contesto. <code>ExitStack</code> è stato craeto per gestire questi casi più dinamici.
+La maggior parte di gestori di contesto operano su di un oggetto alla volta, tipo un singolo file od un handle di database. In questi casi, l'oggetto è noto in anticipo ed il codice che utilizza il gestore di contesto può essere costruito attorno a quel singolo oggetto. In altri casi, un programma potrebbe aver bisogno di creare un numero di oggetti sconosciuto in un contesto, volendo poi pulirli tutti quando il flusso di controllo esce dal contesto. <code>ExitStack</code> è stato creato per gestire questi casi più dinamici.
 </testo_normale>
 <testo_normale>
 Una istanza di <code>ExitStack</code> mantiene una struttura dati <a href="https://it.wikipedia.org/wiki/Pila_(informatica)">stack</a> per i <a href="https://it.wikipedia.org/wiki/Callback">callback</a> di pulizia. I <a href="https://it.wikipedia.org/wiki/Callback">callback</a> sono popolati esplicitamente all'interno del contesto, e tutti i <a href="https://it.wikipedia.org/wiki/Callback">callback</a> registrati sono chiamati in ordine inverso quando il flusso di controllo esce dal contesto. Il risultato è simile all'avere istruzioni <strong>with</strong> con annidamento multiplo, eccetto il fatto che sono impostate dinamicamente.

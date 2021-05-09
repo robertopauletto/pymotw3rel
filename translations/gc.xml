@@ -61,7 +61,7 @@ for r in gc.get_referents(three):
     pprint.pprint(r)
 </py_code>
 <testo_normale>
-In questo caso l'instanza <code>three</code> di <code>Graph</code> mantiene un riferimento al suo  dizionario di istanze (nell'attributo <code>__dict__</code>) ed alla sua classe
+In questo caso l'istanza <code>three</code> di <code>Graph</code> mantiene un riferimento al suo  dizionario di istanze (nell'attributo <code>__dict__</code>) ed alla sua classe
 </testo_normale>
 <py_output>
 $ python3 gc_get_referents.py
@@ -696,7 +696,7 @@ for o in gc.garbage:
 gc.set_debug(0)
 </py_code>
 <testo_normale>
-Questo fa sì che gli oggetti possano essere esaminati dopo la raccolta, il che è utile se, ad esempio, il construttore non può essere modificato per stampare l'identificativo dell'oggetto quando ciascun oggetto viene creato.
+Questo fa sì che gli oggetti possano essere esaminati dopo la raccolta, il che è utile se, ad esempio, il costruttore non può essere modificato per stampare l'identificativo dell'oggetto quando ciascun oggetto viene creato.
 </testo_normale>
 <py_output>
 $ python3 -u  gc_debug_saveall.py

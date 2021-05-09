@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="Latin-1"?>
+xml version="1.0" encoding="Latin-1"?>
 <categoria>Il File System</categoria><!-- # tag <descrizione> contiene le voci per la tabella di riepilogo iniziale -->
 <!-- # tag <titolo_1> titolo principale -->
 <!-- tag <testo_normale> contiene il testo normale dell'articolo -->
@@ -160,7 +160,7 @@ print(filecmp.cmp('esempio/dir1/file_solo_in_dir1',
                   shallow=False))
 </py_code>
 <testo_normale>
-L'argomento <code>shallow</code> indica a <code>cmp()</code> di cercare nel contenuto del file, oltre ai suoi metadati. Il comportamento predefinito è di esegure un confronto "superficiale" usando le informazioni disponibili da <code>os.stat()</code>. Se i risultati sono gli stessi, i file sono considerati gli stessi, quindi file della stessa dimensione creati allo stesso orario sono riportati come uguali, anche se il contenuto differisce. Quando <code>shallow</code> è <code>False</code>, il contenuto del file è sempre oggetto di confronto.
+L'argomento <code>shallow</code> indica a <code>cmp()</code> di cercare nel contenuto del file, oltre ai suoi metadati. Il comportamento predefinito è di eseguire un confronto "superficiale" usando le informazioni disponibili da <code>os.stat()</code>. Se i risultati sono gli stessi, i file sono considerati gli stessi, quindi file della stessa dimensione creati allo stesso orario sono riportati come uguali, anche se il contenuto differisce. Quando <code>shallow</code> è <code>False</code>, il contenuto del file è sempre oggetto di confronto.
 </testo_normale>
 <py_output>
 $ python3 filecmp_cmp.py
@@ -198,7 +198,7 @@ print('Mancate corrispondenze:', mismatch)
 print('Errori                :', errors)
 </py_code>
 <testo_normale>
-<code>cmpfiles()</code> ritorna tre liste di nomi di file, quelli che hanno trovato corrispondenza, quelli senza corrispondenza e file per i quali non è stato possibile effettuare il confronto (a causa di prolemi di permessi o qualsiasi altra ragione).
+<code>cmpfiles()</code> ritorna tre liste di nomi di file, quelli che hanno trovato corrispondenza, quelli senza corrispondenza e file per i quali non è stato possibile effettuare il confronto (a causa di problemi di permessi o qualsiasi altra ragione).
 </testo_normale>
 <py_output>
 $ python3 filecmp_cmpfiles.py
@@ -284,7 +284,7 @@ diff esempio/dir1/dir_comune/dir2/dir_comune esempio/dir2/dir_comune/dir2/dir_co
 Usare le Differenze in un Programma
 </titolo_2>
 <testo_normale>
-Oltre alla produzione di risultati stampati, <code>dircmp</code> calcola liste di file che possono esserer usate direttamente nei programmi. Ognuno dei seguenti attirubti è calcolato solo quando richiesto, quindi creare istanze di <code>dircmp</code> non comporta un lavoro non necessario per i dati non utilizzati.
+Oltre alla produzione di risultati stampati, <code>dircmp</code> calcola liste di file che possono essere usate direttamente nei programmi. Ognuno dei seguenti attributi è calcolato solo quando richiesto, quindi creare istanze di <code>dircmp</code> non comporta un lavoro non necessario per i dati non utilizzati.
 </testo_normale>
 <py_code>
 # filecmp_dircmp_list.py

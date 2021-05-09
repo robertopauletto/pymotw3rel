@@ -7,7 +7,7 @@
 <!-- tag <py_output> contiene il testo che rappresenta l'outpu di uno script python -->
 <documento_tradotto>
 <titolo_1>
-difflib - Confrontare sequenze
+difflib - Confrontare Sequenze
 </titolo_1>
 <descrizione>
 Il modulo difflib contiene strumenti per calcolare e lavorare con differenze tra sequenze. E' particolarmente utile per confrontare testo.

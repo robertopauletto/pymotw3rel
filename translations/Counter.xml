@@ -13,9 +13,9 @@ Counter - Conta oggetti hashable
 Un <code>Counter</code> è un contenitore che tiene traccia di quante volte vengono aggiunti valori equivalenti. Può essere usato per implementare gli stessi algoritmi per i quali vengono comunemente usate in altri linguaggi le strutture dati <a href="http://it.wikipedia.org/wiki/Multiinsieme">multiset</a> o <a href='http://it.wikipedia.org/wiki/Lista_di_strutture_dati#Comparazione'>bag</a>
 
 </descrizione>
-<titolo_3>
+<titolo_2>
 Inizializzazione
-</titolo_3>
+</titolo_2>
 <testo_normale>
 <code>Counter</code> supporta tre forme di inizializzazione. Il suo costruttore può essere chiamato con una sequenza di elementi, un dizionario contenente chiavi e conteggi, oppure usando argomenti <em>keyword</em> che mappano nomi stringa a conteggi.
 </testo_normale>
@@ -65,9 +65,9 @@ Iniziale : Counter()
 Sequenza: Counter({'a': 3, 'b': 2, 'c': 1, 'd': 1})
 Dizionario: Counter({'d': 6, 'a': 4, 'b': 2, 'c': 1})
 </py_output>
-<titolo_3>
+<titolo_2>
 Accedere ai Contatori
-</titolo_3>
+</titolo_2>
 <testo_normale>
 Una volta che un <code>Counter</code> viene popolato, i suoi valori possono essere recuperati usando l'<a href='http://it.wikipedia.org/wiki/Application_programming_interface'>API</a> dei dizionari.
 </testo_normale>
@@ -141,9 +141,9 @@ s:   90113
 e:   88833
 i:   66986
 </py_output>
-<titolo_3>
+<titolo_2>
 Aritmetica
-</titolo_3>
+</titolo_2>
 <testo_normale>
 Le istanze di <code>Counter</code> supportano l'aritmetica e le operazioni sugli insiemi per l'aggregazione dei risultati. Questo esempio mostra gli operatori standard per creare nuove istanze di <code>Counter</code>, sono anche supportati gli operatori "sul posto" <code>+=</code>, <code>-=</code>, <code>&=</code> e <code>|=</code>.
 </testo_normale>

@@ -16,7 +16,7 @@ Leggere/scrivere file di configurazione simili ai file INI di Windows
 
 </descrizione>
 <testo_normale>
-Il modulo <strong>configparser</strong> si usa per gestire dei file di configurazione per un'applicazione che siano modificabii dall'utente. Il contenuto dei file di configurazione può essere organizzato in gruppi, e sono supportate parecchie opzioni di tipi di valore, inclusi interi, valori a virgola mobile e booleani. I valori delle opzioni possono essere combinati usando le stringhe di formattazione di Python, per costruire valori più grandi tipo URL da parti degli stessi tipo nomi host e numeri di porte.
+Il modulo <strong>configparser</strong> si usa per gestire dei file di configurazione per un'applicazione che siano modificabili dall'utente. Il contenuto dei file di configurazione può essere organizzato in gruppi, e sono supportate parecchie opzioni di tipi di valore, inclusi interi, valori a virgola mobile e booleani. I valori delle opzioni possono essere combinati usando le stringhe di formattazione di Python, per costruire valori più grandi tipo URL da parti degli stessi tipo nomi host e numeri di porte.
 </testo_normale>
 <titolo_2>
 Formato del File di Configurazione
@@ -146,7 +146,7 @@ Sezione: wiki
   password = SECRET
 </py_output>
 <testo_normale>
-<code>ConfigParser</code> supporta anche la stessa API di mappautra dei dizionari, <code>ConfigParser</code> funge infatti da dizionario che contiene dizionari separati per ogni sezione.
+<code>ConfigParser</code> supporta anche la stessa API di mappatura dei dizionari, <code>ConfigParser</code> funge infatti da dizionario che contiene dizionari separati per ogni sezione.
 </testo_normale>
 <py_code>
 # configparser_structure_dict.py
@@ -219,7 +219,7 @@ none.descrizione   : False
 Tipi di Valore
 </titolo_3>
 <testo_normale>
-Tutti i nomi di sezione ed opzione sono trattati come stringhe, ma i valori delle opzioni possono essere stringhe, interi, valori a virogla mobile, booleani. Vi è un intervallo di possibili valori booleani che possono essere convertiti a vero o falso. Il file di esempio seguente ne include uno per tipo
+Tutti i nomi di sezione ed opzione sono trattati come stringhe, ma i valori delle opzioni possono essere stringhe, interi, valori a virgola mobile, booleani. Vi è un intervallo di possibili valori booleani che possono essere convertiti a vero o falso. Il file di esempio seguente ne include uno per tipo
 </testo_normale>
 <py_output>
 # types.ini
@@ -675,6 +675,6 @@ Senza interpolazione: %(protocol)s://%(server)s:%(port)s/bugs/
 <vedi_anche>
 https://docs.python.org/3.5/library/configparser.html|configparser|La documentazione della libreria standard per questo modulo.
 http://configobj.readthedocs.org/en/latest/configobj.html|ConfigObj|Un avanzato elaboratore di file di configurazione con supporto di caratteristiche tipo la validazione del contenuto.
-riferimenti_moduli_modificati.html#configparser|Note di portabiità per configparser.
+riferimenti_moduli_modificati.html#configparser|Note di portabilità per configparser.
 </vedi_anche>
 </documento_tradotto>

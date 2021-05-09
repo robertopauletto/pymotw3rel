@@ -48,7 +48,7 @@ Il risultato del disassemblaggio di <code>dis_function.py</code> mostra le opera
 $ python3 -m dis dis_function.py
 </py_output>
 <testo_normale>
-Versioni precedenti di Python non incluono il corpo delle funzioni nel modulo disassemblato automaticamente. Per vedere la versione disassemblata di una funzione, si passi la funzione direttamente a <code>dis()</code>
+Versioni precedenti di Python non includono il corpo delle funzioni nel modulo disassemblato automaticamente. Per vedere la versione disassemblata di una funzione, si passi la funzione direttamente a <code>dis()</code>
 </testo_normale>
 <py_output>
 $ python3  dis_function.py
@@ -153,7 +153,7 @@ Si può usare <em class='code'>dis_test_loop.py</em> per eseguire ogni versione 
 # dis_slow_loop.py
 </py_code_lineno>
 <testo_normale>
-Eseguendo il programma di test con questa versone viene mostrato il programma disassemblato ed il tempo impiegato per l'esecuzione.
+Eseguendo il programma di test con questa versione viene mostrato il programma disassemblato ed il tempo impiegato per l'esecuzione.
 </testo_normale>
 <py_output>
 $ python3   dis_test_loop.py dis_slow_loop

@@ -17,7 +17,7 @@ Implementa una classe per lavorare coi numeri razionali
 
 </descrizione>
 <testo_normale>
-La classe <code>Fraction</code> implementa operazioni numeriche su numeri razionali basate sull'<a href="https://it.wikipedia.org/wiki/Application_programming_interface">API</a> definita nel modulo <code>mumbers</code> da <code>Rational</code>.
+La classe <code>Fraction</code> implementa operazioni numeriche su numeri razionali basate sull'<a href="https://it.wikipedia.org/wiki/Application_programming_interface">API</a> definita nel modulo <code>numbers</code> da <code>Rational</code>.
 </testo_normale>
 <titolo_2>
 Creare Istanze di Fraction
@@ -90,7 +90,7 @@ $ python3 fractions_create_strings_floats.py
 5e-1 = 1/2
 </py_output>
 <testo_normale>
-E' anche possibile creare instanze di <code>Fraction</code> direttamente da altre rappresentazioni di valori razionali, tipo <code>float</code> o <code>Decimal</code>.
+E' anche possibile creare istanze di <code>Fraction</code> direttamente da altre rappresentazioni di valori razionali, tipo <code>float</code> o <code>Decimal</code>.
 </testo_normale>
 <py_code>
 # fractions_from_float.py
@@ -210,6 +210,7 @@ Nessun limite = 3141592653589793/1000000000000000
 </py_output>
 <vedi_anche>
 http://docs.python.org/3.5/library/fractions.html|fractions|La documentazione della libreria standard per questo modulo.
+decimal.html|decimal|Il modulo <code>decimal</code> fornisce una API per matematica su valori fissi e a virgola mobile
 riferimenti_moduli_modificati.html#fractions_porting|Note di portabilità|Le note di portabilità per fractions
 </vedi_anche>
 </documento_tradotto>

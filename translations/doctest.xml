@@ -19,7 +19,7 @@ Scrivere test automatici come parte della documentazione per un modulo.
 <strong>doctest</strong> verifica codice sorgente eseguendo esempi incorporati nella documentazione, assicurandosi che essi producano il risultato atteso. Funziona analizzando il testo di aiuto per trovare esempi, eseguirli, quindi confrontandone il risultato con il valore atteso. Molti sviluppatori trovano <strong>doctest</strong> più facile da usare rispetto ad <a href='unittest.html' target='_blank'>unittest</a>, visto che, nella sua forma più semplice, non ci sono <a href='https://it.wikipedia.org/wiki/Application_programming_interface' target='_blank'>API</a> da imparare prima di usarlo. Tuttavia, mano a mano che gli esempi diventano più complessi, la mancanza di caratteristiche di gestione dell'impianto può rendere la scrittura di test con <strong>doctest</strong> meno conveniente rispetto all'uso di <a href='unittest.html' target='_blank'>unittest</a>.
 </testo_normale>
 <titolo_2>
-Partiamo
+Iniziare
 </titolo_2>
 <testo_normale>
 Il primo passo per impostare <strong>doctest</strong> è usare l'interprete interattivo per creare esempi, quindi copiarli nelle <a href='https://www.wikiwand.com/it/Docstring' target='_blank'>docstring</a> nel modulo. Qui, <code>my_function()</code> contiene due esempi.
@@ -125,7 +125,7 @@ Il modo migliore per gestire queste potenziali discrepanze è creare test che pr
 # doctest_hashed_values_tests.py
 </py_code>
 <testo_normale>
-Il singolo esempio è in realtà intepretato come due test separati, con il promo che non si attende un risultato da console ed il secondo che si attende il booleano risultante dall'opearzione di confronto.
+Il singolo esempio è in realtà interpretato come due test separati, con il promo che non si attende un risultato da console ed il secondo che si attende il booleano risultante dall'operazione di confronto.
 </testo_normale>
 <py_output>
 $ python3 -m doctest -v doctest_hashed_values_tests.py

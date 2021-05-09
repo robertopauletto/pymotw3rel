@@ -20,7 +20,7 @@ Il modulo <strong>enum</strong>  definisce un tipo enumerazione con capacità di
 Creare Enumerazioni
 </titolo_2>
 <testo_normale>
-Una nuova enumerazione viene definita utilizzando la sintassi di <code>class</code> subclassando <code>Enum</code> ed aggiungendo attibuti di classe che descrivono i valori.
+Una nuova enumerazione viene definita utilizzando la sintassi di <code>class</code> subclassando <code>Enum</code> ed aggiungendo attributi di classe che descrivono i valori.
 </testo_normale>
 <py_code>
 # enum_create.py
@@ -267,7 +267,7 @@ ValueError: duplicate values found in <enum 'BugStatus'>: by_design -> wont_fix,
 Creare Programmaticamente Enumerazioni
 </titolo_2>
 <testo_normale>
-Ci sono casi in cui è più vantaggioso creare enumerazioni programmaticamente, piuttosto che scriverle direttamente nel codice in una definizione di classe. Per queste situazioni, <code>Enum</code> suporta anche il passaggio di nomi e valori di membro alla classe costruttore.
+Ci sono casi in cui è più vantaggioso creare enumerazioni programmaticamente, piuttosto che scriverle direttamente nel codice in una definizione di classe. Per queste situazioni, <code>Enum</code> supporta anche il passaggio di nomi e valori di membro alla classe costruttore.
 </testo_normale>
 <py_code>
 # enum_programmatic_create.py

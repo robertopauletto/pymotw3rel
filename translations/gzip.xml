@@ -18,7 +18,7 @@ Il modulo <strong>gzip</strong> fornisce una interfaccia tipo file ai file zip G
 Scrivere File Compressi
 </titolo_2>
 <testo_normale>
-La funzione a livello di modulo <code>open()</code> crea una istanza della classe tipo file <code>GzipFile</code>. Vengono forniti gli usuali metodi per scrivee e leggere byte
+La funzione a livello di modulo <code>open()</code> crea una istanza della classe tipo file <code>GzipFile</code>. Vengono forniti gli usuali metodi per scrivere e leggere byte
 </testo_normale>
 <py_code>
 # gzip_write.py
@@ -36,7 +36,7 @@ E' possibile adottare diversi gradi di compressione passando l'argomento <code>c
 # gzip_compresslevel.py
 </py_code>
 <testo_normale>
-La colonna centrale di numeri nel risultato mostra la dimensione in byte del file prodotti dalla compressione dell'input. Per questi dati in input, i valori di compressione più alti non necessariamente portano vantaggi in temini di minore spazio di conservazione utilizzato. I risulati varieranno in base ai dati in input.
+La colonna centrale di numeri nel risultato mostra la dimensione in byte del file prodotti dalla compressione dell'input. Per questi dati in input, i valori di compressione più alti non necessariamente portano vantaggi in termini di minore spazio di conservazione utilizzato. I risultati varieranno in base ai dati in input.
 </testo_normale>
 <py_output>
 $ python3 gzip_compresslevel.py
@@ -84,7 +84,7 @@ $ python3 gzip_seek.py
 Lavorare con i Flussi
 </titolo_2>
 <testo_normale>
-La classe <code>GzipFile</code> puà essere usata per incapsulare altri tipi di flussi di dati in modo che anch'essi possano usufruire della compressione. Questo è utile quando i flussi vengono trasmessi attraverso un <em>socket</em> oppure un <em>handle</em> di file esistente (già aperto). Può anche essere usato un buffer <code>BytesIO</code>
+La classe <code>GzipFile</code> può essere usata per incapsulare altri tipi di flussi di dati in modo che anch'essi possano usufruire della compressione. Questo è utile quando i flussi vengono trasmessi attraverso un <em>socket</em> oppure un <em>handle</em> di file esistente (già aperto). Può anche essere usato un buffer <code>BytesIO</code>
 </testo_normale>
 <py_code>
 # gzip_BytesIO.py
@@ -99,8 +99,8 @@ $ python3 gzip_BytesIO.py
 https://docs.python.org/3.6/library/gzip.html|gzip|La documentazione della libreria standard per questo modulo.
 zlib.html|zlib|Il modulo <strong>zlib</strong> è una interfaccia a più basso livello alla compressione gzip.
 zipfile.html|zipfile|Il modulo <strong>zipfile</strong> fornisce accesso agli archivi ZIP.
-bz2.html|bz2 (di prossima traduzione)|Il modulo <strong>bz2</strong> usa il formato di compressione bz2
-#|tarfile (di prossima traduzione)|Il modulo <strong>tarfile</strong> include supporto <em>built-in</em> per leggere archivi tar compressi.
+bz2.html|bz2|Il modulo <strong>bz2</strong> usa il formato di compressione bz2
+tarfile.html|tarfile|Il modulo <strong>tarfile</strong> include supporto <em>built-in</em> per leggere archivi tar compressi.
 io.html|io|Costruzioni per creare condutture in input ed output
 </vedi_anche>
 </documento_tradotto>

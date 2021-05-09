@@ -67,7 +67,7 @@ $ python3 heapq_heapify.py
 Accedere ai Contenuti di un <em>Heap</em>
 </titolo_2>
 <testo_normale>
-Una volta che l'<em>heap</em> viene organizzato correttamente, si usi <code>heappop()</code> per rimouovere l'elemento con il valore più basso.
+Una volta che l'<em>heap</em> viene organizzato correttamente, si usi <code>heappop()</code> per rimuovere l'elemento con il valore più basso.
 </testo_normale>
 <py_code>
 # heapq_heappop.py
@@ -79,7 +79,7 @@ In questo esempio, adattato dalla documentazione della libreria standard, <code>
 $ python3 heapq_heappop.py
 </py_output>
 <testo_normale>
-Per rimuorere elementi esistenti e sostituirli con nuovi valori in una singola operazione, si usi <code>heapreplace()</code>.
+Per rimuovere elementi esistenti e sostituirli con nuovi valori in una singola operazione, si usi <code>heapreplace()</code>.
 </testo_normale>
 <py_code>
 # heapq_heapreplace.py
@@ -100,7 +100,7 @@ Estremi dei Dati da un <em>Heap</em>
 # heapq_extremes.py
 </py_code>
 <testo_normale>
-L'uso di <code>nlargest()</code> e <code>nsmallest()</code> per trovare il valore rispettivamente più grande e più piccolo è efficace solo in presenza di valori relativamenti piccoli di <code>n > 1</code>, ma in alcuni casi può essere utile.
+L'uso di <code>nlargest()</code> e <code>nsmallest()</code> per trovare il valore rispettivamente più grande e più piccolo è efficace solo in presenza di valori relativamente piccoli di <code>n > 1</code>, ma in alcuni casi può essere utile.
 </testo_normale>
 <py_output>
 $ python3 heapq_extremes.py

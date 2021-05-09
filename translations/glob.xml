@@ -224,6 +224,6 @@ dir/file[.txt
 http://docs.python.org/3.5/library/glob.html|glob|La documentazione della libreria standard per questo modulo.
 http://www.opengroup.org/onlinepubs/000095399/utilities/xcu_chap02.html#tag_02_13|Pattern Matching Notation|Spiegazione (in inglese) del globbing secondo le specifiche del linguaggio dei comandi della Shell da parte di Open Group
 fnmatch.html|fnmatch|Implementazione della corrispondenza del nome di file
-riferimenti_moduli_modificati.html#glob|Note di portabilità per glob|
+riferimenti_moduli_modificati.html#17|Note di portabilità per glob|
 </vedi_anche>
 </documento_tradotto>

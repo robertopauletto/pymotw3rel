@@ -14,7 +14,7 @@ Legge e scrive file con valori separati da virgola
 
 </descrizione>
 <testo_normale>
-Il modulo <strong>csv</strong> può esere usato per lavorare con dati esportati da fogli di calcolo e database in file di testo formattati con campi e record, generalmente riferiti come file con formato CSV (<em>comma-separated value</em>) visto che le virgole sono spesso utilizzate come separatore di campo nei record.
+Il modulo <strong>csv</strong> può essere usato per lavorare con dati esportati da fogli di calcolo e database in file di testo formattati con campi e record, generalmente riferiti come file con formato CSV (<em>comma-separated value</em>) visto che le virgole sono spesso utilizzate come separatore di campo nei record.
 </testo_normale>
 <titolo_2>
 Lettura

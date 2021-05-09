@@ -163,7 +163,7 @@ print('t               :', t)
 print('fromtimestamp(t):', datetime.date.fromtimestamp(t))
 </py_code>
 <testo_normale>
-Questo esempio illustra i diversi tipi di valore utillzzati da <code>fromordinal()</code> e da <code>fromtimestamp()</code>
+Questo esempio illustra i diversi tipi di valore utilizzati da <code>fromordinal()</code> e da <code>fromtimestamp()</code>
 </testo_normale>
 <py_output>
 $ python3 datetime_date_fromordinal.py
@@ -559,7 +559,7 @@ Zone di Fuso Orario
 All'interno di <strong>datetime</strong>, le zone di fuso orario sono rappresentate da sottoclassi di <code>tzinfo</code>. Visto che <code>tzinfo</code> è una classe base astratta, le applicazioni devono definire una sottoclasse e fornire le implementazioni appropriate per alcuni metodi affinchè siano utilizzabili.
 </testo_normale>
 <testo_normale>
-<strong>datetime</strong> include una implemetazione, poco sofisticata se vogliamo, nella classe <code>timezone</code> che utilizza uno scostamento fisso rispetto all'<a href="https://it.wikipedia.org/wiki/Tempo_coordinato_universale">UTC</a> e non supporta valori di scostamento diversi per diversi giorni dell'anno, ad esempio laddove viene applicata l'ora legale, oppure laddove lo scostamento dall'<a href="https://it.wikipedia.org/wiki/Tempo_coordinato_universale">UTC</a> sia mutato nel tempo.
+<strong>datetime</strong> include una implementazione, poco sofisticata se vogliamo, nella classe <code>timezone</code> che utilizza uno scostamento fisso rispetto all'<a href="https://it.wikipedia.org/wiki/Tempo_coordinato_universale">UTC</a> e non supporta valori di scostamento diversi per diversi giorni dell'anno, ad esempio laddove viene applicata l'ora legale, oppure laddove lo scostamento dall'<a href="https://it.wikipedia.org/wiki/Tempo_coordinato_universale">UTC</a> sia mutato nel tempo.
 </testo_normale>
 <py_code>
 # datetime_timezone.py

@@ -240,7 +240,7 @@ La classe <code>Graph</code> include due metodi basici per un grafo diretto. Una
 Il metodo <code>__deepcopy__()</code> stampa messaggi per mostrare come esso viene chiamato, e gestisce i contenuti del dizionario memo alla bisogna. Invece di copiare la lista di connessioni brutalmente, crea una nuova lista ed aggiunge ad essa copie delle connessioni individuali. Questo assicura che il dizionario memo venga aggiornato mano a mano che un nuovo nodo viene duplicato, ed evita di incoorere in ricorsioni o copie supplementari dei nodi. Come in precedenza, ritorna l'oggetto copiato quando ha finito.
 </testo_normale>
 <testo_normale>
-  <img class='img-responsive' src='img/grafo_diretto.png' alt='Grafo diretto'/>
+  <img class='responsive-img' src='img/grafo_diretto.png' alt='Grafo diretto'/>
 </testo_normale>
 <testo_normale>
 Ci sono parecchi cicli nel grafo mostrato nella figura qui sopra, ma la gestione della ricorsione con il dizionario memo previene l'attraversamento dal generare un errore di <a href="https://it.wikipedia.org/wiki/Stack_overflow">stack overflow</a>. Quando il nodo <em>root</em> viene copiato, l'output è:

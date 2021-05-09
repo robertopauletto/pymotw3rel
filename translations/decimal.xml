@@ -16,13 +16,13 @@ Aritmetica decimale usando valori fissi ed a virgola mobile
 
 </descrizione>
 <testo_normale>
-Il modulo <strong>decimal</strong> implementa artimetica su valori fissi ed a virgola mobile usando il modello familiare alla maggior parte delle persone, piuttosto che la versione a virgola mobile <a href='https://www.wikiwand.com/it/Institute_of_Electrical_and_Electronics_Engineers' target='_blank'>IEEE</a> implementata nalla maggior parte dell'hardware dei computer e familiare ai programmatori. Una istanza di <code>Decimal</code> può  rappresentare esattamente qualsiasi numero, arrotondarlo per eccesso o difetto, ed applicare un limite al numero delle cifre significative.
+Il modulo <strong>decimal</strong> implementa aritmetica su valori fissi ed a virgola mobile usando il modello familiare alla maggior parte delle persone, piuttosto che la versione a virgola mobile <a href='https://www.wikiwand.com/it/Institute_of_Electrical_and_Electronics_Engineers' target='_blank'>IEEE</a> implementata nella maggior parte dell'hardware dei computer e familiare ai programmatori. Una istanza di <code>Decimal</code> può  rappresentare esattamente qualsiasi numero, arrotondarlo per eccesso o difetto, ed applicare un limite al numero delle cifre significative.
 </testo_normale>
 <titolo_2>
 Decimal
 </titolo_2>
 <testo_normale>
-I valori decimali sono rappresentati come istanze della classe <code>Decimal</code>. Il costruttore riceve come argomento un intero od una stringa. Valori a virgola mobile possono essere convertiti in stringa prima di sessere usati per creare un <code>Decimal</code>, consentendo al chiamante di gestire esplicitamente il numero di cifre per valori che non possono essere espressi esattamente usando le rappresentazioni hardware a virgola modile. Alternativamente, il metodo di classe <code>from_float()</code> converte all'esatta rappresentazione decimale.
+I valori decimali sono rappresentati come istanze della classe <code>Decimal</code>. Il costruttore riceve come argomento un intero od una stringa. Valori a virgola mobile possono essere convertiti in stringa prima di essere usati per creare un <code>Decimal</code>, consentendo al chiamante di gestire esplicitamente il numero di cifre per valori che non possono essere espressi esattamente usando le rappresentazioni hardware a virgola mobile. Alternativamente, il metodo di classe <code>from_float()</code> converte all'esatta rappresentazione decimale.
 </testo_normale>
 <py_code>
 # decimal_create.py
@@ -319,7 +319,7 @@ for i in range(1, 5):
     print(i, ':', d, d * 1)
 </py_code>
 <testo_normale>
-Per modificare la precisione, si assegna un nuovo valore tra <code>1</code> e <code>decimal.MAX_PREC</code> direttamento all'attributo.
+Per modificare la precisione, si assegna un nuovo valore tra <code>1</code> e <code>decimal.MAX_PREC</code> direttamente all'attributo.
 </testo_normale>
 <py_output>
 $ python3 decimal_precision.py
@@ -339,7 +339,7 @@ Ci sono parecchie opzioni di arrotondamento per mantenere i valori alla precisio
 ROUND_CEILING|Arrotonda sempre per eccesso verso infinito.
 ROUND_DOWN|Arrotonda sempre per difetto.
 ROUND_FLOOR|Arrotonda sempre per difetto verso infinito negativo.
-ROUND_HALF_DOWN|Arrotonda per eccesso se l'ultima cifra significativa è maggiore od uguale a 5, altrimanti per difetto.
+ROUND_HALF_DOWN|Arrotonda per eccesso se l'ultima cifra significativa è maggiore od uguale a 5, altrimenti per difetto.
 ROUND_HALF_EVEN|Come ROUND_HALF_DOWN eccetto che se il valore è 5, viene esaminata la cifra precedente. Valori pari causano un arrotondamento per difetto e valori dispari per eccesso.
 ROUND_HALF_UP|Come ROUND_HALF_DOWN eccetto che se l'ultima cifra significativa è 5, il valore viene arrotondato per eccesso.
 ROUND_UP|Arrotonda per eccesso.

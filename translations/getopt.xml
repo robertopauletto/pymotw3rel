@@ -94,7 +94,7 @@ Il programma può essere chiamato in diversi modi. Quando viene chiamato senza a
 $ python3 getopt_example.py
 </py_output>
 <testo_normale>
-Un opzione breve (ad una lettera) può esere divisa dal proprio argomento da un carattere di spaziatura:
+Un opzione breve (ad una lettera) può essere divisa dal proprio argomento da un carattere di spaziatura:
 </testo_normale>
 <py_output>
 $ python3 getopt_example.py -o foo

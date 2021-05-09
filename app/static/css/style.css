@@ -2,6 +2,13 @@
   --head-color: #455a64;
 }
 
+#filednl {
+  margin-bottom: 0.8rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.8rem;
+}
 .mb-4 {
   margin-bottom: 1.6rem;
 }
@@ -209,4 +216,41 @@ code {
     left: 30;
     margin-right: 10px;
   }
+}
+
+/* In pagina indice e sidebar articolo sottoline link
+   in quanto a volte è su due righe e può confondere */
+.fixed-sidebar a:hover {
+  text-decoration: underline;
+}
+
+.dropdown-categ-trigger:hover  {
+  text-decoration: underline;
+}
+
+dt {
+  font-weight: 500;
+}
+.table th, .table td {
+  padding-left: 8px;
+}
+
+/* Alert divs */
+.alert {
+  margin: 1rem 0.4rem;
+  padding: 1rem 0.8rem !important;
+  color: var(--head-color);
+  font-weight: bolder;
+}
+.success {
+  background-color: #b2dfdb;
+}
+.info {
+  background-color: #b3e5fc;
+}
+.warning {
+  background-color: #ffecb3;
+}
+.error {
+  background-color: #ffcdd2;
 }

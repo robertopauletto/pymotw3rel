@@ -22,7 +22,7 @@ Il modulo <strong>dbm</strong> è un <a href='https://www.wikiwand.com/it/Front-
 Tipi di Database
 </titolo_2>
 <testo_normale>
-Python è dotato di diversi moduli per accedere a database stile DBM. L'implementazione predefinita selezionata dipende dalle librerie attualmente a disposizione nel sistema corrrente e dalle opzioni usate quanto Python è stato compilato. Interfacce separate per le specifiche implementazioni consentono ai programmi Python di scambiare dati con programmi scritti in altri linguagge che non effettuano automaticamente la selezione tra i formati disponibili, oppure per scrivere file dati portabili che funzioneranno su piattaforme multiple.
+Python è dotato di diversi moduli per accedere a database stile DBM. L'implementazione predefinita selezionata dipende dalle librerie attualmente a disposizione nel sistema corrente e dalle opzioni usate quanto Python è stato compilato. Interfacce separate per le specifiche implementazioni consentono ai programmi Python di scambiare dati con programmi scritti in altri linguaggi che non effettuano automaticamente la selezione tra i formati disponibili, oppure per scrivere file dati portabili che funzioneranno su piattaforme multiple.
 </testo_normale>
 <titolo_3>
 dbm.gnu
@@ -62,7 +62,7 @@ Il formato di conservazione per nuovi database è selezionato cercando versioni 
 <code>dbm.dumb</code>
 </lista>
 <testo_normale>
-La funzione <code>open()</code> riceve l'argomento <code>flags</code> per controllare come gestire il database. Per creare un nuovo database quando necessario, si usi <code>'c'</code>. Usando <code>'n'</code> viene sempre creato un nuovo database, sovrescrivendo un eventuale esistente.
+La funzione <code>open()</code> riceve l'argomento <code>flags</code> per controllare come gestire il database. Per creare un nuovo database quando necessario, si usi <code>'c'</code>. Usando <code>'n'</code> viene sempre creato un nuovo database, sovrascrivendo un eventuale esistente.
 </testo_normale>
 <py_code>
 # dbm_new.py
@@ -89,7 +89,7 @@ $ python3 dbm_whichdb.py
 Aprire un Database Esistente
 </titolo_2>
 <testo_normale>
-Per aprire un database esistente, si usino i parametri <code>'r'</code> (sola lettura) oppure <code>'w'</code> (lettura e scrittura) per l'argomento <code>flags</code>. I database esistenti sono automenticamente passati a <code>whichdb()</code> per l'identificazione, quindi fintanto che un file può essere identificato, viene usato il modulo appropriato per aprirlo.
+Per aprire un database esistente, si usino i parametri <code>'r'</code> (sola lettura) oppure <code>'w'</code> (lettura e scrittura) per l'argomento <code>flags</code>. I database esistenti sono automaticamente passati a <code>whichdb()</code> per l'identificazione, quindi fintanto che un file può essere identificato, viene usato il modulo appropriato per aprirlo.
 </testo_normale>
 <py_code>
 # dbm_existing.py

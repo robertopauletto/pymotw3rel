@@ -16,13 +16,13 @@ installa pip, l'installatore di pacchetti di Python.
 
 </descrizione>
 <testo_normale>
-Sebbne Python sia un linguaggio di programmazione "batterie incluse" e sia corredato da una larga varietà di moduli nella libreria standard, ci sono anche più librerie, framework e strumenti disponibili per l'installazione da <a href='https://pypi.python.org/pypi' target='_blank'>Python Package Index</a>. Per installare questi pacchetti, uno sviluppatore ha bisogno dello strumento di installazione <code>pip</code>. Installare uno strumento atto all'installazione di strumenti presenta un interessante problema di <em>bootstrapping</em> che <strong>ensurepip</strong> risolve.
+Sebbene Python sia un linguaggio di programmazione "batterie incluse" e sia corredato da una larga varietà di moduli nella libreria standard, ci sono anche più librerie, framework e strumenti disponibili per l'installazione da <a href='https://pypi.python.org/pypi' target='_blank'>Python Package Index</a>. Per installare questi pacchetti, uno sviluppatore ha bisogno dello strumento di installazione <code>pip</code>. Installare uno strumento atto all'installazione di strumenti presenta un interessante problema di <em>bootstrapping</em> che <strong>ensurepip</strong> risolve.
 </testo_normale>
 <titolo_2>
 Installare pip
 </titolo_2>
 <testo_normale>
-Questo esempio utiizza un ambiente virtuale configurato senza <code>pip</code> installato
+Questo esempio utilizza un ambiente virtuale configurato senza <code>pip</code> installato
 </testo_normale>
 <py_output>
 $ python3 -m venv --without-pip /tmp/demoenv

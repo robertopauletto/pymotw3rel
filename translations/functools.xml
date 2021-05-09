@@ -23,7 +23,7 @@ Il modulo <strong>functools</strong> fornisce strumenti per adattare od estender
 Decoratori
 </titolo_2>
 <testo_normale>
-Lo strumento primario fornito dal modulo <strong>functools</strong> è la classe <code>partial</code>, che può essere usata per "impacchettare" un oggetto chiamabile con argomenti predifiniti. L'oggetto risultante è a sua volta chiamabile e può essere trattato come se si trattasse della funzione originale. Richiede tutti gli stessi argomenti dell'originale e può anche essere chiamato con argomenti aggiuntivi sia posizionali che nominali. <code>partial</code> può anche essere usato al posto di una funzione <a href="https://it.wikipedia.org/wiki/Funzione_anonima">lambda</a> per fornire argomenti predefiniti ad una funzione, lasciandone alcuni non specificati.
+Lo strumento primario fornito dal modulo <strong>functools</strong> è la classe <code>partial</code>, che può essere usata per "impacchettare" un oggetto chiamabile con argomenti predefiniti. L'oggetto risultante è a sua volta chiamabile e può essere trattato come se si trattasse della funzione originale. Richiede tutti gli stessi argomenti dell'originale e può anche essere chiamato con argomenti aggiuntivi sia posizionali che nominali. <code>partial</code> può anche essere usato al posto di una funzione <a href="https://it.wikipedia.org/wiki/Funzione_anonima">lambda</a> per fornire argomenti predefiniti ad una funzione, lasciandone alcuni non specificati.
 </testo_normale>
 <titolo_3>
 Oggetti partial
@@ -297,7 +297,7 @@ wrapper di istanza:
 Metodi e Funzioni
 </titolo_2>
 <testo_normale>
-Mentre <code>partial()</code> ritorna un chiamabile pronto per essere usato direttamente, <code>particalmethod()</code> ritorna un chiamabile pronto per essere usato come metodo <em>unbound</em> di un oggetto. Nell'esempio seguente la stessa funzione <a href="https://it.wikipedia.org/wiki/Stand-alone_(informatica)">stand-alone</a> viene aggiunta per due volte come attributo di <code>MyClass</code>, una volta usando <code>partialmethod()</code> come <code>method1()</code>, l'altra utilizzando <code>partial()</code> come <code>method2()</code>
+Mentre <code>partial()</code> ritorna un chiamabile pronto per essere usato direttamente, <code>partialmethod()</code> ritorna un chiamabile pronto per essere usato come metodo <em>unbound</em> di un oggetto. Nell'esempio seguente la stessa funzione <a href="https://it.wikipedia.org/wiki/Stand-alone_(informatica)">stand-alone</a> viene aggiunta per due volte come attributo di <code>MyClass</code>, una volta usando <code>partialmethod()</code> come <code>method1()</code>, l'altra utilizzando <code>partial()</code> come <code>method2()</code>
 </testo_normale>
 <py_code>
 # functools_partialmethod.py
@@ -504,7 +504,7 @@ for expr in ['a < b', 'a <= b', 'a == b', 'a >= b', 'a > b']:
     print('  risultato di {}: {}'.format(expr, result))
 </py_code>
 <testo_normale>
-La classe deve fornire l'implementazione di <code>__eq__()</code> ed un altro metodo di confronto arricchito. Il decoratore aggiunge le implementazioni per i restandi metodi che funzionano utilizzando i metodi di confronto forniti.
+La classe deve fornire l'implementazione di <code>__eq__()</code> ed un altro metodo di confronto arricchito. Il decoratore aggiunge le implementazioni per i restanti metodi che funzionano utilizzando i metodi di confronto forniti.
 </testo_normale>
 <py_output>s
 
@@ -590,7 +590,7 @@ for o in sorted(objs, key=get_key_wrapper):
 
 </py_code>
 <testo_normale>
-Normalmente <code>cmp_to_key()</code> verrebbe usato direttamente, ma in questo esempio viene introdotta una funzione wrapper extra per stampare maggiori informazioni mentre viene chiamta la funzione chiave.
+Normalmente <code>cmp_to_key()</code> verrebbe usato direttamente, ma in questo esempio viene introdotta una funzione wrapper extra per stampare maggiori informazioni mentre viene chiamata la funzione chiave.
 </testo_normale>
 <testo_normale>
 L'output mostra che <code>sorted()</code> inizia con il chiamare <code>get_key_wrapper()</code> per ciascun elemento nella sequenza per produrre una chiave. Le chiavi restituire da <code>comp_to_key()</code> sono istanze di una classe definita in <strong>functools</strong> che implementa le <a href="https://it.wikipedia.org/wiki/Application_programming_interface">API</a> di confronto arricchito utilizzando la funzione di confronto "vecchio stile" che viene passata. Dopo che tutte le chiavi sono state create, la sequenza viene ordinata confrontando le chiavi.
@@ -1023,6 +1023,6 @@ http://docs.python.org/3.5/library/functools.html|functools|La documentazione de
 http://docs.python.org/reference/datamodel.html#object.__lt__|Metodi di confronto arricchito|Descrizione dei metodi di confronto arricchito tratto dalla Guida di Riferimento di Python.
 http://nedbatchelder.com/blog/201601/isolated_memoize.html|isolated @memoize|Un articolo sulla creazione di decoratori di <a href="https://it.wikipedia.org/wiki/Memoizzazione">memoizzazione</a> che funzionano bene con le unità di test, di Ned Batchelder.
 https://www.python.org/dev/peps/pep-0443|PEP 443|Funzioni generiche single-dispatch
-#|inspect|<a href="https://it.wikipedia.org/wiki/Application_programming_interface">API</a> di introspezione per oggetti vivi.
+inspect.html|inspect|API di introspezione per oggetti vivi.
 </vedi_anche>
 </documento_tradotto>

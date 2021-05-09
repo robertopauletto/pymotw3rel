@@ -74,10 +74,10 @@ Il gruppo <code>adm</code> ha due membri.
 $ python3 grp_getgrnam.py
 </py_output>
 <titolo_2>
-Trovare un Gruppo per IDentificativo
+Trovare un Gruppo per Identificativo
 </titolo_2>
 <testo_normale>
-Per identificare un gruppo cha ha in esecuzione il processo corrente, si combina <code>getgrgid()</code> con <code>os.getgid()</code>.
+Per identificare un gruppo che ha in esecuzione il processo corrente, si combina <code>getgrgid()</code> con <code>os.getgid()</code>.
 </testo_normale>
 <py_code>
 # grp_getgrgid_process.py

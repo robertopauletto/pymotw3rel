@@ -270,7 +270,7 @@ document.cookie = "ilmiocookie=\"valore del cookie\"";
 </py_output>
 <vedi_anche>
 https://docs.python.org/3.5/library/http.cookies.html|http.cookies|La documentazione della libreria standard per questo modulo
-https://docs.python.org/3.5/library/http.cookiejar.html|http.cookiejar|Il modulo cookielib, per lavorere sui cookie lato client.
+https://docs.python.org/3.5/library/http.cookiejar.html|http.cookiejar|Il modulo cookielib, per lavorare sui cookie lato client.
 https://tools.ietf.org/html/rfc2109.html|RFC 2109|Il meccanismo di gestione della stato in HTTP
 </vedi_anche>
 </documento_tradotto>

@@ -52,7 +52,7 @@ episode-one.mp3
 episode-two.mp3
 </py_code>
 <testo_normale>
-L'esecuzione di <code>fileinput_example.py</code> con l'input di esempio produre dati XML usando il formato RSS
+L'esecuzione di <code>fileinput_example.py</code> con l'input di esempio produrre dati XML usando il formato RSS
 </testo_normale>
 <py_output>
 $ python3 fileinput_example.py sample_data.m3u
@@ -155,6 +155,6 @@ La directory contiene: ['etc_hosts.txt']
 <vedi_anche>
 https://docs.python.org/3.7/library/fileinput.html|fileinput|La documentazione della libreria standard per questo modulo.
 https://pypi.python.org/pypi/m3utorss|m3utorss|Script per convertire file m3u con elenchi di MP3 in un file RSS adatto all'uso come flusso di podcast.
-#|xml.etree (di prossima traduzione)|Maggiori dettagli sull'utilizzo di <code>ElementTree</code> per produrre XML
+xml.etree.ElementTree.html|xml.etree.ElementTree|Maggiori dettagli sull'utilizzo di <code>ElementTree</code> per produrre XML
 </vedi_anche>
 </documento_tradotto>
