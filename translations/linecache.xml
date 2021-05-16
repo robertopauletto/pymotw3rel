@@ -62,7 +62,7 @@ def cleanup(filename):
 Leggere Righe Specifiche
 </titolo_2>
 <testo_normale>
-I numeri di riga letti dal modulo <strong>linecache</strong> iniziano da 1, ma normalemnente l'indicizzazione delle liste inizia da 0.
+I numeri di riga letti dal modulo <strong>linecache</strong> iniziano da 1, ma normalmente l'indicizzazione delle liste inizia da 0.
 </testo_normale>
 <py_code>
 # linecache_getline.py
@@ -129,7 +129,7 @@ from linecache_data import *
 
 filename = make_tempfile()
 
-# La cache ritorna sempre una stringa, ed usa
+# La cache ritorna sempre una stringa, e usa
 # una stringa vuota per indicare una riga che
 # non esiste.
 not_there = linecache.getline(filename, 500)

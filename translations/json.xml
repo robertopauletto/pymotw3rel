@@ -99,7 +99,7 @@ print('CORRISPONDENZA NON ORDINATA:', unsorted == first)
 print('CORRISPONDENZA ORDINATA    :', first == second)
 </py_code>
 <testo_normale>
-L'ordinamento facilita la scansione ad occhio dei risultati, e rende anche possibile confrontare l'output di JSON nei test.
+L'ordinamento facilita la scansione a occhio dei risultati, e rende anche possibile confrontare l'output di JSON nei test.
 </testo_normale>
 <py_output>
 $ python3 json_sort_keys.py
@@ -111,7 +111,7 @@ CORRISPONDENZA NON ORDINATA: False
 CORRISPONDENZA ORDINATA    : True
 </py_output>
 <testo_normale>
-Per strutture dati profondamente nidiifcate, si specifica un valore per l'indentazione: <code>indent</code> in modo che l'output venga formattato piacevolmente.
+Per strutture dati profondamente nidificate, si specifica un valore per l'indentazione: <code>indent</code> in modo che l'output venga formattato piacevolmente.
 </testo_normale>
 <py_code>
 # json_indent.py
@@ -144,7 +144,7 @@ INDENTATO: [
 ]
 </py_output>
 <testo_normale>
-Un output partcolareggiato come questo tuttavia aumenta il numero di byte necessari per trasmettere la stessa mole di dati, pertanto non è indicato per un uso in ambiente di produzione. In effetti è possibile aggiustare le impostazioni per separare i dati nell'output codificato per renderli ancora più compatti che nella modalità predefinita.
+Un output particolareggiato come questo tuttavia aumenta il numero di byte necessari per trasmettere la stessa mole di dati, pertanto non è indicato per un uso in ambiente di produzione. In effetti è possibile aggiustare le impostazioni per separare i dati nell'output codificato per renderli ancora più compatti che nella modalità predefinita.
 </testo_normale>
 <py_code>
 # json_compact_encoding.py
@@ -381,7 +381,7 @@ PARTE: ]
 Il metodo <code>encode()</code> è praticamente equivalente a <code>''.join(encoder.iterencode())</code>, con qualche verifica di errore supplementare all'inizio.
 </testo_normale>
 <testo_normale>
-Per codificare oggetti arbitrari, si sovrascrive il metodo <code>default()</code> con una implementazione simile a qualla usata in <code>convert_to_builtin_type()</code>.
+Per codificare oggetti arbitrari, si sovrascrive il metodo <code>default()</code> con una implementazione simile a quella usata in <code>convert_to_builtin_type()</code>.
 </testo_normale>
 <py_code>
 # json_encoder_default.py
@@ -476,7 +476,7 @@ ARGOMENTI DELL'ISTANZA: {'s': "I valori dell'instanza vanno qui"}
 Lavorare con Flussi e File
 </titolo_2>
 <testo_normale>
-Tutti gli esempi fino a qui assumevano che la versione codificata della intera struttura dati dovrebbe stare tutta in memoria. Con strutture dati molto grandi, potrebbe essere preferibile scrivere la codifica direttamente ad un oggetto di tipo file. Le funzioni di comodo <code>load()</code> e <code>dump()</code> accettano riferimenti ad oggetti di tipo file da usare per lettura e scrittura.
+Tutti gli esempi fino a qui assumevano che la versione codificata della intera struttura dati dovrebbe stare tutta in memoria. Con strutture dati molto grandi, potrebbe essere preferibile scrivere la codifica direttamente a un oggetto di tipo file. Le funzioni di comodo <code>load()</code> e <code>dump()</code> accettano riferimenti a oggetti di tipo file da usare per lettura e scrittura.
 </testo_normale>
 <py_code>
 # json_dump_file.py
@@ -492,7 +492,7 @@ json.dump(data, f)
 print(f.getvalue())
 </py_code>
 <testo_normale>
-Un socket od un normale <em>file handle</em> avrebbero funzionato allo stesso modo del buffer <code>StringIO</code> usato nell'esempio.
+Un socket o un normale <em>file handle</em> avrebbero funzionato allo stesso modo del buffer <code>StringIO</code> usato nell'esempio.
 </testo_normale>
 <py_output>
 $ python3 json_dump_file.py
@@ -512,7 +512,7 @@ f = io.StringIO('[{"a": "A", "c": 3.0, "b": [2, 4]}]')
 print(json.load(f))
 </py_code>
 <testo_normale>
-Propio come per <code>dump()</code>, qualsiasi oggetto di tipo file può essere passato a <code>load()</code>.
+Proprio come per <code>dump()</code>, qualsiasi oggetto di tipo file può essere passato a <code>load()</code>.
 </testo_normale>
 <py_output>
 $ python3 json_load_file.py
@@ -523,7 +523,7 @@ $ python3 json_load_file.py
 Flussi Dati Mescolati
 </titolo_2>
 <testo_normale>
-<code>JSONDecoder</code> include <code>raw_decode()</code>, un metodo per decodificare una struttura dati seguita da ulteriori dati, tipo dati JSON con del testo in coda. Il valore ritornato è l'oggetto creato dalla decodifica dei dati in input, ad un indice nei dati che indica dove la decodifica si è interrotta.
+<code>JSONDecoder</code> include <code>raw_decode()</code>, un metodo per decodificare una struttura dati seguita da ulteriori dati, tipo dati JSON con del testo in coda. Il valore ritornato è l'oggetto creato dalla decodifica dei dati in input, a un indice nei dati che indica dove la decodifica si è interrotta.
 </testo_normale>
 <py_code>
 # json_mixed_data.py
@@ -582,7 +582,7 @@ Il modulo <code>json.tool</code> implementa un programma di riga di comando per 
 [{"a": "A", "c": 3.0, "b": [2, 4]}]
 </py_code>
 <testo_normale>
-Il file in input <code>example.json</code> contiene una mappatura con le chiavi non ordinate alfabeticamente. Il primo esempio che segue mostra i dati riformattati ordinati, ed il secondo usa <code>--sort-keys</code> per ordinare le chiavi di mappatura prima della stampa.
+Il file in input <code>example.json</code> contiene una mappatura con le chiavi non ordinate alfabeticamente. Il primo esempio che segue mostra i dati riformattati ordinati, e il secondo usa <code>--sort-keys</code> per ordinare le chiavi di mappatura prima della stampa.
 </testo_normale>
 <py_output>
 $ python3 -m json.tool example.json
@@ -610,8 +610,8 @@ $ python3 -m json.tool example.json
 </py_output>
 <vedi_anche>
 https://docs.python.org/3.5/library/json.html|json|La documentazione della libreria standard per questo modulo
-riferimenti_moduli_modificati.html#json|Note di Portabilità per json|
-http://json.org/json-it.html|JavaScript Object Notation|La home di JSON, con documentazione ed implementazioni in altri linguaggi.
-http://code.google.com/p/jsonpickle|jsonpickle|consente ad ogni oggetto Python di essere serializzato in JSON
+riferimenti_moduli_modificati.html#22|Note di Portabilità per json|
+http://json.org/json-it.html|JavaScript Object Notation|La home di JSON, con documentazione e implementazioni in altri linguaggi.
+http://code.google.com/p/jsonpickle|jsonpickle|consente a ogni oggetto Python di essere serializzato in JSON
 </vedi_anche>
 </documento_tradotto>

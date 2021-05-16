@@ -8,7 +8,7 @@ Gestisce i limiti delle risorse di sistema per un programma Unix
 
 </descrizione>
 <testo_normale>
-Le funzioni in <strong>resource</strong> rilevano le risorse del sistema corrente consumate da un processo, e pongono limiti su di esse per controllare quanto carico un programma può imporre ad un sistema.
+Le funzioni in <strong>resource</strong> rilevano le risorse del sistema corrente consumate da un processo, e pongono limiti su di esse per controllare quanto carico un programma può imporre a un sistema.
 </testo_normale>
 <titolo_2>
 Utilizzo Corrente
@@ -17,7 +17,7 @@ Utilizzo Corrente
 Si usi <code>getrusage()</code> per rilevare le risorse usate dal processo corrente e/o dai suoi figli. Il valore di ritorno è una struttura dati contenente parecchie metriche di risorse basate sullo stato corrente del sistema.
 </testo_normale>
 <note>
-Non tutte i valori delle risorse raccolti sono qui visualizzati. Si faccia riferimento alla documentazione della libreria standard per <strong>resource</strong> per un elenco più completo
+Non tutti i valori delle risorse raccolti sono qui visualizzati. Si faccia riferimento alla documentazione della libreria standard per <strong>resource</strong> per un elenco più completo
 </note>
 <py_code>
 # resource_getrusage.py
@@ -38,7 +38,7 @@ Oltre al reale utilizzo, è possibile verificare i limit imposti all'applicazion
 # resource_getrlimit.py
 </py_code>
 <testo_normale>
-Il valore di ritorno per ciascun limite è una tupla che contiene il limite <em>soft</em> imposto dalla configurazione corrente ed il limite <em>hard</em> imposto dal sistema operativo.
+Il valore di ritorno per ciascun limite è una tupla che contiene il limite <em>soft</em> imposto dalla configurazione corrente e il limite <em>hard</em> imposto dal sistema operativo.
 </testo_normale>
 <note>
 Un limite <em>hard</em> può essere alzato solo da <strong>root</strong> e qualsiasi processo lo può abbassare.

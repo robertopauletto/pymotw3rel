@@ -171,7 +171,7 @@ I flag <code>DEBUG_OBJECT</code> e <code>DEBUG_INSTANCE</code> sono stati rimoss
 gettext
 </titolo_2>
 <testo_normale>
-Tutte le funzioni di traduzione in <strong>gettext</strong> assumono che input ed output sia unicode, e le varianti unicode tipo <code>ugettext()</code> sono state rimosse
+Tutte le funzioni di traduzione in <strong>gettext</strong> assumono che input e output sia unicode, e le varianti unicode tipo <code>ugettext()</code> sono state rimosse
 </testo_normale>
 <a name='glob'></a>
 <titolo_2>
@@ -184,7 +184,7 @@ La nuova funzione <code>escape()</code> implementa una soluzione per cercare fil
 http.cookies
 </titolo_2>
 <testo_normale>
-Oltre ad inserire nelle sequenze di escape gli apici, <code>SimpleCookie</code> codifica anche virgole e punti e virgola in valori per riflettere maggiormente il comportamento dei veri browser (<a href='http://bugs.python.org/issue9824'>Python issue 9824</a>)
+Oltre a inserire nelle sequenze di escape gli apici, <code>SimpleCookie</code> codifica anche virgole e punti e virgola in valori per riflettere maggiormente il comportamento dei veri browser (<a href='http://bugs.python.org/issue9824'>Python issue 9824</a>)
 </testo_normale>
 <titolo_2>
 imaplib
@@ -306,7 +306,7 @@ platform
 <code>platform.uname()</code> ora restituisce una <code>namedtuple</code>
 </testo_normale>
 <testo_normale>
-Visto che le distribuzioni Linux non hanno un modo consistente per descrivere se stesse, le funzioni per ottenere descrizioni (<code>platform.dist()</code> e <code>platform.linux_distribution</code>) sono deprecate ed in calendario per la rimozione in Python 3.7 (<a href='http://bugs.python.org/issue1322'>Python issue 1322</a>
+Visto che le distribuzioni Linux non hanno un modo consistente per descrivere se stesse, le funzioni per ottenere descrizioni (<code>platform.dist()</code> e <code>platform.linux_distribution</code>) sono deprecate e in calendario per la rimozione in Python 3.7 (<a href='http://bugs.python.org/issue1322'>Python issue 1322</a>
 </testo_normale>
 <titolo_2>
 pickle
@@ -327,7 +327,7 @@ può essere sostituito con:
 import pickle
 </py_code>
 <testo_normale>
-L'interoperabilità tra Python 2.x e Python 3.x è stata migliorata per i dati lavorati da pickle usando il livello di protocollo 2 od inferiore per risolvere un problema introdotto quando un grande numero di moduli di  librerie standard erano rinominati durante la transizione verso Python 3. Visto che i dati lavorati con pickle includono riferimenti a classi e tipi di nomi, ed questi nomi erano cambiati, risultava difficile lo scambio di dati lavorati con pickle tra programmi Python 2 e Python 3. Ora per i dati lavorati con pickle con il protocollo 2 o più vecchio, i vecchi nomi delle classi sono automaticamente utilizzati durante le operazioni di lettura e scrittura da un flusso di pickle.
+L'interoperabilità tra Python 2.x e Python 3.x è stata migliorata per i dati lavorati da pickle usando il livello di protocollo 2 o inferiore per risolvere un problema introdotto quando un grande numero di moduli di  librerie standard erano rinominati durante la transizione verso Python 3. Visto che i dati lavorati con pickle includono riferimenti a classi e tipi di nomi, ed questi nomi erano cambiati, risultava difficile lo scambio di dati lavorati con pickle tra programmi Python 2 e Python 3. Ora per i dati lavorati con pickle con il protocollo 2 o più vecchio, i vecchi nomi delle classi sono automaticamente utilizzati durante le operazioni di lettura e scrittura da un flusso di pickle.
 </testo_normale>
 <testo_normale>
 Questo comportamento è disponibile nella modalità predefinita, e può essere disabilitato con l'opzione <code>fix_imports</code>. Questa modifica migliora la situazione, ma non elimina interamente le incompatibilità. IN particolare, è possibile che dati lavorati con pickle sotto Python 3.1 con possano essere letti sotto Python 3.0. Per assicurare la massima portabilità tra applicazioni Python 3, si usi il livello di protocollo 3, che non contempla questa caratteristica di compatibilità.
@@ -366,7 +366,7 @@ Il formato di output predefinito per <code>shelve</code> può creare un file con
 signal
 </titolo_2>
 <testo_normale>
-<a href='https://www.python.org/dev/peps/pep-0475'>PEP 475</a> indica che le chiamate di sistema interrotte che ritornano con <code>EINTR</code> siano ritentate. Questo modifica il comportamento dei gestori di segnali ed altre chiamate di sistema, visto che dopo che il gestore di segnali ritorna, la chiamata interrotta verrà ritentata, a meno che il gestore di segnali sollevi una eccezione. Fare riferimento alla documentazione PEP per i dettagli completi.
+<a href='https://www.python.org/dev/peps/pep-0475'>PEP 475</a> indica che le chiamate di sistema interrotte che ritornano con <code>EINTR</code> siano ritentate. Questo modifica il comportamento dei gestori di segnali e altre chiamate di sistema, visto che dopo che il gestore di segnali ritorna, la chiamata interrotta verrà ritentata, a meno che il gestore di segnali sollevi una eccezione. Fare riferimento alla documentazione PEP per i dettagli completi.
 </testo_normale>
 <a name='socketporting'></a>
 <titolo_2>
@@ -419,7 +419,7 @@ La variabile <code>sys.subversion</code> non è più definita.
 I flag <code>sys.flags.py3k_warning</code>, <code>sys.flags.division_warning</code>, <code>sys.flags.division_new</code>, <code>sys.flags.tabcheck</code>, e <code>sys.flags.unicode</code> non sono più definiti.
 </testo_normale>
 <testo_normale>
-La variabile <code>sys.maxint</code> non è più definita, utilizzare <code>sys.maxsize</code>. Si veda <a href="https://www.python.org/dev/peps/pep-0237">PEP 237 (unificare interi ed interi long)</a>.
+La variabile <code>sys.maxint</code> non è più definita, utilizzare <code>sys.maxsize</code>. Si veda <a href="https://www.python.org/dev/peps/pep-0237">PEP 237 (unificare interi e interi long)</a>.
 </testo_normale>
 <testo_normale>
 Le variabili che tracciano eccezioni globali <code>sys.exc_type</code>, <code>sys.exc_value</code> e <code>sys.exc_traceback</code> sono state rimosse. E' stata rimossa anche la funzione <code>sys.exc_clear()</code>
@@ -456,7 +456,7 @@ Vecchie implementazioni di <strong>threading</strong> utilizzavano funzioni di f
 time
 </titolo_2>
 <testo_normale>
-<code>time.asctime()</code> e <code>time.ctime()</code> sono state reimplementate ed ora non usano le funzioni di sistema di time per supportare l'utilizzo di un maggiore numero di anni. <code>time.ctime()</code> ora supporta gli anni da 1900 fino a <code>maxint</code>, sebbene per valori più alti di 9999 la stringa in uscita sia più lunga dei 24 caratteri standard per accomodare le cifre di anno supplementari (<a href='http://bugs.python.org/issue8013'>Python issue 8013</a>).
+<code>time.asctime()</code> e <code>time.ctime()</code> sono state reimplementate e ora non usano le funzioni di sistema di time per supportare l'utilizzo di un maggiore numero di anni. <code>time.ctime()</code> ora supporta gli anni da 1900 fino a <code>maxint</code>, sebbene per valori più alti di 9999 la stringa in uscita sia più lunga dei 24 caratteri standard per accomodare le cifre di anno supplementari (<a href='http://bugs.python.org/issue8013'>Python issue 8013</a>).
 </testo_normale>
 <titolo_2>
 unittest

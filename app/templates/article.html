@@ -1,15 +1,17 @@
 {% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
 {% block content %}
+  {% include 'flask_messages.html' %}
   <div class="container">
     <div class="row">
       <div class="col s12 l6 offset-l3">
         <nav>
           <div class="nav-wrapper">
             <form method="post" name="builderlog" action="">
-          {{ form.hidden_tag() }}
-          {{ form.csrf_token }}
+              {{ form.hidden_tag() }}
+              {{ form.csrf_token }}
               <div class="input-field">
-              {{ form.filter_text(size=50,
+                {{ form.filter_text(size=50,
                   class="indigo lighten-4 indigo-text text-harden-5", type="search",
                   id="filterText", placeholder="Cerca un modulo") }}
                 <label class="label-icon" for="search"><i
@@ -19,10 +21,10 @@
             </form>
           </div>
         </nav>
-          </div>
-        </form>
       </div>
+      </form>
     </div>
+  </div>
   </div>
   <div class="row">
     <div class="col s12 m6 l12">
@@ -71,18 +73,16 @@
       </table>
     </div>
   </div>
-  <div class="container">
-    <div class="row">
-      <div class="col s12 m6 l6 offset-l5 offset-m3 offset-s1">
-        <ul class="pagination">
-          <li><a href="{{ data.prev }}"
-                 class="indigo darken-4 white-text waves-effect waves-light btn">Precedenti</a>
-          </li>
-          <li><a href="{{ data.next }}"
-                 class="indigo darken-4 white-text waves-effect waves-light btn">Successivi</a>
-          </li>
-        </ul>
-      </div>
+  <div class="row">
+    <div class="col s12 m6 l6 offset-l5 offset-m3 offset-s1">
+      <ul class="pagination">
+        <li><a href="{{ data.prev }}"
+               class="indigo darken-4 white-text waves-effect waves-light btn">Precedenti</a>
+        </li>
+        <li><a href="{{ data.next }}"
+               class="indigo darken-4 white-text waves-effect waves-light btn">Successivi</a>
+        </li>
+      </ul>
     </div>
   </div>
 {% endblock %}

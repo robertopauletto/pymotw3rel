@@ -13,7 +13,7 @@
 logging - Segnala messaggi di stato, di errore e informativi
 </titolo_1>
 <descrizione>
-Segnala messaggi di stato, di errore ed informativi
+Segnala messaggi di stato, di errore e informativi
 
 </descrizione>
 <testo_normale>
@@ -41,7 +41,7 @@ Gli sviluppatori di librerie possono usare <strong>logging</strong> e avere anch
 Registrazione verso un File
 </titolo_2>
 <testo_normale>
-La maggior parte delle applicazioni sono configurate per registrare verso un file. Si usi la funzione <code>basicConfig()</code> per impostare il gestore predefinito in modo che i messaggi di debug siano scritti ad un file.
+La maggior parte delle applicazioni sono configurate per registrare verso un file. Si usi la funzione <code>basicConfig()</code> per impostare il gestore predefinito in modo che i messaggi di debug siano scritti a un file.
 </testo_normale>
 <py_code>
 # logging_file_example.py
@@ -71,13 +71,13 @@ $ python3 logging_rotatingfile_example.py
 Il file con le registrazioni più recenti è sempre <code>logging_rotatingfile_example.out</code>, e ogni volta che esso raggiunge il limite di dimensione viene rinominato con il suffisso <code>.1.</code>. Ognuno dei file di backup esistenti viene rinominato incrementando il suffisso (<code>.1.</code>) diventa <code>.2.</code> ecc.) mentre il file <code>.5.</code> viene eliminato.
 </testo_normale>
 <note>
-Ovviamente questo esempio imposta una dimensione del file di log molto ridotta a scopo dimostrativo. Si imposti <code>maxBytes</code> ad un valore appropriato in un programma reale.
+Ovviamente questo esempio imposta una dimensione del file di log molto ridotta a scopo dimostrativo. Si imposti <code>maxBytes</code> a un valore appropriato in un programma reale.
 </note>
 <titolo_2>
 Livelli di Dettaglio
 </titolo_2>
 <testo_normale>
-Un'altra utile caratteristica dell'API di <strong>logging</strong> è la capacità di produrre diversi messaggi per diversi <em>livelli di registrazione</em>. Questo significa che il codice può essere equipaggiato con messaggi di debug, ad esempio, ed il livello di registrazione può essere impostato in modo che questi messaggi di debug non siano scritti in un sistema in produzione. La tabella seguente mostra i livelli di registrazione definiti nel modulo.
+Un'altra utile caratteristica dell'API di <strong>logging</strong> è la capacità di produrre diversi messaggi per diversi <em>livelli di registrazione</em>. Questo significa che il codice può essere equipaggiato con messaggi di debug, ad esempio, e il livello di registrazione può essere impostato in modo che questi messaggi di debug non siano scritti in un sistema in produzione. La tabella seguente mostra i livelli di registrazione definiti nel modulo.
 </testo_normale>
 <tabella_semplice>
 Livello;Valore
@@ -107,7 +107,7 @@ $ python3 logging_level_example.py info
 Nominare le Istanze di Logging
 </sottotitolo>
 <testo_normale>
-Tutti i precedenti messaggi di registrazione hanno '<en>root</en>' (radice) incorporato in essi perchè il codice usa il <em>logger</em> radice. Un facile modo per identificare la provenienza di uno specifico messaggio di registrazione è quello di usare un oggetto <em>logger</em> separato per ciascun modulo. I messaggi di registrazione inviati ad un <em>logger</em> includono il nome di quel <em>logger</em>. Ecco un esempio di come registrare da diversi moduli, in modo che sia facile rintracciare la sorgente del messaggio.
+Tutti i precedenti messaggi di registrazione hanno '<en>root</en>' (radice) incorporato in essi perchè il codice usa il <em>logger</em> radice. Un facile modo per identificare la provenienza di uno specifico messaggio di registrazione è quello di usare un oggetto <em>logger</em> separato per ciascun modulo. I messaggi di registrazione inviati a un <em>logger</em> includono il nome di quel <em>logger</em>. Ecco un esempio di come registrare da diversi moduli, in modo che sia facile rintracciare la sorgente del messaggio.
 </testo_normale>
 <py_code>
 # logging_modules_example.py
@@ -128,7 +128,7 @@ Le istanze di <code>Logger</code> sono configurate come una struttura ad albero,
 <img src='img/logging_1.png' class="img-responsive center-block" alt='alberatura logger' >
 </testo_normale>
 <testo_normale>
-La struttura ad albero è utile per configurare le registrazioni in quanto implica che ciascun <em>logger</em> non deve avere bisogno del proprio insieme di gestori. Nel caso in cui un <em>logger</em> non abbia gestori, l'elaborazione del messaggio viene eseguita dal suo genitore. Questo vuol dire che per molte applicazioni è necessario configurare solamente i gestori sul <em>logger</em> radice, e tutte le informazioni da registrare vengono raccolte ed inviate allo stesso posto, come mostra la seguente figura.
+La struttura ad albero è utile per configurare le registrazioni in quanto implica che ciascun <em>logger</em> non deve avere bisogno del proprio insieme di gestori. Nel caso in cui un <em>logger</em> non abbia gestori, l'elaborazione del messaggio viene eseguita dal suo genitore. Questo vuol dire che per molte applicazioni è necessario configurare solamente i gestori sul <em>logger</em> radice, e tutte le informazioni da registrare vengono raccolte e inviate allo stesso posto, come mostra la seguente figura.
 </testo_normale>
 <testo_normale>
 <img src='img/logging_2.png' class="img-responsive center-block" alt='gestore con un logging' >
@@ -155,9 +155,9 @@ Il messaggio di avvertimento viene inviato a un <em>logger</em> chiamato <code>p
 $ python3 logging_capture_warnings.py
 </py_output>
 <vedi_anche>
-https://docs.python.org/3.7/library/logging.html|logging|La documentazione della libreria standard per questo modulo è estensiva, ed include tutorial e materiale di riferimento che va oltre gli esempi qui presentati.
+https://docs.python.org/3.7/library/logging.html|logging|La documentazione della libreria standard per questo modulo è estensiva, e include tutorial e materiale di riferimento che va oltre gli esempi qui presentati.
 riferimenti_moduli_modificati.html#24|Note di portabilità da Python 2 a Python 3 per logging|
-#|warnings (in corso di traduzione)|Avvertimenti non fatali
+warnings.html|warnings|Avvertimenti non fatali
 https://pypi.python.org/pypi/logging_tree|logging_tree|Pacchetto di terze parti di Brandon Rhodes per mostrare l'albero di logging per una applicazione.
 https://docs.python.org/3.5/howto/logging-cookbook.html|Logging cookbook|Parte della documentazione della libreria standard, con esempi di uso di <strong>logging</strong> per diversi compiti.
 </vedi_anche>

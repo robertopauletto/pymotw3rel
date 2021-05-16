@@ -14,25 +14,25 @@ Ricerca all'interno e modifica di testo utilizzando modelli formali
 
 </descrizione>
 <testo_normale>
-Le <em>espressioni regolari</em> sono modelli per la corrispondenza di testo descritti con una sintassi formale. I modelli sono interpretati come un insieme di istruzioni, le quali sono eseguite con una stringa come input per produrre un sottoinsieme di corrispondenze od una versione modificata dell'originale. Il termine "espressione regolare" è spesso abbreviato in "regex" o "regexp" nel linguaggio di conversazione. Le espressioni possono includere corrispondenze letterali di testo, ripetizioni, composizioni di modello, diramazioni, ed altre regole sofisticate. Un grande numero di problemi di elaborazione sono più facili da risolvere con una espressione regolare, invece che creare un <a href='https://www.wikiwand.com/it/Analizzatore_lessicale' target='_blank'>analizzatore lessicale</a>  ed un <a href='https://www.wikiwand.com/it/Parsing' target='_blank'>parser</a> dedicati.
+Le <em>espressioni regolari</em> sono modelli per la corrispondenza di testo descritti con una sintassi formale. I modelli sono interpretati come un insieme di istruzioni, le quali sono eseguite con una stringa come input per produrre un sottoinsieme di corrispondenze o una versione modificata dell'originale. Il termine "espressione regolare" è spesso abbreviato in "regex" o "regexp" nel linguaggio di conversazione. Le espressioni possono includere corrispondenze letterali di testo, ripetizioni, composizioni di modello, diramazioni, e altre regole sofisticate. Un grande numero di problemi di elaborazione sono più facili da risolvere con una espressione regolare, invece che creare un <a href='https://www.wikiwand.com/it/Analizzatore_lessicale' target='_blank'>analizzatore lessicale</a>  e un <a href='https://www.wikiwand.com/it/Parsing' target='_blank'>parser</a> dedicati.
 </testo_normale>
 <testo_normale>
-Le espressioni regolari sono tipicamente usate nelle applicazioni che utilizzano molta elaborazione di testo. Ad esempio, sono comunemente usate come modelli di ricerca nei programmi di elaborazione del testo utilizzati dagli sviluppatori compresi vi, emacs ed i moderni ambienti integrati di sviluppo (IDE). Sono anche parte integrante delle utilità da riga di comando di Unix come <a href='https://www.wikiwand.com/it/Sed_(Unix)' target='_blank'>sed</a>, <a href='https://www.wikiwand.com/it/Grep_(Unix)' target='_blank'>grep</a> ed <a href='https://www.wikiwand.com/it/Awk' target='_blank'>awk</a>. Molti linguaggi di programmazione includono il supporto per le espressioni regolari nella sintassi del linugaggio (Perl, Ruby, Awk e Tct). Altri linguaggi supportano le espressioni regolari tramite estensioni di libreria.
+Le espressioni regolari sono tipicamente usate nelle applicazioni che utilizzano molta elaborazione di testo. Ad esempio, sono comunemente usate come modelli di ricerca nei programmi di elaborazione del testo utilizzati dagli sviluppatori compresi vi, emacs e i moderni ambienti integrati di sviluppo (IDE). Sono anche parte integrante delle utilità da riga di comando di Unix come <a href='https://www.wikiwand.com/it/Sed_(Unix)' target='_blank'>sed</a>, <a href='https://www.wikiwand.com/it/Grep_(Unix)' target='_blank'>grep</a> ed <a href='https://www.wikiwand.com/it/Awk' target='_blank'>awk</a>. Molti linguaggi di programmazione includono il supporto per le espressioni regolari nella sintassi del linguaggio (Perl, Ruby, Awk e Tct). Altri linguaggi supportano le espressioni regolari tramite estensioni di libreria.
 </testo_normale>
 <testo_normale>
 Esistono diverse implementazioni open source delle espressioni regolari, ognuna di esse con un nocciolo sintattico comune ma con estensioni differenti o modifiche alle caratteristiche avanzate. La sintassi usata nel modulo <strong>re</strong> di Python è basata sulla sintassi delle espressioni regolari in Perl, con alcuni miglioramenti specifici al linguaggio.
 </testo_normale>
 <note>
-Sebbene la definizione formale di "espressione regolare" sia limitata ad espressioni che descrivono linguaggi normali, alcune delle estensioni supportate da <strong>re</strong> vanno oltre la descrizione di linguaggi normali. Il termine "espressione regolare"  viene qui usato in un senso più generale per intendere qualsiasi espressione che possa essere valutata dal modulo.
+Sebbene la definizione formale di "espressione regolare" sia limitata a espressioni che descrivono linguaggi normali, alcune delle estensioni supportate da <strong>re</strong> vanno oltre la descrizione di linguaggi normali. Il termine "espressione regolare"  viene qui usato in un senso più generale per intendere qualsiasi espressione che possa essere valutata dal modulo.
 </note>
 <titolo_2>
 Trovare Modelli nel Testo
 </titolo_2>
 <testo_normale>
-L'utilizzo più comune per <strong>re</strong> è la ricerca di modelli nel testo. La funzione <code>search()</code> ottiene il modello ed il testo da analizzare e ritorna un oggetto <code>Match</code> quando il modello viene trovato. In caso contrario <code>search()</code> ritorna <code>None</code>.
+L'utilizzo più comune per <strong>re</strong> è la ricerca di modelli nel testo. La funzione <code>search()</code> ottiene il modello e il testo da analizzare e ritorna un oggetto <code>Match</code> quando il modello viene trovato. In caso contrario <code>search()</code> ritorna <code>None</code>.
 </testo_normale>
 <testo_normale>
-Ogni oggetto <code>Match</code> contiene informazioni sulla natura della corrispondenza, inclusa la stringa originale in entrata, l'espressione regolare utilizzata ed il punto all'interno della stringa originale dove si è verificata la corripondenza.
+Ogni oggetto <code>Match</code> contiene informazioni sulla natura della corrispondenza, inclusa la stringa originale in entrata, l'espressione regolare utilizzata e il punto all'interno della stringa originale dove si è verificata la corrispondenza.
 </testo_normale>
 <py_code>
 # re_simple_match.py
@@ -51,7 +51,7 @@ print('Trovato "{}"\nin "{}"\nda {} a {} ("{}")'.format(
     match.re.pattern, match.string, s, e, text[s:e]))
 </py_code>
 <testo_normale>
-I metodi <code>starts()</code> ed <code>end()</code> ritornano gli indici all'interno della stringa, mostrando dove si strova il testo che trova corrispondenza nel modello.
+I metodi <code>starts()</code> ed <code>end()</code> ritornano gli indici all'interno della stringa, mostrando dove si trova il testo che trova corrispondenza nel modello.
 </testo_normale>
 <py_output>
 $ python3 re_simple_match.py
@@ -89,7 +89,7 @@ for regex in regexes:
         print('non trovato')
 </py_code>
 <testo_normale>
-Le funzioni a livello di modulo mantengono una <a href='https://www.wikiwand.com/it/Cache' target='_blank'>cache</a> delle espressioni compilate, ma la dimensione della cache è limitata e l'utilizzo diretto delle espressioni compilate evita il sovraccarico determinato dalla ricerca nella cache. Un altro vantaggio è che la precompilazione di tutte le espressioni avviene quando il modulo viene caricato, e questo lavoro viene spostato nella fase di avvio dell'applicazione invece che avvenire in un punto del programma che potrebbe rispondere ad una azione dell'utente.
+Le funzioni a livello di modulo mantengono una <a href='https://www.wikiwand.com/it/Cache' target='_blank'>cache</a> delle espressioni compilate, ma la dimensione della cache è limitata e l'utilizzo diretto delle espressioni compilate evita il sovraccarico determinato dalla ricerca nella cache. Un altro vantaggio è che la precompilazione di tutte le espressioni avviene quando il modulo viene caricato, e questo lavoro viene spostato nella fase di avvio dell'applicazione invece che avvenire in un punto del programma che potrebbe rispondere a una azione dell'utente.
 </testo_normale>
 <py_output>
 $ python3 re_simple_compiled.py
@@ -178,7 +178,7 @@ $ python3 re_test_patterns.py
 Ripetizioni
 </titolo_3>
 <testo_normale>
-Ci sono cinque modi per esprimere una ripetizione in un modello. Un modello seguito dal <me>meta-carattere</me> <code>*</code> viene ripetuto zero o più volte (consentire ad un modello di ripetersi zero volte significa che non deve necessariamente apparire affinchè ci sia corrispondenza). Se <code>*</code> viene sostituito da <code>+</code>, il modello deve apparire almeno una volta. Usando <code>?</code> si intende che il modello possa apparire zero od una volta. Per un numero specifico di occorrenze si una <code>{m,n}}</code> dove <code>m</code> è il numero minimo di ripetizioni ed <code>n</code> è il massimo. Tralasciando <code>n</code> (<code>{m,}</code>) si ricerca un valore che appaia almeno <code>m</code> volte, senza limiti.
+Ci sono cinque modi per esprimere una ripetizione in un modello. Un modello seguito dal <me>meta-carattere</me> <code>*</code> viene ripetuto zero o più volte (consentire a un modello di ripetersi zero volte significa che non deve necessariamente apparire affinchè ci sia corrispondenza). Se <code>*</code> viene sostituito da <code>+</code>, il modello deve apparire almeno una volta. Usando <code>?</code> si intende che il modello possa apparire zero o una volta. Per un numero specifico di occorrenze si una <code>{m,n}}</code> dove <code>m</code> è il numero minimo di ripetizioni ed <code>n</code> è il massimo. Tralasciando <code>n</code> (<code>{m,}</code>) si ricerca un valore che appaia almeno <code>m</code> volte, senza limiti.
 </testo_normale>
 <py_code>
 # re_repetition.py
@@ -203,7 +203,7 @@ $ python3 re_repetition.py
   'abb'
   ....'abbb'
 
-'ab?' (a seguito da zero od una b)
+'ab?' (a seguito da zero o una b)
 
   'abbaabbba'
   'ab'
@@ -248,7 +248,7 @@ $ python3 re_repetition_non_greedy.py
   'ab'
   ....'ab'
 
-'ab??' (a seguito da zero od una b)
+'ab??' (a seguito da zero o una b)
 
   'abbaabbba'
   'a'
@@ -421,7 +421,7 @@ CODICE;SIGNIFICATO
 \W;non alfanumerici
 </tabella_semplice>
 <note>
-I codici di escape sono prefissati dalla barra rovesciata (\). Sfortunatamente la barra rovesciata stessa deve essere inclusa in una sequenza di escape nelle stringhe Python, ed il risultato sono espressioni non facili da leggere. Usando stringhe <em>grezze</em>, create prefissando il valore letterale con <code>r</code> elimina il problema e mantiene leggibilità.
+I codici di escape sono prefissati dalla barra rovesciata (\). Sfortunatamente la barra rovesciata stessa deve essere inclusa in una sequenza di escape nelle stringhe Python, e il risultato sono espressioni non facili da leggere. Usando stringhe <em>grezze</em>, create prefissando il valore letterale con <code>r</code> elimina il problema e mantiene leggibilità.
 </note>
 <py_code>
 # re_escape_codes.py
@@ -481,7 +481,7 @@ Per trovare i caratteri che sono parte della sintassi dell'espressione regolare,
 # re_escape_escapes.py
 </py_code>
 <testo_normale>
-Il modello in questo esempio utilizza il codice di escape per la barra rovesciata ed il segno più, visto che entrambi sono <em>meta-caratteri</em> ed hanno un significato speciale in una espressione regolare.
+Il modello in questo esempio utilizza il codice di escape per la barra rovesciata e il segno più, visto che entrambi sono <em>meta-caratteri</em> ed hanno un significato speciale in una espressione regolare.
 </testo_normale>
 <py_output>
 $ python3 re_escape_escapes.py
@@ -505,24 +505,24 @@ CODICE;SIGNIFICATO
 $;fine della stringa o riga
 \A;inizio della stringa
 \Z;fine della stringa
-\b;stringa vuota all'inizio od alla fine di una parola
-\B;stringa vuota non all'inizio od alla fine di una parola
+\b;stringa vuota all'inizio o alla fine di una parola
+\B;stringa vuota non all'inizio o alla fine di una parola
 </tabella_semplice>
 <py_code>
 # re_anchoring.py
 </py_code>
 <testo_normale>
-I modelli nell'esempio per trovare corrispondenza con parole all'inizio ed alla fine della stringa sono diversi poichè la parola alla fine della stringa è seguita da un segno di punteggiatura per concludere la frase. Il modello <code>\w+$</code> non troverebbe corrispondenza, visto che <code>.</code> non è considerato un carattere alfanumerico.
+I modelli nell'esempio per trovare corrispondenza con parole all'inizio e alla fine della stringa sono diversi poichè la parola alla fine della stringa è seguita da un segno di punteggiatura per concludere la frase. Il modello <code>\w+$</code> non troverebbe corrispondenza, visto che <code>.</code> non è considerato un carattere alfanumerico.
 </testo_normale>
 <py_output>
 $ python3 re_anchoring.py
 
-'^\w+' (parola ad inizio stringa)
+'^\w+' (parola a inizio stringa)
 
   'Trova in parte di testo -- con punteggiatura.'
   'Trova'
 
-'\A\w+' (parola ad inizio stringa)
+'\A\w+' (parola a inizio stringa)
 
   'Trova in parte di testo -- con punteggiatura.'
   'Trova'
@@ -544,7 +544,7 @@ $ python3 re_anchoring.py
   ..................'testo'
   ...............................'punteggiatura'
 
-'\bt\w+' (t ad inizio della parola)
+'\bt\w+' (t a inizio della parola)
 
   'Trova in parte di testo -- con punteggiatura.'
   ..................'testo'
@@ -565,7 +565,7 @@ $ python3 re_anchoring.py
 Costrizioni nella Ricerca
 </titolo_2>
 <testo_normale>
-In situazioni nelle quali è noto in anticipo che solo un sottoinsieme dell'intero testo in entrata sarà oggetto di ricerca, le regole di corrispondenza dell'espressione regolare possono essre ulteriormente ristrette dicendo a <strong>re</strong> di limitare l'intervallo di ricerca. Ad esempio, se il modello deve trovarsi all'inizio del testo in entrata, allora usando <code>match()</code> invece che <code>search()</code> si ancorerà la ricerca senza dovere esplicitamente includere un ancoraggio nel modello di ricerca.
+In situazioni nelle quali è noto in anticipo che solo un sottoinsieme dell'intero testo in entrata sarà oggetto di ricerca, le regole di corrispondenza dell'espressione regolare possono essere ulteriormente ristrette dicendo a <strong>re</strong> di limitare l'intervallo di ricerca. Ad esempio, se il modello deve trovarsi all'inizio del testo in entrata, allora usando <code>match()</code> invece che <code>search()</code> si ancorerà la ricerca senza dovere esplicitamente includere un ancoraggio nel modello di ricerca.
 </testo_normale>
 <py_code>
 # re_match.py
@@ -599,7 +599,7 @@ Search     : <_sre.SRE_Match object; span=(25, 27), match='te'>
 Full match : None
 </py_output>
 <testo_normale>
-Il metodo <code>search()</code> di una stringa compilata di espressione regolare accetta parametri opzionali di posizioni (<code>start</code> ed <code>end</code>) per limitare la ricerca ad un sottoinsieme della stringa da cercare.
+Il metodo <code>search()</code> di una stringa compilata di espressione regolare accetta parametri opzionali di posizioni (<code>start</code> ed <code>end</code>) per limitare la ricerca a un sottoinsieme della stringa da cercare.
 </testo_normale>
 <py_code>
 # re_search_substring.py
@@ -619,13 +619,13 @@ Testo: Questa è una porzione di testo -- con punteggiatura.
 Sezionare le Corrispondenze con i Gruppi
 </titolo_2>
 <testo_normale>
-La ricerca di corrispondenze di modelli è la base delle potenti capacità fornite dalle espressioni regolari. L'aggiunta di <em>gruppi</em> ad un modello isola parti del testo corrisposto, espandendo queste caratteristiche per creare un <a href='https://www.wikiwand.com/it/Parsing' target='_blank'>parser</a>. I gruppi sono definiti racchiudendo i loro modelli tra parentesi.
+La ricerca di corrispondenze di modelli è la base delle potenti capacità fornite dalle espressioni regolari. L'aggiunta di <em>gruppi</em> a un modello isola parti del testo corrisposto, espandendo queste caratteristiche per creare un <a href='https://www.wikiwand.com/it/Parsing' target='_blank'>parser</a>. I gruppi sono definiti racchiudendo i loro modelli tra parentesi.
 </testo_normale>
 <py_code>
 # re_groups.py
 </py_code>
 <testo_normale>
-Qualunque completa espressione regolare può essere convertita in un gruppo ed annidata all'interno di una espressione più grande. Tutti i modificatori di ripetizione possono essere applicati ad un gruppo nell'insieme, richiedendo ad un modello di gruppo la ripetizione.
+Qualunque completa espressione regolare può essere convertita in un gruppo e annidata all'interno di una espressione più grande. Tutti i modificatori di ripetizione possono essere applicati a un gruppo nell'insieme, richiedendo a un modello di gruppo la ripetizione.
 </testo_normale>
 <py_output>
 $ python3 re_groups.py
@@ -666,14 +666,14 @@ Per accedere alle sottostringhe corrisposte da gruppi individuali all'interno di
 # re_groups_match.py
 </py_code>
 <testo_normale>
-<code>Match.groups()</code> ritorna una sequenza di stringhe nell'ordine dei gruppi all'interno dell'espressione corrisponsta nella stringa.
+<code>Match.groups()</code> ritorna una sequenza di stringhe nell'ordine dei gruppi all'interno dell'espressione corrisposta nella stringa.
 </testo_normale>
 <py_output>
 $ python3 re_groups_match.py
 
 Questa è una porzione di testo -- con punteggiatura.
 
-'^(\w+)' (parola ad inizio stringa)
+'^(\w+)' (parola a inizio stringa)
 
    ('Questa',)
 
@@ -697,7 +697,7 @@ Per ottenere corrispondenza di un singolo gruppo, si usi il metodo <code>group()
 # re_groups_individual.py
 </py_code>
 <testo_normale>
-Il gruppo <code>0</code> rappresenta la stringa corrisposta dall'intera espressione, ed i sottogruppi sono mumerati a partire da <code>1</code> nell'ordine nel quale le loro parentesi aperte appaiono nell'espressione
+Il gruppo <code>0</code> rappresenta la stringa corrisposta dall'intera espressione, e i sottogruppi sono numerati a partire da <code>1</code> nell'ordine nel quale le loro parentesi aperte appaiono nell'espressione
 </testo_normale>
 <py_output>
 $ python3 re_groups_individual.py
@@ -709,7 +709,7 @@ Parola inizia con  "t"      : testo
 Parola dopo la parola con"t": con
 </py_output>
 <testo_normale>
-Python estende la sintassi base del raggruppamento aggiungendo <em>gruppi nominativi</em>. L'uso di nomi per fare riferimento a gruppi facilita la modifica del modello nel tempo, senza dovere anche modificare il codice che usa il risultato della corripondenza. Per impostare il nome di un gruppo, si usi la sintassi <code>(?P&lt;nome&gt;modello)</code>.
+Python estende la sintassi base del raggruppamento aggiungendo <em>gruppi nominativi</em>. L'uso di nomi per fare riferimento a gruppi facilita la modifica del modello nel tempo, senza dovere anche modificare il codice che usa il risultato della corrispondenza. Per impostare il nome di un gruppo, si usi la sintassi <code>(?P&lt;nome&gt;modello)</code>.
 </testo_normale>
 <py_code>
 # re_groups_named.py
@@ -751,7 +751,7 @@ Visto che un gruppo è a sua volta una espressione regolare completa, i gruppi p
 # re_groups_nested.py
 </py_code>
 <testo_normale>
-In questo caso, il gruppo <code>(a*)</code> trova corrisondenza con una stringa vuota, quindi il valore ritornato da <code>groups()</code> include la stringa vuota come valore corrisposto.
+In questo caso, il gruppo <code>(a*)</code> trova corrispondenza con una stringa vuota, quindi il valore ritornato da <code>groups()</code> include la stringa vuota come valore corrisposto.
 </testo_normale>
 <py_output>
 $ python3 re_groups_nested.py
@@ -764,7 +764,7 @@ $ python3 re_groups_nested.py
           'a'  ('', '', '')
 </py_output>
 <testo_normale>
-I gruppi sono anche utili per specificare modelli alternativi. Si usi simbolo <em>pipe</em> (<code>|</code> ) per separare due modelli ed indicare che entrambi i modelli potrebbero trovare corrispondenza. Si condideri tuttavia il piazzamento del <em>pipe</em> con molta cura. La prima espressione nell'esempio corrisponde con una sequanza di una <code>a</code> seguita da una sequenza che consiste interamente di una singola lettera, <code>a</code> o <code>b</code>. Il secondo modello cerca corrispondenza con una sequenza che potrebbe includere <em>sia</em> una <code>a</code> che una <code>b</code>. I mdoelli sono simili, ma le corrispondenze risultanti sono completamente diverse.
+I gruppi sono anche utili per specificare modelli alternativi. Si usi simbolo <em>pipe</em> (<code>|</code> ) per separare due modelli e indicare che entrambi i modelli potrebbero trovare corrispondenza. Si consideri tuttavia il piazzamento del <em>pipe</em> con molta cura. La prima espressione nell'esempio corrisponde con una sequenza di una <code>a</code> seguita da una sequenza che consiste interamente di una singola lettera, <code>a</code> o <code>b</code>. Il secondo modello cerca corrispondenza con una sequenza che potrebbe includere <em>sia</em> una <code>a</code> che una <code>b</code>. I modelli sono simili, ma le corrispondenze risultanti sono completamente diverse.
 </testo_normale>
 <py_code>
 # re_groups_alternative.py
@@ -787,7 +787,7 @@ $ python3 re_groups_alternative.py
   'abbaabbba'  ('bbaabbba', 'a')
 </py_output>
 <testo_normale>
-Definire un gruppo che contiene un sotto modello è anche utile in casi dove la stringa che corrisponde al sotto modello non è parte di ciò che dovrebbe essere estratto dall'intero testo. Questi tipi di gruppi sono chiamati <em>non catturanti</em>. Essi possono essere usati per descrivere ripetizioni di modelli od alternative, senza isolare la porzione corrisposta della stringa nel valore ritornato. Per creare un gruppo <em>non catturante</em>, si usi la sintassi <code>(?:modello)</code>.
+Definire un gruppo che contiene un sotto modello è anche utile in casi dove la stringa che corrisponde al sotto modello non è parte di ciò che dovrebbe essere estratto dall'intero testo. Questi tipi di gruppi sono chiamati <em>non catturanti</em>. Essi possono essere usati per descrivere ripetizioni di modelli o alternative, senza isolare la porzione corrisposta della stringa nel valore ritornato. Per creare un gruppo <em>non catturante</em>, si usi la sintassi <code>(?:modello)</code>.
 </testo_normale>
 <py_code>
 # re_groups_noncapturing.py
@@ -814,7 +814,7 @@ $ python3 re_groups_noncapturing.py
 Opzioni di Ricerca
 </titolo_2>
 <testo_normale>
-I flag di opzione sono usati per modificare il modo nel quale il motore di corrispondenza elabora una espressione. I flag possono essere combinati usando una operazione <a href='https://www.wikiwand.com/it/Operatore_(informatica)#/Operatori_.3Cspan_class.3D.22searchmatch.22.3Ebitwise.3C.2Fspan.3E' target='_blank'><em>bitwise OR</em></a>, poi sono passati a <code>compile()</code>, <code>search()</code>, <code>match()</code> ed altre funzioni che accettano un modello per la ricerca.
+I flag di opzione sono usati per modificare il modo nel quale il motore di corrispondenza elabora una espressione. I flag possono essere combinati usando una operazione <a href='https://www.wikiwand.com/it/Operatore_(informatica)#/Operatori_.3Cspan_class.3D.22searchmatch.22.3Ebitwise.3C.2Fspan.3E' target='_blank'><em>bitwise OR</em></a>, poi sono passati a <code>compile()</code>, <code>search()</code>, <code>match()</code> e altre funzioni che accettano un modello per la ricerca.
 </testo_normale>
 <titolo_3>
 Corrispondenza Indipendente da Maiuscolo-Minuscolo
@@ -845,13 +845,13 @@ Case-insensitive:
 Testo in Entrata su Righe Multiple
 </titolo_3>
 <testo_normale>
-La ricerca su testo in entrata su righe multiple viene influenzata da due flag: <code>MULTILANE</code> e <code>DOTALL</code>. <code>MULTILINE</code> controlla il modo nel quale il codice di corrispondenza del modello elabora le istruzioni di ancoraggio per testo che contiene caratteri di ritorno a capo. Quando la modalità multilinea viene attivata, le regole di ancoraggio per <code>^</code> e <code>$</code> si applicano all'inizio ed alla fine di ogni riga, oltre che sull'intera stringa.
+La ricerca su testo in entrata su righe multiple viene influenzata da due flag: <code>MULTILANE</code> e <code>DOTALL</code>. <code>MULTILINE</code> controlla il modo nel quale il codice di corrispondenza del modello elabora le istruzioni di ancoraggio per testo che contiene caratteri di ritorno a capo. Quando la modalità multilinea viene attivata, le regole di ancoraggio per <code>^</code> e <code>$</code> si applicano all'inizio e alla fine di ogni riga, oltre che sull'intera stringa.
 </testo_normale>
 <py_code>
 # re_flags_multiline.py
 </py_code>
 <testo_normale>
-Il modello nell'esempio trova corrispondenza con la prima ed ultima parola del testo in entrata. Trova <code>riga.</code> alla fine della stringa, anche se non ci sono ritorni a capo.
+Il modello nell'esempio trova corrispondenza con la prima e ultima parola del testo in entrata. Trova <code>riga.</code> alla fine della stringa, anche se non ci sono ritorni a capo.
 </testo_normale>
 <py_output>
 $ python3 re_flags_multiline.py
@@ -895,7 +895,7 @@ Dotall      :
 Unicode
 </titolo_3>
 <testo_normale>
-In Python 3.x, gli oggetti <code>str</code> usano l'intero insieme di caratteri Unicode e le espressioni regolari che elaborano un oggetto <code>str</code> assumono che il testo in entrata ed il modello siano entrambi Unicode. I codici di escape precedentemente descritti sono definiti in termini di Unicode nella modalità predefinita. Queste assunzioni implicano che il modello <code>\w+</code> troverà corrispondenza sia con "Franch" che con "Français". Per restringere i codici di escape al solo insieme di caratteri ASCII, così come è predefinito in Python 2.x, si usi il flag <code>ASCII</code> quando si compila il modello oppure quando si chiamano le funzioni a livello di modulo <code>search()</code> e <code>match()</code>.
+In Python 3.x, gli oggetti <code>str</code> usano l'intero insieme di caratteri Unicode e le espressioni regolari che elaborano un oggetto <code>str</code> assumono che il testo in entrata e il modello siano entrambi Unicode. I codici di escape precedentemente descritti sono definiti in termini di Unicode nella modalità predefinita. Queste assunzioni implicano che il modello <code>\w+</code> troverà corrispondenza sia con "Franch" che con "Français". Per restringere i codici di escape al solo insieme di caratteri ASCII, così come è predefinito in Python 2.x, si usi il flag <code>ASCII</code> quando si compila il modello oppure quando si chiamano le funzioni a livello di modulo <code>search()</code> e <code>match()</code>.
 </testo_normale>
 <py_code>
 # re_flags_ascii.py
@@ -915,7 +915,7 @@ Unicode : ['François', 'złoty', 'Österreich']
 Sintassi Verbosa dell'Espressione
 </titolo_3>
 <testo_normale>
-Il formato compatto della sintassi dell'espressione regolare può diventare un ostacolo mano a mano che le espressioni diventano più complicate. Quando il numero dei gruppi in una espresisone aumenta, ci sarà molto più lavoro per tenere traccia del perchè ciascun elemento è necessario e come interagiscono esattamente le parti dell'espressione. L'utilizzo di gruppi nominativi allevia questi disagi, ma una soluzione migliore è quella di usare la modalità <em>verbosa</em> nelle espressioni, la quale consente di incorporare commenti e spazi supplementari nel modello.
+Il formato compatto della sintassi dell'espressione regolare può diventare un ostacolo mano a mano che le espressioni diventano più complicate. Quando il numero dei gruppi in una espressione aumenta, ci sarà molto più lavoro per tenere traccia del perchè ciascun elemento è necessario e come interagiscono esattamente le parti dell'espressione. L'utilizzo di gruppi nominativi allevia questi disagi, ma una soluzione migliore è quella di usare la modalità <em>verbosa</em> nelle espressioni, la quale consente di incorporare commenti e spazi supplementari nel modello.
 </testo_normale>
 <testo_normale>
 Un modello per validare indirizzi email illustrerà come la modalità verbosa facilita il lavorare con le espressioni regolari. La prima versione riconosce gli indirizzi che terminano in uno dei primi 3 livelli principali dei domini: <code>.com</code>, <code>.org</code> od <code>.edu</code>.
@@ -941,7 +941,7 @@ Convertire l'espressione in un formato più verboso ne faciliterà l'estensione.
 # re_email_verbose.py
 </py_code>
 <testo_normale>
-L'espressione trova corrispondenza con lo stesso testo in entrata, ma in questo formato esteso è più facile da leggere. I commenti aiutano anche ad identificare le parti differenti del modello in modo che possano essere espanse per trovare corrispondenza con ulteriore testo in entrata.
+L'espressione trova corrispondenza con lo stesso testo in entrata, ma in questo formato esteso è più facile da leggere. I commenti aiutano anche a identificare le parti differenti del modello in modo che possano essere espanse per trovare corrispondenza con ulteriore testo in entrata.
 </testo_normale>
 <py_output>
 $ python3 re_email_verbose.py
@@ -996,13 +996,13 @@ Candidato: <first.last@example.com>
 Incorporare Flag nei Modelli
 </titolo_3>
 <testo_normale>
-In situazioni dove i flag non possono essere aggiunti quando si compila una espressione, come quando un modello viene passato come argomento ad una funzione di libreria che verrà compilata successivamente, i flag possono essere incorporati all'interno della stringa stessa dell'espressione. Ad esempio, per attivare la corrispondenza indipendente da maiuscolo-minuscolo, si aggiunga <code>(?i)</code> all'inizio dell'espressione.
+In situazioni dove i flag non possono essere aggiunti quando si compila una espressione, come quando un modello viene passato come argomento a una funzione di libreria che verrà compilata successivamente, i flag possono essere incorporati all'interno della stringa stessa dell'espressione. Ad esempio, per attivare la corrispondenza indipendente da maiuscolo-minuscolo, si aggiunga <code>(?i)</code> all'inizio dell'espressione.
 </testo_normale>
 <py_code>
 # re_flags_embedded.py
 </py_code>
 <testo_normale>
-Visto che le opzioni controllano il modo nel quale l'intera espressione viene valutata od elaborata, esse dovrebbero comparire sempre all'inizio dell'espressione.
+Visto che le opzioni controllano il modo nel quale l'intera espressione viene valutata o elaborata, esse dovrebbero comparire sempre all'inizio dell'espressione.
 </testo_normale>
 <py_output>
 $ python3 re_flags_embedded.py
@@ -1035,7 +1035,7 @@ In molti casi, è utile cercare corrispondenza con una parte del modello solo se
 # re_look_ahead.py
 </py_code>
 <testo_normale>
-Ci sono diverse importanti modifiche in questa versione dell'espressione. Per prima cosa la porzione del nome non è più opzionale. Il che vuol dire che indirizzi da soli non trovano corrispondenza, ma viene anche evitata la corrispondenza di combinazioni nome/indirizzo formattate impropriamente. La regola <em>positive look ahead</em> dopo il gruppo "name" asserisce che il resto della stringa è racchiusa tra parentesi angolari oppure non ci sono parentesi diasaccoppiate; entrambe o nessuna parentesi sono presenti. L'asserzione è espressa come gruppo, ma la ricerca di corrispondenza con un gruppo <em>look ahead</em> non consuma alcuna parte del testo in input, quindi il resto del modello riprende dallo stesso punto dopo che si è trovata la corrispondenza <me>look ahead</me>.
+Ci sono diverse importanti modifiche in questa versione dell'espressione. Per prima cosa la porzione del nome non è più opzionale. Il che vuol dire che indirizzi da soli non trovano corrispondenza, ma viene anche evitata la corrispondenza di combinazioni nome/indirizzo formattate impropriamente. La regola <em>positive look ahead</em> dopo il gruppo "name" asserisce che il resto della stringa è racchiusa tra parentesi angolari oppure non ci sono parentesi disaccoppiate; entrambe o nessuna parentesi sono presenti. L'asserzione è espressa come gruppo, ma la ricerca di corrispondenza con un gruppo <em>look ahead</em> non consuma alcuna parte del testo in input, quindi il resto del modello riprende dallo stesso punto dopo che si è trovata la corrispondenza <me>look ahead</me>.
 </testo_normale>
 <py_output>
 $ python3 re_look_ahead.py
@@ -1052,13 +1052,13 @@ Candidato: Parentesi di chiusura first.last@example.com>
   Nessuna corrispondenza
 </py_output>
 <testo_normale>
-Una asserzione <em>negative look ahead</em> (guardare avanti negativa - n.d.t) (<code>(?!modello)</code>) dice che il modello non trova corrispondenza con il testo che segue il punto corrente. Ad esempio il modello di riconoscimente dell'email può essere modificato affichè ignori gli indirizzi <code>noreply</code> che sono usati comunemente dai sistemi automatici.
+Una asserzione <em>negative look ahead</em> (guardare avanti negativa - n.d.t) (<code>(?!modello)</code>) dice che il modello non trova corrispondenza con il testo che segue il punto corrente. Ad esempio il modello di riconoscimento dell'email può essere modificato affichè ignori gli indirizzi <code>noreply</code> che sono usati comunemente dai sistemi automatici.
 </testo_normale>
 <py_code>
 # re_negative_look_ahead.py
 </py_code>
 <testo_normale>
-L'indirizzo che inizia con <code>noreply</code> non trova corrispondenza nel mdoello, visto che l'asserzione <em>look ahead</em> fallisce.
+L'indirizzo che inizia con <code>noreply</code> non trova corrispondenza nel modello, visto che l'asserzione <em>look ahead</em> fallisce.
 </testo_normale>
 <py_output>
 $ python3 re_negative_look_ahead.py
@@ -1075,7 +1075,7 @@ Invece che cercare in avanti per <code>noreply</code> nella porzione del nome ut
 # re_negative_look_behind.py
 </py_code>
 <testo_normale>
-La ricerca a ritroso funziona in modo leggermente diverso da quella in avanti, nel senso che l'espressione deve usare un modella a lunghezza fissa. Le ripetizioni sono concesse, fintanto che ce ne sono un numero prefissato (nessun carattere jolly od intervalli).
+La ricerca a ritroso funziona in modo leggermente diverso da quella in avanti, nel senso che l'espressione deve usare un modella a lunghezza fissa. Le ripetizioni sono concesse, fintanto che ce ne sono un numero prefissato (nessun carattere jolly o intervalli).
 </testo_normale>
 <py_output>
 $ python3 re_negative_look_behind.py
@@ -1098,7 +1098,7 @@ IL modello trova corrispondenza con sequenze di caratteri che possono comporre u
 $ python3 re_look_behind.py
 
 Questo testo include due Twitter handle.
-Uno per @ThePSF, ed uno per l'autore, @doughellmann.
+Uno per @ThePSF, e uno per l'autore, @doughellmann.
 
 Handle: ThePSF
 Handle: doughellmann
@@ -1113,7 +1113,7 @@ I valori corrisposti trovati possono essere usati in successive parti di una esp
 # re_refer_to_group.py
 </py_code>
 <testo_normale>
-Sebbene la sintassi sia semplice, la creazione di riferimenti all'indietro per ID numerici ha alcuni svantaggi. Da un punto di vista pratico, se l'espressione cambia, i gruppi devono essere contati nuovamente e ciascun riferimento deve essere aggiornato. Un altro svantaggio è che si possono usare fino a 99 riferimenti, visto che un numero di ID a tre cifre sarebbe interpretato come un valore di carattere ottale invece che un riferimento ad un gruppo. Naturalmente se ci fossero più di 99 gruppi in una espressione ci sarebbero problemi di mantenimento ben maggiori del non essere in grado di creare riferimenti a ciascuno di essi.
+Sebbene la sintassi sia semplice, la creazione di riferimenti all'indietro per ID numerici ha alcuni svantaggi. Da un punto di vista pratico, se l'espressione cambia, i gruppi devono essere contati nuovamente e ciascun riferimento deve essere aggiornato. Un altro svantaggio è che si possono usare fino a 99 riferimenti, visto che un numero di ID a tre cifre sarebbe interpretato come un valore di carattere ottale invece che un riferimento a un gruppo. Naturalmente se ci fossero più di 99 gruppi in una espressione ci sarebbero problemi di mantenimento ben maggiori del non essere in grado di creare riferimenti a ciascuno di essi.
 </testo_normale>
 <py_output>
 $ python3 re_refer_to_group.py
@@ -1137,7 +1137,7 @@ L'elaboratore di espressioni di Python include una estensione che usa <code>(?P=
 # re_refer_to_named_group.py
 </py_code>
 <testo_normale>
-L'espressione dell'indirizzo è compilata con attivato il flag <code>IGNORECASE</code>, visto che i nomi propri in genere hanno la prima lettera mauscola ma gli indirizzi email no.
+L'espressione dell'indirizzo è compilata con attivato il flag <code>IGNORECASE</code>, visto che i nomi propri in genere hanno la prima lettera maiuscola ma gli indirizzi email no.
 </testo_normale>
 <py_output>
 $ python3 re_refer_to_named_group.py
@@ -1155,13 +1155,13 @@ Candidate: Nome S. Cognome <nome.cognome@example.com>
   Corrispondenza con email: nome.cognome@example.com
 </py_output>
 <testo_normale>
-L'altro meccanismo per utilizzare riferimenti all'indietro nelle espressioni sceglie un modello diverso in base all'eventuale corrispondenza con un gruppo precedente. Il modello email può essere corretto in modo che le parentesi angolari siano richieste se è presente un nome, e non richieste se l'indirizzo email è a se stante. La sintassi per verificare se un gruppo ha trovato corrispondenza è <code>(?(id)espressione-sì|espressione-no)</code>, dove <code>id</code> è il nome od il numero del gruppo, <code>espressione-si</code> è il modello da usare se il gruppo ha un valore ed <code>espressione-no</code> è il modello da usare altrimenti.
+L'altro meccanismo per utilizzare riferimenti all'indietro nelle espressioni sceglie un modello diverso in base all'eventuale corrispondenza con un gruppo precedente. Il modello email può essere corretto in modo che le parentesi angolari siano richieste se è presente un nome, e non richieste se l'indirizzo email è a se stante. La sintassi per verificare se un gruppo ha trovato corrispondenza è <code>(?(id)espressione-sì|espressione-no)</code>, dove <code>id</code> è il nome o il numero del gruppo, <code>espressione-si</code> è il modello da usare se il gruppo ha un valore ed <code>espressione-no</code> è il modello da usare altrimenti.
 </testo_normale>
 <py_code>
 # re_id.py
 </py_code>
 <testo_normale>
-Questa versione dell'elaboratore di stringhe email usa due test. Se il gruppo del nome ha corrispondenza, allora l'asserzione <em>look ahead</em> richiede entrambe le parentesi angolari ed imposta il gruppo <code>brackets</code>, se il nome non è corrisposto l'asserzione richiede che il resto del testo non sia racchiuso tra parentesi angolari. Successivamente, se il gruppo <code>brackets</code> è impostato, il reale codice di corrispondenza del modello consuma le parentesi nella stringa in entrata usanto modelli letterali, altrimenti consuma qualsiasi spazio bianco.
+Questa versione dell'elaboratore di stringhe email usa due test. Se il gruppo del nome ha corrispondenza, allora l'asserzione <em>look ahead</em> richiede entrambe le parentesi angolari e imposta il gruppo <code>brackets</code>, se il nome non è corrisposto l'asserzione richiede che il resto del testo non sia racchiuso tra parentesi angolari. Successivamente, se il gruppo <code>brackets</code> è impostato, il reale codice di corrispondenza del modello consuma le parentesi nella stringa in entrata usando modelli letterali, altrimenti consuma qualsiasi spazio bianco.
 </testo_normale>
 <py_output>
 $ python3 re_id.py
@@ -1204,7 +1204,7 @@ Per usare gruppi nominativi nelle sostituzioni, si usi la sintassi <code>\g&lt;n
 # re_sub_named_groups.py
 </py_code>
 <testo_normale>
-La sintassi <code>\g&lt;nome&gt;</code> funziona anche con riferimenti numerati, ed usandola si eliminano le ambiguità tra gruppi numerati ed cifre letterali circostanti.
+La sintassi <code>\g&lt;nome&gt;</code> funziona anche con riferimenti numerati, e usandola si eliminano le ambiguità tra gruppi numerati ed cifre letterali circostanti.
 </testo_normale>
 <py_output>
 $ python3 re_sub_named_groups.py
@@ -1298,7 +1298,7 @@ Racchiudendo l'espressione tra parentesi per definire un gruppo fa sì che <code
 # re_split_groups.py
 </py_code>
 <testo_normale>
-Il risultato ora ritorna tutti i paragrafi, ed anche la sequenza di ritorni a capo che li separa.
+Il risultato ora ritorna tutti i paragrafi, e anche la sequenza di ritorni a capo che li separa.
 </testo_normale>
 <py_output>
 $ python3 re_split_groups.py

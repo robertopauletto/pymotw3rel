@@ -14,7 +14,7 @@ Mappa file in memoria invece di leggerne direttamente il contenuto
 
 </descrizione>
 <testo_normale>
-La mappatura in memoria di un file avviene tramite l'utilizzo del sistema di memoria virtuale del sistema operativo per accedere direttamente adi dati in un file nel filesystem, invece di utilizzare le normali funzioni di I/O. In genere le prestazioni di I/O sono migliorate con questa tecnica visto che non occorre eseguire chiamate di sistema separate per ogni accesso e non occorre copiare dati tra buffer - la memoria è indirizzata direttamente sia dal kernel che dall'applicazione dell'utente.
+La mappatura in memoria di un file avviene tramite l'utilizzo del sistema di memoria virtuale del sistema operativo per accedere direttamente ai dati in un file nel filesystem, invece di utilizzare le normali funzioni di I/O. In genere le prestazioni di I/O sono migliorate con questa tecnica visto che non occorre eseguire chiamate di sistema separate per ogni accesso e non occorre copiare dati tra buffer - la memoria è indirizzata direttamente sia dal kernel che dall'applicazione dell'utente.
 </testo_normale>
 <testo_normale>
 I file mappati in memoria possono essere trattati come stringhe modificabili oppure oggetti di tipo file, a seconda delle necessità. Un file mappato supporta i previsti metodi <a href='https://it.wikipedia.org/wiki/Application_programming_interface' target='_blank'>API</a>, tipo <code>close()</code>, <code>flush()</code>, <code>read()</code>, <code>readline()</code>, <code>seek()</code>, <code>tell()</code> e <code>write()</code>. Supporta anche le <a href='https://it.wikipedia.org/wiki/Application_programming_interface' target='_blank'>API</a> delle stringhe, con caratteristiche come lo <em>slicing</em> (il trattare porzioni di iterabili) e metodi come <code>find()</code>.
@@ -43,7 +43,7 @@ Ci sono differenze negli argomenti e nei comportamenti per <code>mmap()</code> t
 Lettura
 </titolo_2>
 <testo_normale>
-Si usi la funzione <code>mmap()</code> per creare un file mappato in memoria. Il primo argomento è un descrittore di file, ottenuto dal metodo <code>fileno()</code> oppure da <code>os.open()</code> oppure un oggetto <code>file</code>. Il chiamante è responsaible dell'apertura del file prima della chiamata di <code>mmap()</code> e della chiusura quando lo stesso non è più necessario.
+Si usi la funzione <code>mmap()</code> per creare un file mappato in memoria. Il primo argomento è un descrittore di file, ottenuto dal metodo <code>fileno()</code> oppure da <code>os.open()</code> oppure un oggetto <code>file</code>. Il chiamante è responsabile dell'apertura del file prima della chiamata di <code>mmap()</code> e della chiusura quando lo stesso non è più necessario.
 </testo_normale>
 <testo_normale>
 Il secondo argomento per <code>mmap()</code> è la dimensione in byte della porzione del file da mappare. Se il valore è <code>0</code> viene mappato l'intero file. Se la dimensione è maggiore della dimensione corrente del file, il file viene esteso.
@@ -67,7 +67,7 @@ with open('lorem.txt', 'r') as f:
         print('Secondi 10 byte tramite read :', m.read(10))
 </py_code>
 <testo_normale>
-Il puntatore al file traccia gli ultimi byte acceduti tramite una operazione di <em>slicing</em>. In questo esempio, il puntatore si sposta in avanti di 10 byte dopo la prima lettura. Poi viene reimpostato ad inizio file dall'operazione di <em>slicing</em> e successivamente spostato ancora di 10 byte, ancora dallo <em>slicing</em>. Dopo questa operazione, la chiamata di <code>read()</code> ritorna i byte compresi nelle posizioni da 11 a 20 nel file.
+Il puntatore al file traccia gli ultimi byte acceduti tramite una operazione di <em>slicing</em>. In questo esempio, il puntatore si sposta in avanti di 10 byte dopo la prima lettura. Poi viene reimpostato a inizio file dall'operazione di <em>slicing</em> e successivamente spostato ancora di 10 byte, ancora dallo <em>slicing</em>. Dopo questa operazione, la chiamata di <code>read()</code> ritorna i byte compresi nelle posizioni da 11 a 20 nel file.
 </testo_normale>
 <py_output>
 $ python3 mmap_read.py
@@ -80,7 +80,7 @@ Secondi 10 byte tramite read : b't\n\nLorem i'
 Scrittura
 </titolo_2>
 <testo_normale>
-Per impostare un file mappato in memoria affinchè possa ricevere aggiornamenti, si inizi con lo specificare la modalità di apertura in <code>'r+'</code>, (non <code>'w'</code>) prima di mapparlo. Poi è possibile usare un qualunque metodo che modifichi i dati (<code>write()</code>, assgneazioni tramite <em>slicing</em> ecc.).
+Per impostare un file mappato in memoria affinchè possa ricevere aggiornamenti, si inizi con lo specificare la modalità di apertura in <code>'r+'</code>, (non <code>'w'</code>) prima di mapparlo. Poi è possibile usare un qualunque metodo che modifichi i dati (<code>write()</code>, assegnazioni tramite <em>slicing</em> ecc.).
 </testo_normale>
 <testo_normale>
 Il successivo esempio usa la modalità di accesso predefinita <code>ACCESS_WRITE</code> e con una operazione di <em>slicing</em> modifica sul posto parte di una riga.
@@ -102,16 +102,16 @@ print('Da sostituire con :', reversed)
 with open('lorem_copy.txt', 'r+') as f:
     with mmap.mmap(f.fileno(), 0) as m:
         print('Prima:\n{}'.format(m.readline().rstrip()))
-        m.seek(0)  # torna ad inizio file
+        m.seek(0)  # torna a inizio file
 
         loc = m.find(word)
         m[loc:loc + len(word)] = reversed
         m.flush()
 
-        m.seek(0)  # torna ad inizio file
+        m.seek(0)  # torna a inizio file
         print('Dopo  :\n{}'.format(m.readline().rstrip()))
 
-        f.seek(0)  # torna ad inizio file
+        f.seek(0)  # torna a inizio file
         print('File  :\n{}'.format(f.readline().rstrip()))
 </py_code>
 <testo_normale>
@@ -153,11 +153,11 @@ with open('lorem_copy.txt', 'r+') as f:
         print('Dopo nel file   :\n{}\n'.format(
             f.readline().rstrip()))
 
-        m.seek(0)  # torna ad inizio file
+        m.seek(0)  # torna a inizio file
         loc = m.find(word)
         m[loc:loc + len(word)] = reversed
 
-        m.seek(0)  # torna ad inizio file
+        m.seek(0)  # torna a inizio file
         print('Prima in memoria :\n{}'.format(
             m.readline().rstrip()))
 

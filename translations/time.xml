@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="Latin-1"?>
-<categoria>date ed orari</categoria><!-- # tag <descrizione> contiene le voci per la tabella di riepilogo iniziale -->
+<categoria>Date e Orari</categoria><!-- # tag <descrizione> contiene le voci per la tabella di riepilogo iniziale -->
 <!-- # tag <titolo_1> titolo principale -->
 <!-- # tag <titolo_1> titolo principale -->
 <!-- tag <testo_normale> contiene il testo normale dell'articolo -->
@@ -9,7 +9,7 @@
 <!-- tag <vedi_anche> contiene il testo che rappresentano i riferimenti esterni -->
 <documento_tradotto>
 <titolo_1>
-time - Tempo di clock
+time - Tempo di Clock
 </titolo_1>
 <descrizione>
 Funzioni per la manipolazione del tempo di <a href='https://www.wikiwand.com/it/Clock'>clock</a>

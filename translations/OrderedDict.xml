@@ -7,7 +7,7 @@
 <!-- tag <py_output> contiene il testo che rappresenta l'outpu di uno script python -->
 <documento_tradotto>
 <titolo_1>
-OrderedDict - ricorda l'ordine con il quale si aggiungono chiavi ad un dizionario
+OrderedDict - Ricorda l'Ordine con il Quale Si Aggiungono Chiavi a un Dizionario
 </titolo_1>
 <descrizione>
 Un <code>OrderedDict</code> è una sottoclasse di <code>dict</code> che ricorda l'ordine nel quale sono aggiunti i propri contenuti.
@@ -41,7 +41,7 @@ for k, v in d.items():
 
 </py_code>
 <testo_normale>
-Un normale <code>dict</code> non tiene traccia dell'ordine di inserimento, e l'iterazione sull'oggetto produce i valori nell'ordine basato su come le chiavi sono conservate nella <a href="https://it.wikipedia.org/wiki/Hash_table">tabella hash</a>; detto ordine è a sua volta influenzato da un valore casuale utilizzato per ridurre collisioni. Al contrario, in un <code>OrderedDict</code> l'ordine nel quale gli elementi sono inseriti viene conservato ed utilizzato quando si crea un iteratore.
+Un normale <code>dict</code> non tiene traccia dell'ordine di inserimento, e l'iterazione sull'oggetto produce i valori nell'ordine basato su come le chiavi sono conservate nella <a href="https://it.wikipedia.org/wiki/Hash_table">tabella hash</a>; detto ordine è a sua volta influenzato da un valore casuale utilizzato per ridurre collisioni. Al contrario, in un <code>OrderedDict</code> l'ordine nel quale gli elementi sono inseriti viene conservato e utilizzato quando si crea un iteratore.
 </testo_normale>
 <py_output>
 $ python3 collections_ordereddict_iter.py
@@ -108,7 +108,7 @@ False
 Riordinare
 </titolo_2>
 <testo_normale>
-E' possibile modificare l'ordine delle chiavi in un <code>OrderedDict</code> spostandole all'inizio od alla fine della sequenza utilizzando <code>move_to_end()</code>.
+E' possibile modificare l'ordine delle chiavi in un <code>OrderedDict</code> spostandole all'inizio o alla fine della sequenza utilizzando <code>move_to_end()</code>.
 </testo_normale>
 <py_code>
 # collections_ordereddict_move_to_end.py

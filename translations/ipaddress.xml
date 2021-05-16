@@ -9,7 +9,7 @@ Classi per lavorare con indirizzi di Protocollo Internet (IP)
 
 </descrizione>
 <testo_normale>
-Il modulo <strong>ipaddress</strong> include classi per lavorare con indirizzi di rete IPv4 e IPv6. Le classi supportano validazione, la ricerca di <em>host</em> e indirizzi su una rete ed altre comuni operazioni
+Il modulo <strong>ipaddress</strong> include classi per lavorare con indirizzi di rete IPv4 e IPv6. Le classi supportano validazione, la ricerca di <em>host</em> e indirizzi su una rete e altre comuni operazioni
 </testo_normale>
 <titolo_2>
 Indirizzi
@@ -30,7 +30,7 @@ $ python3 ipaddress_addresses.py
 Reti
 </titolo_2>
 <testo_normale>
-Una rete viene definita come un intervallo di indirizzi, generalmente espressi con un indirizzo base ed una maschera che indica quali porzioni dell'indirizzo rappresentano la rete e quali porzioni rimangono per rappresentare gli indirizzi su quella rete. La maschera può essere espressa esplicitamente, oppure usando come prefisso un valore di lunghezza, come nell'esempio di seguito
+Una rete viene definita come un intervallo di indirizzi, generalmente espressi con un indirizzo base e una maschera che indica quali porzioni dell'indirizzo rappresentano la rete e quali porzioni rimangono per rappresentare gli indirizzi su quella rete. La maschera può essere espressa esplicitamente, oppure usando come prefisso un valore di lunghezza, come nell'esempio di seguito
 </testo_normale>
 <py_code>
 # ipaddress_networks.py
@@ -81,13 +81,13 @@ $ python3 ipaddress_network_membership.py
 Interfacce
 </titolo_2>
 <testo_normale>
-Una interfaccia di rete rappresenta un indirizzo specifico su di una rete e può esserer rappresentato da un indirizzo <em>host</em> e da un prefisso di rete o maschera di rete.
+Una interfaccia di rete rappresenta un indirizzo specifico su di una rete e può essere rappresentato da un indirizzo <em>host</em> e da un prefisso di rete o maschera di rete.
 </testo_normale>
 <py_code>
 # ipaddress_interfaces.py
 </py_code>
 <testo_normale>
-L'oggetto interfaccia ha proprietà per accedere all'intera rete e agli indirizzi sepataramente, così come ha diversi modi per esprimere l'interfaccia e la maschera di rete.
+L'oggetto interfaccia ha proprietà per accedere all'intera rete e agli indirizzi separatamente, così come ha diversi modi per esprimere l'interfaccia e la maschera di rete.
 </testo_normale>
 <py_output>
 $ python3 ipaddress_interfaces.py

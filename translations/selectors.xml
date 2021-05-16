@@ -22,16 +22,16 @@ Il modulo <strong>selectors</strong> fornisce uno strato di astrazione indipende
 Modello Operativo
 </titolo_2>
 <testo_normale>
-Le <a href='https://it.wikipedia.org/wiki/Application_programming_interface' target='_blank'>API</a> in <strong>selectors</strong> sono basate sugli eventi, simili alla funzione <code>poll()</code> di <a href='select.html' target='_blank'>select</a>. Ci sono parecchie implementazioni ed il mdoulo imposta automaticamente l'alias <code>DefaultSelector</code> per fare riferimento a quella maggiormente efficiente per la configurazione corrente del sistema.
+Le <a href='https://it.wikipedia.org/wiki/Application_programming_interface' target='_blank'>API</a> in <strong>selectors</strong> sono basate sugli eventi, simili alla funzione <code>poll()</code> di <a href='select.html' target='_blank'>select</a>. Ci sono parecchie implementazioni e il modulo imposta automaticamente l'alias <code>DefaultSelector</code> per fare riferimento a quella maggiormente efficiente per la configurazione corrente del sistema.
 </testo_normale>
 <testo_normale>
-Un oggetto selettore fornisce metodi per specificare quali eventi cercare in un socket, quindi consente al chiamante di rimanere in attesa di eventi in una modalità indipendente della piattaforma. La registrazione di un evento crea una chiave di selettore <code>SelectorKey</code>, che contiene il socket, informazioni sugli eventi di interesse, e dati applicativi opzionali. Il proprietario del selettore chiama il suo metodo <code>select()</code> per apprendere riguardo agli eventi. Il valore di ritorno è una sequenza di oggetti chiave ed una <em>bitmask</em> che indica quali eventi si sono verificati. Un programma che utilizzi un selettore dovrebbe chiamare <code>select()</code> ripetutamente, poi gestire gli eventi in modo appropriato.
+Un oggetto selettore fornisce metodi per specificare quali eventi cercare in un socket, quindi consente al chiamante di rimanere in attesa di eventi in una modalità indipendente della piattaforma. La registrazione di un evento crea una chiave di selettore <code>SelectorKey</code>, che contiene il socket, informazioni sugli eventi di interesse, e dati applicativi opzionali. Il proprietario del selettore chiama il suo metodo <code>select()</code> per apprendere riguardo agli eventi. Il valore di ritorno è una sequenza di oggetti chiave e una <em>bitmask</em> che indica quali eventi si sono verificati. Un programma che utilizzi un selettore dovrebbe chiamare <code>select()</code> ripetutamente, poi gestire gli eventi in modo appropriato.
 </testo_normale>
 <titolo_2>
 Server che Ritorna Dati Inviati da Client
 </titolo_2>
 <testo_normale>
-L'esempio qui sotto di un server che ritorna i dati inviati da un client usa i dati applicativi in <code>SelectorKey</code> per registrare una funzione <a href='https://www.wikiwand.com/it/Callback' target='_blank'>callback</a> da chiamarsi sul nuovo evento. Il ciclo principale ottiene il <a href='https://www.wikiwand.com/it/Callback' target='_blank'>callback</a> dalla chiave e passa ad essa il socket e la <em>bitmask</em> dell'evento. Appena il server va in esecuzione, registra la funzione <code>accept()</code> da chiamarsi per eventi di lettura sul socket del server principale. L'accettazione di una connessione produce un nuovo socket, il quale viene poi registrato con la funzione <code>read()</code> come <a href='https://www.wikiwand.com/it/Callback' target='_blank'>callback</a> per gli eventi di lettura.
+L'esempio qui sotto di un server che ritorna i dati inviati da un client usa i dati applicativi in <code>SelectorKey</code> per registrare una funzione <a href='https://www.wikiwand.com/it/Callback' target='_blank'>callback</a> da chiamarsi sul nuovo evento. Il ciclo principale ottiene il <a href='https://www.wikiwand.com/it/Callback' target='_blank'>callback</a> dalla chiave e passa a essa il socket e la <em>bitmask</em> dell'evento. Appena il server va in esecuzione, registra la funzione <code>accept()</code> da chiamarsi per eventi di lettura sul socket del server principale. L'accettazione di una connessione produce un nuovo socket, il quale viene poi registrato con la funzione <code>read()</code> come <a href='https://www.wikiwand.com/it/Callback' target='_blank'>callback</a> per gli eventi di lettura.
 </testo_normale>
 <py_code>
 # selectors_echo_server.py
@@ -179,7 +179,7 @@ Il client tiene traccia di quanti dati ha inviato e di quanti ha ricevuto. Quand
 Client e Server Insieme
 </titolo_2>
 <testo_normale>
-Il client ed il server dovrebbero essere eseguiti in finestre di terminale separate, in modo che possano comunicare tra di loro. Il risultato del server mostra la connessione ed i dati in arrivo, così come la risposta restituita al client.
+Il client e il server dovrebbero essere eseguiti in finestre di terminale separate, in modo che possano comunicare tra di loro. Il risultato del server mostra la connessione e i dati in arrivo, così come la risposta restituita al client.
 </testo_normale>
 <py_output>
 $ python3 selectors_echo_server.py

@@ -14,7 +14,7 @@ Interfaccia funzionale agli operatori built-in.
 
 </descrizione>
 <testo_normale>
-Programmare utilizzando iteratori richiede occasionalmente la creazione di piccole funzioni per semplici espressioni. Talvolta queste possono essere implementate come funzioni <a href='https://it.wikipedia.org/wiki/Funzione_anonima'>lambda</a>, ma per alcuni operatori nuove funzioni non sono assolutamente necessarie. Il modulo <strong>operator</strong> definisce funzioni che corrispondono ad operazioni built-in per aritmetica, confronto ed altre operazioni che corrispondono ad API per oggetti standard.
+Programmare utilizzando iteratori richiede occasionalmente la creazione di piccole funzioni per semplici espressioni. Talvolta queste possono essere implementate come funzioni <a href='https://it.wikipedia.org/wiki/Funzione_anonima'>lambda</a>, ma per alcuni operatori nuove funzioni non sono assolutamente necessarie. Il modulo <strong>operator</strong> definisce funzioni che corrispondono a operazioni built-in per aritmetica, confronto e altre operazioni che corrispondono ad API per oggetti standard.
 </testo_normale>
 <titolo_2>
 Operazioni logiche
@@ -40,7 +40,7 @@ print('is_(a, b)   :', is_(a, b))
 print('is_not(a, b):', is_not(a, b))
 </py_code>
 <testo_normale>
-<code>_not()</code> comprende il carattere di sottolineatura all'inizio in quanto <strong>non</strong> è una parola chiave di Python. Per <code>truth()</code> si applica la stessa logica utilizzata quando si verifica una espressione in una istruzione <code>if</code> o quando si converte una espressionie in un <code>bool</code>. <code>is_()</code> implementa la stessa verifica utilizzata dalla parola chiave <code>is</code>, mentre <code>is_not()</code> fa lo stesso controllo e ritorna la risposta opposta.
+<code>_not()</code> comprende il carattere di sottolineatura all'inizio in quanto <strong>non</strong> è una parola chiave di Python. Per <code>truth()</code> si applica la stessa logica utilizzata quando si verifica una espressione in una istruzione <code>if</code> o quando si converte una espressione in un <code>bool</code>. <code>is_()</code> implementa la stessa verifica utilizzata dalla parola chiave <code>is</code>, mentre <code>is_not()</code> fa lo stesso controllo e ritorna la risposta opposta.
 </testo_normale>
 <py_output>
 $ python3 operator_boolean.py
@@ -434,9 +434,9 @@ MyObj(3)
 </py_output>
 <vedi_anche>
 https://docs.python.org/3.5/library/operator.html|operator|La documentazione standard della libreria per questo modulo.
-functools.html|functools|Strumenti per la programmazione funzionale, compreso il decoratore <code>total_ordering</code> per aggiungere metodi di confronto arricchito ad una classe.
+functools.html|functools|Strumenti per la programmazione funzionale, compreso il decoratore <code>total_ordering</code> per aggiungere metodi di confronto arricchito a una classe.
 itetools.html|itertools|Operazioni di iterazione.
 collections.html|collections|Tipi astratti per collezioni
-|numbers|Tipi astratti per valori numerici.
+#|numbers|Tipi astratti per valori numerici.
 </vedi_anche>
 </documento_tradotto>

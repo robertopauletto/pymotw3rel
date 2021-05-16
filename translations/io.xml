@@ -16,7 +16,7 @@ Implementa operazioni di input/output e fornisce classi per lavorare con i buffe
 
 </descrizione>
 <testo_normale>
-Il modulo <strong>io</strong> le classi che supportano il metodo <em>built-in</em> dell'interprete <code>open()</code> per operazioni di input ed output basate su file. Le classi sono decomposte in modo tale che possano essere ricombinate per scopi alternativi, ad esempio per abilitare la scrittura di dati Unicode verso un <a href='https://www.wikiwand.com/it/Socket_(reti)'>socket di rete</a>.
+Il modulo <strong>io</strong> le classi che supportano il metodo <em>built-in</em> dell'interprete <code>open()</code> per operazioni di input e output basate su file. Le classi sono decomposte in modo tale che possano essere ricombinate per scopi alternativi, ad esempio per abilitare la scrittura di dati Unicode verso un <a href='https://www.wikiwand.com/it/Socket_(reti)'>socket di rete</a>.
 </testo_normale>
 <titolo_2>
 Flussi In Memoria
@@ -49,7 +49,7 @@ input = io.StringIO('Valore iniziale per il buffer in lettura')
 print(input.read())
 </py_code>
 <testo_normale>
-Questo  esempio usa <code>read()</code>, ma sono disponibii anche  i metodi <code>readline()</code> e <code>readlines()</code>. La classe <code>StringIO</code> fornisce anche un metodo <code>seek()</code> per muoversi all'interno del buffer quando si è in lettura, utile per "riavvolgere" se si sta utilizzando un algoritmo di elaborazione di tipo look-ahead.
+Questo  esempio usa <code>read()</code>, ma sono disponibili anche  i metodi <code>readline()</code> e <code>readlines()</code>. La classe <code>StringIO</code> fornisce anche un metodo <code>seek()</code> per muoversi all'interno del buffer quando si è in lettura, utile per "riavvolgere" se si sta utilizzando un algoritmo di elaborazione di tipo look-ahead.
 </testo_normale>
 <py_output>
 $ python3 io_stringio.py
@@ -137,6 +137,6 @@ Valore iniziale per il buffer in letturaÁÇÊ
 </py_output>
 <vedi_anche>
 https://docs.python.org/3.5/library/io.html|io|La documentazione della libreria standard per questo modulo.
-http://www.skymind.com/~ocrow/python_string/|Efficient String Concatenation in Python|Esamina vari metodi di combinazione di strnghe ed i loro relativi pregi - in inglese.
+http://www.skymind.com/~ocrow/python_string/|Efficient String Concatenation in Python|Esamina vari metodi di combinazione di stringhe e i loro relativi pregi - in inglese.
 </vedi_anche>
 </documento_tradotto>

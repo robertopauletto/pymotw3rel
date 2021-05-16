@@ -78,7 +78,7 @@ $ python3 pwd_getpwnam.py nobody
 Interrogare l'Utente per UID
 </titolo_2>
 <testo_normale>
-E' anche possibile la ricerca di un utente tramite il suo id utente numerico. Questo è utile per trovare il proprietario di un file.
+E' anche possibile la ricerca di un utente tramite il suo i utente numerico. Questo è utile per trovare il proprietario di un file.
 </testo_normale>
 <py_code>
 # pwd_getpwuid_fileowner.py

@@ -16,13 +16,13 @@ Genera aiuto per i moduli e le classi Python dal codice.
 
 </descrizione>
 <testo_normale>
-Il modulo <strong>pydoc</strong> importa un modulo Python ed usa il suo contenuto per generare testo di aiuto in fase di esecuzione. Il risultato comprende <a href='https://www.wikiwand.com/it/Docstring' target='_blank'>docstring</a> per qualunque oggetto che ne sia provvisto, e sono descritte tutte le classi, metodi e funzioni del modulo.
+Il modulo <strong>pydoc</strong> importa un modulo Python e usa il suo contenuto per generare testo di aiuto in fase di esecuzione. Il risultato comprende <a href='https://www.wikiwand.com/it/Docstring' target='_blank'>docstring</a> per qualunque oggetto che ne sia provvisto, e sono descritte tutte le classi, metodi e funzioni del modulo.
 </testo_normale>
 <titolo_2>
 Aiuto in Formato Testo Semplice
 </titolo_2>
 <testo_normale>
-Eseguendo <code>pydoc</code> come programma da riga di comando passando il nome del modulo, produce testo di aiuto per il modulo ed il suo contenuto stampato sulla console, utilizzando un programma di paginazione, se configurato. Ad esempio, per vedere testo di aiuto per il modulo <code>atexit</code>, si esegua <code>pydoc atexit</code>.
+Eseguendo <code>pydoc</code> come programma da riga di comando passando il nome del modulo, produce testo di aiuto per il modulo e il suo contenuto stampato sulla console, utilizzando un programma di paginazione, se configurato. Ad esempio, per vedere testo di aiuto per il modulo <code>atexit</code>, si esegua <code>pydoc atexit</code>.
 </testo_normale>
 <py_output>
 $ pydoc atexit
@@ -103,6 +103,6 @@ NAME
 </py_output>
 <vedi_anche>
 https://docs.python.org/3.5/library/pydoc.html|pydoc|La documentazione della libreria standard per questo modulo.
-#|inspect (di prossima traduzione)|Il modulo inspect può essere usato per ottenere docstring da un oggetto programmaticamente
+inspect.html|inspect|Il modulo inspect può essere usato per ottenere docstring da un oggetto programmaticamente
 </vedi_anche>
 </documento_tradotto>

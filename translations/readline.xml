@@ -22,7 +22,7 @@ Il modulo <strong>readline</strong> può essere usato per migliorare i programmi
 Visto che <code>readline</code> interagisce con il contenuto della console, la stampa di messaggi di debug rende difficoltoso vedere cosa sta succedendo nel codice di esempio rispetto a quello che <code>readline</code> fa di sua iniziativa. Gli esempi sottostanti usano il modulo <strong>logging</strong> per scrivere le informazioni di debug in un file separato. Le informazioni contenute in detto file vengono mostrate con ciascun esempio.
 </note>
 <note>
-Le libreria GNU necessarie per <strong>readline</strong> non sono disponibili in modalità predefinita su tutte le piattaforme. Se il proprio sistema non le comprende, si potrebbe aver bisogno di ricompilare l'interprete Python per abilitare il modulo, dopo avere installato le dipendenze. Un versione a se stante della libreria viena distribuita dall'<a href='https://pypi.org' target='_blank'>Indirizzario dei Pacchetti Python</a> sotto il nome di <a href='https://pypi.python.org/pypi/gnureadline' target='_blank'>gnureadline</a>.
+Le libreria GNU necessarie per <strong>readline</strong> non sono disponibili in modalità predefinita su tutte le piattaforme. Se il proprio sistema non le comprende, si potrebbe aver bisogno di ricompilare l'interprete Python per abilitare il modulo, dopo avere installato le dipendenze. Un versione a se stante della libreria viene distribuita dall'<a href='https://pypi.org' target='_blank'>Indirizzario dei Pacchetti Python</a> sotto il nome di <a href='https://pypi.python.org/pypi/gnureadline' target='_blank'>gnureadline</a>.
 <p></p>
 <p><em>Un ringraziamento speciale a Jim Baker per la segnalazione di questo pacchetto.</em></p>
 </note>
@@ -60,7 +60,7 @@ il file può poi essere letto con <code>read_init_file()</code>:
 Completamento del Testo
 </titolo_2>
 <testo_normale>
-Questo programma ha un insieme di possibili comandi definiti al suo interno ed usa il completamento via tab quando l'utente digita le istruzioni.
+Questo programma ha un insieme di possibili comandi definiti al suo interno e usa il completamento via tab quando l'utente digita le istruzioni.
 </testo_normale>
 <py_code>
 # readline_completer.py
@@ -70,7 +70,7 @@ La funzione <code>input_loop()</code> legge una riga dopo l'altra fino a che il 
  Un programma più sofisticato potrebbe elaborare realmente la riga di input ed eseguire il comando.
 </testo_normale>
 <testo_normale>
-La classe <code>SimpleCompleter</code> mantiene un elenco di &quot;opzioni&quot; che sono suscettibili di auto-completamento. Il metodo <code>complete()</code> per una istanza è concepito per essere registrato con <code>readline</code> come sorgente per i completamenti. I parametri sono una stringa <code>text</code> da completare ed un valore <code>state</code>, che indica quante volte la funzione è stata chiamata con lo stesso testo. Questa funzione viene chiamata ripetutamente con <code>state</code> incrementato ogni volta. Dovrebbe restituire una stringa se c'è un candidato per quel valore di <code>state</code>, oppure <code>None</code> se non ci sono ulteriori candidati. Qui l'implementazione di <code>complete()</code> cerca un insieme di corrispondenze quando <code>state</code> è <code>0</code>, quindi ritorna tutte le corrispondenze, una alla volta, alle chiamate successive.
+La classe <code>SimpleCompleter</code> mantiene un elenco di &quot;opzioni&quot; che sono suscettibili di auto-completamento. Il metodo <code>complete()</code> per una istanza è concepito per essere registrato con <code>readline</code> come sorgente per i completamenti. I parametri sono una stringa <code>text</code> da completare e un valore <code>state</code>, che indica quante volte la funzione è stata chiamata con lo stesso testo. Questa funzione viene chiamata ripetutamente con <code>state</code> incrementato ogni volta. Dovrebbe restituire una stringa se c'è un candidato per quel valore di <code>state</code>, oppure <code>None</code> se non ci sono ulteriori candidati. Qui l'implementazione di <code>complete()</code> cerca un insieme di corrispondenze quando <code>state</code> è <code>0</code>, quindi ritorna tutte le corrispondenze, una alla volta, alle chiamate successive.
 </testo_normale>
 <testo_normale>
 Quando eseguito lo script, il risultato iniziale è:
@@ -129,7 +129,7 @@ completato('e', 0) => 'elenco'
 completato('e', 1) => None
 </py_output>
 <testo_normale>
-La pressione di INVIO ora fa sì che <code>input()</code> restituisca il valore, ed il ciclo in <code>while</code> riprende.
+La pressione di INVIO ora fa sì che <code>input()</code> restituisca il valore, e il ciclo in <code>while</code> riprende.
 </testo_normale>
 <py_output>
 Invia elenco
@@ -161,13 +161,13 @@ Se la funzione di completamento solleva una eccezione, essa viene silenziosament
 Accedere al Buffer di Completamento
 </titolo_2>
 <testo_normale>
-L'algoritmo di completamento in <code>SimpleCompleter</code>  cerca solo l'argomento <code>text</code> passato alla funzione, ma non usa null'altro dello stato interno di readline. E' anche possibilie usare le funzioni di <strong>readline</strong> per manipolare il testo nel <a href='https://www.wikiwand.com/it/Buffer' target='_blank'>buffer</a>  di input.
+L'algoritmo di completamento in <code>SimpleCompleter</code>  cerca solo l'argomento <code>text</code> passato alla funzione, ma non usa null'altro dello stato interno di readline. E' anche possibile usare le funzioni di <strong>readline</strong> per manipolare il testo nel <a href='https://www.wikiwand.com/it/Buffer' target='_blank'>buffer</a>  di input.
 </testo_normale>
 <py_code>
 # readline_buffer.py
 </py_code>
 <testo_normale>
-In questo esempio, i comandi con sotto opzioni sono completati. Il metodo <code>complete()</code> deve cercare alla posizione del completamento all'interno del buffer di input per determinare se parte della prima parola o di una parola successiva. Se l'obiettivo è la prima parola, le chiavi dei dizionario di opzioni vengono usate come candidati. Se non si tratta della prima parola, allore viene usata la prima parola per cercare candidati nel dizionario delle opzioni.
+In questo esempio, i comandi con sotto opzioni sono completati. Il metodo <code>complete()</code> deve cercare alla posizione del completamento all'interno del buffer di input per determinare se parte della prima parola o di una parola successiva. Se l'obiettivo è la prima parola, le chiavi dei dizionario di opzioni vengono usate come candidati. Se non si tratta della prima parola, allora viene usata la prima parola per cercare candidati nel dizionario delle opzioni.
 </testo_normale>
 <testo_normale>
 Ci sono tre comandi di primo livello, due dei quali hanno sotto comandi:
@@ -190,7 +190,7 @@ elenca  stampa  stop
 Prompt ("stop" per uscire):
 </py_output>
 <testo_normale>
-Ed il registro riporta:
+Il registro riporta:
 </testo_normale>
 <py_output>
 riga originale=''
@@ -252,7 +252,7 @@ Input Storico
 # readline_history.py
 </py_code>
 <testo_normale>
-La classe <code>HistoryCompleter</code> ricorda qualsiasi cosa venga digitata ed usa quei valori per il completamento dell'input successivo.
+La classe <code>HistoryCompleter</code> ricorda qualsiasi cosa venga digitata e usa quei valori per il completamento dell'input successivo.
 </testo_normale>
 <py_output>
 $ python3 readline_history.py
@@ -322,9 +322,9 @@ https://docs.python.org/3.6/library/readline.html|readline|La documentazione del
 http://tiswww.case.edu/php/chet/readline/readline.html|GNU readline|La documentazione per la libreria GNU readline.
 http://tiswww.case.edu/php/chet/readline/readline.html#SEC10|readline init file format|Il formato del file di inizializzazione e configurazione.
 http://sandbox.effbot.org/librarybook/readline.htm|effbot: The readline module|La guida di Effbot al modulo readline.
-https://pypi.python.org/pypi/gnureadline|gnureadline|Una versione collegata staticamente disponibile per molte piattaforme ed installabile via <code>pip</code>.
+https://pypi.python.org/pypi/gnureadline|gnureadline|Una versione collegata staticamente disponibile per molte piattaforme e installabile via <code>pip</code>.
 http://ipython.org/pyreadline.html|pyreadline|pyreadline, sviluppato come rimpiazzo basato su Python per readline da usare con Windows.
-#|cmd (di prossima traduzione)|Il modulo <strong>cmd</strong> usa <strong>readline</strong> in modo estensivo per implementare il completamento con tab nell'interfaccia del comando. Alcuni esempi qui sopra sono stati adattati sulla base del codice in <strong>cmd</strong>.
+cmd.html|cmd|Il modulo <strong>cmd</strong> usa <strong>readline</strong> in modo estensivo per implementare il completamento con tab nell'interfaccia del comando. Alcuni esempi qui sopra sono stati adattati sulla base del codice in <strong>cmd</strong>.
 #|ricompleter|<strong>rlcompleter</strong> usa <strong>readline</strong> per aggiungere il completamento con tab all'interprete Python interattivo.
 </vedi_anche>
 </documento_tradotto>

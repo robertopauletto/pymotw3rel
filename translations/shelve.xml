@@ -43,7 +43,7 @@ $ python3 shelve_existing.py
 {'int': 10, 'float': 9.5, 'string': 'Dati di esempio'}
 </py_output>
 <testo_normale>
-Il modulo<a href='dbm.html' target='_blank'>dbm</a> non supporta la scrittura contemporanea allo stesso database da parte di applicazioni multiple, ma supporta la concorrenza per <em>client</em> a sola lettura. Se un <em>client</em> non modificherà lo <em>shelf</em>, si passi a <code>shelve</code> l'argomento <code>flag='r'</code> per aprire il database in sola lettura.
+Il modulo <a href='dbm.html' target='_blank'>dbm</a> non supporta la scrittura contemporanea allo stesso database da parte di applicazioni multiple, ma supporta la concorrenza per <em>client</em> a sola lettura. Se un <em>client</em> non modificherà lo <em>shelf</em>, si passi a <code>shelve</code> l'argomento <code>flag='r'</code> per aprire il database in sola lettura.
 </testo_normale>
 <py_code>
 # shelve_readonly.py
@@ -58,7 +58,7 @@ $ python3 shelve_readonly.py
 Riscrittura
 </titolo_2>
 <testo_normale>
-<strong>shelve</strong> non tiene traccia di modifiche ad oggetti volatili, nella modalità predefinita. Il che significa che se il contenuto di un elemento conservato nello <em>shelf</em> è cambiato, occorre eseguire esplicitamente l'aggiornamento persistendo nuovamente l'intero elemento.
+<strong>shelve</strong> non tiene traccia di modifiche a oggetti volatili, nella modalità predefinita. Il che significa che se il contenuto di un elemento conservato nello <em>shelf</em> è cambiato, occorre eseguire esplicitamente l'aggiornamento persistendo nuovamente l'intero elemento.
 </testo_normale>
 <py_code>
 # shelve_withoutwriteback.py
@@ -74,7 +74,7 @@ $ python3 shelve_withoutwriteback.py
 {'int': 10, 'float': 9.5, 'string': 'Dati di esempio'}
 </py_output>
 <testo_normale>
-Per catturare automaticamente modifiche ad oggetti volatili conservati nello <em>shelf</em>, si apra il database abilitando la riscrittura. Il flag <code>writeback</code> fa sì che tutti gli oggetti recuperati dal database vengano memorizzati usando una <a href='https://www.wikiwand.com/it/Cache' target='_blank'><em>cache</em></a>  in memoria. Ciascun oggetto in <em>cache</em> viene riscritto nel database quando lo <em>shelf</em> viene chiuso.
+Per catturare automaticamente modifiche a oggetti volatili conservati nello <em>shelf</em>, si apra il database abilitando la riscrittura. Il flag <code>writeback</code> fa sì che tutti gli oggetti recuperati dal database vengano memorizzati usando una <a href='https://www.wikiwand.com/it/Cache' target='_blank'><em>cache</em></a>  in memoria. Ciascun oggetto in <em>cache</em> viene riscritto nel database quando lo <em>shelf</em> viene chiuso.
 </testo_normale>
 <py_code>
 # shelve_writeback.py

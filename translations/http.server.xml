@@ -79,7 +79,7 @@ if __name__ == '__main__':
 Il testo del messaggio viene assemblato, quindi scritto a <code>wfile</code>, l'<a href='https://www.wikiwand.com/it/File' target='_blank'>handle</a> che incapsula il <a href='https://www.wikiwand.com/it/Socket_(reti)' target='_blank'>socket</a> di risposta. Ogni risposta deve avere un codice di risposta, impostato tramite <code>send_response()</code>. Se viene usato un codice di errore (404, 501, ecc.), viene incluso nell'intestazione un appropriato messaggio di errore predefinito, oppure un messaggio può essere passato con il codice di errore.
 </testo_normale>
 <testo_normale>
-Per eseguire il gestore di richiesta nel server, lo si passi al costrutture di <code>HTTPServer</code>, come indicato nella parte <code>__main__</code> del codice di esempio qui sopra.
+Per eseguire il gestore di richiesta nel server, lo si passi al costruttore di <code>HTTPServer</code>, come indicato nella parte <code>__main__</code> del codice di esempio qui sopra.
 </testo_normale>
 <testo_normale>
 Per par partire il server:

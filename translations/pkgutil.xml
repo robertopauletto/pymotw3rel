@@ -41,7 +41,7 @@ Un pacchetto di esempio chiamato <code>demopkg</code> include due file, <code>__
 # demopkg1/__init__.py
 </py_code>
 <testo_normale>
-La directory <code>extension</code>, con caratteristiche aggiunte per <code>demopkg</code>, contiene altri tre file sorgente. C'è un file <code>__init__.py</code> ad ogni livello di directory ed un <code>not_shared.py</code>
+La directory <code>extension</code>, con caratteristiche aggiunte per <code>demopkg</code>, contiene altri tre file sorgente. C'è un file <code>__init__.py</code> a ogni livello di directory e un <code>not_shared.py</code>
 </testo_normale>
 <py_output>
 $ find extension -name '*.py'
@@ -62,7 +62,7 @@ In questi esempi i percorsi completi del file system sono stati abbreviati per e
 $ python3 pkgutil_extend_path.py
 </py_output>
 <testo_normale>
-Tuttavia, se la directory <code>extension</code> viene aggiunta a <code>PYTHONPATH</code> ed il programma viene rieseguito, si hanno risultati differenti.
+Tuttavia, se la directory <code>extension</code> viene aggiunta a <code>PYTHONPATH</code> e il programma viene rieseguito, si hanno risultati differenti.
 </testo_normale>
 <py_output>
 $ PYTHONPATH=extension python3 pkgutil_extend_path.py
@@ -77,7 +77,7 @@ L'estensione del percorso è in questo modo utile per combinare versioni di pacc
 Versioni di Sviluppo di Pacchetti
 </titolo_2>
 <testo_normale>
-Nella fase di sviluppo di migliorie per un progetto, è normale la necessità di dover verificare modifiche ad un pacchetto installato. Sostituire la copia installata con una versione di sviluppo potrebbe essere una cattiva idea, visto che potrebbe non essere corretta ed altri strumenti nel sistema potrebbero dipendere dal pacchetto installato.
+Nella fase di sviluppo di migliorie per un progetto, è normale la necessità di dover verificare modifiche a un pacchetto installato. Sostituire la copia installata con una versione di sviluppo potrebbe essere una cattiva idea, visto che potrebbe non essere corretta e altri strumenti nel sistema potrebbero dipendere dal pacchetto installato.
 </testo_normale>
 <testo_normale>
 Una copia completamente separata del pacchetto potrebbe essere configurata in un ambiente di sviluppo usando <code>virtualenv</code> oppure  <a href='venv.html' target='_blank'>venv</a>, ma per piccole modifiche potrebbe essere eccessivo l'impegno di impostare un ambiente virtuale con tutte le dipendenze.
@@ -137,10 +137,10 @@ Gestire Percorsi con File PKG
 Il primo esempio illustrava come estendere il percorso di ricerca usando directory extra incluse in <code>PYTHONPATH</code>. E' anche possibile aggiungere elementi al percorso di ricerca usando dei file <code>*.pkg</code> che contengono nomi di directory. I file PKG sono simili ai file PTH usati dal modulo <strong>site</strong>. Possono contenere nomi di directory, uno per riga, da aggiungere al percorso di ricerca per il pacchetto.
 </testo_normale>
 <testo_normale>
-Un altro modo per strutturare porzioni specfiche per la piattaforma dell'applicazione dal primo esempio è usare una directory separata per ogni sistema operativo, ed includere un file <code>.pkg</code> per estendere il percorso di ricerca.
+Un altro modo per strutturare porzioni specfiche per la piattaforma dell'applicazione dal primo esempio è usare una directory separata per ogni sistema operativo, e includere un file <code>.pkg</code> per estendere il percorso di ricerca.
 </testo_normale>
 <testo_normale>
-Questo esempio usa gli stessi file in <code>demopkg1</code>, ed include anche i seguenti file:
+Questo esempio usa gli stessi file in <code>demopkg1</code>, e include anche i seguenti file:
 </testo_normale>
 <py_output>
 $ find so_* -type f
@@ -221,10 +221,10 @@ $ PYTHONPATH=develop python3 pkgutil_nested.py
 Pacchetti con Dati
 </titolo_2>
 <testo_normale>
-Oltre al codice, i pacchetti Python possono contenere file dati tipo template, file di configurazione predefiniti, immagini ed altri file di supporto usati dal codice nel pacchetto. La funzione <code>get_date()</code> fornisce accesso ai dati nei file in modo agnostico, quindi non importa se il pacchetto viene distribuito come EGG, parte di un binario fissato, o normali file nel sistema.
+Oltre al codice, i pacchetti Python possono contenere file dati tipo template, file di configurazione predefiniti, immagini e altri file di supporto usati dal codice nel pacchetto. La funzione <code>get_date()</code> fornisce accesso ai dati nei file in modo agnostico, quindi non importa se il pacchetto viene distribuito come EGG, parte di un binario fissato, o normali file nel sistema.
 </testo_normale>
 <testo_normale>
-Con un pacchetto <code>pkgwithdata</code> che contiene una direcotry <code>templates</code>
+Con un pacchetto <code>pkgwithdata</code> che contiene una directory <code>templates</code>
 </testo_normale>
 <py_output>
 $ find pkgwithdata -type f
@@ -242,7 +242,7 @@ Il programma usa <code>get_data()</code> per ottenere il contenuto del template 
 # pkgutil_get_data.py
 </py_code>
 <testo_normale>
-Gli argomenti di <code>get_data()</code> sono il nome del pacchetto ed un nome di file relativo al livello superiore del pacchetto. Il valore di ritorno è una sequenza di byte, quindi deve essere decodificato in UTF-8 prima della stampa.
+Gli argomenti di <code>get_data()</code> sono il nome del pacchetto e un nome di file relativo al livello superiore del pacchetto. Il valore di ritorno è una sequenza di byte, quindi deve essere decodificato in UTF-8 prima della stampa.
 </testo_normale>
 <py_output>
 $ python3 pkgutil_get_data.py

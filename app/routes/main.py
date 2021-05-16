@@ -1,6 +1,7 @@
 # main.py
 
 import datetime
+import json
 import logging
 from math import ceil
 import os
@@ -9,7 +10,8 @@ from shutil import copy
 import webbrowser
 
 from flask import (
-    render_template, redirect, Blueprint, request, url_for, session, flash
+    render_template, redirect, Blueprint, request, url_for, session, flash,
+    jsonify
 )
 import pyperclip
 
@@ -20,6 +22,8 @@ from app.forms import (
     HTMLGeneratorForm, BuilderLog, CategoryForm, NewArticleForm,
     ArticleBoilerplate, SourceForm, SearchArticlesForm
 )
+from app.site_builder.modulo import (
+    translated_module_names, translated_module_for_automcompletions)
 from app.site_builder.builder import (
     build_module, build_index, build_module_table,
     get_categorie, crea_nuovo_articolo, save_categorie, create_privacy_page
@@ -32,6 +36,7 @@ logger.setLevel(logging.DEBUG)
 add_module_handler(logger, folder='logs')
 
 main = Blueprint('main', __name__)
+translated_modules = []
 
 
 @main.route('/')
@@ -53,9 +58,43 @@ def config():
                            parameters=parameters, title='Configurazione')
 
 
+def _check_module_list(translated_modules: list,
+                       modules_to_build: str) -> tuple:
+    """
+    Verifica se i nomi modulo passati nel form corrispondono a quelli di un
+    modulo tradotto
+
+    :param translated_modules: elenco nomi moduli tradotti
+    :param modules_to_build: stringa da form utente con moduli tradotti
+    :return: 1) la stringa moduli da tradurre depurata di quelli non trovati
+             2) lista nomi moduli non trovati
+    """
+    retval = []
+    orig_modules_list = modules_to_build.split()
+    for module in orig_modules_list:
+        if module.endswith('.xml'):
+            module = module.replace('.xml', '')
+        found = len([mod for mod in translated_modules
+                     if module.lower() == mod.lower()])
+        if not found:
+            continue
+        retval.append(module)
+    return " ".join(retval), set(orig_modules_list).difference(set(retval))
+
+
 @main.route('/generator', methods=['GET', 'POST'])
 def generator():
     """Generatore html articoli"""
+    global translated_modules
+    diz = _get_config_items()
+    if not translated_modules:
+        translated_modules = translated_module_names(diz['tran_dir'])
+
+    data = translated_module_for_automcompletions(diz['tran_dir'])
+    with open('app/static/js/autocomp.json', mode="w") as fh:
+        json.dump(data, fh)
+
+    log = ""
     form = HTMLGeneratorForm()
     # Se ricevo già il nome del modulo dal url referente (pagina articoli)
     if 'module' in request.args:
@@ -64,12 +103,21 @@ def generator():
     if form.validate_on_submit():
         tmplog = ""
         module = form.modules.data
+        module_ok, module_ko = _check_module_list(translated_modules, module)
+        for mod_ko in module_ko:
+            log += f"Il modulo {mod_ko} non esiste o non è stato tradotto\n"
 
+        if not module_ok:
+            flash("error", "Nessun modulo con il testo richiesto")
+            return redirect(url_for('main.generator'))
+
+        module = module_ok
         if module:
             logger.info(f"Generazione di {module} iniziata")
+            log += f"Generazione di {module} iniziata\n"
             tmplog, check_syntax, modulo = build_module(module.split())
             session['module'] = module
-        log = '\n'.join(tmplog) if tmplog else "\n"
+        log += '\n'.join(tmplog) if tmplog else "\n"
         if form.privacy_page.data:
             logger.info('Ricostruzione degli indici')
             log += '\n'.join(create_privacy_page("privacy.html"))
@@ -121,13 +169,15 @@ def _get_config_items():
 def source(module_name):
     """Mostra il testo xml dell'articolo"""
     diz = _get_config_items()
+    orig_mod_name = ""
+    print(orig_mod_name)
 
-    print(os.path.abspath(os.curdir))
-    if not module_name.lower().endswith('.xml'):
-        module_name = f"{module_name}.xml"
     module_path = os.path.abspath(
         os.path.join(diz["tran_dir"], module_name)
     )
+    if not os.path.exists(module_path):
+        flash("error", f"File {os.path.abspath(module_path)} not found")
+        return redirect(url_for('main.article', key='all'))
     with open(module_path) as fh:
         module_text = fh.read()
     form = SourceForm()
@@ -179,7 +229,8 @@ def article(key):
                 source_articles_folder=diz['tran_dir'],
                 headers=',TITOLO,CATEGORIA,NOME FILE,ULTIMO AGG.,'
                         'DIMENSIONE, INDICIZZATO'.split(','))
-    return render_template('article.html', key=None, data=data, form=form)
+    return render_template('article.html', key=None, data=data,
+                           form=form, title="Elenco Articoli")
 
 
 @main.route('/new_article', methods=['GET', 'POST'])

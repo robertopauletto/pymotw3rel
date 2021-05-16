@@ -22,13 +22,13 @@ Rappresentazione di Percorsi
 Il modulo <strong>pathlib</strong> include classi per gestire percorsi di filesystem formattati usando sia la sintassi POSIX standard che quella Microsoft Windows. Comprende le cosiddette classi "pure", che operano sulle stringhe ma non interagiscono con il filesystem reale, e quelle "concrete", le quali estendono l'<a href='https://it.wikipedia.org/wiki/Application_programming_interface' target='_blank'>API</a> per includere operazioni che riflettono o modificano dati sul filesystem locale.
 </testo_normale>
 <testo_normale>
-Le classi pure <code>PurePosixPath</code> e <code>PureWindowsPath</code> possono essere istanziate ed usate su ogni sistema operativo, visto che funzionano solo con i nomi. Per istanziare la classe corretta per lavorare con un filesystem reale, si usi <code>PosixPath</code> o <code>WindowsPath</code> a seconda della piattaforma.
+Le classi pure <code>PurePosixPath</code> e <code>PureWindowsPath</code> possono essere istanziate e usate su ogni sistema operativo, visto che funzionano solo con i nomi. Per istanziare la classe corretta per lavorare con un filesystem reale, si usi <code>PosixPath</code> o <code>WindowsPath</code> a seconda della piattaforma.
 </testo_normale>
 <titolo_2>
 Costruire Percorsi
 </titolo_2>
 <testo_normale>
-Per istanziare un nuovo percorso, si passa una stringa come primo argomento. La rappresentazione stringa dell'oggetto percorso è quel valore. Per creare un nuovo percorso che faccia riferimento ad un valore relativo ad un percorso esistente, si usi l'operatore <code>/</code> per estendere il percorso. L'argomento per l'operatore può essere sia una stringa che un altro oggetto percorso.
+Per istanziare un nuovo percorso, si passa una stringa come primo argomento. La rappresentazione stringa dell'oggetto percorso è quel valore. Per creare un nuovo percorso che faccia riferimento a un valore relativo a un percorso esistente, si usi l'operatore <code>/</code> per estendere il percorso. L'argomento per l'operatore può essere sia una stringa che un altro oggetto percorso.
 </testo_normale>
 <py_code>
 # pathlib_operator.py
@@ -104,7 +104,7 @@ $ python3 pathlib_joinpath.py
 /usr/local
 </py_output>
 <testo_normale>
-Dato un oggetto percorso esistente, è facile costruirne uno nuovo con piccole differenze tipo il fare riferimento ad un file diverso nella stessa directory. Si usi <code>with_name()</code> per creare un nuovo percorso che sostituisce la porzione del nome  con un nome di file differente. Si usi <code>with_suffix()</code> per creare un nuovo percorso che sostituisca l'estensione del nome del file con un diverso valore.
+Dato un oggetto percorso esistente, è facile costruirne uno nuovo con piccole differenze tipo il fare riferimento a un file diverso nella stessa directory. Si usi <code>with_name()</code> per creare un nuovo percorso che sostituisce la porzione del nome  con un nome di file differente. Si usi <code>with_suffix()</code> per creare un nuovo percorso che sostituisca l'estensione del nome del file con un diverso valore.
 </testo_normale>
 <py_code>
 # pathlib_from_existing.py
@@ -224,7 +224,7 @@ cwd = pathlib.Path.cwd()
 print('dir. corrente: ', cwd)
 </py_code>
 <testo_normale>
-Entrambi i metodi creano istanze di <code>Path</code> pre-popolate con un riferimento assoluto al filesystem.
+Entrambi i metodi creano istanze di <code>Path</code> prepopolate con un riferimento assoluto al filesystem.
 </testo_normale>
 <py_output>
 $ python3 pathlib_convenience.py
@@ -248,7 +248,7 @@ for f in p.iterdir():
     print(f)
 </py_code>
 <testo_normale>
-Se <code>Path</code> non fa riferimento ad una directory, <code>iterdir()</code> solleva una eccezione <code>NotADirectoryError</code>.
+Se <code>Path</code> non fa riferimento a una directory, <code>iterdir()</code> solleva una eccezione <code>NotADirectoryError</code>.
 </testo_normale>
 <py_output>
 $ python3 pathlib_iterdir.py
@@ -263,7 +263,7 @@ pathlib_from_existing.py
 pathlib_convenience.py
 </py_output>
 <testo_normale>
-Si usi <code>glob()</code> per trovare solo i file che corrispondono ad un modello.
+Si usi <code>glob()</code> per trovare solo i file che corrispondono a un modello.
 </testo_normale>
 <py_code>
 # pathlib_glob.py
@@ -321,7 +321,7 @@ for f in p.rglob('pathlib_*.py'):
     print(f)
 </py_code>
 <testo_normale>
-Visto che questo esempio viene eseguito dalla directory genitore, è richiesta una ricerca ricorsiva per traovare i file di esempio che corrispondono al modello <code>pathlib_*.py</code>
+Visto che questo esempio viene eseguito dalla directory genitore, è richiesta una ricerca ricorsiva per trovare i file di esempio che corrispondono al modello <code>pathlib_*.py</code>
 </testo_normale>
 <py_output>
 $ python3 dumpscripts/pathlib_rglob.py
@@ -358,7 +358,7 @@ with f.open('r', encoding='utf-8') as handle:
 print('read_text(): {!r}'.format(f.read_text('utf-8')))
 </py_code>
 <testo_normale>
-I metodi di convenienza eseguono qualche controllo di tipo prima aprire il file e scriverci sopra, ma per il resto equivale ad eseguire l'operazione direttamente.
+I metodi di convenienza eseguono qualche controllo di tipo prima aprire il file e scriverci sopra, ma per il resto equivale a eseguire l'operazione direttamente.
 </testo_normale>
 <py_output>
 $ python3 pathlib_read_write.py
@@ -370,7 +370,7 @@ read_text(): 'Questo è il contenuto'
 Manipolare Directory e Collegamenti Simbolici
 </titolo_2>
 <testo_normale>
-I percorsi che rappresentano direcotry o collegamenti simbolici che non esistono possono essere usati per creare i relativi elementi nel filesystem
+I percorsi che rappresentano directory o collegamenti simbolici che non esistono possono essere usati per creare i relativi elementi nel filesystem
 </testo_normale>
 <py_code>
 # pathlib_mkdir.py
@@ -495,7 +495,7 @@ file_di_prova/file     True  False  False  False  False  False
 Proprietà dei File
 </titolo_2>
 <testo_normale>
-Informazioni dettagliate per un file possono essere recuperate usando i meodi <code>stat()</code> oppure <code>lstat()</code> (per verificare lo stato di qualcosa che possa assomigliare ad un collegamento simbolico). Questi metodi producono gli stessi risultati di <code>os.stat()</code> ed <code>os.lstat()</code>.
+Informazioni dettagliate per un file possono essere recuperate usando i metodi <code>stat()</code> oppure <code>lstat()</code> (per verificare lo stato di qualcosa che possa assomigliare a un collegamento simbolico). Questi metodi producono gli stessi risultati di <code>os.stat()</code> ed <code>os.lstat()</code>.
 </testo_normale>
 <py_code>
 # pathlib_stat.py
@@ -548,7 +548,7 @@ $ python3 pathlib_stat.py ../operator.xml
 
 </py_output>
 <testo_normale>
-Per un accesso semplificato ad informazioni circa il proprietario di un file si usi <code>owner()</code> e <code>group()</code>.
+Per un accesso semplificato a informazioni circa il proprietario di un file si usi <code>owner()</code> e <code>group()</code>.
 </testo_normale>
 <py_code>
 # pathlib_ownership.py
@@ -568,7 +568,7 @@ $ python3 pathlib_ownership.py
 Il proprietario di pathlib_ownership.py è robby/robby
 </py_output>
 <testo_normale>
-Il metodo <code>touch()</code> funziona come il comando Unix <a href='https://www.wikiwand.com/it/Touch_(Unix)' target='_blank'>touch</a> per creare un file od aggiornare la data di modifica del file ed i permessi.
+Il metodo <code>touch()</code> funziona come il comando Unix <a href='https://www.wikiwand.com/it/Touch_(Unix)' target='_blank'>touch</a> per creare un file o aggiornare la data di modifica del file e i permessi.
 </testo_normale>
 <py_code>
 # pathlib_touch.py
@@ -710,7 +710,7 @@ p.unlink()
 print('esiste dopo la rimozione:', p.exists())
 </py_code>
 <testo_normale>
-L'utente deve avere i privilegi per rimuovere il file, il collegamento simbolico, il socket od altro oggetto di filesystem.
+L'utente deve avere i privilegi per rimuovere il file, il collegamento simbolico, il socket o altro oggetto di filesystem.
 </testo_normale>
 <py_output>
 $ python3 pathlib_unlink.py

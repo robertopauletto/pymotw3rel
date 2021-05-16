@@ -9,7 +9,7 @@ Accede alle impostazioni di configurazione usate per compilare Python
 
 </descrizione>
 <testo_normale>
-Le caratteristiche di <strong>sysconfig</strong> sono state estratte da <strong>distutils</strong> per creare un modulo a se stante. Esso include funzioni per determinare le impostazioni usate per compilare ed installare l'interprete corrente.
+Le caratteristiche di <strong>sysconfig</strong> sono state estratte da <strong>distutils</strong> per creare un modulo a se stante. Esso include funzioni per determinare le impostazioni usate per compilare e installare l'interprete corrente.
 </testo_normale>
 <titolo_2>
 Variabili di Configurazione
@@ -21,7 +21,7 @@ L'accesso alle impostazioni di configurazione in fase di compilazione sono forni
 # sysconfig_get_config_vars.py
 </py_code>
 <testo_normale>
-Il livello di dettaglio disponibile attraverso le <a href='https://www.wikiwand.com/it/Application_programming_interface' target='_blank'>API</a> di <strong>sysconfig</strong> dipendono dalla piattaforma nella quale il programma è in esecuzione. Su sistemi POSIX tipo Linux od OS X, il file <code>Makefile</code> usato per compilare l'interprete ed il file <em>header</em> <code>config.h</code> generato per la compilazione sono esaminati e vengono rese disponibili tutte le variablii trovate all'interno. Su sistemi non POSIX tipo Windows, le impostazioni sono limitate a pochi percorsi, estensioni di nomi di file e dettagli di versione.
+Il livello di dettaglio disponibile attraverso le <a href='https://www.wikiwand.com/it/Application_programming_interface' target='_blank'>API</a> di <strong>sysconfig</strong> dipendono dalla piattaforma nella quale il programma è in esecuzione. Su sistemi POSIX tipo Linux od OS X, il file <code>Makefile</code> usato per compilare l'interprete e il file <em>header</em> <code>config.h</code> generato per la compilazione sono esaminati e vengono rese disponibili tutte le variablii trovate all'interno. Su sistemi non POSIX tipo Windows, le impostazioni sono limitate a pochi percorsi, estensioni di nomi di file e dettagli di versione.
 </testo_normale>
 <py_output>
 $ python3 sysconfig_get_config_vars.py
@@ -54,7 +54,7 @@ $ python3 sysconfig_get_config_var.py
 Percorsi di Installazione
 </titolo_2>
 <testo_normale>
-<strong>sysconfig</strong> è principalmente concepito per essere usato dagli strumenti di installaizone ed assemblaggio. Come risultato, mentre fornisce accesso ad impostazioni di configurazione generali tipo la versione dell'interprete, è focalizzato sulle informazioni necessarie per trovare parti della distribuzione  di Python attualmente installate su di un sistema. Le locazioni usate per installare un pacchetto dipendono dallo schema usato.
+<strong>sysconfig</strong> è principalmente concepito per essere usato dagli strumenti di installaizone e assemblaggio. Come risultato, mentre fornisce accesso a impostazioni di configurazione generali tipo la versione dell'interprete, è focalizzato sulle informazioni necessarie per trovare parti della distribuzione  di Python attualmente installate su di un sistema. Le locazioni usate per installare un pacchetto dipendono dallo schema usato.
 </testo_normale>
 <testo_normale>
 Uno schema (<em>scheme</em>) è un insieme di directory predefinite specifiche alla piattaforma organizzate in base agli standard e le linee guida della piattaforma per l'assemblaggio. Ci sono diversi schemi per installare in una locazione a livello di sito oppure una directory privata che appartiene all'utente. L'intero insieme di schemi può essere ottenuto con <code>get_scheme_names()</code>
@@ -81,7 +81,7 @@ Alcuni dei percorsi potrebbero essere gli stessi per un dato schema, ma gli inst
 NOME;DESCRIZIONE
 <code>stlib</code>;File della libreria standard Python, non specifici alla piattaforma
 <code>platstlib</code>;File della libreria standard Python, specifici alla piattaforma
-<code>platlib</code>;File specifici alla piattaforma ed al sito
+<code>platlib</code>;File specifici alla piattaforma e al sito
 <code>purelib</code>;File non specifici alla piattaforma, specifici al sito
 <code>include</code>;File <em>header</em>, non specifici alla piattaforma
 <code>platinclude</code>;File <em>header</em>, specifici alla piattaforma
@@ -92,7 +92,7 @@ NOME;DESCRIZIONE
 $ python3 sysconfig_get_path_names.py
 </py_output>
 <testo_normale>
-Si usi <code>get_paths()</code> per ottenere le effettive directory associate ad uno schema.
+Si usi <code>get_paths()</code> per ottenere le effettive directory associate a uno schema.
 </testo_normale>
 <py_code>
 # sysconfig_get_paths.py

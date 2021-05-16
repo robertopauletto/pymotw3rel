@@ -17,7 +17,7 @@ Fa partire e comunica con processi addizionali
 </descrizione>
 <testo_normale>
 Il modulo <strong>subprocess</strong> supporta tre <a href='https://it.wikipedia.org/wiki/Application_programming_interface' target='_blank'>API</a> per lavorare con processi. La funzione <code>run()</code>, aggiunta in Python 3.5 è una <a href='https://it.wikipedia.org/wiki/Application_programming_interface' target='_blank'>API</a> ad alto livello per eseguire un processo con opzione per catturare il suo output. Le funzioni <code>call()</code>, <code>check_call()</code>, e <code>check_output()</code> sono tre precedenti <a href='https://it.wikipedia.org/wiki/Application_programming_interface' target='_blank'>API</a> di alto livello, portate dalla versione 2 di Python. Esse sono ancora supportate e largamente usate in programmi esistenti. La classe <code>Popen</code>
-è una <a href='https://it.wikipedia.org/wiki/Application_programming_interface' target='_blank'>API</a> di basso livello usata per costruire le altre <a href='https://it.wikipedia.org/wiki/Application_programming_interface' target='_blank'>API</a> ed utile per interazioni di processo più complesse. Il  costruttore per <code>Popen</code> riceve argomenti per impostare il nuovo processo in modo che il genitore possa comunicare con esso tramite <a href='https://www.wikiwand.com/it/Pipe_(informatica)' target='_blank'>pipe</a>. Fornisce tutte le funzionalità degli altri moduli e funzioni che rimpiazza, ed altro ancora. L'<a href='https://it.wikipedia.org/wiki/Application_programming_interface' target='_blank'>API</a> è consistente per tutti gli utilizzi, e molti dei passi supplementari necessari (tipo la chiusura di descrittori di file extra e l'assicurare che le <a href='https://www.wikiwand.com/it/Pipe_(informatica)' target='_blank'>pipe</a> siano chiuse) sono "incorporate" invece che essere gestite dal codice dell'applicazione separatamente.
+è una <a href='https://it.wikipedia.org/wiki/Application_programming_interface' target='_blank'>API</a> di basso livello usata per costruire le altre <a href='https://it.wikipedia.org/wiki/Application_programming_interface' target='_blank'>API</a> e utile per interazioni di processo più complesse. Il  costruttore per <code>Popen</code> riceve argomenti per impostare il nuovo processo in modo che il genitore possa comunicare con esso tramite <a href='https://www.wikiwand.com/it/Pipe_(informatica)' target='_blank'>pipe</a>. Fornisce tutte le funzionalità degli altri moduli e funzioni che rimpiazza, e altro ancora. L'<a href='https://it.wikipedia.org/wiki/Application_programming_interface' target='_blank'>API</a> è consistente per tutti gli utilizzi, e molti dei passi supplementari necessari (tipo la chiusura di descrittori di file extra e l'assicurare che le <a href='https://www.wikiwand.com/it/Pipe_(informatica)' target='_blank'>pipe</a> siano chiuse) sono "incorporate" invece che essere gestite dal codice dell'applicazione separatamente.
 </testo_normale>
 <testo_normale>
 Il modulo <strong>subprocess</strong> è concepito per sostituire funzioni tipo <code>os.system()</code>, <code>os.spawn()</code>, le varianti di <code>popen()</code> nei moduli <a href='os.html'>os</a> e popen2, così come il modulo commands. Per facilitare il confronto di <strong>subprocess</strong> con questi altri moduli, molti degli esempi di questa sezione ricreano quelli usati per <a href='os.html'>os</a> e popen2
@@ -40,7 +40,7 @@ completed = subprocess.run(['ls', '-1'])
 print('returncode:', completed.returncode)
 </py_code>
 <testo_normale>
-Gli argomenti di riga di comando sono passati come lista di stringhe, che consente di evitare l'<em>escape</em> di apici od altri caratteri speciali che potrebbero essere interpretati dalla <a href='https://www.wikiwand.com/it/Shell_(informatica)' target='_blank'>shell</a>. <code>run()</code> ritorna una istanza di <code>CompletedProcess</code> con informazioni circa il processo tipo il codice di uscita e l'output.
+Gli argomenti di riga di comando sono passati come lista di stringhe, che consente di evitare l'<em>escape</em> di apici o altri caratteri speciali che potrebbero essere interpretati dalla <a href='https://www.wikiwand.com/it/Shell_(informatica)' target='_blank'>shell</a>. <code>run()</code> ritorna una istanza di <code>CompletedProcess</code> con informazioni circa il processo tipo il codice di uscita e l'output.
 </testo_normale>
 <py_output>
 $ python3 subprocess_os_system.py
@@ -80,7 +80,7 @@ completed = subprocess.run('echo $HOME', shell=True)
 print('returncode:', completed.returncode)
 </py_code>
 <testo_normale>
-Usando una <a href='https://www.wikiwand.com/it/Shell_(informatica)' target='_blank'>shell</a> intermedia implica che le variabili, i modelli glob ed altre caratteristiche speciali della <a href='https://www.wikiwand.com/it/Shell_(informatica)' target='_blank'>shell</a> nella stringa di comando sono elaborate prima che il comando venga eseguito.
+Usando una <a href='https://www.wikiwand.com/it/Shell_(informatica)' target='_blank'>shell</a> intermedia implica che le variabili, i modelli glob e altre caratteristiche speciali della <a href='https://www.wikiwand.com/it/Shell_(informatica)' target='_blank'>shell</a> nella stringa di comando sono elaborate prima che il comando venga eseguito.
 </testo_normale>
 <py_output>
 $ python3 subprocess_shell_variables.py
@@ -122,7 +122,7 @@ Passando <code>check=True</code> a <code>run()</code> equivale alla chiamata di 
 Catturare Output
 </titolo_3>
 <testo_normale>
-I canali standard di input ed output per il processo fatto partire da <code>run()</code> sono legati all'input ed output del genitore. Il che significa che il programma chiamante non può catturare l'output del comando. Si passi <code>PIPE</code> per gli argomenti di <code>stdout</code> e <code>stderror</code> per catturare l'output per una successiva elaborazione.
+I canali standard di input e output per il processo fatto partire da <code>run()</code> sono legati all'input e output del genitore. Il che significa che il programma chiamante non può catturare l'output del comando. Si passi <code>PIPE</code> per gli argomenti di <code>stdout</code> e <code>stderror</code> per catturare l'output per una successiva elaborazione.
 </testo_normale>
 <py_code>
 # subprocess_run_output.py
@@ -161,10 +161,10 @@ subprocess_signal_parent_shell.py
 subprocess_signal_setsid.py
 </py_output>
 <note>
-Passare <code>check=True</code> ed impostando <code>stdout</code> a <code>PIPE</code> equivale ad usare <code>check_output</code>.
+Passare <code>check=True</code> e impostando <code>stdout</code> a <code>PIPE</code> equivale a usare <code>check_output</code>.
 </note>
 <testo_normale>
-L'esempio successivo esegue una serie di comandi in una sub-shell. I messaggi sono inviati allo standard output ed allo standard error prima che i comandi escano con un codice di errore
+L'esempio successivo esegue una serie di comandi in una sub-shell. I messaggi sono inviati allo standard output e allo standard error prima che i comandi escano con un codice di errore
 </testo_normale>
 <py_code>
 # subprocess_run_output_error.py
@@ -234,7 +234,7 @@ Ci sono 10 byte in stdout: 'to stdout\n'
 Ci sono 10 byte in stderr: 'to stderr\n'
 </py_output>
 <testo_normale>
-Per catturare i messaggi di errore quanto si usa <code>check_output()</code>, si imposta <code>stderr</code> a <code>STDOUT</code>, ed i messaggi saranno combinati con il resto dell'output dal comando.
+Per catturare i messaggi di errore quanto si usa <code>check_output()</code>, si imposta <code>stderr</code> a <code>STDOUT</code>, e i messaggi saranno combinati con il resto dell'output dal comando.
 </testo_normale>
 <py_code>
 # subprocess_check_output_error_trap_output.py
@@ -267,7 +267,7 @@ Ci sono 20 byte in output: 'to stdout\nto stderr\n'
 Sopprimere l'Output
 </titolo_3>
 <testo_normale>
-Nei casi dove l'output non dovrebbe essere mostrato o catturato, si usi <code>DEVNULL</code> per sopprimre il canale di output. Questo esempio sopprime i canali di standard error ed output
+Nei casi dove l'output non dovrebbe essere mostrato o catturato, si usi <code>DEVNULL</code> per sopprimre il canale di output. Questo esempio sopprime i canali di standard error e output
 </testo_normale>
 <py_code>
 # subprocess_run_output_error_suppress.py
@@ -303,7 +303,7 @@ stderr è None
 Lavorare Direttamente con le Pipe
 </titolo_2>
 <testo_normale>
-Le funzioni <code>run()</code>, <code>check_call()</code> e <code>check_output</code> sono <a href='https://www.wikiwand.com/it/Wrapper' target='_blank'>wrapper</a> attorno alla classe <code>Popen</code>. L'uso diretto di <code>Popen</code> fornisce maggior controllo sul modo nel quale il comando viene eseguito, e come i suoi canali di input ed output sono elaborati. Ad esempio, passando diversi argomenti per <code>stdin</code>, <code>stdout</code>, e <code>stderr</code> è possibile imitare le varianti di <code>os.popen()</code>.
+Le funzioni <code>run()</code>, <code>check_call()</code> e <code>check_output</code> sono <a href='https://www.wikiwand.com/it/Wrapper' target='_blank'>wrapper</a> attorno alla classe <code>Popen</code>. L'uso diretto di <code>Popen</code> fornisce maggior controllo sul modo nel quale il comando viene eseguito, e come i suoi canali di input e output sono elaborati. Ad esempio, passando diversi argomenti per <code>stdin</code>, <code>stdout</code>, e <code>stderr</code> è possibile imitare le varianti di <code>os.popen()</code>.
 </testo_normale>
 <titolo_3>
 Comunicazione Unidirezionale con un Processo
@@ -326,7 +326,7 @@ print('stdout:', repr(stdout_value))
 
 </py_code>
 <testo_normale>
-Questo è simile al modo in cui <code>popen()</code> funziona, ad eccezione del fatto che la lettura è gestita internamente dall'istanza di <code>Popen</code>
+Questo è simile al modo in cui <code>popen()</code> funziona, a eccezione del fatto che la lettura è gestita internamente dall'istanza di <code>Popen</code>
 </testo_normale>
 <py_output>
 $ python3 subprocess_popen_read.py
@@ -460,7 +460,7 @@ valore di stderr: None
 Connettere Segmenti di una Pipe
 </titolo_2>
 <testo_normale>
-Comandi multipli possono essere connessi tra loro in una <em>conduttura</em> (<a href='https://www.wikiwand.com/it/Pipeline_software' target='_blank'>pipeline</a>) in modo simile a quello con il quale lavora una <a href='https://www.wikiwand.com/it/Shell_(informatica)' target='_blank'>shell</a> Unix, creando istanze separate di <code>Popen</code> e concatenando i loro input ed output. L'attributo <code>stdout</code> di una istanza di <code>Popen</code> viene usata come argomento per <code>stdin</code> per il successivo comando nella conduttura, al posto della costante <code>PIPE</code>. L'output viene letto dal gestore di <code>stdout</code>  per il comando finale nella conduttura.
+Comandi multipli possono essere connessi tra loro in una <em>conduttura</em> (<a href='https://www.wikiwand.com/it/Pipeline_software' target='_blank'>pipeline</a>) in modo simile a quello con il quale lavora una <a href='https://www.wikiwand.com/it/Shell_(informatica)' target='_blank'>shell</a> Unix, creando istanze separate di <code>Popen</code> e concatenando i loro input e output. L'attributo <code>stdout</code> di una istanza di <code>Popen</code> viene usata come argomento per <code>stdin</code> per il successivo comando nella conduttura, al posto della costante <code>PIPE</code>. L'output viene letto dal gestore di <code>stdout</code>  per il comando finale nella conduttura.
 </testo_normale>
 <py_code>
 # subprocess_pipes.py
@@ -522,7 +522,7 @@ File inclusi:
 Interagire Con Un Altro Comando
 </titolo_2>
 <testo_normale>
-Tutti gli esempi sopra riportati presuppongono una limitata interazione. Il metodo <code>communicate()</code> legge tutto l'output ed attende che il processo figlio esca prima di ritornare. E' anche possibile scrivere verso e leggere da singoli gestori di <a href='https://www.wikiwand.com/it/Pipe_(informatica)' target='_blank'>pipe</a> usati dalla istanza di <code>Popen</code>, mentre il programma è in esecuzione. Un semplice programma che legge dallo standard input e scrive verso lo standard output illustra questa tecnica.
+Tutti gli esempi sopra riportati presuppongono una limitata interazione. Il metodo <code>communicate()</code> legge tutto l'output e attende che il processo figlio esca prima di ritornare. E' anche possibile scrivere verso e leggere da singoli gestori di <a href='https://www.wikiwand.com/it/Pipe_(informatica)' target='_blank'>pipe</a> usati dalla istanza di <code>Popen</code>, mentre il programma è in esecuzione. Un semplice programma che legge dallo standard input e scrive verso lo standard output illustra questa tecnica.
 </testo_normale>
 <testo_normale>
 <code>script_repeater.py</code> viene usato come processo figlio nell'esempio di seguito. Legge da <code>stdin</code> e scrive i valori verso <code>stdout</code>, una riga alla volta fino a che l'input si esaurisce. Scrive anche un messaggio verso <code>stderr</code> quando inizia e finisce, mostrando il tempo di vita del processo figlio
@@ -696,7 +696,7 @@ FIGLIO   6981: Ricevuto USR1
 Gruppi di Processo / Sessioni
 </titolo_2>
 <testo_normale>
-Se il processo creato da <code>Popen</code> genera dei sotto processi, questi suoi figli non riceveranno alcuno dei segnali inviati al genitore, Questo significa che, quando si usa l'argomento <code>shell</code> per <code>Popen</code>, sarà difficile far terminare il comnando fatto partire dalla <a href='https://www.wikiwand.com/it/Shell_(informatica)' target='_blank'>shell</a> inviandogli un <code>SIGINT</code> od un <code>SIGTERM</code>.
+Se il processo creato da <code>Popen</code> genera dei sotto processi, questi suoi figli non riceveranno alcuno dei segnali inviati al genitore, Questo significa che, quando si usa l'argomento <code>shell</code> per <code>Popen</code>, sarà difficile far terminare il comnando fatto partire dalla <a href='https://www.wikiwand.com/it/Shell_(informatica)' target='_blank'>shell</a> inviandogli un <code>SIGINT</code> o un <code>SIGTERM</code>.
 </testo_normale>
 <py_code>
 # subprocess_signal_parent_shell.py
@@ -747,7 +747,7 @@ GENITORE      : Segnalazione al figlio 7374
 FIGLIO   7375: Segnale mai ricevuto
 </py_output>
 <testo_normale>
-Per inviare segnali ai discendenti senza conoscere il loro id di processo si  usa un <a href='https://www.wikiwand.com/it/PID_(Unix)'><em>gruppo di processi</em></a> da associare ai figli in modo che possa essere inviata una segnalazione a tutti insieme. Il gruppo di processi viene creato con <code>os.setpgrp()</code>, che imposta l'identificativo del gruppo di processo pari all'id del processo corrente. Tutti i processi figli ereditano il gruppo di processo dal proprio genitore, e visto che si dovrebbe impostare  solo nella <a href='https://www.wikiwand.com/it/Shell_(informatica)' target='_blank'>shell</a> creata da <code>Popen</code> ed i suoi discendenti, non occorre chiamare <code>os.setpgrp()</code> nello stesso processo dove è stato creato <code>Popen</code>. Al contrario la funzione viene passata a <code>Popen</code> come argomento di <code>preexec_fn</code>  in mdodo che possa essere eseguito dopo il <code>fork()</code> all'interno del nuovo processo, prima che usi <code>exec()</code> per eseguire la <a href='https://www.wikiwand.com/it/Shell_(informatica)' target='_blank'>shell</a>. Per inviare segnali all'intero gruppo di processo, usare <code>os.killpg()</code> con il valore <code>pid</code> dell'istanza di <code>Popen</code>.
+Per inviare segnali ai discendenti senza conoscere il loro id di processo si  usa un <a href='https://www.wikiwand.com/it/PID_(Unix)'><em>gruppo di processi</em></a> da associare ai figli in modo che possa essere inviata una segnalazione a tutti insieme. Il gruppo di processi viene creato con <code>os.setpgrp()</code>, che imposta l'identificativo del gruppo di processo pari all'id del processo corrente. Tutti i processi figli ereditano il gruppo di processo dal proprio genitore, e visto che si dovrebbe impostare  solo nella <a href='https://www.wikiwand.com/it/Shell_(informatica)' target='_blank'>shell</a> creata da <code>Popen</code> e i suoi discendenti, non occorre chiamare <code>os.setpgrp()</code> nello stesso processo dove è stato creato <code>Popen</code>. Al contrario la funzione viene passata a <code>Popen</code> come argomento di <code>preexec_fn</code>  in mdodo che possa essere eseguito dopo il <code>fork()</code> all'interno del nuovo processo, prima che usi <code>exec()</code> per eseguire la <a href='https://www.wikiwand.com/it/Shell_(informatica)' target='_blank'>shell</a>. Per inviare segnali all'intero gruppo di processo, usare <code>os.killpg()</code> con il valore <code>pid</code> dell'istanza di <code>Popen</code>.
 </testo_normale>
 <py_code>
 # subprocess_signal_setpgrp.py

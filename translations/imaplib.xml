@@ -74,7 +74,7 @@ INBOX.Archive
 INBOX.Esempio<ul><li>2019</li></ul>
 </lista>
 <testo_normale>
-C'è un messaggio non letto nella cartella <code>INBOX</code> ed un messaggio letto in <code>Esempio/2019</code>
+C'è un messaggio non letto nella cartella <code>INBOX</code> e un messaggio letto in <code>Esempio/2019</code>
 </testo_normale>
 <titolo_2>
 Elencare le caselle
@@ -86,7 +86,7 @@ Per recuperare le caselle disponibili per una utenza si usi il metodo <code>list
 # imaplib_list.py
 </py_code>
 <testo_normale>
-Il valore restituito è una <code>tuple</code> contenente un codice di risposta e il dato ritornato dal server. Il codice di risposta è <code>OK</code>, a meno che non ci sia un errore. Il dato per <code>list()</code> è rappresentato da una sequenza di stringhe che contengono <em>segnalatori</em>, il <em>delimitatore di gerarchia</em> ed il <em>nome di casella</em> per ciascuna casella di posta.
+Il valore restituito è una <code>tuple</code> contenente un codice di risposta e il dato ritornato dal server. Il codice di risposta è <code>OK</code>, a meno che non ci sia un errore. Il dato per <code>list()</code> è rappresentato da una sequenza di stringhe che contengono <em>segnalatori</em>, il <em>delimitatore di gerarchia</em> e il <em>nome di casella</em> per ciascuna casella di posta.
 </testo_normale>
 <py_output>
 $ python3 imaplib_list.py
@@ -140,7 +140,7 @@ Risposta del server: b'(\\HasChildren) "." INBOX.Esempio'
 Risposta del server: b'(\\HasNoChildren) "." INBOX.Esempio.2019'
 </py_output>
 <testo_normale>
-In alternativa, per elencare cartelle che corrispondono ad un modello, si passi un modello all'argomento <code>pattern</code>
+In alternativa, per elencare cartelle che corrispondono a un modello, si passi un modello all'argomento <code>pattern</code>
 </testo_normale>
 <py_code>
 # imaplib_list_pattern.py
@@ -176,7 +176,7 @@ Le condizioni di stato devono essere formattate come una stringa separata da spa
 # imaplib_status.py
 </py_code>
 <testo_normale>
-Il valore di ritorno è la solita <code>tuple</code> che contiene il codice di risposta ed una lista di informazioni dal server. In questo caso contiene una singola stringa formattata con il nome della casella tra apici (se necessario), poi le condizioni di stato ed i valori fra parentesi.
+Il valore di ritorno è la solita <code>tuple</code> che contiene il codice di risposta e una lista di informazioni dal server. In questo caso contiene una singola stringa formattata con il nome della casella tra apici (se necessario), poi le condizioni di stato e i valori fra parentesi.
 </testo_normale>
 <py_output>
 $ python3 imaplib_status.py
@@ -207,7 +207,7 @@ Casella di posta INBOX.Archive
 Selezionare una Casella di Posta
 </titolo_2>
 <testo_normale>
-Il modo base per operare, una volta che il client è autenticato, è di selezionare una casella, quindi interrogare il server circa i messaggi nella casella. La connessione è <em>stateful</em> (per <em>stateful</em> si intende un programma che ricordi eventi od interazioni precedenti - note come <strong>stato</strong> del sistema - n.d.t.); quindi dopo che viene selezionata una casella, tutti i comandi opereranno su quella casella fino a quando non viene selezionata una nuova casella
+Il modo base per operare, una volta che il client è autenticato, è di selezionare una casella, quindi interrogare il server circa i messaggi nella casella. La connessione è <em>stateful</em> (per <em>stateful</em> si intende un programma che ricordi eventi o interazioni precedenti - note come <strong>stato</strong> del sistema - n.d.t.); quindi dopo che viene selezionata una casella, tutti i comandi opereranno su quella casella fino a quando non viene selezionata una nuova casella
 </testo_normale>
 <py_code>
 # imaplib_select.py
@@ -245,7 +245,7 @@ Dopo aver selezionato la casella di posta, si usi <code>search()</code> per recu
 # imaplib_search_all.py
 </py_code>
 <testo_normale>
-Gli identificativi dei messaggi sono assegnati dal server, e dipendono dall'implementazione. Il protocollo IMAP4 fa una distinzione tra identificativi sequenziali per i messaggi ad un dato punto nel tempo durante una transazione e identificativi UID per i messaggi, ma non tutti i server li implementano entrambi.
+Gli identificativi dei messaggi sono assegnati dal server, e dipendono dall'implementazione. Il protocollo IMAP4 fa una distinzione tra identificativi sequenziali per i messaggi a un dato punto nel tempo durante una transazione e identificativi UID per i messaggi, ma non tutti i server li implementano entrambi.
 </testo_normale>
 <py_output>
 $ python3 imaplib_search_all.py
@@ -275,7 +275,7 @@ In questo caso <code>INBOX</code> e <code>INBOX.Esempio.2019</code> hanno ciascu
 Criteri di Ricerca
 </titolo_2>
 <testo_normale>
-E' possibile usare una varietà di criteri di ricerca, inclusi la data dei messaggi, segnalatori ed altre intestazioni. Si faccia riferimento alla sezione 6.4.4 di <a href='https://tools.ietf.org/html/rfc3501.html' target='_blank'>RFC 3501</a> per i dettagli completi.
+E' possibile usare una varietà di criteri di ricerca, inclusi la data dei messaggi, segnalatori e altre intestazioni. Si faccia riferimento alla sezione 6.4.4 di <a href='https://tools.ietf.org/html/rfc3501.html' target='_blank'>RFC 3501</a> per i dettagli completi.
 </testo_normale>
 <testo_normale>
 Per trovare messaggi che contengono <code>Pymotw3-it imaplib</code> nell'oggetto, il criterio di ricerca verrebbe così costruito:
@@ -320,7 +320,7 @@ I criteri di ricerca possono anche essere combinati
 # imaplib_search_from.py
 </py_code>
 <testo_normale>
-I criteri sono combinati con operatori logici ed aritmetici
+I criteri sono combinati con operatori logici e aritmetici
 </testo_normale>
 <py_output>
 $ python3 imaplib_search_from.py
@@ -491,7 +491,7 @@ SUBJECT : Pymotw3-it Imaplib
 Caricare Messaggi
 </titolo_2>
 <testo_normale>
-Per aggiungere un nuovo messaggio ad una casella di posta si costruisca una istanza di <code>Message</code> e la si passi al metodo <code>append()</code>, assieme alla <a href='https://www.wikiwand.com/it/Marca_temporale' target='_blank'>marca temporale</a>  per il messaggio
+Per aggiungere un nuovo messaggio a una casella di posta si costruisca una istanza di <code>Message</code> e la si passi al metodo <code>append()</code>, assieme alla <a href='https://www.wikiwand.com/it/Marca_temporale' target='_blank'>marca temporale</a>  per il messaggio
 </testo_normale>
 <py_code>
 # imaplib_append.py

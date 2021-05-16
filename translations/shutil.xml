@@ -9,7 +9,7 @@
 <!-- tag <lista> ogni riga all'interno del tag rappresenta una riga di una lista non ordinata'-->
 <documento_tradotto>
 <titolo_1>
-shutil - Operazioni di alto livello su file.
+shutil - Operazioni di Alto Livello su File.
 </titolo_1>
 <descrizione>
 Operazioni di alto livello su file.
@@ -108,7 +108,7 @@ letti(256) ottenuti 166 byte
 letti(256) ottenuti 0 byte
 </py_output>
 <testo_normale>
-La funzione <code>copy()</code> interpreta il nome destinazione come lo strumento da riga di comando di Unix <code>cp</code>. Se la destinazione designata corrisponde ad una directory invece che ad un file, viene creato un nuovo file nella directory usando il nome base della sorgente.
+La funzione <code>copy()</code> interpreta il nome destinazione come lo strumento da riga di comando di Unix <code>cp</code>. Se la destinazione designata corrisponde a una directory invece che a un file, viene creato un nuovo file nella directory usando il nome base della sorgente.
 </testo_normale>
 <py_code>
 # shutil_copy.py
@@ -182,7 +182,7 @@ DESTINAZIONE:
 Copiare i Meta-dati del file
 </titolo_2>
 <testo_normale>
-In modalità predefinita in Unix, quando viene creato un nuovo file, esso riceve i parmessi in base alla <a href='https://www.wikiwand.com/it/Umaskhttps://it.wikipedia.org/wiki/Unicode' target='_blank'>umask</a> dell'utente corrente. Per copiare i permessi da un file ad un altro si usa <code>copymode()</code>
+In modalità predefinita in Unix, quando viene creato un nuovo file, esso riceve i permessi in base alla <a href='https://www.wikiwand.com/it/Umaskhttps://it.wikipedia.org/wiki/Unicode' target='_blank'>umask</a> dell'utente corrente. Per copiare i permessi da un file a un altro si usa <code>copymode()</code>
 </testo_normale>
 <py_code>
 # shutil_copymode.py
@@ -262,7 +262,7 @@ DOPO:
 Lavorare con Alberi di Directory
 </titolo_2>
 <testo_normale>
-Il modulo <strong>shutil</strong> comprende 3 funzioni per lavorare con alberi di directory. Per copiare una directory da un posto ad un altro si usa <code>copytree()</code>. Attraversa ricorsivamente l'albero di directory sorgente, copiandone i file nella destinazione. La directory destinazione non deve essere già esistente.
+Il modulo <strong>shutil</strong> comprende 3 funzioni per lavorare con alberi di directory. Per copiare una directory da un posto a un altro si usa <code>copytree()</code>. Attraversa ricorsivamente l'albero di directory sorgente, copiandone i file nella destinazione. La directory destinazione non deve essere già esistente.
 </testo_normale>
 <py_code>
 # shutil_copytree.py
@@ -314,7 +314,7 @@ DOPO:
  '/tmp/example/shutil_which_regular_file.py']
 </py_output>
 <testo_normale>
-<code>copytree()</code> accetta due argomenti chiamabili per controllare il suo comportamento. L'argomento <code>ignore</code> viene chiamato con il nome di ciascuna directory o sotto directory che viene copiata, assieme ad una lista del contenuto della directory. Dovrebbe ritornare un elenco di elementi che dovrebbero essere copiati. L'argomento <code>copy_function</code> viene chiamato per eseguire realmente la copia dei file.
+<code>copytree()</code> accetta due argomenti chiamabili per controllare il suo comportamento. L'argomento <code>ignore</code> viene chiamato con il nome di ciascuna directory o sotto directory che viene copiata, assieme a una lista del contenuto della directory. Dovrebbe ritornare un elenco di elementi che dovrebbero essere copiati. L'argomento <code>copy_function</code> viene chiamato per eseguire realmente la copia dei file.
 </testo_normale>
 <py_code>
 # shutil_copytree_verbose.py
@@ -375,7 +375,7 @@ DOPO:
  '/tmp/example/index.rst']
 </py_output>
 <testo_normale>
-Per eliminare una directory ed il suo contenuto, si usa <code>rmtree()</code>.
+Per eliminare una directory e il suo contenuto, si usa <code>rmtree()</code>.
 </testo_normale>
 <py_code>
 # shutil_rmtree.py
@@ -393,7 +393,7 @@ print('\nDOPO:')
 pprint.pprint(glob.glob('/tmp/example/*'))
 </py_code>
 <testo_normale>
-Gli errori sono sollevati come eccezioni in modalità predefinita e possono essere ignorati se il secondo argomento è <code>True</code>, ed una funzione speciale per la gestione dell'errore può essere fornita come terzo parametro.
+Gli errori sono sollevati come eccezioni in modalità predefinita e possono essere ignorati se il secondo argomento è <code>True</code>, e una funzione speciale per la gestione dell'errore può essere fornita come terzo parametro.
 </testo_normale>
 <py_output>
 $ python3 shutil_rmtree.py
@@ -409,7 +409,7 @@ DOPO:
 []
 </py_output>
 <testo_normale>
-Per spostare un file od una directory da un posto all'altro si usa <code>move()</code>.
+Per spostare un file o una directory da un posto all'altro si usa <code>move()</code>.
 </testo_normale>
 <py_code>
 # shutil_move.py
@@ -461,7 +461,7 @@ $ python3 shutil_which.py
 None
 </py_output>
 <testo_normale>
-<code>which()</code>riceve gli argomenti da filtrare in base ai permessi che ha il file, ed il percorso di ricerca da esaminare. L'argomento <code>path</code> è predefinito a <code>os.environ('PATH')</code>, ma può essere qualsiasi stringa che contenga nomi di directory separate da <code>os.pathsep</code>. L'argomento <code>mode</code> dovrebbe essere una <em>bitmask</em> che corrisponde ai permessi del file. Nella modalità predefinita la <em>bitmask</em> corrisponde a file eseguibili, ma l'esempio seguente usa una <em>bitmask</em> per cercare file leggibili ed un percorso di ricerca alternativo per trovare un file di configurazione.
+<code>which()</code>riceve gli argomenti da filtrare in base ai permessi che ha il file, e il percorso di ricerca da esaminare. L'argomento <code>path</code> è predefinito a <code>os.environ('PATH')</code>, ma può essere qualsiasi stringa che contenga nomi di directory separate da <code>os.pathsep</code>. L'argomento <code>mode</code> dovrebbe essere una <em>bitmask</em> che corrisponde ai permessi del file. Nella modalità predefinita la <em>bitmask</em> corrisponde a file eseguibili, ma l'esempio seguente usa una <em>bitmask</em> per cercare file leggibili e un percorso di ricerca alternativo per trovare un file di configurazione.
 </testo_normale>
 <py_code>
 # shutil_which_regular_file.py
@@ -485,7 +485,7 @@ filename = shutil.which(
 print(filename)
 </py_code>
 <testo_normale>
-Esiste comunque una <a href='https://www.wikiwand.com/it/Race_condition' target='_blank'>race condition</a> quando si cercano file leggibili in questo modo, in quanto nel tempo trascorso tra il cercare il file ed il reale tentativo di usarlo, il file stesso potrebbe essere stato cancellato od i suoi permessi modificati.
+Esiste comunque una <a href='https://www.wikiwand.com/it/Race_condition' target='_blank'>race condition</a> quando si cercano file leggibili in questo modo, in quanto nel tempo trascorso tra il cercare il file e il reale tentativo di usarlo, il file stesso potrebbe essere stato cancellato o i suoi permessi modificati.
 </testo_normale>
 <py_output>
 $ touch config.ini
@@ -552,7 +552,7 @@ with tarfile.open('example.tar.gz', 'r') as t:
         print(n)
 </py_code>
 <testo_normale>
-Questo esempio inizia all'interno della directory degli esempi per shutil e si sposta su di un livello nel <a href='https://it.wikipedia.org/wiki/File_system' target='_blank'>file system</a>, poi aggiunge la directory <code>shutil</code> ad un archivio tar compresso con gzip. Il modulo logging è configurato per mostrare i messaggi da <code>make_archive()</code>
+Questo esempio inizia all'interno della directory degli esempi per shutil e si sposta su di un livello nel <a href='https://it.wikipedia.org/wiki/File_system' target='_blank'>file system</a>, poi aggiunge la directory <code>shutil</code> a un archivio tar compresso con gzip. Il modulo logging è configurato per mostrare i messaggi da <code>make_archive()</code>
 </testo_normale>
 <py_output>
 $ python3 shutil_make_archive.py
@@ -611,7 +611,7 @@ xztar: xz'ed tar-file, nomi che finiscono in ['.tar.xz', '.txz']
 zip  : ZIP file, nomi che finiscono in ['.zip']
 </py_output>
 <testo_normale>
-L'archivio si estrae con <code>unpack_archive()</code> passando il nome del file archivio ed opzionalmente la directory nella quale dovrebbe avvenire l'estrazione. Se nessuna directory viene passata, viene usata la directory corrente.
+L'archivio si estrae con <code>unpack_archive()</code> passando il nome del file archivio e opzionalmente la directory nella quale dovrebbe avvenire l'estrazione. Se nessuna directory viene passata, viene usata la directory corrente.
 </testo_normale>
 <py_code>
 # shutil_unpack_archive.py
@@ -670,7 +670,7 @@ shutil/shutil_copyfileobj.py
 Spazio nel File System
 </titolo_2>
 <testo_normale>
-Può essere utile esaminare il <a href='https://it.wikipedia.org/wiki/File_system' target='_blank'>file system</a> locale per vedere quanto spazio sia disponibile prima di eseguire una operazione che richiede molto tempo che potrebbe esaurire quello spazio. <code>disk_usage()</code> ritorna una tupla con lo spazio totale, quello attualmente in uso, ed il rimanente libero.
+Può essere utile esaminare il <a href='https://it.wikipedia.org/wiki/File_system' target='_blank'>file system</a> locale per vedere quanto spazio sia disponibile prima di eseguire una operazione che richiede molto tempo che potrebbe esaurire quello spazio. <code>disk_usage()</code> ritorna una tupla con lo spazio totale, quello attualmente in uso, e il rimanente libero.
 </testo_normale>
 <py_code>
 # shutil_disk_usage.py

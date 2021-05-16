@@ -87,7 +87,7 @@ Il metodo <code>executescript()</code> di <code>Connection</code>  pu&ograve; es
 # sqlite3_create_schema.py
 </py_code>
 <testo_normale>
-Dopo che sono state create le tabelle, alcune istruzioni <code>insert</code> creano un progetto di esempio ed i compiti relativi. Il programma da riga di comando <code>sqlite3</code> pu&ograve; essere usato per esaminare il contenuto del database.
+Dopo che sono state create le tabelle, alcune istruzioni <code>insert</code> creano un progetto di esempio e i compiti relativi. Il programma da riga di comando <code>sqlite3</code> pu&ograve; essere usato per esaminare il contenuto del database.
 </testo_normale>
 <py_output>
 $ python3 sqlite3_create_schema.py
@@ -130,7 +130,7 @@ $ python3 sqlite3_select_variations.py
 Interrogare i Metadati
 </titolo_3>
 <testo_normale>
-Le specifiche <a href='http://www.python.org/dev/peps/pep-0249/'>DB-API 2.0</a>  dicono che dopo la chiamata di <code>execute()</code>, il cursore <code>Cursor</code> dovrebbe impostare il suo attributo <code>description</code> in modo che contenga delle informazioni circa i dati che verranno restituiti dai metodi di recupero. Le specifiche API dicono che il valore di <code>description</code> deve essere una sequenza di tuple che contengono il nome della colonna, il tipo, la dimensione di visualizzazione, la dimensione interna, la precisione, la scala ed un flag che dice se i valori <code>null</code> debbano essere accettati.
+Le specifiche <a href='http://www.python.org/dev/peps/pep-0249/'>DB-API 2.0</a>  dicono che dopo la chiamata di <code>execute()</code>, il cursore <code>Cursor</code> dovrebbe impostare il suo attributo <code>description</code> in modo che contenga delle informazioni circa i dati che verranno restituiti dai metodi di recupero. Le specifiche API dicono che il valore di <code>description</code> deve essere una sequenza di tuple che contengono il nome della colonna, il tipo, la dimensione di visualizzazione, la dimensione interna, la precisione, la scala e un flag che dice se i valori <code>null</code> debbano essere accettati.
 </testo_normale>
 <py_code>
 # sqlite3_cursor_description.py
@@ -145,10 +145,10 @@ $ python3 sqlite3_cursor_description.py
 Oggetti Riga
 </titolo_3>
 <testo_normale>
-Nella modalit&agrave; predefinita, i valori restituiti dai metodi di recupero sotto forma di "righe" dal database sono tuple. Il chiamante &egrave; responsabile della conoscenza dell'ordine delle colonne nell'interrogazione e dell'estrazione dei valori individuali dalla tupla. Quando il numero di valori in una interrogazione cresce, oppure il codice che lavora con i dati &egrave; sparso in una libreria, in genere &egrave; pi&ugrave; facile lavorare con un oggetto ed accedere i valori di colonna usando il nome delle colonne stesse. Visto che il numero e l'ordine degli elementi della tupla possono cambiare nel corso del tempo mano a mano che l'interrogazione viene modificata, il codice che dipende dai risultati dell'interrogazione &egrave; meno prono agli errori.
+Nella modalit&agrave; predefinita, i valori restituiti dai metodi di recupero sotto forma di "righe" dal database sono tuple. Il chiamante &egrave; responsabile della conoscenza dell'ordine delle colonne nell'interrogazione e dell'estrazione dei valori individuali dalla tupla. Quando il numero di valori in una interrogazione cresce, oppure il codice che lavora con i dati &egrave; sparso in una libreria, in genere &egrave; pi&ugrave; facile lavorare con un oggetto e accedere i valori di colonna usando il nome delle colonne stesse. Visto che il numero e l'ordine degli elementi della tupla possono cambiare nel corso del tempo mano a mano che l'interrogazione viene modificata, il codice che dipende dai risultati dell'interrogazione &egrave; meno prono agli errori.
 </testo_normale>
 <testo_normale>
-Gli oggetti <code>Connection</code> hanno una propriet&agrave; <code>row_factory</code> che consente al codice chiamante di controllare il tipo di oggetto creato per rappresentare ogni riga nell'insieme del risultato dell'interrogazione. <strong>sqlite3</strong> comprende anche una classe <code>Row</code> che &egrave; intesa per l'uso come "produttrice" di righe. I valori delle colonne possono essere indirizzati tramite istanze di <code>Row</code> usando l'indice od il nome di colonna.
+Gli oggetti <code>Connection</code> hanno una propriet&agrave; <code>row_factory</code> che consente al codice chiamante di controllare il tipo di oggetto creato per rappresentare ogni riga nell'insieme del risultato dell'interrogazione. <strong>sqlite3</strong> comprende anche una classe <code>Row</code> che &egrave; intesa per l'uso come "produttrice" di righe. I valori delle colonne possono essere indirizzati tramite istanze di <code>Row</code> usando l'indice o il nome di colonna.
 </testo_normale>
 <py_code>
 # sqlite3_row_factory.py
@@ -193,7 +193,7 @@ Si usano i parametri nominali quando l'interrogazione &egrave; pi&ugrave; comple
 # sqlite3_argument_named.py
 </py_code>
 <testo_normale>
-Non occorre preoccuparsi di gestire, per i parametri sia posizionali che nominali, sequenze di escape od accorgimenti riguardo apici all'interno delle stringhe in quanto essi ricevono uno speciale trattamento da parte dell'elaboratore dell'interrogazione.
+Non occorre preoccuparsi di gestire, per i parametri sia posizionali che nominali, sequenze di escape o accorgimenti riguardo apici all'interno delle stringhe in quanto essi ricevono uno speciale trattamento da parte dell'elaboratore dell'interrogazione.
 </testo_normale>
 <py_output>
 $ python3 sqlite3_argument_named.py "pymotw-it 3"
@@ -221,7 +221,7 @@ $ python3 sqlite3_argument_named.py "pymotw-it 3"
 Caricamento Massivo
 </titolo_2>
 <testo_normale>
-Per applicare la stessa istruzione SQL ad un gran numero di dati si usi <code>executemany()</code>. Questo metodo &egrave; utile per caricare i dati, visto che si evita di iterare attraverso gli input in Python e si lascia che sia la libreria sottostante ad occuparsi dell'ottimizzazione delle iterazioni. Questo programma di esempio legge una lista di compiti da un file in formato .csv (valori separati da virgola) usando il modulo <a href='csv.html'>csv</a> e li carica nel database.
+Per applicare la stessa istruzione SQL a un gran numero di dati si usi <code>executemany()</code>. Questo metodo &egrave; utile per caricare i dati, visto che si evita di iterare attraverso gli input in Python e si lascia che sia la libreria sottostante a occuparsi dell'ottimizzazione delle iterazioni. Questo programma di esempio legge una lista di compiti da un file in formato .csv (valori separati da virgola) usando il modulo <a href='csv.html'>csv</a> e li carica nel database.
 </testo_normale>
 <py_code>
 # sqlite3_load_csv.py
@@ -254,7 +254,7 @@ Definire Nuovi Tipi di Colonna
 SQLite ha supporto nativo per colonne di interi, valori a virgola mobile, e di testo. Dati di questi tipi sono convertiti automaticamente da <strong>sqlite3</strong> dalla rappresentazione di Python verso un valore che possa essere conservato nel database, e viceversa, quando necessario. I valori interi sono caricati dal database in variabili <code>int</code> oppure <code>long</code>, a seconda della dimensione del valore. Il testo viene salvato e recuperato come <code>str</code>, a meno che non sia stato modificato il valore <code>text_factory</code> in <code>Connection</code>.
 </testo_normale>
 <testo_normale>
-Sebbene SQLite supporti solo pochi tipi di dato internamente, <strong>sqlite3</strong> comprende dei servizi per definire tipi personalizzati per consentire ad una applicazione Python di conservare in una colonna un qualsiasi tipo di dato. La conversione tra tipi oltre a quelli supportati in modo predefinito sono abilitati nella connessione al database usando il flag <code>detect_types</code>. Si usi <code>PARSE_DECLTYPES</code> se la colonna &egrave; stata dichiarata usando il tipo desiderato quando la tabella &egrave; stata definita.
+Sebbene SQLite supporti solo pochi tipi di dato internamente, <strong>sqlite3</strong> comprende dei servizi per definire tipi personalizzati per consentire a una applicazione Python di conservare in una colonna un qualsiasi tipo di dato. La conversione tra tipi oltre a quelli supportati in modo predefinito sono abilitati nella connessione al database usando il flag <code>detect_types</code>. Si usi <code>PARSE_DECLTYPES</code> se la colonna &egrave; stata dichiarata usando il tipo desiderato quando la tabella &egrave; stata definita.
 </testo_normale>
 <py_code>
 # sqlite3_date_types.py
@@ -342,7 +342,7 @@ Una delle funzionalit&agrave; chiave dei database relazionali &egrave; l'uso del
 Preservare le Modifiche
 </titolo_3>
 <testo_normale>
-Le modifiche al database, sia tramite istruzioni di <code>insert</code> che di <code>update</code> devono essere salvate chiamando esplicitamente <code>commit()</code>. Questo requisito fornisce ad una applicazione la possibilit&agrave; di effettuare parecchie modifiche collegate, in modo che siano conservarte <em>atomicamente</em> invece che in modo incrementale, evitando situazioni nelle quali aggiornamenti parziali possano essere visti da client diversi in connessione simultanea al database.
+Le modifiche al database, sia tramite istruzioni di <code>insert</code> che di <code>update</code> devono essere salvate chiamando esplicitamente <code>commit()</code>. Questo requisito fornisce a una applicazione la possibilit&agrave; di effettuare parecchie modifiche collegate, in modo che siano conservarte <em>atomicamente</em> invece che in modo incrementale, evitando situazioni nelle quali aggiornamenti parziali possano essere visti da client diversi in connessione simultanea al database.
 </testo_normale>
 <testo_normale>
 L'effetto della chiamata di <code>commit()</code> pu&ograve; essere visto con un programma che usa parecchie connessioni al database. Una nuova riga viene inserita con la prima connessione, quindi vengono effettuati due tentativi di leggere la riga inserita usando connessioni separate.
@@ -423,7 +423,7 @@ Modalit&agrave; Autocommit
 Il parametro <code>isolation_level</code> per una connessione pu&agrave; anche essere impostato a <code>None</code> per abilitare la modalit&agrave; di conferma automatica (<em>autocommit</em>). Con <em>autocommit</em> abilitato, ogni chiamata di <code>execute()</code> viene confermata immediatamente dopo che l'istruzione finisce. La modalit&agrave; <em>autocommit</em> &egrave; adatta per brevi transazioni, tipo l'inserimento di una piccola mole di dati in una singola tabella. Il database viene bloccato per il minor tempo possibile, in modo che le possibilit&agrave; di conflitto tra i thread siano minori.
 </testo_normale>
 <testo_normale>
-In <code>sqlite3_autocommit.py</code> la chiamata esplicita a <code>commit()</code> è stata rimossa ed il livello di isolamento è stato impostato a <code>None</code>, il resto del codice è uguale a <code>sqlite3_isolation_levels.py</code>. Il risultato è diverso, tuttavia, visto che entrambi i thread di scrittura finiscono il proprio lavoro prima che qualunque thread di lettura inizi l'interrogazione.
+In <code>sqlite3_autocommit.py</code> la chiamata esplicita a <code>commit()</code> è stata rimossa e il livello di isolamento è stato impostato a <code>None</code>, il resto del codice è uguale a <code>sqlite3_isolation_levels.py</code>. Il risultato è diverso, tuttavia, visto che entrambi i thread di scrittura finiscono il proprio lavoro prima che qualunque thread di lettura inizi l'interrogazione.
 </testo_normale>
 <py_code>
 # sqlite3_autocommit.py
@@ -438,7 +438,7 @@ $ python3 sqlite3_autocommit.py
 Database In-Memoria
 </titolo_2>
 <testo_normale>
-SQLite supporta la gestione di un intero database nella <a href='https://www.wikiwand.com/it/RAM' target='_blank'>RAM</a>, invece che appoggiarsi ad un file su disco. I database in-memoria sono utili per test automatici, dove il database non deve essere preservato tra l'esecuzione di un test e l'altro, oppure per fare esperimenti con uno <em>schema</em> od altre funzionalit&agrave; del database. Per aprire un database in-memoria, si usa la stringa <code>':memory:'</code> invece che un nome di file mentre si crea la connessione. Ogni connessione <code>:memory:</code> crea una istanza di database separata, quindi le modifiche effettuate da un cursore non hanno effetti sulle altre connessioni.
+SQLite supporta la gestione di un intero database nella <a href='https://www.wikiwand.com/it/RAM' target='_blank'>RAM</a>, invece che appoggiarsi a un file su disco. I database in-memoria sono utili per test automatici, dove il database non deve essere preservato tra l'esecuzione di un test e l'altro, oppure per fare esperimenti con uno <em>schema</em> o altre funzionalit&agrave; del database. Per aprire un database in-memoria, si usa la stringa <code>':memory:'</code> invece che un nome di file mentre si crea la connessione. Ogni connessione <code>:memory:</code> crea una istanza di database separata, quindi le modifiche effettuate da un cursore non hanno effetti sulle altre connessioni.
 </testo_normale>
 <titolo_2>
 Esportare il Contenuto di un Database
@@ -474,7 +474,7 @@ $ python3 sqlite3_create_function.py
 Interrogazioni con Espressioni Regolari
 </titolo_2>
 <testo_normale>
-SQLite supporta parecchie speciali funzioni utente che sono associate con la sintassi SQL. Ad esempio una funzione <code>regexp</code> potrebbe essere usata in una query per verificare se il valore stringa di una colonna corrisponde ad una espressione regolare usando la sintassi seguente.
+SQLite supporta parecchie speciali funzioni utente che sono associate con la sintassi SQL. Ad esempio una funzione <code>regexp</code> potrebbe essere usata in una query per verificare se il valore stringa di una colonna corrisponde a una espressione regolare usando la sintassi seguente.
 </testo_normale>
 <sql_code>
 SELECT * FROM tabella
@@ -529,7 +529,7 @@ $ python3 sqlite3_threading.py
 Limitare l'accesso ai Dati
 </titolo_2>
 <testo_normale>
-Sebbene SQLite non abbia i controlli per l'accesso utente presenti in altri, pi&ugrave; grandi database relazionali, ha comunque un meccanismo per limitare l'accesso alle colonne. Ogni connessione pu&ograve; installare una <i>funzione di autorizzazione</i> per consentire o negare l'accesso a colonne in fase di esecuzione in base ad un qualsivoglia criterio. La funzione di autorizzazione viene chiamata durante l'elaborazione delle istruzioni SQL e riceve cinque argomenti. Il primo &egrave; un codice di azione che indica che tipo di operazione debba essere eseguita (lettura, scrittura, cancellazione ecc.). I restanti argomenti dipendono dal codice di azione. Per operazioni <code>SQLITE_READ</code> (lettura) gli argomenti sono il nome della tabella, quello della colonna, il punto nel SQL dove l'accesso deve avvenire (interrogazione principale, trigger ecc.), e <code>None</code>.
+Sebbene SQLite non abbia i controlli per l'accesso utente presenti in altri, pi&ugrave; grandi database relazionali, ha comunque un meccanismo per limitare l'accesso alle colonne. Ogni connessione pu&ograve; installare una <i>funzione di autorizzazione</i> per consentire o negare l'accesso a colonne in fase di esecuzione in base a un qualsivoglia criterio. La funzione di autorizzazione viene chiamata durante l'elaborazione delle istruzioni SQL e riceve cinque argomenti. Il primo &egrave; un codice di azione che indica che tipo di operazione debba essere eseguita (lettura, scrittura, cancellazione ecc.). I restanti argomenti dipendono dal codice di azione. Per operazioni <code>SQLITE_READ</code> (lettura) gli argomenti sono il nome della tabella, quello della colonna, il punto nel SQL dove l'accesso deve avvenire (interrogazione principale, trigger ecc.), e <code>None</code>.
 </testo_normale>
 <py_code>
 # sqlite3_set_authorizer.py

@@ -17,7 +17,7 @@ Implementa parecchi tipi di generatori pseudocasuali di numeri.
 
 </descrizione>
 <testo_normale>
-Il modulo <strong>random</strong> fornisce un veloce generatore pseudocasuale di numeri basato sull'algoritmo <a href="https://it.wikipedia.org/wiki/Mersenne_Twister"><em>Mersenne Twister</em></a>. Originariamente sviluppato per produrre input per le simulazioni Monte Carlo, tramite <em>Mersenne Twister</em> vengono generati numeri con distribuzione pressochè uniformi rendendoli adatti ad un grande spettro di applicazioni.
+Il modulo <strong>random</strong> fornisce un veloce generatore pseudocasuale di numeri basato sull'algoritmo <a href="https://it.wikipedia.org/wiki/Mersenne_Twister"><em>Mersenne Twister</em></a>. Originariamente sviluppato per produrre input per le simulazioni Monte Carlo, tramite <em>Mersenne Twister</em> vengono generati numeri con distribuzione pressochè uniformi rendendoli adatti a un grande spettro di applicazioni.
 </testo_normale>
 <titolo_2>
 Generare Numeri Casuali
@@ -99,7 +99,7 @@ $ python3 random_seed.py
 Salvare lo Stato
 </titolo_2>
 <testo_normale>
-Lo stato interno dell'algoritmo di pseudocasualità utilizzato da <code>random()</code> può essere salvato ed utilizzato per controllare i numeri prodotti in esecuzioni successive. Ristabilire lo stato precedente prima di continuare riduce la possibilità di valori o sequenze di valori ripetute dall'input precedente. La funzione <code>getstate()</code> ritorna dati che possono essere utilizzati per reinizializzare il generatore di numeri casuali successivamente con <code>setstate()</code>.
+Lo stato interno dell'algoritmo di pseudocasualità utilizzato da <code>random()</code> può essere salvato e utilizzato per controllare i numeri prodotti in esecuzioni successive. Ristabilire lo stato precedente prima di continuare riduce la possibilità di valori o sequenze di valori ripetute dall'input precedente. La funzione <code>getstate()</code> ritorna dati che possono essere utilizzati per reinizializzare il generatore di numeri casuali successivamente con <code>setstate()</code>.
 </testo_normale>
 <py_code>
 # random_state.py
@@ -304,7 +304,7 @@ print('\nRimaste nel mazzo:')
 show_deck(deck)
 </py_code>
 <testo_normale>
-Le carte sono rappresentate come stringhe con il valore ed il simbolo <a href="https://it.wikipedia.org/wiki/Unicode">unicode</a>  che indica il seme. Le mani distribuite sono create aggiungendo una carta alla volta ad ognuna delle quattro liste e rimosse dal mazzo in modo che non possano essere distribuite nuovamente.
+Le carte sono rappresentate come stringhe con il valore e il simbolo <a href="https://it.wikipedia.org/wiki/Unicode">unicode</a>  che indica il seme. Le mani distribuite sono create aggiungendo una carta alla volta a ognuna delle quattro liste e rimosse dal mazzo in modo che non possano essere distribuite nuovamente.
 </testo_normale>
 <py_output>
 $ python3 random_shuffle.py
@@ -421,7 +421,7 @@ Stesso seme:
 SystemRandom
 </titolo_2>
 <testo_normale>
-Alcuni sistemi operativi forniscono un generatore di numeri casuali che ha accesso ad ulteriori fonti di entropia che possono essere inserite nel generatore. <strong>random</strong> espone questa caratteristica tramite la classe <code>SystemRandom</code>, che ha la stessa <a href="https://it.wikipedia.org/wiki/Application_programming_interface">API</a> di <code>Random</code> ma utilizza <code>os.urandom()</code> per generare i valori che formano le basi di tutti gli altri algoritmi.
+Alcuni sistemi operativi forniscono un generatore di numeri casuali che ha accesso a ulteriori fonti di entropia che possono essere inserite nel generatore. <strong>random</strong> espone questa caratteristica tramite la classe <code>SystemRandom</code>, che ha la stessa <a href="https://it.wikipedia.org/wiki/Application_programming_interface">API</a> di <code>Random</code> ma utilizza <code>os.urandom()</code> per generare i valori che formano le basi di tutti gli altri algoritmi.
 </testo_normale>
 <py_code>
 # random_system_random.py
@@ -469,7 +469,7 @@ Stesso seme:
 Distribuzioni Non Uniformi
 </titolo_2>
 <testo_normale>
-Mentre la distribuzione uniforme dei valori prodotta da <code>random()</code> è utile per molti scopi, ci sono altre distribuzioni che modellano più accuratamente specifiche situazioni. Il modulo <strong>random</strong> include funzioni per produrre valori anche per quelle distribuzioni. Sono elencati di seguito, ma non trattati dettagliatamente in quanto il loro uso tende ad essere specialistico e richiede esempi più complessi.
+Mentre la distribuzione uniforme dei valori prodotta da <code>random()</code> è utile per molti scopi, ci sono altre distribuzioni che modellano più accuratamente specifiche situazioni. Il modulo <strong>random</strong> include funzioni per produrre valori anche per quelle distribuzioni. Sono elencati di seguito, ma non trattati dettagliatamente in quanto il loro uso tende a essere specialistico e richiede esempi più complessi.
 </testo_normale>
 <titolo_3>
 Normale
@@ -490,7 +490,7 @@ La <a href="https://it.wikipedia.org/wiki/Distribuzione_triangolare">distribuzio
 Esponenziale
 </titolo_3>
 <testo_normale>
-<code>expovariate()</code> produce una <a href="https://it.wikipedia.org/wiki/Distribuzione_esponenziale">distribuzione esponenziale</a> utile per simulare valori di arrivo od intervalli temporali per processi omogenei di <a href="https://it.wikipedia.org/wiki/Distribuzione_di_Poisson"></a>Poisson tipo l'intervallo del decadimento radioattivo oppure le richieste in arrivo su di un server web.
+<code>expovariate()</code> produce una <a href="https://it.wikipedia.org/wiki/Distribuzione_esponenziale">distribuzione esponenziale</a> utile per simulare valori di arrivo o intervalli temporali per processi omogenei di <a href="https://it.wikipedia.org/wiki/Distribuzione_di_Poisson"></a>Poisson tipo l'intervallo del decadimento radioattivo oppure le richieste in arrivo su di un server web.
 </testo_normale>
 <testo_normale>
 La <a href="https://it.wikipedia.org/wiki/Distribuzione_paretiana">distribuzione paretiana</a> o legge di potenza, corrisponde a molti fenomeni osservabili e fu resa popolare dal libro <a href="https://www.amazon.it/coda-lunga-Chris-Anderson/dp/8875786178/ref=sr_1_3?s=books&ie=UTF8&qid=1468662344&sr=1-3&keywords=chris+anderson">La coda lunga</a> di Chris Anderson. La funzione <code>paretovariate()</code> è utile per simulare l'allocazione di risorse agli individui (beni alle persone, richieste ai musicisti, attenzione ai blog ecc.)
@@ -499,19 +499,19 @@ La <a href="https://it.wikipedia.org/wiki/Distribuzione_paretiana">distribuzione
 Angolare
 </titolo_3>
 <testo_normale>
-La distribuzione di von Mises, o circolare normale (prodotta da <code>vonmisesvariate()</code>) viene utilizzata per calcolare le probabilità di valori ciclici tipo angoli, giorni di calendario, orari.
+La distribuzione di Von Mises, o circolare normale (prodotta da <code>vonmisesvariate()</code>) viene utilizzata per calcolare le probabilità di valori ciclici tipo angoli, giorni di calendario, orari.
 </testo_normale>
 <titolo_3>
 Dimensioni
 </titolo_3>
 <testo_normale>
-<code>betavariate()</code> genera valori con la <a href="https://it.wikipedia.org/wiki/Distribuzione_Beta">distribuzione Beta</a>, comunemente utilizzata in statistiche Bayesiane ed applicazioni tipo la progettazione della durata di compiti.
+<code>betavariate()</code> genera valori con la <a href="https://it.wikipedia.org/wiki/Distribuzione_Beta">distribuzione Beta</a>, comunemente utilizzata in statistiche Bayesiane e applicazioni tipo la progettazione della durata di compiti.
 </testo_normale>
 <testo_normale>
 La <a href="https://it.wikipedia.org/wiki/Distribuzione_Gamma">distribuzione Gamma</a> prodotta da <code>gammavariate()</code> viene utilizzata per la progettazione delle dimensioni di cose tipo i tempi di attesa, precipitazioni ed errori computazionali.
 </testo_normale>
 <testo_normale>
-La <a href="https://it.wikipedia.org/wiki/Distribuzione_di_Weibull">distribuzione di Weibull</a> calcolata da <code>weibullvariate()</code> viene utilizzata in analisi di guasti, progettazione industriale e previsioni del tempo. Descrive la distribuzione di dimensioni di particelle od altri oggetti discreti.
+La <a href="https://it.wikipedia.org/wiki/Distribuzione_di_Weibull">distribuzione di Weibull</a> calcolata da <code>weibullvariate()</code> viene utilizzata in analisi di guasti, progettazione industriale e previsioni del tempo. Descrive la distribuzione di dimensioni di particelle o altri oggetti discreti.
 </testo_normale>
 <vedi_anche>
 http://docs.python.org/3.5/library/random.html|random|La documentazione della libreria standard per questo modulo.

@@ -17,7 +17,7 @@ Fornisce una implementazione <a href='http://it.wikipedia.org/wiki/FIFO'>FIFO</a
 
 </descrizione>
 <testo_normale>
-Il modulo <strong>queue</strong> fornisce una struttura dati <a href='http://it.wikipedia.org/wiki/FIFO'>FIFO</a> adatta per la programmazione <a href='http://it.wikipedia.org/wiki/Multithreading'>multithread</a>. Può essere usato per passare messaggi od altri dati tra il produttore ed il consumatore in modo <a href='http://it.wikipedia.org/wiki/Thread_safety'>thread safely</a>. Viene gestito il bloccaggio per il chiamante, in modo che molteplici thread possono lavorare con la stessa istanza di <code>Queue</code> in sicurezza. La dimensione di <code>Queue</code> (il numero di elementi che contiene) può essere ristretta per regolamentare l'utilizzo della memoria o l'elaborazione.
+Il modulo <strong>queue</strong> fornisce una struttura dati <a href='http://it.wikipedia.org/wiki/FIFO'>FIFO</a> adatta per la programmazione <a href='http://it.wikipedia.org/wiki/Multithreading'>multithread</a>. Può essere usato per passare messaggi o altri dati tra il produttore e il consumatore in modo <a href='http://it.wikipedia.org/wiki/Thread_safety'>thread safety</a>. Viene gestito il bloccaggio per il chiamante, in modo che molteplici thread possono lavorare con la stessa istanza di <code>Queue</code> in sicurezza. La dimensione di <code>Queue</code> (il numero di elementi che contiene) può essere ristretta per regolamentare l'utilizzo della memoria o l'elaborazione.
 </testo_normale>
 <note>
 Questo articolo assume che sia già nota la natura di una coda. Se non la si conosce, meglio consultare qualcuno dei riferimenti in fondo all'articolo prima di continuare.
@@ -26,7 +26,7 @@ Questo articolo assume che sia già nota la natura di una coda. Se non la si con
 Queue FIFO base
 </titolo_2>
 <testo_normale>
-La classe <code>Queue</code> implementa un contenitore base primo-che-entra, primo-che-esce. Gli elementi sono aggiunti ad un estremo della sequenza usando <code>put()</code> e rimossi dall'altro tramite <code>get()</code>.
+La classe <code>Queue</code> implementa un contenitore base primo-che-entra, primo-che-esce. Gli elementi sono aggiunti a un estremo della sequenza usando <code>put()</code> e rimossi dall'altro tramite <code>get()</code>.
 </testo_normale>
 <py_code>
 # queue_fifo.py
@@ -43,7 +43,7 @@ while not q.empty():
 print()
 </py_code>
 <testo_normale>
-Questo esempio utilzza un singolo thread per dimostrare che gli elementi sono rimossi dalla coda nello stesso ordine con il quale sono stati inseriti.
+Questo esempio utilizza un singolo thread per dimostrare che gli elementi sono rimossi dalla coda nello stesso ordine con il quale sono stati inseriti.
 </testo_normale>
 <py_output>
 $ python3 queue_fifo.py
@@ -82,7 +82,7 @@ $ python3 queue_lifo.py
 Coda di Priorità
 </titolo_2>
 <testo_normale>
-<a name='priorqueue'></a>Talvolta l'ordine di elaborazione degli elementi in una coda deve basarsi sulle caratteristiche degli elementi stessi, invece del mero ordine nel quale sono stati creati od aggiunti alla coda. Ad esempio, i lavori di stampa di un ufficio paghe, potrebbero avere la precedenza su di un listato di codice stampato da uno sviluppatore. <code>PriorityQueue</code> uilizza l'ordinamento del contenuto della coda per decidere cosa recuperare.
+<a name='priorqueue'></a>Talvolta l'ordine di elaborazione degli elementi in una coda deve basarsi sulle caratteristiche degli elementi stessi, invece del mero ordine nel quale sono stati creati o aggiunti alla coda. Ad esempio, i lavori di stampa di un ufficio paghe, potrebbero avere la precedenza su di un listato di codice stampato da uno sviluppatore. <code>PriorityQueue</code> uilizza l'ordinamento del contenuto della coda per decidere cosa recuperare.
 </testo_normale>
 <py_code>
 # queue_priority.py
@@ -208,7 +208,7 @@ def download_enclosures(q):
         q.task_done()
 </py_code>
 <testo_normale>
-Una volta che la funzione da utilizzare per i thread è definita, i thread di lavoro possono essere lanciati. Quando <code>download_enclosures()</code> elabora l'istruzione <code>url = q.get()</code> si interrompe ed attende fino a quando la coda ha qualcosa da restituire. Il che significa che si possono far partire in sicurezza i thread prima che ci sia qualcosa in coda.
+Una volta che la funzione da utilizzare per i thread è definita, i thread di lavoro possono essere lanciati. Quando <code>download_enclosures()</code> elabora l'istruzione <code>url = q.get()</code> si interrompe e attende fino a quando la coda ha qualcosa da restituire. Il che significa che si possono far partire in sicurezza i thread prima che ci sia qualcosa in coda.
 </testo_normale>
 <py_code>
 # Impostazione di alcuni thread per ottenere le richieste
@@ -222,10 +222,10 @@ for i in range(num_fetch_threads):
     worker.start()
 </py_code>
 <testo_normale>
-IL prossimo passo è il recupero dei contenuto del feed utilizzando il modulo <code>feedparser</code>, ed accodando gli URL delle richieste. Non appena il primo URL viene aggiunto alla coda, uno dei thread di lavoro lo prende in consegna e ne inizia lo scaricamento. Il ciclo continuerà ad aggiungere elementi fino a che il feed viene consumato interamente, ed i thread di lavoro faranno a turno per ottenere dalla coda gli URL da scaricare.
+IL prossimo passo è il recupero dei contenuto del feed utilizzando il modulo <code>feedparser</code>, e accodando gli URL delle richieste. Non appena il primo URL viene aggiunto alla coda, uno dei thread di lavoro lo prende in consegna e ne inizia lo scaricamento. Il ciclo continuerà ad aggiungere elementi fino a che il feed viene consumato interamente, e i thread di lavoro faranno a turno per ottenere dalla coda gli URL da scaricare.
 </testo_normale>
 <py_code>
-# Scaricamento del/i feed ed inserimento dell'url da scaricare
+# Scaricamento del/i feed e inserimento dell'url da scaricare
 # nella coda.
 for url in feed_urls:
     response = feedparser.parse(url, agent='fetch_podcasts.py')

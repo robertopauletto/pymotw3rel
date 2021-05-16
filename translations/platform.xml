@@ -12,7 +12,7 @@ Esplora l'hardware della piattaforma sottostante, il sistema operativo, ottiene 
 Python non viene spesso usato come un linguaggio multipiattaforma, ma occasionalmente è necessario sapere su quale sorta di sistema un programma è in esecuzione. Strumenti di assemblaggio hanno bisogno di questa informazione, ma una applicazione potrebbe anche sapere se alcune delle librerie o comandi esterni che usa abbiano diverse interfacce in base al sistema operativo in cui risiedono. Ad esempio uno strumento per gestire la configurazione di rete di un sistema operativo potrebbe definire una rappresentazione portabile delle interfacce di rete, alias, indirizzi IP ecc. Ma quando occorre modificare file di configurazione, occorre saperne di più circa il sistema operativo ospitante in modo che  possa usare i corretti comandi e file di configurazione del sistema operativo. Il modulo <strong>platform</strong> include gli strumenti per ottenere informazioni circa l'interprete, il sistema operativo e la piattaforma hardware sulla quale è in esecuzione un programma.
 </testo_normale>
 <note>
-I risultati degli esempi sono stati generati su 2 sistemi: un PC con sistema operativo Ubuntu 18.04 ed un PC con sistema operativo Windows 10. Python è stato installato su Windows usando i pacchetti precompilati a disposizione su <a href='www.python.org'>python.org</a> mentre il sistema Linux esegue una versione compresa nei pacchetti di sistema.
+I risultati degli esempi sono stati generati su 2 sistemi: un PC con sistema operativo Ubuntu 18.04 e un PC con sistema operativo Windows 10. Python è stato installato su Windows usando i pacchetti precompilati a disposizione su <a href='www.python.org'>python.org</a> mentre il sistema Linux esegue una versione compresa nei pacchetti di sistema.
 </note>
 <titolo_2>
 Interprete
@@ -69,7 +69,7 @@ Terse  : Windows-10
 Informazioni sul Sistema Operativo e Hardware
 </titolo_2>
 <testo_normale>
-E' possibile recuperare anche le informazioni epiù dettagliate sul sistema operativo e sull'harwdare sul quale è in esecuzione l'interprete. <code>uname()</code> ritorna una <me>tuple</me> che contiene i valori di sistema, nodo, rilascio, versione, macchina e processore. E' possibile accedere ai valori individuali tramite funzioni con lo stesso nome, come da tabella seguente:
+E' possibile recuperare anche le informazioni e più dettagliate sul sistema operativo e sull'harwdare sul quale è in esecuzione l'interprete. <code>uname()</code> ritorna una <me>tuple</me> che contiene i valori di sistema, nodo, rilascio, versione, macchina e processore. E' possibile accedere ai valori individuali tramite funzioni con lo stesso nome, come da tabella seguente:
 </testo_normale>
 <tabella_semplice>
 FUNZIONE;VALORE RITORNATO
@@ -108,7 +108,7 @@ processore: Intel64 Family 6 Model 142 Stepping 10, GenuineIntel
 Architettura dell'Eseguibile
 </titolo_2>
 <testo_normale>
-Le informazioni sui singoli programmi possono essere rilevate usando la funzione <code>architecture()</code>. Il primo argomento è il percorso di un programma eseguibile (predefinito <code>sys.executable</code>, l'interprete Python). Il valore di ritorno è una tupla che contiene il bit di architettura ed il formato di link usato.
+Le informazioni sui singoli programmi possono essere rilevate usando la funzione <code>architecture()</code>. Il primo argomento è il percorso di un programma eseguibile (predefinito <code>sys.executable</code>, l'interprete Python). Il valore di ritorno è una tupla che contiene il bit di architettura e il formato di link usato.
 </testo_normale>
 <py_code>
 # platform_architecture.py
@@ -130,6 +130,6 @@ interprete : ('64bit', 'WindowsPE')
 </py_output>
 <vedi_anche>
 https://docs.python.org/3.7/library/platform.html|platform|La documentazione della libreria standard per questo modulo
-riferimenti_moduli_modificati.html#platform|Note di portabilità per <strong>platform</strong>
+riferimenti_moduli_modificati.html#31|Note di portabilità per <strong>platform</strong>
 </vedi_anche>
 </documento_tradotto>

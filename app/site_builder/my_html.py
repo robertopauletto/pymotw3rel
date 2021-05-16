@@ -22,6 +22,8 @@ Versione %s %s
 class MyHtml(object):
     """Si occupa della costruzione di elementi HTML"""
     insubs = InlineSubs()
+    insubs = InlineSubs()
+    insubs = InlineSubs()
     AUTOCLOSING_TAGS = (
         'br',
         'hr',
@@ -98,6 +100,9 @@ class MyHtml(object):
         assert isinstance(value, list) or isinstance(value, tuple)
         acc = []
         tag = "ul" if not is_ordered else "ol"
+        if 'class_' in kwargs.keys():
+            tag = f"{tag} class={kwargs['class_']}"
+            del(kwargs['class_'])
         for row in value:
             acc.append(self._get_start_end_tag(
                 "li",
@@ -396,19 +401,19 @@ class MyHtml(object):
         
     def warning(self, value, **kwargs):
         """Metodo di convenienza che ottiene un box di avvertimento"""
-        return self._alerts(value, class_='alert alert-warning fade in')
+        return self._alerts(value, **kwargs)
 
     def info(self, value, **kwargs):
         """Metodo di convenienza che ottiene un box di informazioni"""
-        return self._alerts(value, class_='alert alert-info fade in')
+        return self._alerts(value, **kwargs)
     
     def success(self, value, **kwargs):
         """Metodo di convenienza che ottiene un box di successo"""
-        return self._alerts(value, class_='alert alert-success fade in')
+        return self._alerts(value, **kwargs)
 
     def danger(self, value, **kwargs):
         """Metodo di convenienza che ottiene un box di attenzione"""
-        return self._alerts(value, class_='alert alert-danger fade in')
+        return self._alerts(value, **kwargs)
 
 
 if __name__ == '__main__':

@@ -76,7 +76,7 @@ PPRINT:
 Formattare
 </titolo_2>
 <testo_normale>
-Se occorre formattare una struttura dati senza scriverla direttamente ad un flusso (per delle registrazioni in un log, ad esempio) si usa <code>pformat()</code> per costruire una rappresentazione in formato stringa.
+Se occorre formattare una struttura dati senza scriverla direttamente a un flusso (per delle registrazioni in un log, ad esempio) si usa <code>pformat()</code> per costruire una rappresentazione in formato stringa.
 </testo_normale>
 <py_code>
 # pprint_pformat.py

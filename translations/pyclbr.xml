@@ -28,13 +28,13 @@ Gli esempi in questa sezione utilizzano il file sorgente seguente come input.
 Alla Ricerca delle Classi
 </titolo_2>
 <testo_normale>
-Ci sono due funzioni pubbliche esposte da <strong>pyclbr</strong>. La prima, <code>readmodule()</code>, riceve il nome del modulo come argomento e ritorna una mappatura di nomi di classi ed oggetti <code>Class</code> che contengono i metadati circa il sorgente della classe.
+Ci sono due funzioni pubbliche esposte da <strong>pyclbr</strong>. La prima, <code>readmodule()</code>, riceve il nome del modulo come argomento e ritorna una mappatura di nomi di classi e oggetti <code>Class</code> che contengono i metadati circa il sorgente della classe.
 </testo_normale>
 <py_code>
 # pyclbr_readmodule.py
 </py_code>
 <testo_normale>
-I metadati per la classe includono il file ed il numero di riga dove è definito, assieme ai nomi delle classi super. I metodi della classe sono salvati in una mappatura tra nome metodo e numero di riga. Il risultato mostra le classi ed i metodi elencati in ordine in base al loro numero di riga nel file sorgente.
+I metadati per la classe includono il file e il numero di riga dove è definito, assieme ai nomi delle classi super. I metodi della classe sono salvati in una mappatura tra nome metodo e numero di riga. Il risultato mostra le classi e i metodi elencati in ordine in base al loro numero di riga nel file sorgente.
 </testo_normale>
 <py_output>
 # pyclbr_readmodule.py
@@ -43,7 +43,7 @@ I metadati per la classe includono il file ed il numero di riga dove è definito
 Alla Ricerca di Funzioni
 </titolo_2>
 <testo_normale>
-L'altra funzione pubblica, <code>readmodule_ex()</code>, fa tutto quello che fa <code>readmodule()</code>, ed aggiunge le funzioni all'insieme dei risultati.
+L'altra funzione pubblica, <code>readmodule_ex()</code>, fa tutto quello che fa <code>readmodule()</code>, e aggiunge le funzioni all'insieme dei risultati.
 </testo_normale>
 <py_code>
 # pyclbr_readmodule_ex.py

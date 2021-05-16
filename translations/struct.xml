@@ -21,10 +21,10 @@ E' disponibile per lavorare con valori strutturati sia un insieme di funzioni a 
 Impacchettare e Spacchettare
 </titolo_2>
 <testo_normale>
-Le struttura supportano l'<em>impacchettamento</em> dei dati in stringhe, e lo <em>spacchettamento</em> di dati da stringhe usando specificatori di formato composti da caratteri che rappresentano il tipo di dato ed indicatori opzionali di contatori ed <a href='https://www.wikiwand.com/it/Ordine_dei_byte' target='_blank'><em>endianness</em></a>. Si faccia riferimento alla documentazione della libreria standard per un elenco completo degli specificatori di formato supportati.
+Le struttura supportano l'<em>impacchettamento</em> dei dati in stringhe, e lo <em>spacchettamento</em> di dati da stringhe usando specificatori di formato composti da caratteri che rappresentano il tipo di dato e indicatori opzionali di contatori ed <a href='https://www.wikiwand.com/it/Ordine_dei_byte' target='_blank'><em>endianness</em></a>. Si faccia riferimento alla documentazione della libreria standard per un elenco completo degli specificatori di formato supportati.
 </testo_normale>
 <testo_normale>
-In questo esempio, lo specificatore chiama un valore intero o intero lungo, una stringa di due byte ed un numero a virgola mobile. Gli spazi nello specificatore di formato sono inclusi per separare gli indicatori di tipo, e vengono ignorati quanto il formato viene compilato.
+In questo esempio, lo specificatore chiama un valore intero o intero lungo, una stringa di due byte e un numero a virgola mobile. Gli spazi nello specificatore di formato sono inclusi per separare gli indicatori di tipo, e vengono ignorati quanto il formato viene compilato.
 </testo_normale>
 <py_code>
 # struct_pack.py

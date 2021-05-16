@@ -34,7 +34,7 @@ L'elaborazione di un percorso dipende da alcune variabili definite in <a href='o
 <code>os.curdir</code> - La componente di percorso che rappresenta la  directory corrente (es. <code>"."</code>).
 </lista>
 <testo_normale>
-La funzione <code>split()</code> divide il percorso in due parti separate e ritorna una tupla con il risultato. Il secondo elemento della tupla è l'ultimo componente del percorso, ed il primo è tutto quello che lo precede.
+La funzione <code>split()</code> divide il percorso in due parti separate e ritorna una tupla con il risultato. Il secondo elemento della tupla è l'ultimo componente del percorso, e il primo è tutto quello che lo precede.
 </testo_normale>
 <py_code>
 # ospath_split.py
@@ -162,7 +162,7 @@ $ python3 ospath_splitext.py
      'no-estensione.' : ('no-estensione', '.')
 </py_output>
 <testo_normale>
-<code>commonprefix()</code> riceve un elemco di percorsi come argomento e ritorna una singola stringa che rappresenta un prefisso comune presente in tutti i percorsi. Il valore pùò rappresentare un percorso che in realtà non esiste, ed il separatore di percorso non è incluso nella considerazione, quindi il prefisso potrebbe non fermarsi su di un elemento separatore.
+<code>commonprefix()</code> riceve un elenco di percorsi come argomento e ritorna una singola stringa che rappresenta un prefisso comune presente in tutti i percorsi. Il valore può rappresentare un percorso che in realtà non esiste, e il separatore di percorso non è incluso nella considerazione, quindi il prefisso potrebbe non fermarsi su di un elemento separatore.
 </testo_normale>
 <py_code>
 # ospath_commonprefix.py
@@ -240,7 +240,7 @@ for parts in PATHS:
 
 </py_code>
 <testo_normale>
-Un qualsiasi argomento che inizi con <code>os.sep</code> fa sì che tutti i precedenti argomenti siano ignorati ed il nuovo diventa l'inizio del valore ritornato.
+Un qualsiasi argomento che inizi con <code>os.sep</code> fa sì che tutti i precedenti argomenti siano ignorati e il nuovo diventa l'inizio del valore ritornato.
 </testo_normale>
 <py_output>
 $ python3 ospath_join.py
@@ -389,7 +389,7 @@ Dimensione     : 338
 Verificare i File
 </titolo_2>
 <testo_normale>
-Quando un programma ha a che fare con un nome di percorso, spesso deve conoscere se quel percorso si riferisce ad un file, una directory, un collegamento simbolico e se esiste. <strong>os.path</strong> fornisce funzioni per eseguire una verifica delle condizioni sopra elencate.
+Quando un programma ha a che fare con un nome di percorso, spesso deve conoscere se quel percorso si riferisce a un file, una directory, un collegamento simbolico e se esiste. <strong>os.path</strong> fornisce funzioni per eseguire una verifica delle condizioni sopra elencate.
 </testo_normale>
 <py_code>
 # ospath_tests.py
@@ -458,7 +458,7 @@ Esiste il collegamento simbolico?: False
 https://docs.python.org/3.5/library/os.path.html|os.path|La documentazione della libreria standard per questo modulo
 riferimenti_moduli_modificati.html#ospath|Note di portabilità per <strong>os.path</strong>|
 pathlib.html|pathlib|Percorsi come oggetti
-os.html|os|Dal modulo <strong>os</strong> discende <strong>os.path</srong>
+os.html|os|Dal modulo <strong>os</strong> discende <strong>os.path</strong>
 time.html|time|Il modulo <strong>time</strong> contiene funzioni per conversioni tra la rappresentazione usata dalle funzioni per la proprietà di orario usate in <strong>os.path</strong>
 </vedi_anche>
 </documento_tradotto>

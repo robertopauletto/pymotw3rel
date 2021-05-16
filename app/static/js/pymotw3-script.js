@@ -18,11 +18,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
 })
 
-/*
-  Dismiss the div containing the flashmessage with id = elementID
- */
-function closeMsg(elementId) {
-  const flashMessage = document.getElementById(elementId)
-  const parent = flashMessage.parentNode
-  parent.removeChild(flashMessage)
-}

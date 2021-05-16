@@ -17,7 +17,8 @@
         rel="stylesheet">
 
   <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="/static/css/vendor/materialize.min.css"
+  <link type="text/css" rel="stylesheet"
+        href="/static/css/vendor/materialize.min.css"
         media="screen,projection"/>
   <link type="text/css" rel="stylesheet" href="/static/css/admin-style.css"
         media="screen,projection"/>
@@ -53,12 +54,30 @@
 
     <nav>
       <div class="nav-wrapper indigo darken-1">
-        <a href="#" class="brand-logo logo-margin valign-wrapper hide-on-med-and-down">
-          <p class="logo-font-size">PyMOTW-it 3 - Amministrazione e costruzione sito</p>
+        <a href="#"
+           class="brand-logo logo-margin valign-wrapper hide-on-med-and-down">
+          <p class="logo-font-size">PyMOTW-it 3 - Amministrazione e costruzione
+            sito</p>
         </a>
         <a href="#" data-target="mobile-devices" class="sidenav-trigger"><i
             class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+          <li>
+            <div class="center row">
+              <div class="col s12 s6">
+                <div class="row" id="topbarsearch">
+                  <div class="input-field col s12">
+                    <i class="material-icons prefix white-text">search</i>
+                    <input type="text" placeholder="moduli"
+                           id="autocomplete-modules" class="autocomplete">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+
           <li><a href="{{ url_for('main.generator') }}">Generatore</a></li>
           <li><a href="{{ url_for('main.config') }}">Configurazione</a></li>
           <li><a href="#">Uploader</a></li>
@@ -91,8 +110,10 @@
   </div>
 </footer>
 
-<script type="text/javascript" src="/static/js/vendor/materialize.min.js"></script>
-<script type="text/javascript" src="/static/js/pymotw3-script.js"></script>
-{% block scripts %}{% endblock %}
+<script type="text/javascript"
+        src="/static/js/vendor/materialize.min.js"></script>
+{% block scripts %}
+{% endblock %}
+<script type="text/javascript" src="/static/js/admin-pymotw3-script.js"></script>
 </body>
 </html>

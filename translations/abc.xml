@@ -109,7 +109,7 @@ Sebbene una classe concreta debba provvedere una implementazione per tutti i met
 # abc_concrete_method.py
 </py_code>
 <testo_normale>
-Visto che <code>ABCWithConcreteImplementation</code> è una classe base astratta, non è possibile istanziarla per usarla direttamente. Le classi derivate <em>devono</em> fornire un <a href="https://it.wikipedia.org/wiki/Override" target="_blank">overrride</a> per <code>retrieve_values</code>, ed in questo caso la classe concreta riordina i dati prima di ritornarli.
+Visto che <code>ABCWithConcreteImplementation</code> è una classe base astratta, non è possibile istanziarla per usarla direttamente. Le classi derivate <em>devono</em> fornire un <a href="https://it.wikipedia.org/wiki/Override" target="_blank">overrride</a> per <code>retrieve_values</code>, e in questo caso la classe concreta riordina i dati prima di ritornarli.
 </testo_normale>
 <py_output>
 $ python3 abc_concrete_method.py
@@ -142,7 +142,7 @@ La proprietà concreta deve essere definita allo stesso modo di quella astratta.
 $ python3 abc_abstractproperty_rw.py
 </py_output>
 <testo_normale>
-Per usare la sintassi del decoratore con le proprietà di lettura/scrittura astratte, i metodi per ottenere ed impostare il valore dovrebbero essere chiamati allo stesso modo.
+Per usare la sintassi del decoratore con le proprietà di lettura/scrittura astratte, i metodi per ottenere e impostare il valore dovrebbero essere chiamati allo stesso modo.
 </testo_normale>
 <titolo_2>
 Classi Astratte e Metodi Statici

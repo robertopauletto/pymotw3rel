@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="Latin-1"?>
 <target>3</target>
-<categoria>Date ed Orari</categoria><!-- # tag <descrizione> contiene le voci per la tabella di riepilogo iniziale -->
+<categoria>Date e Orari</categoria><!-- # tag <descrizione> contiene le voci per la tabella di riepilogo iniziale -->
 <!-- # tag <titolo_1> titolo principale -->
 <!-- # tag <titolo_1> titolo principale -->
 <!-- tag <testo_normale> contiene il testo normale dell'articolo -->
@@ -13,7 +13,7 @@
 datetime - Manipolazione dei Valori di Data ed Orario
 </titolo_1>
 <descrizione>
-Il modulo datetime include le funzioni e le classi per analizzare, formattare e compiere operazioni aritmetiche su date ed orari.
+Il modulo datetime include le funzioni e le classi per analizzare, formattare e compiere operazioni aritmetiche su date e orari.
 
 </descrizione>
 <titolo_2>
@@ -49,7 +49,7 @@ microsecondo: 0
 zona fuso or: None
 </py_output>
 <testo_normale>
-Una istanza di <code>time</code> contiene solo valori di orario, non una data associata ad un orario
+Una istanza di <code>time</code> contiene solo valori di orario, non una data associata a un orario
 </testo_normale>
 <py_code>
 # datetime_time_minmax.py
@@ -147,7 +147,7 @@ Mese   : 6
 Giorno : 12
 </py_output>
 <testo_normale>
-Ci sono anche metodi di classe per creare istanze da marche temporali POSIX (<code>fromtimestamp()</code>) o da interi che rappresentano valori di data dal <a href="https://it.wikipedia.org/wiki/Calendario_gregoriano_prolettico">calendario Gregoriano</a>, dove il primo gennaio dell'anno 1 vale 1 ed ogni giorno seguente incrementa il valore di 1 (<code>fromordinal()</code>).
+Ci sono anche metodi di classe per creare istanze da marche temporali POSIX (<code>fromtimestamp()</code>) o da interi che rappresentano valori di data dal <a href="https://it.wikipedia.org/wiki/Calendario_gregoriano_prolettico">calendario Gregoriano</a>, dove il primo gennaio dell'anno 1 vale 1 e ogni giorno seguente incrementa il valore di 1 (<code>fromordinal()</code>).
 </testo_normale>
 <py_code>
 # datetime_date_fromordinal.py
@@ -222,7 +222,7 @@ d2: Sun Mar 29 00:00:00 2009
 Intervalli Temporali (timedelta)
 </titolo_2>
 <testo_normale>
-Date future e passate possono essere calcolate utilizzando operazioni aritmetiche su due oggetti <strong>datetime</strong>, oppure combinando un <strong>datetime</strong> con un <code>timedelta</code>. La sottrazione di date produce un <code>timedelta</code>; ed un <code>timedelta</code> può essere aggiunto o sottratto da una data per produrne un'altra. I valori interi di <code>timedelta</code> sono conservati in giorni, secondi e microsecondi.
+Date future e passate possono essere calcolate utilizzando operazioni aritmetiche su due oggetti <strong>datetime</strong>, oppure combinando un <strong>datetime</strong> con un <code>timedelta</code>. La sottrazione di date produce un <code>timedelta</code>; e un <code>timedelta</code> può essere aggiunto o sottratto da una data per produrne un'altra. I valori interi di <code>timedelta</code> sono conservati in giorni, secondi e microsecondi.
 </testo_normale>
 <py_code>
 # datetime_timedelta.py
@@ -326,7 +326,7 @@ domani - ieri: 2 days, 0:00:00
 ieri - domani: -2 days, 0:00:00
 </py_output>
 <testo_normale>
-Un oggetto <code>timedelta</code> supporta anche operazioni aritmetiche con interi, valori a virgola mobile ed altre istanze di <code>timedelta</code>.
+Un oggetto <code>timedelta</code> supporta anche operazioni aritmetiche con interi, valori a virgola mobile e altre istanze di <code>timedelta</code>.
 </testo_normale>
 <py_code>
 # datetime_timedelta_math.py
@@ -345,7 +345,7 @@ meeting_length = datetime.timedelta(hours=1)
 print('riunioni al giorno :', work_day / meeting_length)
 </py_code>
 <testo_normale>
-In questo esempio, sono calcolati diversi multipli per un singolo giorno, ed i risultanti <code>timedelta</code> contengono il numero di giorni od ore appropriato. L'esempio finale dimostra come calcolare valori combinando due oggetti <code>timedelta</code>. In questo caso il risultata è un numero a virgola mobile.
+In questo esempio, sono calcolati diversi multipli per un singolo giorno, e i risultanti <code>timedelta</code> contengono il numero di giorni od ore appropriato. L'esempio finale dimostra come calcolare valori combinando due oggetti <code>timedelta</code>. In questo caso il risultato è un numero a virgola mobile.
 </testo_normale>
 <py_output>
 $ python3 datetime_timedelta_math.py
@@ -360,7 +360,7 @@ riunioni al giorno : 7.0
 Confrontare Valori
 </titolo_2>
 <testo_normale>
-I valori sia di data che di orario possono essere confrontati tramite gli operatori di confronto standard per determinare quale è il più od il meno recente.
+I valori sia di data che di orario possono essere confrontati tramite gli operatori di confronto standard per determinare quale è il più o il meno recente.
 </testo_normale>
 <py_code>
 # datetime_comparing.py
@@ -461,7 +461,7 @@ dt = datetime.datetime.combine(d, t)
 print('dt:', dt)
 </py_code>
 <testo_normale>
-<code>combine()</code> crea istanze di <code>datetime</code> da una istanza di <code>date</code> ed una di <code>time</code>.
+<code>combine()</code> crea istanze di <code>datetime</code> da una istanza di <code>date</code> e una di <code>time</code>.
 </testo_normale>
 <py_output>
 $ python3 datetime_datetime_combine.py
@@ -547,7 +547,7 @@ SIMBOLO;SIGNIFICATO;ESEMPIO
 %Z;Nome della zona di fuso orario;''
 %j;Numero giorno nell'anno;'157'
 %W;Numero settimana nell'anno;'22'
-%c;Rappresentazione di data ed ora per la localizzazione corrente;'05/06/2015 15:00:00'
+%c;Rappresentazione di data e ora per la localizzazione corrente;'05/06/2015 15:00:00'
 %x;Rappresentazione di data per la localizzazione corrente;'05/06/16'
 %X;Rappresentazione di ora per la localizzazione corrente;'15:00:00'
 %%;Il carattere letterale %;'%'
@@ -559,7 +559,7 @@ Zone di Fuso Orario
 All'interno di <strong>datetime</strong>, le zone di fuso orario sono rappresentate da sottoclassi di <code>tzinfo</code>. Visto che <code>tzinfo</code> è una classe base astratta, le applicazioni devono definire una sottoclasse e fornire le implementazioni appropriate per alcuni metodi affinchè siano utilizzabili.
 </testo_normale>
 <testo_normale>
-<strong>datetime</strong> include una implementazione, poco sofisticata se vogliamo, nella classe <code>timezone</code> che utilizza uno scostamento fisso rispetto all'<a href="https://it.wikipedia.org/wiki/Tempo_coordinato_universale">UTC</a> e non supporta valori di scostamento diversi per diversi giorni dell'anno, ad esempio laddove viene applicata l'ora legale, oppure laddove lo scostamento dall'<a href="https://it.wikipedia.org/wiki/Tempo_coordinato_universale">UTC</a> sia mutato nel tempo.
+<strong>datetime</strong> include una implementazione, poco sofisticata se vogliamo, nella classe <code>timezone</code> che utilizza uno scostamento fisso rispetto all'<a href="https://it.wikipedia.org/wiki/Tempo_coordinato_universale">UTC</a> e non supporta valori di scostamento diversi per diversi giorni dell'anno, a esempio laddove viene applicata l'ora legale, oppure laddove lo scostamento dall'<a href="https://it.wikipedia.org/wiki/Tempo_coordinato_universale">UTC</a> sia mutato nel tempo.
 </testo_normale>
 <py_code>
 # datetime_timezone.py
@@ -592,7 +592,7 @@ UTC+00:00 : 2016-06-19 08:05:43.105264+00:00
 UTC+06:00 : 2016-06-19 14:05:43.105264+06:00
 </py_output>
 <note>
-Una migliore implementazione per le zone di fuso orario è fornita dal modulo di terze parti <a href="http://pytz.sourceforge.net/"><strong>pytz</strong></a>. Supporta zone di fuso orario definite ed il database degli scostamenti viene mantenuto aggiornato non appena le modifiche vengono ratificate dagli organi politici in tutto il mondo.
+Una migliore implementazione per le zone di fuso orario è fornita dal modulo di terze parti <a href="http://pytz.sourceforge.net/"><strong>pytz</strong></a>. Supporta zone di fuso orario definite e il database degli scostamenti viene mantenuto aggiornato non appena le modifiche vengono ratificate dagli organi politici in tutto il mondo.
 </note>
 <vedi_anche>
 http://docs.python.org/3.5/library/datetime.html|datetime|La documentazione della libreria standard per questo modulo.
@@ -601,6 +601,6 @@ calendar.html|calendar|Il modulo <code>calendar</code>
 http://labix.org/python-dateutil|dateutil| <code>dateutil</code> da Labix estende il modulo <code>datetime</code> con funzionalità aggiuntive
 http://pytz.sourceforge.net/|pytz|Database delle zone di fuso orario nel mondo e classi per rendere gli oggetti <code>datetime</code> consapevoli delle zone di fuso orario
 https://it.wikipedia.org/wiki/Calendario_gregoriano_prolettico|Wikipedia: Calendario Gregoriano prolettico|Una descrizione dei sistema di calendario Gregoriano
-http://www.iso.org/iso/support/faqs/faqs_widely_used_standards/widely_used_standards_other/date_and_time_format.htm|ISO 8601|La rappresentazione numerica standard di date ed orari
+http://www.iso.org/iso/support/faqs/faqs_widely_used_standards/widely_used_standards_other/date_and_time_format.htm|ISO 8601|La rappresentazione numerica standard di date e orari
 </vedi_anche>
 </documento_tradotto>

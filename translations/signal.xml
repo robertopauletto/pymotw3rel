@@ -16,7 +16,7 @@ Eventi di Sistema Asincroni
 
 </descrizione>
 <testo_normale>
-I segnali sono una caratteristica di un sistema operativo che fornisce mezzi per notificare un programma di un evento, e se è stato gestito in modo asincrono. Possono essere generati dal sistema stesso, oppure inviati da un processo ad un altro. Visto che i segnali interrompono il flusso regolare di un programma, è possibile che alcune operazioni (in particolare di Input/Output) possano produrre errori se un segnale viene ricevuto durante il loro svolgimento.
+I segnali sono una caratteristica di un sistema operativo che fornisce mezzi per notificare un programma di un evento, e se è stato gestito in modo asincrono. Possono essere generati dal sistema stesso, oppure inviati da un processo a un altro. Visto che i segnali interrompono il flusso regolare di un programma, è possibile che alcune operazioni (in particolare di Input/Output) possano produrre errori se un segnale viene ricevuto durante il loro svolgimento.
 </testo_normale>
 <testo_normale>
 I segnali sono identificati da interi e sono definiti nelle intestazioni C del sistema operativo. Python espone i segnali appropriati alla piattaforma come simboli nel modulo <strong>signal</strong>. Gli esempi in questa sezione usano <code>SIGINT</code> e <code>SIGUSR1</code>. Entrambi sono tipicamente definiti per tutti i sistemi Unix e similari.
@@ -54,7 +54,7 @@ while True:
     time.sleep(3)
 </py_code>
 <testo_normale>
-Questo script di esempio esegue un ciclo infiinito, mettendosi in pausa per pochi secondi ogni volta. Quando entra un segnale, la chiamata a <code>sleep()</code> viene interrotta ed il gestore di segnale <code>receive_signal</code> stampa il numero del segnale. Dopo che il gestore di segnale ritorna, il ciclo continua.
+Questo script di esempio esegue un ciclo infinito, mettendosi in pausa per pochi secondi ogni volta. Quando entra un segnale, la chiamata a <code>sleep()</code> viene interrotta e il gestore di segnale <code>receive_signal</code> stampa il numero del segnale. Dopo che il gestore di segnale ritorna, il ciclo continua.
 </testo_normale>
 <testo_normale>
 Si mandino segnali al programma in esecuzione tramite <code>os.kill()</code> oppure con il programma da riga di comando Unix <code>kill</code>
@@ -167,7 +167,7 @@ La funzione per inviare segnali da Python è <code>os.kill()</code>. Il suo uso 
 Allarmi
 </titolo_2>
 <testo_normale>
-Gli allarmi sono un tipo speciale di segnale, dove il programma chiede al sistema operativo di notificarlo dopo che è trascorso un certo periodo di tempo. Come evidenziato dalla documentazione standard del modulo <a href='https://pymotw.com/3/os/index.html#module-os'>os</a>, la cosa è utile per evitare di bloccare indefinitivamente una operazione di Input/Outpu od altra chiamata di sistema.
+Gli allarmi sono un tipo speciale di segnale, dove il programma chiede al sistema operativo di notificarlo dopo che è trascorso un certo periodo di tempo. Come evidenziato dalla documentazione standard del modulo <a href='https://pymotw.com/3/os/index.html#module-os'>os</a>, la cosa è utile per evitare di bloccare all'infinito una operazione di Input/Output o altra chiamata di sistema.
 </testo_normale>
 <py_code>
 # signal_alarm.py
@@ -222,7 +222,7 @@ print('Il mio PID:', os.getpid())
 signal.pause()
 </py_code>
 <testo_normale>
-Normalmente <code>SIGINT</code> (il segnale inviato dalla <a href='https://www.wikiwand.com/it/Shell_(informatica)' target='_blank'>shell</a> ad un programma quando l'utente preme <code>Ctrl-C</code>) solleva una eccezione <code>KeyboardInterrupt</code>. Questo esempio ignora <code>SIGINT</code> e solleva <code>SystemExit</code> quando vede <code>SIGUSR1</code>. Ogni <code>^C</code> nell'output rappresenta il tentativo di usare <code>Ctrl-C</code> per terminare lo script dal terminale. Usando <code>kill -USR1 26880</code> da un altro terminale si causerà l'uscita dello script.
+Normalmente <code>SIGINT</code> (il segnale inviato dalla <a href='https://www.wikiwand.com/it/Shell_(informatica)' target='_blank'>shell</a> a un programma quando l'utente preme <code>Ctrl-C</code>) solleva una eccezione <code>KeyboardInterrupt</code>. Questo esempio ignora <code>SIGINT</code> e solleva <code>SystemExit</code> quando vede <code>SIGUSR1</code>. Ogni <code>^C</code> nell'output rappresenta il tentativo di usare <code>Ctrl-C</code> per terminare lo script dal terminale. Usando <code>kill -USR1 26880</code> da un altro terminale si causerà l'uscita dello script.
 </testo_normale>
 <py_output>
 $ python3 signal_ignore.py
@@ -234,7 +234,7 @@ Il mio PID: 26880
 Segnali e Thread
 </titolo_2>
 <testo_normale>
-Segnali e <a href='https://www.wikiwand.com/it/Thread_(informatica)' target='_blank'>thread</a> in genere non si combinano bene in quanto solo il <a href='https://www.wikiwand.com/it/Thread_(informatica)' target='_blank'>thread</a> principale riceverà segnali. L'esempio di seguito imposta un gestore di segnale, attende il segnale in un <a href='https://www.wikiwand.com/it/Thread_(informatica)' target='_blank'>thread</a>, ed invia il segnale da un altro.
+Segnali e <a href='https://www.wikiwand.com/it/Thread_(informatica)' target='_blank'>thread</a> in genere non si combinano bene in quanto solo il <a href='https://www.wikiwand.com/it/Thread_(informatica)' target='_blank'>thread</a> principale riceverà segnali. L'esempio di seguito imposta un gestore di segnale, attende il segnale in un <a href='https://www.wikiwand.com/it/Thread_(informatica)' target='_blank'>thread</a>, e invia il segnale da un altro.
 </testo_normale>
 <py_code>
 # signal_threads.py
@@ -348,7 +348,7 @@ Fri Feb  3 20:39:28 2017 Uscita normale
 <vedi_anche>
 https://docs.python.org/3.5/library/signal.html|signal|La documentazione della libreria standard per questo modulo.
 https://www.python.org/dev/peps/pep-0475|PEP 475|Falliti tentativi di ripetere chiamate di sistema con EINTR
-#|subprocess|In corso di traduzione
+subprocess.html|subprocess|In corso di traduzione
 os.html#os_fork|Creare Processi con os.fork()|La funzione <code>kill()</code> può essere usata per inviare segnali tra processi
 </vedi_anche>
 </documento_tradotto>

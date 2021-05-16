@@ -2,6 +2,11 @@
   --head-color: #455a64;
 }
 
+.card-content h2 {
+  margin-top: 1rem;
+}
+
+
 #filednl {
   margin-bottom: 0.8rem;
 }
@@ -96,8 +101,8 @@ code {
 
 /* Formattazione colorazione console e sintassi */
 .monospaced-frame {
-  margin-top: 0.9rem;
-  margin-bottom: 0.9rem;
+  margin-top: 1.1rem;
+  margin-bottom: 1.1rem;
   overflow-y: scroll;
   padding: 10px;
   max-height: 400px;
@@ -231,13 +236,18 @@ code {
 dt {
   font-weight: 500;
 }
+
+table {
+  margin-top: 20px;
+}
+
 .table th, .table td {
   padding-left: 8px;
 }
 
 /* Alert divs */
 .alert {
-  margin: 1rem 0.4rem;
+  margin: 1.8rem 0.4rem;
   padding: 1rem 0.8rem !important;
   color: var(--head-color);
   font-weight: bolder;

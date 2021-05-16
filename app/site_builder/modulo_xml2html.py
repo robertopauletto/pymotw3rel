@@ -60,13 +60,14 @@ RE_STRIP_TAG = re.compile(r'[<>/]')
 # MIO tag e non un pezzo di codice od altro I valori sono funzioni parziali
 # per le quali viene valorizzata la parte relativa alla gestione css
 MY_TAGS = {
-    'avvertimento': partial(h.warning),
+    'avvertimento': partial(h.warning,
+                            class_='col s12 alert warning z-depth-2'),
     'categoria': None,
     'descrizione': None,
     'deflist': partial(h.dl),
     'incipit': None,
     'inserito_il': None,
-    'lista': partial(h.ul),
+    'lista': partial(h.ul, class_='browser-default'),
     'lista_ordinata': partial(h.ol),
     'lista_ricorsiva': partial(h.ul),
     'mk_xml_code': partial(
@@ -76,13 +77,11 @@ MY_TAGS = {
         h.code_xml_with_lineno,
         class_='highlight monospaced-frame code-snippet'
     ),
-    'note': partial(h.info),
-    'success': partial(h.success),
-    'danger': partial(h.danger),
+    'note': partial(h.info, class_='col s12 alert info z-depth-2'),
+    'success': partial(h.success, class_='col s12 alert success z-depth-2'),
+    'danger': partial(h.danger, class_='col s12 alert error z-depth-2'),
     'py_code': partial(h.code,
-                       class_='highlight monospaced-frame code-snippet',
-                       )
-    ,
+                       class_='highlight monospaced-frame code-snippet',),
     'py_code_lineno': partial(h.code_with_lineno,
                               class_='highlight monospaced-frame code-snippet'),
     'py_output': partial(
@@ -428,7 +427,7 @@ def render_articolo(file_xml: str, example_folder: str, zip_folder: str,
     file_compresso = None
     if not lista_esempi:
         log.append("Nessun file di esempio trovato per il modulo")
-    if lista_esempi:
+    else:
         file_compresso, not_found = comprimi(example_folder, lista_esempi,
                                              zip_folder, outfile)
         if isinstance(log, list):

@@ -31,10 +31,10 @@ Il resto degli esempi in questo articolo usano il file <code>example.py</code>
 Ispezionare Moduli
 </titolo_2>
 <testo_normale>
-Il primo tipo di introspezione sonda gli oggetti in vita per ottenerne informazioni. Si usi <code>getmembers()</code> per scoprire gli attributi membro dell'oggetto. I tipi di membro che potrebbero essere ritornati dipendono dal tipo di oggetto analizzato. I moduli possono contenere classi e funzioni, le classi possono contenere metodi ed attributi ecc.
+Il primo tipo di introspezione sonda gli oggetti in vita per ottenerne informazioni. Si usi <code>getmembers()</code> per scoprire gli attributi membro dell'oggetto. I tipi di membro che potrebbero essere ritornati dipendono dal tipo di oggetto analizzato. I moduli possono contenere classi e funzioni, le classi possono contenere metodi e attributi ecc.
 </testo_normale>
 <testo_normale>
-Gli argomenti per <code>getmembers()</code> sono un oggetto da analizzare (modulo, classe od istanza) ed una funzione predicato opzionale che viene usata per filtrare gli oggetti ritornati. Il valore ritornato è una lista di tuple con due valori: il nome del membro ed il tipo del membro. Il modulo <strong>inspect</strong> contiene parecchie di queste funzioni predicato con nomi tipo <code>ismodule()</code>, <code>isclass()</code>, ecc.
+Gli argomenti per <code>getmembers()</code> sono un oggetto da analizzare (modulo, classe o istanza) e una funzione predicato opzionale che viene usata per filtrare gli oggetti ritornati. Il valore ritornato è una lista di tuple con due valori: il nome del membro e il tipo del membro. Il modulo <strong>inspect</strong> contiene parecchie di queste funzioni predicato con nomi tipo <code>ismodule()</code>, <code>isclass()</code>, ecc.
 </testo_normale>
 <py_code>
 # inspect_getmembers_module.py
@@ -75,7 +75,7 @@ Le classi sono analizzate usando <code>getmembers()</code> allo stesso modo dei 
 # inspect_getmembers_class.py
 </py_code>
 <testo_normale>
-Visto che non viene applicato alcun filtro, il risultato mostra attributi, metodi, <em>slot</em> ed altri membri della classe.
+Visto che non viene applicato alcun filtro, il risultato mostra attributi, metodi, <em>slot</em> e altri membri della classe.
 </testo_normale>
 <py_output>
 $ python3 inspect_getmembers_class.py
@@ -134,7 +134,7 @@ $ python3  inspect_getmembers_class_methods.py
  ('get_name', <function A.get_name at 0x7fa2b0a07e18>)]
 </py_output>
 <testo_normale>
-Il risultato per <code>B</code> include anche la sovrascrittura del metodo <code>get_name()</code>, ed il metodo ereditato <code>__init__()</code> implementato in <code>A</code>.
+Il risultato per <code>B</code> include anche la sovrascrittura del metodo <code>get_name()</code>, e il metodo ereditato <code>__init__()</code> implementato in <code>A</code>.
 </testo_normale>
 <py_code>
 # inspect_getmembers_class_methods_b.py
@@ -226,7 +226,7 @@ $ python3 inspect_getcomments_module.py
 Recuperare il Sorgente
 </titolo_2>
 <testo_normale>
-Se il file <code>.py</code> è disponibile per un modulo, il codice sorgente originale per la classe od il metodo può essere recuperato usando <code>getsource()</code> e <code>getsourcelines()</code>.
+Se il file <code>.py</code> è disponibile per un modulo, il codice sorgente originale per la classe o il metodo può essere recuperato usando <code>getsource()</code> e <code>getsourcelines()</code>.
 </testo_normale>
 <py_code>
 # inspect_getsource_class.py
@@ -270,7 +270,7 @@ Si usi <code>getsourcelines()</code> invece che <code>getsource()</code> per rec
 # inspect_getsourcelines_method.py
 </py_code>
 <testo_normale>
-Il valore di ritorno da <code>getsourcelines()</code> è una tupla che contiene una lista di stringhe (le righe dal file sorgente), ed un numero di riga di partenza nel file sorgente dove appare.
+Il valore di ritorno da <code>getsourcelines()</code> è una tupla che contiene una lista di stringhe (le righe dal file sorgente), e un numero di riga di partenza nel file sorgente dove appare.
 </testo_normale>
 <py_output>
 $ python3 inspect_getsourcelines_method.py
@@ -307,13 +307,13 @@ Dettagli parametro:
   **kwargs
 </py_output>
 <testo_normale>
-La firma (<code>Signature</code>) di una funzione può essere usata da decoratori od altre funzioni per validare input, fornire valori predefiniti differenti, ecc. Scrivere un decoratore di validazione riutilizzabile e sufficientemente generico presenta una sfida particolare, poichè può essere complicato far corrispondere gli argomenti in entrata con i loro nomi per funzioni che accettano una combinazione di argomenti posizionali e nominativi. I metodi <code>bind()</code> e <code>bind_partial()</code> forniscono la logica necessaria per la gestione della mappatura. Essi ritornano una istanza di <code>BoundArguments</code> popolata con gli argomenti  associati con i nomi degli argomenti di una funzione specificata
+La firma (<code>Signature</code>) di una funzione può essere usata da decoratori o altre funzioni per validare input, fornire valori predefiniti differenti, ecc. Scrivere un decoratore di validazione riutilizzabile e sufficientemente generico presenta una sfida particolare, poichè può essere complicato far corrispondere gli argomenti in entrata con i loro nomi per funzioni che accettano una combinazione di argomenti posizionali e nominativi. I metodi <code>bind()</code> e <code>bind_partial()</code> forniscono la logica necessaria per la gestione della mappatura. Essi ritornano una istanza di <code>BoundArguments</code> popolata con gli argomenti  associati con i nomi degli argomenti di una funzione specificata
 </testo_normale>
 <py_code>
 # inspect_signature_bind.py
 </py_code>
 <testo_normale>
-L'istanza di <code>BoundArguments</code> ha gli attributi <code>args</code> e <code>kwargs</code> che possono essere usati per chiamare la funzione usando la sintassi per espandere la tupla ed il dizionario come argomenti.
+L'istanza di <code>BoundArguments</code> ha gli attributi <code>args</code> e <code>kwargs</code> che possono essere usati per chiamare la funzione usando la sintassi per espandere la tupla e il dizionario come argomenti.
 </testo_normale>
 <py_output>
 $ python3 inspect_signature_bind.py
@@ -352,7 +352,7 @@ kwargs = {}
 Gerarchie di Classi
 </titolo_2>
 <testo_normale>
-<strong>inspect</strong> include due metodi per lavorare direttamente con gerarchie di classi. Il primo, <code>getclasstree()</code>, crea una struttura dati tipo albero basato sulle classi fornite e le loro classi base. CIascun elemento nella lista restituito è una tupla con una classe e la sua classe base od un'altra lista che contiene tuple per le sottoclassi.
+<strong>inspect</strong> include due metodi per lavorare direttamente con gerarchie di classi. Il primo, <code>getclasstree()</code>, crea una struttura dati tipo albero basato sulle classi fornite e le loro classi base. Ciascun elemento nella lista restituito è una tupla con una classe e la sua classe base o un'altra lista che contiene tuple per le sottoclassi.
 </testo_normale>
 <py_code>
 # inspect_getclasstree.py
@@ -393,7 +393,7 @@ $ python3 inspect_getclasstree_unique.py
 Ordine di Risoluzione dei Metodi
 </titolo_2>
 <testo_normale>
-L'altra funzione per lavorare con gerarchie di classi è <code>getmro()</code> che ritorna una tupla di classi nell'ordine nel quale dovrebbero essere scorse quando si risolve un attributo che potrebbe essere ereditato da una classe base usanto l'<em>Ordine di Risoluzione del Metodo</em> (MRO). Ciascuna classe nella sequenza appare una sola volta.
+L'altra funzione per lavorare con gerarchie di classi è <code>getmro()</code> che ritorna una tupla di classi nell'ordine nel quale dovrebbero essere scorse quando si risolve un attributo che potrebbe essere ereditato da una classe base usando l'<em>Ordine di Risoluzione del Metodo</em> (MRO). Ciascuna classe nella sequenza appare una sola volta.
 </testo_normale>
 <py_code>
 # inspect_getmro.py
@@ -422,7 +422,7 @@ C_First:
 Stack e Frame
 </titolo_2>
 <testo_normale>
-Oltre alla intraspezione degli oggetti di codice, <strong>inspect</strong> comprende anche funzioni per ispezionare l'ambiente di esecuzione mentre un programma sta girando. La maggior parte di queste funzioni lavorano con le chiamate allo <a href='https://www.wikiwand.com/it/Pila_(informatica)' target='_blank'>stack</a>, ed operano su *call frame* (subroutine all'interno di una chiamata di stack). Questi oggetti conservano il contesto di esecuzione corrente, incluso i riferimenti al codice in esecuzione, l'operazione che si sta eseguendo così come i valori delle variabili locali e globali. Tipicamente queste informazioni sono usate per costruire *traceback* quando vengono sollevate eccezioni. Possono anche essere utili per registrazioni o per debug di programmi, visto che i frame dello stack possono essere interrogati per scoprire i valori degli argomenti passati alle funzioni.
+Oltre alla introspezione degli oggetti di codice, <strong>inspect</strong> comprende anche funzioni per ispezionare l'ambiente di esecuzione mentre un programma sta girando. La maggior parte di queste funzioni lavorano con le chiamate allo <a href='https://www.wikiwand.com/it/Pila_(informatica)' target='_blank'>stack</a>, e operano su *call frame* (subroutine all'interno di una chiamata di stack). Questi oggetti conservano il contesto di esecuzione corrente, incluso i riferimenti al codice in esecuzione, l'operazione che si sta eseguendo così come i valori delle variabili locali e globali. Tipicamente queste informazioni sono usate per costruire *traceback* quando vengono sollevate eccezioni. Possono anche essere utili per registrazioni o per debug di programmi, visto che i frame dello stack possono essere interrogati per scoprire i valori degli argomenti passati alle funzioni.
 </testo_normale>
 <testo_normale>
 <code>currentframe()</code> ritorna il frame alla sommità dello stack (per la funzione corrente).
@@ -510,7 +510,7 @@ Ci sono altre funzioni per costruire liste di frame in contesti differenti, tipo
 Interfaccia da Riga di Comando
 </titolo_2>
 <testo_normale>
-Il modulo <strong>inspect</strong> include anche una interfaccia da riga di comando per ottenere dettagli circa gli oggetti senza dover scrivere le chiamate in un programma Python separato. L'input è un nome di modulo ed oggetto (opzionale) all'interno del modulo. Il risultato predefinito è il codice sorgente per l'oggetto passato. Usando l'argomento <code>--details</code> verranno stampati i metadati in luogo del sorgente.
+Il modulo <strong>inspect</strong> include anche una interfaccia da riga di comando per ottenere dettagli circa gli oggetti senza dover scrivere le chiamate in un programma Python separato. L'input è un nome di modulo e oggetto (opzionale) all'interno del modulo. Il risultato predefinito è il codice sorgente per l'oggetto passato. Usando l'argomento <code>--details</code> verranno stampati i metadati in luogo del sorgente.
 </testo_normale>
 <py_output>
 $ python3 -m inspect -d example

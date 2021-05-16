@@ -45,5 +45,5 @@ Accesso all'implementazione dell'istruzione <code>import</code>
 optparse
 </titolo_3>
 <testo_normale>
-Libreria per l'elaborazione delle opzioni da riga di comando. L'<a href="https://it.wikipedia.org/wiki/Application_programming_interface">API</a> per argparse è simile a quella fornita da <code>optparse</code> ed in molti casi può essere utilizzata come rimpiazzo diretto aggiornando i nomi delle classi e dei metodi usati.
+Libreria per l'elaborazione delle opzioni da riga di comando. L'<a href="https://it.wikipedia.org/wiki/Application_programming_interface">API</a> per argparse è simile a quella fornita da <code>optparse</code> e in molti casi può essere utilizzata come rimpiazzo diretto aggiornando i nomi delle classi e dei metodi usati.
 </testo_normale>

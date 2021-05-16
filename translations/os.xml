@@ -57,7 +57,7 @@ $ python3 os_listdir.py .
 'os_waitpid_example.py', 'os_walk.py']
 </py_output>
 <testo_normale>
-La funzione <code>walk()</code> attraversa ricorsivamente una directory e per ogni sotto-directory genera una <code>tuple</code> che contiene il percorso della directory, ogni immediata sotto-directory di quel percorso, ed una lista di nomi di tutti i file in quella directory.
+La funzione <code>walk()</code> attraversa ricorsivamente una directory e per ogni sotto-directory genera una <code>tuple</code> che contiene il percorso della directory, ogni immediata sotto-directory di quel percorso, e una lista di nomi di tutti i file in quella directory.
 </testo_normale>
 <py_code>
 # os_walk.py
@@ -171,7 +171,7 @@ os_walk.py file
 Gestire i Permessi del File System
 </titolo_2>
 <testo_normale>
-E' possibile accedere ad informazioni dettagliate riguardo ad un file tramite <code>stat()</code> o <code>lstat</code> (per verificare lo stato di qualcosa che potrebbe essere un <a href='https://www.wikiwand.com/it/Collegamento_simbolico' target='_blank'>collegamento simbolico</a>).
+E' possibile accedere a informazioni dettagliate riguardo a un file tramite <code>stat()</code> o <code>lstat</code> (per verificare lo stato di qualcosa che potrebbe essere un <a href='https://www.wikiwand.com/it/Collegamento_simbolico' target='_blank'>collegamento simbolico</a>).
 <a name='permessifs'></a>
 </testo_normale>
 <py_code>
@@ -283,7 +283,7 @@ Scrivibile: True
 Eseguibile: False
 </py_output>
 <testo_normale>
-La documentazione della libreria per <code>access()</code> include due avvertimenti speciali. Primo, non ha molto senso chiamare <code>access()</code> per verificare se un file possa essere aperto prima dell'effettiva chiamata di <code>open()</code> su di esso. Esiste una piccola ma reale finestra temporale tra le due chiamate durante la quale i permessi del file potrebbero cambiare. L'altro avvertimento si applica per lo più a file system di rete che estendono le semantiche dei permessi POSIX. Alcuni tipi di file system potrebbero rispondere alle chiamate POSIX che un processo ha il permesso di accedere ad un file, poi riportare un errore quando il tentativo viene fatto usando <code>open()</code> per una qualche ragione non verificato tramite la chiamata POSIX. Tutto sommato, è meglio chiamare <code>open()</code> con la modalità richiesta e catturare l'errore <code>IOError</code> eventualmente sollevato in caso di problemi.
+La documentazione della libreria per <code>access()</code> include due avvertimenti speciali. Primo, non ha molto senso chiamare <code>access()</code> per verificare se un file possa essere aperto prima dell'effettiva chiamata di <code>open()</code> su di esso. Esiste una piccola ma reale finestra temporale tra le due chiamate durante la quale i permessi del file potrebbero cambiare. L'altro avvertimento si applica per lo più a file system di rete che estendono le semantiche dei permessi POSIX. Alcuni tipi di file system potrebbero rispondere alle chiamate POSIX che un processo ha il permesso di accedere a un file, poi riportare un errore quando il tentativo viene fatto usando <code>open()</code> per una qualche ragione non verificato tramite la chiamata POSIX. Tutto sommato, è meglio chiamare <code>open()</code> con la modalità richiesta e catturare l'errore <code>IOError</code> eventualmente sollevato in caso di problemi.
 </testo_normale>
 <titolo_2>
 Creare ed Eliminare Directory
@@ -324,7 +324,7 @@ Pulizia
 Lavorare con i Collegamenti Simbolici
 </titolo_2>
 <testo_normale>
-Per le piattaforme ed i file system che li supportano, ci sono funzioni che lavorano con i <a href='https://www.wikiwand.com/it/Collegamento_simbolico' target='_blank'>collegamenti simbolici</a> (symlink).
+Per le piattaforme e i file system che li supportano, ci sono funzioni che lavorano con i <a href='https://www.wikiwand.com/it/Collegamento_simbolico' target='_blank'>collegamenti simbolici</a> (symlink).
 </testo_normale>
 <py_code>
 # os_symlinks.py
@@ -472,7 +472,7 @@ ERRORE: Non è stato possibile cambiare il gruppo effettivo. Rieseguire come roo
 ERRORE: Non è stato possibile cambiare l'utente effettivo. Rieseguire come root,
 </py_output>
 <testo_normale>
-I valori non vengono modificati, visto che non si sta eseguendo come root, un processo non può modificare il valore del proprietario effettivo. Qualsiasi tentativo  di impostare l'identificativo utente od il gruppo a qualsiasi cosa diversa dall'utente corrente causa il sollevamento di un errore <code>OSError</code> Eseguendo lo stesso script usando <code>sudo</code> per partire con i privilegi di root è un'altra storia
+I valori non vengono modificati, visto che non si sta eseguendo come root, un processo non può modificare il valore del proprietario effettivo. Qualsiasi tentativo  di impostare l'identificativo utente o il gruppo a qualsiasi cosa diversa dall'utente corrente causa il sollevamento di un errore <code>OSError</code> Eseguendo lo stesso script usando <code>sudo</code> per partire con i privilegi di root è un'altra storia
 </testo_normale>
 </testo_normale>
 <py_output>
@@ -529,7 +529,7 @@ print('Processo figlio:')
 os.system('echo $TESTVAR')
 </py_code>
 <testo_normale>
-L'oggetto <code>os.environ</code> segue la mappatura standard delle <a href='https://it.wikipedia.org/wiki/Application_programming_interface' target='_blank'>API</a> di Python per recuperare ed impostare valori. Le modifiche ad <code>os.environ</code> sono esportate per i processi figli.
+L'oggetto <code>os.environ</code> segue la mappatura standard delle <a href='https://it.wikipedia.org/wiki/Application_programming_interface' target='_blank'>API</a> di Python per recuperare e impostare valori. Le modifiche ad <code>os.environ</code> sono esportate per i processi figli.
 </testo_normale>
 <py_output>
 $ python3 -u os_environ_example.py
@@ -589,7 +589,7 @@ import os
 os.system('pwd')
 </py_code>
 <testo_normale>
-Il valore di ritorno di <code>system()</code> è il valore di uscita della <a href='https://www.wikiwand.com/it/Shell_(informatica)' target='_blank'>shell</a> che sta eseguendo il programma impacchettata in un numero a 16 bit, con il byte più alto con lo stato di uscita ed il più basso con il numero di segnale che ha causato l'uscita del processo, oppure zero.
+Il valore di ritorno di <code>system()</code> è il valore di uscita della <a href='https://www.wikiwand.com/it/Shell_(informatica)' target='_blank'>shell</a> che sta eseguendo il programma impacchettata in un numero a 16 bit, con il byte più alto con lo stato di uscita e il più basso con il numero di segnale che ha causato l'uscita del processo, oppure zero.
 </testo_normale>
 <py_output>
 $ python3  -u os_system_example.py
@@ -646,7 +646,7 @@ Sat Jan 21 17:03:29 CET 2017
 Creare Processi con os.fork()<span id="os_fork"></span>
 </titolo_2>
 <testo_normale>
-Le funzioni POSIX <code>fork()</code> ed <code>exec()</code> (a disposizione sotto Mac OS X, Linux ed altre varianti Unix) sono esposte tramite il modulo <strong>os</strong>. Sono stati scritti interi libri circa l'affidabilità nell'utilizzo di queste funzioni, quindi si consultino le pubblicazioni per maggiori dettagli rispetto a quelli presentati in questa introduzione.
+Le funzioni POSIX <code>fork()</code> ed <code>exec()</code> (a disposizione sotto Mac OS X, Linux e altre varianti Unix) sono esposte tramite il modulo <strong>os</strong>. Sono stati scritti interi libri circa l'affidabilità nell'utilizzo di queste funzioni, quindi si consultino le pubblicazioni per maggiori dettagli rispetto a quelli presentati in questa introduzione.
 </testo_normale>
 <testo_normale>
 Per creare un nuovo processo come clone di quello corrente si usa <code>fork()</code>.
@@ -672,7 +672,7 @@ Id del processo figlio: 6891
 Sono il figlio
 </py_output>
 <testo_normale>
-Dopo il <a href="https://www.wikiwand.com/it/Fork_(programmazione)" target='_blank'>fork</a> ci sono due processi che stanno eseguendo lo stesso codice. Affinchè un programma possa identificare chi sia chi, deve verificare il valore di ritorno di <code>fork()</code>. Se il valore è <code>0</code>, il processo corrente è il figlio. Altrimenti il programma è in esecuzione nel processo genitore ed il valore di ritorno è l'id del processo figlio.
+Dopo il <a href="https://www.wikiwand.com/it/Fork_(programmazione)" target='_blank'>fork</a> ci sono due processi che stanno eseguendo lo stesso codice. Affinchè un programma possa identificare chi sia chi, deve verificare il valore di ritorno di <code>fork()</code>. Se il valore è <code>0</code>, il processo corrente è il figlio. Altrimenti il programma è in esecuzione nel processo genitore e il valore di ritorno è l'id del processo figlio.
 </testo_normale>
 <py_code>
 # os_kill_example.py
@@ -701,7 +701,7 @@ else:
     time.sleep(5)
 </py_code>
 <testo_normale>
-Il genitore può inviare segnali al processo figlio usando <code>kill()</code> ed il modulo <code>signal</code>. Per prima cosa definisce un gestore di segnale da chiamare quando il segnale viene ricevuto. Poi esegue il <code>fork()</code> e nel genitore si mette in pausa per un breve periodo prima di inviare un segnale USR1 utilizzando <code>kill()</code>. Questo esempio usa una breve pausa per dare tempo al processo figlio di impostare il gestore di segnale. Una vera applicazione, non dovrebbe (o vorrebbe) chiamare <code>sleep()</code>. Nel figlio si imposta il gestore di segnale quindi si mette in pausa per un poco per dare tempo al genitore di inviare il segnale.
+Il genitore può inviare segnali al processo figlio usando <code>kill()</code> e il modulo <code>signal</code>. Per prima cosa definisce un gestore di segnale da chiamare quando il segnale viene ricevuto. Poi esegue il <code>fork()</code> e nel genitore si mette in pausa per un breve periodo prima di inviare un segnale USR1 utilizzando <code>kill()</code>. Questo esempio usa una breve pausa per dare tempo al processo figlio di impostare il gestore di segnale. Una vera applicazione, non dovrebbe (o vorrebbe) chiamare <code>sleep()</code>. Nel figlio si imposta il gestore di segnale quindi si mette in pausa per un poco per dare tempo al genitore di inviare il segnale.
 </testo_normale>
 <py_output>
 $ python3 -u os_kill_example.py
@@ -735,13 +735,13 @@ $ python3 -u os_exec_example.py
 .../python/pymotw-it3.0/dumpscripts
 </py_output>
 <testo_normale>
-Ci sono molte varianti di <code>exec()</code>, a seconda della forma nella quale siano disponibili gli argomenti, oppure in base al fatto che il percorso e l'ambiente del processo genitore devve essere copiato nel figlio ecc. Per tutte le varianti il primo argomento è il percorso od il nome del file ed i restanti argomenti controllano il modo in cui il programma viene eseguito. Essi sono passati sia come argomenti di riga di comando oppure sovrascrivendo l'ambiente del processo (si veda <code>os.environ</code> e <code>os.getenv()</code>). Fare riferimento alla documentazione della libreria per maggiori dettagli.
+Ci sono molte varianti di <code>exec()</code>, a seconda della forma nella quale siano disponibili gli argomenti, oppure in base al fatto che il percorso e l'ambiente del processo genitore devve essere copiato nel figlio ecc. Per tutte le varianti il primo argomento è il percorso o il nome del file e i restanti argomenti controllano il modo in cui il programma viene eseguito. Essi sono passati sia come argomenti di riga di comando oppure sovrascrivendo l'ambiente del processo (si veda <code>os.environ</code> e <code>os.getenv()</code>). Fare riferimento alla documentazione della libreria per maggiori dettagli.
 </testo_normale>
 <titolo_2>
 In Attesa dei Processi Figli
 </titolo_2>
 <testo_normale>
-Diversi programmi molto esigenti dal punto di vista del calcolo utilizzano processori multipli per aggirare le limitazioni nella gestione dei <a href='https://www.wikiwand.com/it/Thread_(informatica)' target='_blank'>thread</a> ed il <a href='https://www.wikiwand.com/it/Lock' target='_blank'>lock</a> globale dell'interprete. Quando si fanno partire parecchi processi per eseguire compiti separati, il processo principale dovrà attendere che finiscano uno o più di questi prima di farne partire di nuovi, per evitare un sovraccarico del server. Ci sono alcuni modi diversi per fare questo utilizzando <code>wait()</code> e le funzioni correlate.
+Diversi programmi molto esigenti dal punto di vista del calcolo utilizzano processori multipli per aggirare le limitazioni nella gestione dei <a href='https://www.wikiwand.com/it/Thread_(informatica)' target='_blank'>thread</a> e il <a href='https://www.wikiwand.com/it/Lock' target='_blank'>lock</a> globale dell'interprete. Quando si fanno partire parecchi processi per eseguire compiti separati, il processo principale dovrà attendere che finiscano uno o più di questi prima di farne partire di nuovi, per evitare un sovraccarico del server. Ci sono alcuni modi diversi per fare questo utilizzando <code>wait()</code> e le funzioni correlate.
 </testo_normale>
 <testo_normale>
 Quando non ha importanza quale processo figlio debba uscire per primo, si usa <code>wait()</code>. Ritorna non appena un qualsiasi processo figlio esce.

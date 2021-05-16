@@ -92,3 +92,16 @@ def elenco_per_indice(tran_dir: str) -> List[Modulo]:
         elenco.append(modulo)
     # Modulo.ordina_per_data(elenco)
     return elenco
+
+
+def translated_module_names(tran_dir: str) -> List[str]:
+    """Ottiene i nomi dei moduli tradotti"""
+    return [mod.nome for mod in elenco_per_indice(tran_dir)]
+
+
+def translated_module_for_automcompletions(tran_dir: str) -> dict:
+    """Ottiene nome e url (basename) dei moduli tradotti"""
+    retval = {}
+    for module in elenco_per_indice(tran_dir):
+        retval[module.nome] = None
+    return retval

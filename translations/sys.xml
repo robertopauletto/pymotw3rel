@@ -157,7 +157,7 @@ La codifica predefinita intena e quella del file system potrebbe essere diversa 
 # sys_unicode.py
 </py_code>
 <testo_normale>
-Invece che dipendere dalla codifica globale predefinita, la maggior parte degli esperti Unicode raccomanda di rendere l'applicazione esplicitamente consapevole dell'Unicode usato. Il che produce due benefici: diverse codifiche Unicode per diverse sorgenti dati possono essere gestite con più chiarezza, ed il numero di assunzioni circa le codifiche nel codice dell'applicazione è ridotto.
+Invece che dipendere dalla codifica globale predefinita, la maggior parte degli esperti Unicode raccomanda di rendere l'applicazione esplicitamente consapevole dell'Unicode usato. Il che produce due benefici: diverse codifiche Unicode per diverse sorgenti dati possono essere gestite con più chiarezza, e il numero di assunzioni circa le codifiche nel codice dell'applicazione è ridotto.
 </testo_normale>
 <py_output>
 $ python3 sys_unicode.py
@@ -287,7 +287,7 @@ Ambiente in Fase di Esecuzione
 Argomenti da Riga di Comando
 </titolo_4>
 <testo_normale>
-Gli argomenti catturati dall'interprete sono elaborati qui e non passati al programma che sta per essere eseguito. Qualunque opzione ed argomento rimanente, compreso il nome dello script stesso, sono salvati in <code>sys.argv</code> in caso che il programma abbia bisogno di usarli.
+Gli argomenti catturati dall'interprete sono elaborati qui e non passati al programma che sta per essere eseguito. Qualunque opzione e argomento rimanente, compreso il nome dello script stesso, sono salvati in <code>sys.argv</code> in caso che il programma abbia bisogno di usarli.
 </testo_normale>
 <py_code>
 # sys_argv.py
@@ -315,7 +315,7 @@ Seguendo il paradigma Unix, i programmi Python possono accedere nella modalità 
 # sys_stdio.py
 </py_code>
 <testo_normale>
-<code>stdin</code> è la modalità predefinita per leggere input, in genere da una console ma anche da altri programmi tramite una <a href='https://www.wikiwand.com/it/Pipeline' target='_blank'><em>pipeline</em></a>. <code>stdout</code> è il modo predefinito per scrivere output per un utente (alla console) o per inviarlo al programma successivo via <em>pipeline</em>. <code>stderr</code> è destinato all'uso per messaggi di errore od avvertimento.
+<code>stdin</code> è la modalità predefinita per leggere input, in genere da una console ma anche da altri programmi tramite una <a href='https://www.wikiwand.com/it/Pipeline' target='_blank'><em>pipeline</em></a>. <code>stdout</code> è il modo predefinito per scrivere output per un utente (alla console) o per inviarlo al programma successivo via <em>pipeline</em>. <code>stderr</code> è destinato all'uso per messaggi di errore o avvertimento.
 </testo_normale>
 <py_output>
 $ cat sys_stdio.py | python3 -u sys_stdio.py
@@ -432,7 +432,7 @@ Asseieme ai valori configurabili in vase di esecuzione, <strong>sys</strong> inc
 # sys_maximums.py
 </py_code>
 <testo_normale>
-<code>maxsize</code> è la dimensione massima di lista, dizionario, stringa od altra struttura dati dettata dal tipo di dimensione dell'interprete C, <code>maxunicode</code> è il più grande punto Unicode intero supportato dall'interprete così come attualmente configurato.
+<code>maxsize</code> è la dimensione massima di lista, dizionario, stringa o altra struttura dati dettata dal tipo di dimensione dell'interprete C, <code>maxunicode</code> è il più grande punto Unicode intero supportato dall'interprete così come attualmente configurato.
 </testo_normale>
 <py_output>
 $ python3 sys_maximums.py

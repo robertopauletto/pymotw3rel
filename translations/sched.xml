@@ -9,7 +9,7 @@ Pianificatore di eventi generico
 
 </descrizione>
 <testo_normale>
-Il modulo <strong>sched</strong> implementa un pianificatore di eventi generico per eseguire compiti ad un orario specifico. La classe per la pianificazione usa una funzione <code>time</code> per ottenere l'orario corrente ed una funzione <code>delay</code> per attendere uno specifico periodo di tempo. Le effettive unità temporali non sono importanti, il che rende l'interfaccia sufficientemente flessibile per l'utilizzo per molti scopi.
+Il modulo <strong>sched</strong> implementa un pianificatore di eventi generico per eseguire compiti a un orario specifico. La classe per la pianificazione usa una funzione <code>time</code> per ottenere l'orario corrente e una funzione <code>delay</code> per attendere uno specifico periodo di tempo. Le effettive unità temporali non sono importanti, il che rende l'interfaccia sufficientemente flessibile per l'utilizzo per molti scopi.
 </testo_normale>
 <testo_normale>
 La funzione <code>time</code> viene chiamata senza argomenti, e dovrebbe ritornare un numero che rappresenta l'orario corrente. La funzione <code>delay</code> viene chiamata con un intero come singolo argomento, usando la stessa scala della funzione <code>time</code>, e dovrebbe attendere quelle unità temporali indicate prima di ritornare. Nella modalità predefinita, sono usate le funzioni <code>monotonic()</code> e <code>sleep</code> dal modulo <a href='time.html' target='_blank'>time</a>, ma gli esempi di questo articolo usano <code>time.time()</code>, anche questa in possesso di tutti i requisiti, poichè facilita la comprensione del risultato.
@@ -21,7 +21,7 @@ Per supportare applicazioni a <em>thread</em> multipli, la funzione di attesa vi
 Eseguire Eventi con un Periodo di Attesa
 </titolo_2>
 <testo_normale>
-Gli eventi possono essere pianificati per una esecuzione dopo un periodo di attesa, oppure ad un dato orario. Per pianificarli con un periodo di attesa, si usi <code>enter()</code>, che riceve quattro argomenti:
+Gli eventi possono essere pianificati per una esecuzione dopo un periodo di attesa, oppure a un dato orario. Per pianificarli con un periodo di attesa, si usi <code>enter()</code>, che riceve quattro argomenti:
 </testo_normale>
 <lista>
 Un numero che rappresenta il periodo di attesa
@@ -30,7 +30,7 @@ La funzione da chiamare
 Una tupla di argomenti per la funzione
 </lista>
 <testo_normale>
-Questo esempio pianifica due eventi differenti da eseguirsi rispettivamente dopo due e tre secondi. Quando scocca l'orario dell'evento, viene chiamato <code>print_event()</code>, che stampa l'orario corrente ed il nome dell'argomento passato all'evento
+Questo esempio pianifica due eventi differenti da eseguirsi rispettivamente dopo due e tre secondi. Quando scocca l'orario dell'evento, viene chiamato <code>print_event()</code>, che stampa l'orario corrente e il nome dell'argomento passato all'evento
 </testo_normale>
 <py_code>
 # sched_basic.py
@@ -48,7 +48,7 @@ L'orario stampato per il primo evento è di due secondi dopo la partenza, e quel
 Eventi Sovrapposti
 </titolo_2>
 <testo_normale>
-La chiamata di <code>run()</code> blocca fino a quando tutti gli eventi sono stati elaborati. Ogni evento viene eseguito nello stesso <em>thread</em>, quindi se un evento impiega più tempo ad eseguirsi rispetto al periodo di attesa impostato tra gli eventi, ci sarà una sovrapposizione. La sovrapposizione viene risolta posticipando l'evento che segue più in là nel tempo. Nessun evento viene perso, ma alcuni eventi potrebbero essere chiamati in ritardo rispetto alla loro pianificazione. Nell'esempio di seguito, <code>long_event()</code> si mette in pausa artificialmente ma la pausa potrebbe altrettanto facilmente essere provocata da una attesa per una lunga operazione di calcolo oppure da un blocco in I/O-
+La chiamata di <code>run()</code> blocca fino a quando tutti gli eventi sono stati elaborati. Ogni evento viene eseguito nello stesso <em>thread</em>, quindi se un evento impiega più tempo a eseguirsi rispetto al periodo di attesa impostato tra gli eventi, ci sarà una sovrapposizione. La sovrapposizione viene risolta posticipando l'evento che segue più in là nel tempo. Nessun evento viene perso, ma alcuni eventi potrebbero essere chiamati in ritardo rispetto alla loro pianificazione. Nell'esempio di seguito, <code>long_event()</code> si mette in pausa artificialmente ma la pausa potrebbe altrettanto facilmente essere provocata da una attesa per una lunga operazione di calcolo oppure da un blocco in I/O-
 </testo_normale>
 <py_code>
 # sched_overlap.py

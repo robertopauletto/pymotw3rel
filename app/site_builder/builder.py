@@ -539,18 +539,18 @@ def _norm_path(modulo: str, def_dir: str, def_ext: str = '.xml') -> str:
     return os.path.abspath(os.path.join(def_dir, modulo))
 
 
-def _check_module_list(module_to_build: list, log: list) -> list:
-    transl_modules = elenco_per_indice(builder_conf['tran_dir'])
-    retval = []
-    for module in module_to_build:
-        if module.endswith('.xml'):
-            module = module.replace('.xml', '')
-        found = len([mod for mod in transl_modules if module == mod.nome])
-        if not found:
-            log.append(f"{module} non esiste o non è stato tradotto")
-            continue
-        retval.append(module)
-    return retval, log
+# def _check_module_list(module_to_build: list, log: list) -> list:
+#     transl_modules = elenco_per_indice(builder_conf['tran_dir'])
+#     retval = []
+#     for module in module_to_build:
+#         if module.endswith('.xml'):
+#             module = module.replace('.xml', '')
+#         found = len([mod for mod in transl_modules if module == mod.nome])
+#         if not found:
+#             log.append(f"{module} non esiste o non è stato tradotto")
+#             continue
+#         retval.append(module)
+#     return retval, log
 
 
 # Funzioni da utilizzare se modulo chiamato
@@ -568,8 +568,8 @@ def build_module(moduli: list) -> tuple:
     log = []
     check_sintassi = None
 
-    modulo = None
-    moduli, log = _check_module_list(moduli, log)
+    # modulo = None
+    # moduli, log = _check_module_list(moduli, log)
     for modulo in moduli:
         modulo = _norm_path(modulo, builder_conf["tran_dir"])
         x = os.getcwd()
@@ -590,7 +590,8 @@ def build_module(moduli: list) -> tuple:
                 modulo, FOOTER,
                 builder_conf["tag_summary"], log
             )
-        log.append("Costruzione pagina %s terminata" % os.path.basename(modulo))
+        log.append(
+            f"Costruzione pagina {os.path.basename(modulo)} terminata\n")
     return log, check_sintassi, modulo
 
 

@@ -92,7 +92,7 @@ Il programma termina a causa di un segnale
 Viene rilevato un errore fatale nell'interprete
 </lista>
 <testo_normale>
-Un esempio dall'articolo su <a href='subprocess.html' target='_blank'>subprocess</a> può essere aggiornato per mostrare cosa succede quando un programma viene terminato da un segnale. Sono coinvolti due file, il programma genitore ed il figlio. Il genitore fa partire il figlio, si mette in pausa, quindi lo termina.
+Un esempio dall'articolo su <a href='subprocess.html' target='_blank'>subprocess</a> può essere aggiornato per mostrare cosa succede quando un programma viene terminato da un segnale. Sono coinvolti due file, il programma genitore e il figlio. Il genitore fa partire il figlio, si mette in pausa, quindi lo termina.
 </testo_normale>
 <py_code>
 # atexit_signal_parent.py

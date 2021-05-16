@@ -16,13 +16,13 @@ Fornisce funzioni per operazioni matematiche specializzate
 
 </descrizione>
 <testo_normale>
-Il modulo <strong>math</strong> implementa molte delle funzioni <a href='https://www.wikiwand.com/it/Institute_of_Electrical_and_Electronics_Engineers'>IEEE</a> che si troverebbero normalmente nelle librerie della piattaforma nativa C per operazioni matematiche complesse usando valori a virgola mobile, compresi logaritmi ed operazioni trigonometriche.
+Il modulo <strong>math</strong> implementa molte delle funzioni <a href='https://www.wikiwand.com/it/Institute_of_Electrical_and_Electronics_Engineers'>IEEE</a> che si troverebbero normalmente nelle librerie della piattaforma nativa C per operazioni matematiche complesse usando valori a virgola mobile, compresi logaritmi e operazioni trigonometriche.
 </testo_normale>
 <titolo_2>
 Costanti Speciali
 </titolo_2>
 <testo_normale>
-Molte operazioni matematiche si basano su costanti speciali. <strong>math</strong> include valori per &#960;  (pi greco), <a href='https://www.wikiwand.com/it/E_(costante_matematica)' target='_blank'>e</a> , <a href='https://www.wikiwand.com/it/NaN' target='_blank'>nan</a>  (non un numero) ed infinito
+Molte operazioni matematiche si basano su costanti speciali. <strong>math</strong> include valori per &#960;  (pi greco), <a href='https://www.wikiwand.com/it/E_(costante_matematica)' target='_blank'>e</a> , <a href='https://www.wikiwand.com/it/NaN' target='_blank'>nan</a>  (non un numero) e infinito
 </testo_normale>
 <py_code>
 # math_constants.py
@@ -49,7 +49,7 @@ inf: inf
 Verificare Valori Eccezionali
 </titolo_2>
 <testo_normale>
-I calcoli a virgola mobile possono risultare in due tipi di valori eccezionali. Il primo di questi, <code>inf</code> (infinito), compare quando il valore <code>double</code> usato per conservare un valore a virgola mobile va in <a href='https://www.wikiwand.com/it/Overflow'>overflow</a> rispetto ad un valore assoluto molto grande.
+I calcoli a virgola mobile possono risultare in due tipi di valori eccezionali. Il primo di questi, <code>inf</code> (infinito), compare quando il valore <code>double</code> usato per conservare un valore a virgola mobile va in <a href='https://www.wikiwand.com/it/Overflow'>overflow</a> rispetto a un valore assoluto molto grande.
 </testo_normale>
 <py_code>
 # math_isinf.py
@@ -70,7 +70,7 @@ for e in range(0, 201, 20):
 </py_code>
 '
 <testo_normale>
-Quando l'esponente nell'esempio raggiunge una dimensione sufficiente, la radice quadrata di <code>x</code>  non può più essere conservata in un <code>double</code>  ed il valore viene registrato come infinito.
+Quando l'esponente nell'esempio raggiunge una dimensione sufficiente, la radice quadrata di <code>x</code>  non può più essere conservata in un <code>double</code>  e il valore viene registrato come infinito.
 </testo_normale>
 <py_output>
 $ python3 math_isinf.py
@@ -106,7 +106,7 @@ except OverflowError as err:
     print(err)
 </py_code>
 <testo_normale>
-La discrepanza viene causata da una differenza di implementazione nella libreria usata da C Pyhton.
+La discrepanza viene causata da una differenza di implementazione nella libreria usata da C Python.
 </testo_normale>
 <py_output>
 $ python3 math_overflow.py
@@ -263,7 +263,7 @@ print('inf, inf:', math.isclose(math.inf, math.inf))
 print('inf, 1.0:', math.isclose(math.inf, 1.0))
 </py_code>
 <testo_normale>
-<code>nan</code> non è mai vicino ad un altro valore, compreso se stesso. <code>inf</code> è vicino solo a se stesso.
+<code>nan</code> non è mai vicino a un altro valore, compreso se stesso. <code>inf</code> è vicino solo a se stesso.
 </testo_normale>
 <py_output>
 $ python3 math_isclose_inf.py
@@ -528,7 +528,7 @@ print('ciclo-for   : {:.20f}'.format(s))
 print('math.fsum() : {:.20f}'.format(math.fsum(values)))
 </py_code>
 <testo_normale>
-Data una sequenza di 10 valori, ciascuno uguale a <code>0.1</code>, il valore atteso per la somma della sequenza è <code>1.0</code>. Visto che <code>0.1</code>  non può essere rappresntato esattamente come valore a virgola mobile, errori vengono introdotti durante la somma a meno che essa venga calcolata con <code>fsum()</code>.
+Data una sequenza di 10 valori, ciascuno uguale a <code>0.1</code>, il valore atteso per la somma della sequenza è <code>1.0</code>. Visto che <code>0.1</code>  non può essere rappresentato esattamente come valore a virgola mobile, errori vengono introdotti durante la somma a meno che essa venga calcolata con <code>fsum()</code>.
 </testo_normale>
 <py_output>
 $ python3 math_fsum.py
@@ -566,7 +566,7 @@ $ python3 math_factorial.py
 Errore calcolando il fattoriale(6.1): factorial() only accepts integral values
 </py_output>
 <testo_normale>
-<code>gamma()</code> è come <code>factorial()</code> eccetto che lavora con numeri reali ed il valore viene spostato di uno (gamma equivale a <code>(n - 1)!</code>).
+<code>gamma()</code> è come <code>factorial()</code> eccetto che lavora con numeri reali e il valore viene spostato di uno (gamma equivale a <code>(n - 1)!</code>).
 </testo_normale>
 <py_code>
 # math_gamma.py
@@ -693,7 +693,7 @@ $ python3 math_gcd.py
 Esponenti e Logaritmi
 </titolo_2>
 <testo_normale>
-Le curve di crescita esponenziale compaiono nelle scienze economiche, fisiche ed altre. Python ha un operatore esponenziale <em>built-in</em> (<code>"**"</code>), ma <code>pow()</code> può essere utile quando un <a href='https://it.wikipedia.org/wiki/Callback' target='_blank'>callback</a> è necessario come argomento di un'altra funzione.
+Le curve di crescita esponenziale compaiono nelle scienze economiche, fisiche e altre. Python ha un operatore esponenziale <em>built-in</em> (<code>"**"</code>), ma <code>pow()</code> può essere utile quando un <a href='https://it.wikipedia.org/wiki/Callback' target='_blank'>callback</a> è necessario come argomento di un'altra funzione.
 </testo_normale>
 <py_code>
 # math_pow.py
@@ -848,7 +848,7 @@ for i in range(0, 10):
     ))
 </py_code>
 <testo_normale>
-A seconda della piattaforma sottostante, l'uso della funzione <em>built-in</em> può offrire una migliore prestazione ed accuratezza usando algoritmi dedicati per base 2, che non si trovano nella funzione a scopo più generale.
+A seconda della piattaforma sottostante, l'uso della funzione <em>built-in</em> può offrire una migliore prestazione e accuratezza usando algoritmi dedicati per base 2, che non si trovano nella funzione a scopo più generale.
 </testo_normale>
 <py_output>
 $ python3 math_log2.py
@@ -1186,7 +1186,7 @@ for r in [0, 0.5, 1]:
     print()
 </py_code>
 <testo_normale>
-<code>1.57</code> corrisponde pressappoco a <code>&#960;/2</code>, o 90 gradi, l'angolo al quale il seno è <code>1</code> ed il coseno è <code>0</code>.
+<code>1.57</code> corrisponde pressappoco a <code>&#960;/2</code>, o 90 gradi, l'angolo al quale il seno è <code>1</code> e il coseno è <code>0</code>.
 </testo_normale>
 <py_output>
 $ python3 math_inverse_trig.py
@@ -1207,7 +1207,7 @@ arcotangente(1.0) =  0.79
 Funzioni Iperboliche
 </titolo_2>
 <testo_normale>
-Le funzioni iperboliche appaiono in diverse equazioni lineari e sono usate lavorando con campi elettromagnetici, dinamica dei fluid, relatività speciale ed altre forme avanzate di matematica e fisica.
+Le funzioni iperboliche appaiono in diverse equazioni lineari e sono usate lavorando con campi elettromagnetici, dinamica dei fluid, relatività speciale e altre forme avanzate di matematica e fisica.
 </testo_normale>
 <py_code>
 # math_hyperbolic.py

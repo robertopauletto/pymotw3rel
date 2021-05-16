@@ -10,7 +10,7 @@
 namedtuple - Sottoclasse di tuple con campi nominativi
 </titolo_1>
 <descrizione>
-<code>namedtuple</code> assegna nomi, assieme ad indici numerici, ad ogni membro.
+<code>namedtuple</code> assegna nomi, assieme a indici numerici, a ogni membro.
 
 </descrizione>
 <testo_normale>
@@ -48,13 +48,13 @@ Bob ha 30 anni, maschio
 Jane ha 29 anni, femmina
 </py_output>
 <testo_normale>
-D'altro canto, ricordare quale indice dovrebbe essere usato per ciascun valore può portare ad errori, specialmente se la <code>tuple</code> ha molti campi ed è costruita in una parte del codice molto lontana da quella in cui viene usata. Una <code>namedtuple</code> assegna nomi, assieme ad indici numerici, ad ogni membro.
+D'altro canto, ricordare quale indice dovrebbe essere usato per ciascun valore può portare a errori, specialmente se la <code>tuple</code> ha molti campi ed è costruita in una parte del codice molto lontana da quella in cui viene usata. Una <code>namedtuple</code> assegna nomi, assieme a indici numerici, a ogni membro.
 </testo_normale>
 <titolo_3>
 Definizione
 </titolo_3>
 <testo_normale>
-Le istanze di <code>namedtuple</code> hanno la stessa efficienza per quanto riguarda l'uso della memoria rispetto alle normali tuple visto che non hanno dizionari costruiti per ogni istanza. Ciascun tipo di <code>namedtuple</code> viene rappresentato dalla sua propria classe, creata dalla funzione di <a href='http://it.wikipedia.org/wiki/Factory_method'>factory</a> <code>namedtuple()</code>. Gli argomenti sono il nome della nuova classe ed una stringa che contiene i nomi degli elementi.
+Le istanze di <code>namedtuple</code> hanno la stessa efficienza per quanto riguarda l'uso della memoria rispetto alle normali tuple visto che non hanno dizionari costruiti per ogni istanza. Ciascun tipo di <code>namedtuple</code> viene rappresentato dalla sua propria classe, creata dalla funzione di <a href='http://it.wikipedia.org/wiki/Factory_method'>factory</a> <code>namedtuple()</code>. Gli argomenti sono il nome della nuova classe e una stringa che contiene i nomi degli elementi.
 </testo_normale>
 <py_code>
 # collections_namedtuple_person.py
@@ -103,7 +103,7 @@ print('\nRappresentazione:', pat)
 pat.anni = 21
 </py_code>
 <testo_normale>
-Il tentativo di modificare un valore attraverso l'attributo nomnativo solleva una eccezione <code>AttributeError</code>
+Il tentativo di modificare un valore attraverso l'attributo nominativo solleva una eccezione <code>AttributeError</code>
 </testo_normale>
 <py_output>
 $ python3 collections_namedtuple_immutable.py
@@ -164,7 +164,7 @@ print(two_ages._fields)
 
 </py_code>
 <testo_normale>
-I nuovi nomi per i campi rinominati dipendono dal loro indice nella tupla, quindi il campo chiamato <code>class</code> diventa <code>_1</code> ed il campo duplicato anni viene modificato in <code>_2</code>
+I nuovi nomi per i campi rinominati dipendono dal loro indice nella tupla, quindi il campo chiamato <code>class</code> diventa <code>_1</code> e il campo duplicato anni viene modificato in <code>_2</code>
 </testo_normale>
 <py_output>
 $ python3 collections_namedtuple_rename.py
@@ -176,7 +176,7 @@ $ python3 collections_namedtuple_rename.py
 Attributi Speciali
 </titolo_2>
 <testo_normale>
-<code>namedtuple</code> fornisce parecchi metodi ed attributi utili per lavorare con sottoclassi ed istanze. Tutte queste proprietà <em>built-in</em> hanno nomi prefissati da un carattere di sottolineatura (<code>_</code>) che per convenzione nella maggior parte dei programmi Python indica un attributo privato. Tudttavia per <code>namedtuple</code> il prefisso è concepito per la protezione del nome da collisioni con nomi di attributi forniti dall'utente.
+<code>namedtuple</code> fornisce parecchi metodi e attributi utili per lavorare con sottoclassi e istanze. Tutte queste proprietà <em>built-in</em> hanno nomi prefissati da un carattere di sottolineatura (<code>_</code>) che per convenzione nella maggior parte dei programmi Python indica un attributo privato. Tuttavia per <code>namedtuple</code> il prefisso è concepito per la protezione del nome da collisioni con nomi di attributi forniti dall'utente.
 </testo_normale>
 <testo_normale>
 I nomi dei campi passati a <code>namedtuple</code> per definire la nuova classe sono salvati nell'attributo <code>_fields</code>.

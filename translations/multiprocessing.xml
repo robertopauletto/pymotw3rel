@@ -32,7 +32,7 @@ Il risultato include la parola "Worker" stampata cinque volte, sebbene possa non
 $ python3 multiprocessing_simple.py
 </py_output>
 <testo_normale>
-In genere è' più utile essere in grado di generare un processo con argomenti per dirgli che lavoro dovrà fare. A differenza di <strong>threading</strong>, per passare argomenti ad un oggetto <code>multiprocessing.Process</code>, essi devono potere essere serializzati usando <a href="pickle.html">pickle</a>. Questo esempio passa a ciascun elaboratore un numero da stampare.
+In genere è' più utile essere in grado di generare un processo con argomenti per dirgli che lavoro dovrà fare. A differenza di <strong>threading</strong>, per passare argomenti a un oggetto <code>multiprocessing.Process</code>, essi devono potere essere serializzati usando <a href="pickle.html">pickle</a>. Questo esempio passa a ciascun elaboratore un numero da stampare.
 </testo_normale>
 <py_code>
 # multiprocessing_simpleargs.py
@@ -131,7 +131,7 @@ $ python3 multiprocessing_daemon_join_timeout.py
 Terminare i Processi
 </titolo_2>
 <testo_normale>
-Quantunque sia meglio usare il metodo della <em>pillola avvelenata</em> di segnalare ad un processo che dovrebbe uscire (vedere <a href='multiprocessing.html#pmp'>Passare Messaggi ai Processi</a>), se un processo appare bloccato potrebbe essere utile essere capaci di eliminarlo forzatamente. La chiamata di <code>terminate()</code> su di un oggetto processo elimina il processo figlio
+Quantunque sia meglio usare il metodo della <em>pillola avvelenata</em> di segnalare a un processo che dovrebbe uscire (vedere <a href='multiprocessing.html#pmp'>Passare Messaggi ai Processi</a>), se un processo appare bloccato potrebbe essere utile essere capaci di eliminarlo forzatamente. La chiamata di <code>terminate()</code> su di un oggetto processo elimina il processo figlio
 </testo_normale>
 <py_code>
 # multiprocessing_terminate.py
@@ -212,13 +212,13 @@ $ python3 multiprocessing_subclass.py
 Passare Messaggi ai Processi</a>
 </titolo_2>
 <testo_normale>
-Analogamente ai <em>thread</em>, un modello di uso comune per processi multipli è dividere una attività tra diversi esecutori che sono in esecuzione in parallelo. Un uso efficace di processi multipli in genere richiede un certo livello di comunicazione tra di essi, in modo che il lavoro possa essere diviso ed i risultati aggregati. Un semplice modo di comunicare tra processi con <strong>multiprocessing</strong> è usare un oggetto <code>Queue</code> per passare messaggi. Qualunque oggetto che possa essere serializzato con <a href='pickle.html'>pickle</a> può essere passato attraverso <code>Queue</code>
+Analogamente ai <em>thread</em>, un modello di uso comune per processi multipli è dividere una attività tra diversi esecutori che sono in esecuzione in parallelo. Un uso efficace di processi multipli in genere richiede un certo livello di comunicazione tra di essi, in modo che il lavoro possa essere diviso e i risultati aggregati. Un semplice modo di comunicare tra processi con <strong>multiprocessing</strong> è usare un oggetto <code>Queue</code> per passare messaggi. Qualunque oggetto che possa essere serializzato con <a href='pickle.html'>pickle</a> può essere passato attraverso <code>Queue</code>
 </testo_normale>
 <py_code>
 # multiprocessing_queue.py
 </py_code>
 <testo_normale>
-Questo breve esempio passa solo un singolo messaggio ad un singolo esecutore, poi il processo principale attende che l'esecutore finisca.
+Questo breve esempio passa solo un singolo messaggio a un singolo esecutore, poi il processo principale attende che l'esecutore finisca.
 </testo_normale>
 <py_output>
 $ python3 multiprocessing_queue.py
@@ -239,7 +239,7 @@ $ python3 multiprocessing_producer_consumer.py
 Segnalazioni tra Processi
 </titolo_2>
 <testo_normale>
-La classe <code>Event</code> fornisce un semplice modo per comunicare informazioni di stato tra i processi. Un evento può alternare il suo stato tra impostato e non impostato. Gli utenti dell'oggetto evento possono attendere che lo stesso passi da non impostato ad impostato, usando un valore opzionale di pausa.
+La classe <code>Event</code> fornisce un semplice modo per comunicare informazioni di stato tra i processi. Un evento può alternare il suo stato tra impostato e non impostato. Gli utenti dell'oggetto evento possono attendere che lo stesso passi da non impostato a impostato, usando un valore opzionale di pausa.
 </testo_normale>
 <py_code>
 # multiprocessing_event.py
@@ -269,7 +269,7 @@ $ python3 multiprocessing_lock.py
 Sincronizzare le Operazioni
 </titolo_2>
 <testo_normale>
-Si possono usare oggetti <code>Condition</code> per sincronizzare parti di flusso di lavoro in modo che alcune vengano eseguite in parallelo ed altri in modo sequenziale, anche se sono in processi separati.
+Si possono usare oggetti <code>Condition</code> per sincronizzare parti di flusso di lavoro in modo che alcune vengano eseguite in parallelo e altri in modo sequenziale, anche se sono in processi separati.
 </testo_normale>
 <py_code>
 # multiprocessing_condition.py
@@ -284,13 +284,13 @@ $ python3 multiprocessing_condition.py
 Controllare l'Accesso Simultaneo alle Risorse
 </titolo_2>
 <testo_normale>
-Talvolta è utile consentire a più di un esecutore alla volta di accedere ad una risorsa, limitando comunque il numero di accessi totale. Ad esempio un <em>pool</em> di connessioni potrebbe supportare un numero fisso di connessioni simultanee, oppure una applicazione di rete potrebbe supportare un numero fisso di scaricamenti concorrenti. Un modo per gestire queste connessioni è usare <code>Semaphore</code>
+Talvolta è utile consentire a più di un esecutore alla volta di accedere a una risorsa, limitando comunque il numero di accessi totale. Ad esempio un <em>pool</em> di connessioni potrebbe supportare un numero fisso di connessioni simultanee, oppure una applicazione di rete potrebbe supportare un numero fisso di scaricamenti concorrenti. Un modo per gestire queste connessioni è usare <code>Semaphore</code>
 </testo_normale>
 <py_code>
 # multiprocessing_semaphore.py
 </py_code>
 <testo_normale>
-In questo esempio, la classe <code>ActivePool</code> serve semplicemente come un sistema conveniente per tracciare quali processi sono in esecuzione ad un dato momento. Un vero <em>pool</em> di risorse probabilmente avrebbe allocato una connessione o un qualche altro valore al nuovo processo attivo, e recuperato il valore alla fine dell'esecuzione del compito. Qui il <em>pool</em> è usato semplicemente per mantenere i nomi dei processi attivi per mostrare che sono tre sono in esecuzione contemporanea.
+In questo esempio, la classe <code>ActivePool</code> serve semplicemente come un sistema conveniente per tracciare quali processi sono in esecuzione a un dato momento. Un vero <em>pool</em> di risorse probabilmente avrebbe allocato una connessione o un qualche altro valore al nuovo processo attivo, e recuperato il valore alla fine dell'esecuzione del compito. Qui il <em>pool</em> è usato semplicemente per mantenere i nomi dei processi attivi per mostrare che sono tre sono in esecuzione contemporanea.
 </testo_normale>
 <py_output>
 $ python3 multiprocessing_semaphore.py
@@ -299,7 +299,7 @@ $ python3 multiprocessing_semaphore.py
 Gestire lo Stato Condiviso
 </titolo_2>
 <testo_normale>
-Nell'esempio precedente, la lista di processi attivi viene mantenuta centralmente nell'istanza <code>ActivePool</code> grazie ad un tipo di oggetto speciale creato da un <code>Manager</code>. Questo oggetto è responsabile del coordinamento delle informazioni di stato condivise tra tutti gli utenti
+Nell'esempio precedente, la lista di processi attivi viene mantenuta centralmente nell'istanza <code>ActivePool</code> grazie a un tipo di oggetto speciale creato da un <code>Manager</code>. Questo oggetto è responsabile del coordinamento delle informazioni di stato condivise tra tutti gli utenti
 </testo_normale>
 <py_code>
 # multiprocessing_manager_dict.py
@@ -368,13 +368,13 @@ $ python3 multiprocessing_pool_maxtasksperchild.py
 Passare Messaggi ai Processi
 </titolo_2>
 <testo_normale>
-Analogamente ai <em>thread</em>, un modello di uso comune per processi multipli è dividere una attività tra diversi esecutori che sono in esecuzione in parallelo. Un uso efficace di processi multipli in genere richiede un certo livello di comunicazione tra di essi, in modo che il lavoro possa essere diviso ed i risultati aggregati. Un semplice modo di comunicare tra processi con <strong>multiprocessing</strong> è usare un oggetto <code>Queue</code> per passare messaggi. Qualunque oggetto che possa essere serializzato con <a href='pickle.html'>pickle</a> può essere passato attraverso <code>Queue</code>
+Analogamente ai <em>thread</em>, un modello di uso comune per processi multipli è dividere una attività tra diversi esecutori che sono in esecuzione in parallelo. Un uso efficace di processi multipli in genere richiede un certo livello di comunicazione tra di essi, in modo che il lavoro possa essere diviso e i risultati aggregati. Un semplice modo di comunicare tra processi con <strong>multiprocessing</strong> è usare un oggetto <code>Queue</code> per passare messaggi. Qualunque oggetto che possa essere serializzato con <a href='pickle.html'>pickle</a> può essere passato attraverso <code>Queue</code>
 </testo_normale>
 <py_code>
 # multiprocessing_queue.py
 </py_code>
 <testo_normale>
-Questo breve esempio passa solo un singolo messaggio ad un singolo esecutore, poi il processo principale attende che l'esecutore finisca.
+Questo breve esempio passa solo un singolo messaggio a un singolo esecutore, poi il processo principale attende che l'esecutore finisca.
 </testo_normale>
 <py_output>
 $ python3 multiprocessing_queue.py
@@ -395,7 +395,7 @@ $ python3 multiprocessing_producer_consumer.py
 Segnalazioni tra Processi
 </titolo_2>
 <testo_normale>
-La classe <code>Event</code> fornisce un semplice modo per comunicare informazioni di stao tra i processi. Un evento può essere portato in stato di impostato e non impostato. Gli utenti dell'oggetto evento possono attendere che lo stesso passi da non impostato ad impostato, usando un valore opzionale di pausa.
+La classe <code>Event</code> fornisce un semplice modo per comunicare informazioni di stao tra i processi. Un evento può essere portato in stato di impostato e non impostato. Gli utenti dell'oggetto evento possono attendere che lo stesso passi da non impostato a impostato, usando un valore opzionale di pausa.
 </testo_normale>
 <py_code>
 # multiprocessing_event.py
@@ -425,7 +425,7 @@ $ python3 multiprocessing_lock.py
 Sincronizzare le Operazioni
 </titolo_2>
 <testo_normale>
-Si possono usare oggetti <code>Condition</code> per sincronizzare parti di flusso di lavoro in modo che alcune vengano eseguite in parallelo ed altri in modo sequenziale, anche se sono in processi separati.
+Si possono usare oggetti <code>Condition</code> per sincronizzare parti di flusso di lavoro in modo che alcune vengano eseguite in parallelo e altri in modo sequenziale, anche se sono in processi separati.
 </testo_normale>
 <py_code>
 # multiprocessing_condition.py
@@ -440,13 +440,13 @@ $ python3 multiprocessing_condition.py
 Controllare l'Accesso Simultaneo alle Risorse
 </titolo_2>
 <testo_normale>
-Talvolta è utile consentire a più di un esecutore alla volta di accedere ad una risorsa, limitando comunque il numero di accessi totale. Ad esempio un <em>pool</em> di connessioni potrebbe supportare un numero fisso di connessioni simultanee, oppure una applicazione di rete potrebbe supportare un numero fisso di scaricamenti concorrenti. Un modo per gestire queste connessioni è usare <code>Semaphore</code>
+Talvolta è utile consentire a più di un esecutore alla volta di accedere a una risorsa, limitando comunque il numero di accessi totale. Ad esempio un <em>pool</em> di connessioni potrebbe supportare un numero fisso di connessioni simultanee, oppure una applicazione di rete potrebbe supportare un numero fisso di scaricamenti concorrenti. Un modo per gestire queste connessioni è usare <code>Semaphore</code>
 </testo_normale>
 <py_code>
 # multiprocessing_semaphore.py
 </py_code>
 <testo_normale>
-In questo esempio, la classe <code>ActivePool</code> serve semplicemente come un sistema conveniente per tracciare quali processi sono in esecuzione ad un dato momento. Un vero <em>pool</em> di risorse probabilmente avrebbe allocato una connessione o un qualche altro valore al nuovo processo attivo, e recuperato il valore alla fine dell'esecuzione del compito. Qui il <em>pool</em> è usato semplicemente per mantenere i nomi dei processi attivi per mostrare che solo tre sono in esecuzione contemporanea.
+In questo esempio, la classe <code>ActivePool</code> serve semplicemente come un sistema conveniente per tracciare quali processi sono in esecuzione a un dato momento. Un vero <em>pool</em> di risorse probabilmente avrebbe allocato una connessione o un qualche altro valore al nuovo processo attivo, e recuperato il valore alla fine dell'esecuzione del compito. Qui il <em>pool</em> è usato semplicemente per mantenere i nomi dei processi attivi per mostrare che solo tre sono in esecuzione contemporanea.
 </testo_normale>
 <py_output>
 $ python3 multiprocessing_semaphore.py
@@ -455,7 +455,7 @@ $ python3 multiprocessing_semaphore.py
 Gestire lo Stato Condiviso
 </titolo_2>
 <testo_normale>
-Nell'esempio precedente, la lista di processi attivi viene mantenuta centralmente nell'istanza <code>ActivePool</code> grazie ad un tipo di oggetto lista speciale creato da un <code>Manager</code>. Questo oggetto è responsabile del coordinamento delle informazioni di stato condivise tra tutti gli utenti
+Nell'esempio precedente, la lista di processi attivi viene mantenuta centralmente nell'istanza <code>ActivePool</code> grazie a un tipo di oggetto lista speciale creato da un <code>Manager</code>. Questo oggetto è responsabile del coordinamento delle informazioni di stato condivise tra tutti gli utenti
 </testo_normale>
 <py_code>
 # multiprocessing_manager_dict.py
@@ -527,7 +527,7 @@ Implementare MapReduce
 La classe <code>Pool</code> può essere usata per creare una semplice implementazione MapReduce di un server singolo. Sebbene non fornisca i pieni benefici di una distribuzione del processo, illustra quanto sia facile suddividere e distribuire alcuni problemi in unità di elaborazione.
 </testo_normale>
 <testo_normale>
-In un sistema basato su MapReduce, i dati in entrata sono suddivisi in spezzoni da elaborare da diverse istanze di esecutori. Ogni spezzone viene <em>mappato</em> ad uno stato intermedio usando una semplice trasformazione. I dati intermedi vengono poi raccolti insieme e partizionati in base ad un valore chiave in modo che tutti i valori collegati siano insieme. In ultimo il dato partizionato viene <em>ridotto</em> ad un insieme di risultati.
+In un sistema basato su MapReduce, i dati in entrata sono suddivisi in spezzoni da elaborare da diverse istanze di esecutori. Ogni spezzone viene <em>mappato</em> a uno stato intermedio usando una semplice trasformazione. I dati intermedi vengono poi raccolti insieme e partizionati in base a un valore chiave in modo che tutti i valori collegati siano insieme. In ultimo il dato partizionato viene <em>ridotto</em> a un insieme di risultati.
 </testo_normale>
 <py_code>
 # multiprocessing_mapreduce.py
@@ -539,7 +539,7 @@ Lo script di esempio che segue usa <code>SimpleMapReduce</code> per contare le p
 # multiprocessing_wordcount.py
 </py_code>
 <testo_normale>
-La funzione <code>file_to_words</code> converte ogni file in input in una sequenza di tuple che contengono la parola e il numero <code>1</code> che rappresenta una singola occorrenza. I dati sono poi divisi da <code>partition</code> usando la parola come chiave, in modo che la struttura risultante consiste in una chiave ed una sequenza di valori <code>1</code> che rappresentano ciascuna occorrenza della parola. I dati partizionati sono convertiti in un insieme di tuple che contengono una parola ed il conteggio per quella parola effettuato da <code>count_words()</code> durante la fase di riduzione.
+La funzione <code>file_to_words</code> converte ogni file in input in una sequenza di tuple che contengono la parola e il numero <code>1</code> che rappresenta una singola occorrenza. I dati sono poi divisi da <code>partition</code> usando la parola come chiave, in modo che la struttura risultante consiste in una chiave e una sequenza di valori <code>1</code> che rappresentano ciascuna occorrenza della parola. I dati partizionati sono convertiti in un insieme di tuple che contengono una parola e il conteggio per quella parola effettuato da <code>count_words()</code> durante la fase di riduzione.
 </testo_normale>
 <py_output>
 $ python3 multiprocessing_wordcount.py

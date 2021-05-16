@@ -9,7 +9,7 @@
 <!-- tag <lista> ogni riga all'interno del tag rappresenta una riga di una lista non ordinata'-->
 <documento_tradotto>
 <titolo_1>
-select - Gestisce con efficienza l'attesa per I/O
+select - Gestisce con Efficienza l'Attesa per I/O
 </titolo_1>
 <descrizione>
 Attende la notifica che un canale input od output è pronto.
@@ -55,7 +55,7 @@ server.bind(server_address)
 server.listen(5)
 </py_code>
 <testo_normale>
-Gli argomenti per <code>select()</code> sono tre liste che contegono i canali da monitorare. La prima è una lista degli oggetti che devono essere controllati per la lettura dei dati in arrivo, la seconda contiene gli oggetti che riceveranno i dati in uscita quando vi è spazio nei propri <a href='https://www.wikiwand.com/it/Buffer' target='_blank'>buffer</a>, e la terza è quella che potrebbe avere un errore (in genere una combinazione degli oggetti dei canali di input e output). Il passo successivo nel server è l'impostazione delle liste che contengono le sorgenti di input e le destinazioni di output da passare a <code>select()</code>.
+Gli argomenti per <code>select()</code> sono tre liste che contengono i canali da monitorare. La prima è una lista degli oggetti che devono essere controllati per la lettura dei dati in arrivo, la seconda contiene gli oggetti che riceveranno i dati in uscita quando vi è spazio nei propri <a href='https://www.wikiwand.com/it/Buffer' target='_blank'>buffer</a>, e la terza è quella che potrebbe avere un errore (in genere una combinazione degli oggetti dei canali di input e output). Il passo successivo nel server è l'impostazione delle liste che contengono le sorgenti di input e le destinazioni di output da passare a <code>select()</code>.
 </testo_normale>
 <py_code>
 # Socket dai quali ci si attende una lettura
@@ -73,7 +73,7 @@ Le connessioni sono aggiunte e rimosse da queste liste dal ciclo principale del 
 message_queues = {}
 </py_code>
 <testo_normale>
-La parte principale del programma server esegue un ciclo, chiamando <code>select</code> per interrompersi ed attendere l'attività di rete.
+La parte principale del programma server esegue un ciclo, chiamando <code>select</code> per interrompersi e attendere l'attività di rete.
 </testo_normale>
 <py_code>
 while inputs:
@@ -86,10 +86,10 @@ while inputs:
                                                     inputs)
 </py_code>
 <testo_normale>
-<code>select()</code> ritorna tre nuove liste, che contengono sottoinsiemi dei contentuti delle liste ricevute in input. Tutti i socket nella list <code>readable</code> hanno dati in arrivo nel buffer e sono disponibili per la lettura. Tutti i socket della lista <code>writable</code> hanno spazio libero nel loro buffer e vi si può scrivere. I socket ritornati in <code>exceptional</code> hanno avuto un errore (la vera definizione di "condizione di eccezione" dipende dalla piattaforma).
+<code>select()</code> ritorna tre nuove liste, che contengono sottoinsiemi dei contenuti delle liste ricevute in input. Tutti i socket nella list <code>readable</code> hanno dati in arrivo nel buffer e sono disponibili per la lettura. Tutti i socket della lista <code>writable</code> hanno spazio libero nel loro buffer e vi si può scrivere. I socket ritornati in <code>exceptional</code> hanno avuto un errore (la vera definizione di "condizione di eccezione" dipende dalla piattaforma).
 </testo_normale>
 <testo_normale>
-I socket "leggibili" rappresentano tre possibili casi. Se il socket è quello principale del server, quallo usato per ascoltare connessioni in arrivo, allora la condizione "leggibile" significa che è pronto ad accettare un'altra connessione in arrivo. Oltre ad aggiungere una nuova connessione alla lista di input da monitorare, questa parte di codice imposta il socket client per non bloccare.
+I socket "leggibili" rappresentano tre possibili casi. Se il socket è quello principale del server, quello usato per ascoltare connessioni in arrivo, allora la condizione "leggibile" significa che è pronto ad accettare un'altra connessione in arrivo. Oltre ad aggiungere una nuova connessione alla lista di input da monitorare, questa parte di codice imposta il socket client per non bloccare.
 </testo_normale>
 <py_code>
 # Gestione input
@@ -124,7 +124,7 @@ Il prossimo caso è una connessione stabilita con un client che ha inviato dati.
                     outputs.append(s)
 </py_code>
 <testo_normale>
-Un socket leggibile <em>senza</em> dati disponibili proviene da un client che è stato disconnesso, ed il canale è pronto per essere chiuso.
+Un socket leggibile <em>senza</em> dati disponibili proviene da un client che è stato disconnesso, e il canale è pronto per essere chiuso.
 </testo_normale>
 <py_code>
             else:
@@ -212,7 +212,7 @@ Quindi invia una parte di messaggio alla volta tramite ciascun socket e legge tu
 for message in messages:
     outgoing_data = message.encode()
 
-    # Invia messaggi ad entrambi i socket
+    # Invia messaggi a entrambi i socket
     for s in socks:
         print('{}: in invio {!r}'.format(s.getsockname(),
                                         outgoing_data),
@@ -231,7 +231,7 @@ for message in messages:
             s.close()
 </py_code>
 <testo_normale>
-Eseguire il server in una finestra di terminale ed il client in un'altra. L'output dovrebbe essere tipo questo, con numeri di porte diverse.
+Eseguire il server in una finestra di terminale e il client in un'altra. L'output dovrebbe essere tipo questo, con numeri di porte diverse.
 </testo_normale>
 <py_output>
 $ python3 select_echo_server.py
@@ -317,7 +317,7 @@ Quando scade il timeout, <code>select()</code> ritorna tre liste vuote. L'esempi
         continue
 </py_code>
 <testo_normale>
-La vesione "lenta" del programma client va in pausa dopo l'invio di ciascun messaggio per simulare latenza o qualche altro ritardo nella trasmissione.
+La versione "lenta" del programma client va in pausa dopo l'invio di ciascun messaggio per simulare latenza o qualche altro ritardo nella trasmissione.
 </testo_normale>
 <py_code>
 # select_echo_slow_client.py
@@ -416,7 +416,7 @@ recevuti b'aggio.'
 chiusura socket
 </py_output>
 <titolo_2>
-Utilzzare poll()
+Utilizzare poll()
 </titolo_2>
 <testo_normale>
 La funzione <code>poll</code> fornisce caratteristiche simili a <code>select()</code>, ma l'implementazione sottostante è più efficiente. Il punto negativo è che <code>poll()</code> non è supportata sotto Windows, quindi i programmi che usano <code>poll()</code> sono meno portabili.
@@ -468,7 +468,7 @@ POLLHUP;Canale chiuso
 POLLNVAL;Canale non aperto
 </tabella_semplice>
 <testo_normale>
-Il server imposterà alcuni socket solo per la lettura ed altri per lettura e scrittura. Le combinazioni appropriate di flag sono salvate nelle variabili locali <code>READ_ONLY</code> e <code>READ_WRITE</code>.
+Il server imposterà alcuni socket solo per la lettura e altri per lettura e scrittura. Le combinazioni appropriate di flag sono salvate nelle variabili locali <code>READ_ONLY</code> e <code>READ_WRITE</code>.
 </testo_normale>
 <py_code>
 # Insiemi di flag comunemente usati
@@ -489,7 +489,7 @@ poller = select.poll()
 poller.register(server, READ_ONLY)
 </py_code>
 <testo_normale>
-Visot che <code>poll()</code> ritorna una lista di tuple che contengono il descrittore di file per il socket ed il flag di evento, è necessaria una mappatura tra i numeri dei descrittori di file e gli oggetti per recuperare il socket da cui leggere o su cui scrivere.
+Visto che <code>poll()</code> ritorna una lista di tuple che contengono il descrittore di file per il socket e il flag di evento, è necessaria una mappatura tra i numeri dei descrittori di file e gli oggetti per recuperare il socket da cui leggere o su cui scrivere.
 </testo_normale>
 <py_code>
 # Mappa i descrittori di file agli oggetti socket
@@ -541,7 +541,7 @@ I socket che non sono server sono i client esistenti e <code>recv()</code> viene
                 data = s.recv(1024)
 </py_output>
 <testo_normale>
-Se <code>recv()</code> ritorna dei dati, vengono piazzati nella coda in uscita per il socket, ed i flag per quel socket sono modificati tramite <code>modify()</code> in modo che <code>poll()</code> possa monitorare i socket che sono pronti per ricevere dati
+Se <code>recv()</code> ritorna dei dati, vengono piazzati nella coda in uscita per il socket, e i flag per quel socket sono modificati tramite <code>modify()</code> in modo che <code>poll()</code> possa monitorare i socket che sono pronti per ricevere dati
 </testo_normale>
 <py_code>
                 if data:
@@ -582,7 +582,7 @@ Il flag <code>POLLHYUP</code> indica un client che ha interrotto la connessione 
             s.close()
 </py_code>
 <testo_normale>
-La gestione dei socket scrivibili assomiglia alla versiona usata nell'esempio per <code>select()</code> a parte che viene usato <code>modify()</code> per modificare i flag del socket invece che rimuoverlo dalla lista di output.
+La gestione dei socket scrivibili assomiglia alla versione usata nell'esempio per <code>select()</code> a parte che viene usato <code>modify()</code> per modificare i flag del socket invece che rimuoverlo dalla lista di output.
 </testo_normale>
 <py_code>
         elif flag & select.POLLOUT:
@@ -671,9 +671,9 @@ Le opzioni meno portabili fornite da <code>select</code> sono <code>epoll</code>
 </testo_normale>
 <vedi_anche>
 https://docs.python.org/3.5/library/select.html|select|La documentazione della libreria standard per questo modulo
-#|selectors|Astrazioni Multiplexing di I/O (in corso di traduzione)
-#|socket|Comunicazione di rete a basso livello (in corso di traduzione)
-#|asyncio|Strumenti di I/O e concorrenza (in corso di traduzione)
+selectors.htnl|selectors|Astrazioni Multiplexing di I/O
+socket.html|socket|Comunicazione di rete a basso livello
+asyncio.html|asyncio|Strumenti di I/O e concorrenza
 https://docs.python.org/howto/sockets.html|Socket Programming HOWTO|Una guida pratica di Gordon McMillan, inclusa nella documentazione della libreria standard.
 #|Unix Network Programming, Volume 1: The Sockets Networking API, 3/E| di W. Richard Stevens, Bill Fenner, e Andrew M. Rudoff. Pubblicato da Addison-Wesley Professional, 2004. ISBN-10: 0131411551
 #|Foundations of Python Network Programminng, 3/E| di Brandon Rhodes e John Goerzen. Pubblicato da Apress, 2014. ISBN-10: 1430258543

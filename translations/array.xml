@@ -17,7 +17,7 @@ Gestire sequenze di dati numerici di tipo fisso con efficacia
 
 </descrizione>
 <testo_normale>
-Il modulo <strong>array</strong> definisce una struttura di dati in sequenza che ricorda parecchio una <code>list</code> ad eccezione del fatto che tutti i membri devono essere dello stesso tipo primitivo. I tipi supportati sono tutti quelli numerici od altri tipi primitivi con dimensione fissa tipo i bytes.
+Il modulo <strong>array</strong> definisce una struttura di dati in sequenza che ricorda parecchio una <code>list</code> a eccezione del fatto che tutti i membri devono essere dello stesso tipo primitivo. I tipi supportati sono tutti quelli numerici o altri tipi primitivi con dimensione fissa tipo i bytes.
 </testo_normale>
 <tabella_semplice>
 Codice;Tipo;Dimensione Minima (byte)
@@ -56,7 +56,7 @@ $ python3 array_string.py
 Manipolare Array
 </titolo_2>
 <testo_normale>
-Un <strong>array</strong> può essere esteso od altrimenti manipolato allo stesso modo delle altre sequenze di Python.
+Un <strong>array</strong> può essere esteso o altrimenti manipolato allo stesso modo delle altre sequenze di Python.
 </testo_normale>
 <py_code>
 # array_sequence.py
@@ -98,7 +98,7 @@ $ python3 array_tobytes.py
 Alternare l'Ordine dei Byte
 </titolo_2>
 <testo_normale>
-Se i dati nell'array non sono nell'ordine di byte nativo, oppure occorre scambiarli prima di scriverli in un file destinato ad un sistema con un ordine di byte diverso (oppure attraverso la rete), è possibile convertire l'intero array senza iterare attraverso gli elementi da Python.
+Se i dati nell'array non sono nell'ordine di byte nativo, oppure occorre scambiarli prima di scriverli in un file destinato a un sistema con un ordine di byte diverso (oppure attraverso la rete), è possibile convertire l'intero array senza iterare attraverso gli elementi da Python.
 </testo_normale>
 <py_code>
 # array_byteswap.py

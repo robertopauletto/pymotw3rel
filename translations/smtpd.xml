@@ -23,7 +23,7 @@ Gli argomenti del costruttore sono l'indirizzo locale per rilevare le connession
 <tabella_semplice>
 NOME ARGOMENTO;DESCRIZIONE
 <code>peer</code>;indirizzo del client, una tupla che contiene IP e porta in arrivo
-<code>mailfrom</code>;informazioni della parte "from" della busta del messaggio, dato al server dal client quando il messaggio viene consegnato. Non necesariamente trova sempre corrispondenza con l'intestazione <code>From</code>
+<code>mailfrom</code>;informazioni della parte "from" della busta del messaggio, dato al server dal client quando il messaggio viene consegnato. Non necess ariamente trova sempre corrispondenza con l'intestazione <code>From</code>
 <code>rcpttos</code>;lista dei destinatari dalla busta del messaggio. Non necessariamente trova corrispondenza con l'intestazione <code>To</code>, specialmente se il destinatario è in <a href='https://www.wikiwand.com/it/Copia_conoscenza_nascosta' target='_blank'>copia conoscenza nascosta (bcc)</a>
 <code>data</code>;Il corpo del messaggio completo <a href='https://tools.ietf.org/html/rfc5322.html' target='_blank'>RFC 5322</a>
 </tabella_semplice>
@@ -90,7 +90,7 @@ Per interrompere il server, si prema <code>Ctrl-C</code>
 Server di Debug
 </titolo_2>
 <testo_normale>
-L'esempio precedente mostra gli argomenti a <code>process_message()</code>, ma <strong>smtpd</strong> include anche un server progettato specificamente per un debug più completo: <code>DebuggingServer</code>. Stampa l'intero messaggio in arrivo alla console, quindi interrompe l'elaborazione (non smista il messaggio ad un server mail reale)
+L'esempio precedente mostra gli argomenti a <code>process_message()</code>, ma <strong>smtpd</strong> include anche un server progettato specificamente per un debug più completo: <code>DebuggingServer</code>. Stampa l'intero messaggio in arrivo alla console, quindi interrompe l'elaborazione (non smista il messaggio a un server mail reale)
 </testo_normale>
 <py_code>
 # smtpd_debug.py

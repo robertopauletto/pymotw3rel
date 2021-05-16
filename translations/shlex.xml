@@ -26,7 +26,7 @@ Elaborare Stringhe Racchiuse tra Apici
 Un problema comune quando si lavora con un testo in input è quello di identificare una sequenza di parole racchiuse tra apici come singola entità. Dividere la stringa in base agli apici non sempre fornisce il risultato sperato, specialmente se si sono livelli di apici annidati. Si prenda ad esempio il testo seguente:
 </testo_normale>
 <py_output>
-Questa stringa contiene "doppi apici" ed 'apici singoli' incorporati in essa, ed anche "un esempio 'annidato'".
+Questa stringa contiene "doppi apici" ed 'apici singoli' incorporati in essa, e anche "un esempio 'annidato'".
 </py_output>
 <testo_normale>
 Un approccio ingenuo potrebbe essere quello di tentare di costruire una espressione regolare per trovare le parti di testo al di fuori degli apici per separarle da quelle all'interno degli stessi, o viceversa. Detto approccio sarebbe inutilmente complesso e prono a errori risultanti da casi limite come gli apostrofi o anche errori ortografici. Una soluzione migliore è quella di usare un vero e proprio analizzatore, tipo quello fornito dal modulo  <strong>shlex</strong>. Di seguito un semplice esempio che stampa i <a href='https://www.wikiwand.com/it/Token_(testo)' target='_blank'>token</a>  identificati nel file di input usando la classe <code>shlex</code>:
@@ -56,7 +56,7 @@ $ python3 shlex_example.py apostrophe.txt
 Rendere le Stringhe Sicure per le Shell
 </titolo_2>
 <testo_normale>
-La funzione <code>quote()</code> esegue l'operazione inversa, utilizzando <em>sequenze di escape</em> per gli apici esistenti ed aggiungendo gli apici mancanti  per le stringhe in modo da renderne l'uso sicuro in comandi di shell
+La funzione <code>quote()</code> esegue l'operazione inversa, utilizzando <em>sequenze di escape</em> per gli apici esistenti e aggiungendo gli apici mancanti  per le stringhe in modo da renderne l'uso sicuro in comandi di shell
 </testo_normale>
 <py_code>
 # shlex_quote.py

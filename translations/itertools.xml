@@ -13,10 +13,10 @@ itertools - Funzioni di Iterazione
 Il modulo itertools contiene un insieme di funzioni per lavorare con sequenze di dati.
 </descrizione>
 <testo_normale>
-Le funzioni fornite da <strong>itertools</strong> sono ispirate da caratteristiche simili dei linguaggi di programmazione funzionale tipo Clojure, Haskell, APL ed SML. Esse sono concepite per essere veloci ed usare memoria con efficienza, oltre ad essere concatenate per esprimere algoritmi basati sull'iterazione più complicati.
+Le funzioni fornite da <strong>itertools</strong> sono ispirate da caratteristiche simili dei linguaggi di programmazione funzionale tipo Clojure, Haskell, APL ed SML. Esse sono concepite per essere veloci e usare memoria con efficienza, oltre a essere concatenate per esprimere algoritmi basati sull'iterazione più complicati.
 </testo_normale>
 <testo_normale>
-Il codice basato su iteratori fornisce migliori capacità di consumo della memoria rispetto al codice che utilizza liste. Visto che il dato non viene prodotto dall'iteratore fino a quando non è richiesto, non occorre che tutti i dati vengano conservati in memoria allo stesso momento. Questo modello di elaborazione "pigro" usa meno memoria, che può ridurre lo swapping ed altri effetti colletarali nella gestione di grandi insiemi di dati, migliorando le prestazioni.
+Il codice basato su iteratori fornisce migliori capacità di consumo della memoria rispetto al codice che utilizza liste. Visto che il dato non viene prodotto dall'iteratore fino a quando non è richiesto, non occorre che tutti i dati vengano conservati in memoria allo stesso momento. Questo modello di elaborazione "pigro" usa meno memoria, che può ridurre lo swapping e altri effetti collaterali nella gestione di grandi insiemi di dati, migliorando le prestazioni.
 </testo_normale>
 <testo_normale>
 Oltre alle funzioni definite in <strong>itertools</strong>, gli esempi in questa sezione fanno anche affidamento ad alcune funzioni di iterazione built-in.
@@ -157,7 +157,7 @@ Per decine fino a 100:
 0 10 20 30 40 50 60 70 80 90
 </py_output>
 <testo_normale>
-La funzione <code>tee()</code> ritorna diversi iteratori indipendenti (predefiniti 2) in base ad un singolo input di origine.
+La funzione <code>tee()</code> ritorna diversi iteratori indipendenti (predefiniti 2) in base a un singolo input di origine.
 </testo_normale>
 <py_code>
 # itertools_tee.py
@@ -245,7 +245,7 @@ for i in map(multiply, r1, r2):
     print(i)
 </py_code>
 <testo_normale>
-Nel primo esempio, la funzione <a href='https://it.wikipedia.org/wiki/Funzione_anonima'>lambda</a> moltiplica i valori per 2. Nel secondo esempio la funzione <a href='https://it.wikipedia.org/wiki/Funzione_anonima'>lambda</a> moltiplica due argomenti, presi da iteratori separati, e ritorna una tupla con gli argomenti originali ed il valore calcolato. Il terzo esempio si interrompe dopo aver prodotto due tuple visto che il secondo iteratore in input si è esaurito.
+Nel primo esempio, la funzione <a href='https://it.wikipedia.org/wiki/Funzione_anonima'>lambda</a> moltiplica i valori per 2. Nel secondo esempio la funzione <a href='https://it.wikipedia.org/wiki/Funzione_anonima'>lambda</a> moltiplica due argomenti, presi da iteratori separati, e ritorna una tupla con gli argomenti originali e il valore calcolato. Il terzo esempio si interrompe dopo aver prodotto due tuple visto che il secondo iteratore in input si è esaurito.
 </testo_normale>
 <py_output>
 $ python3 itertools_map.py
@@ -297,7 +297,7 @@ $ python3 itertools_starmap.py
 Produrre Nuovi Valori
 </titolo_2>
 <testo_normale>
-La funzione <code>count()</code> ritorna un iteratore che produce interi consecutivi, indefinitamente. Il primo numero può essere passato come argomento (predefinito 0). Non c'è un argomento per definiire un valore massimo (si veda la funzione built-in <code>range()</code> per un maggiore controllo sull'insieme del risultato).
+La funzione <code>count()</code> ritorna un iteratore che produce interi consecutivi, indefinitamente. Il primo numero può essere passato come argomento (predefinito 0). Non c'è un argomento per definire un valore massimo (si veda la funzione built-in <code>range()</code> per un maggiore controllo sull'insieme del risultato).
 </testo_normale>
 <py_code>
 # itertools_count.py
@@ -379,7 +379,7 @@ for i in repeat('over-and-over', 5):
     print(i)
 </py_code>
 <testo_normale>
-L'iteratore ritornato da <code>repaat()</code> continuerebbe a restituire dati per sempre, a meno che l'argomento opzionale <em>times</em> venga fornito per limitarlo.
+L'iteratore ritornato da <code>repeat()</code> continuerebbe a restituire dati per sempre, a meno che l'argomento opzionale <em>times</em> venga fornito per limitarlo.
 </testo_normale>
 <py_output>
 $ python3 itertools_repeat.py
@@ -578,7 +578,7 @@ for i in compress(data, every_third):
 print()
 </py_code>
 <testo_normale>
-Il primo argomento è il dato iterabile da elaborare ed il secondo è un iterabile di selezione che produce valori booleani che indicano quali elementi prendere dall'input (un valore <code>True</code> fa sì che l'elemento venga ritornato, un valore <code>False</code> lo fa ignorare).
+Il primo argomento è il dato iterabile da elaborare e il secondo è un iterabile di selezione che produce valori booleani che indicano quali elementi prendere dall'input (un valore <code>True</code> fa sì che l'elemento venga ritornato, un valore <code>False</code> lo fa ignorare).
 </testo_normale>
 <py_output>
 $ python3 itertools_compress.py
@@ -590,7 +590,7 @@ Raggruppare Dati
 </titolo_2>
 <testo_normale>
 La funzione <code>groupby()</code> ritorna un iteratore che produce insiemi di valori ordinati da una chiave comune
-Questo esempio illustra un raggruppamento di valori in base ad un attributo.
+Questo esempio illustra un raggruppamento di valori in base a un attributo.
 </testo_normale>
 <py_code>
 # itertools_groupby_seq.py
@@ -686,7 +686,7 @@ Raggruppati, ordinati:
 Combinare Input
 </titolo_2>
 <testo_normale>
-La funzione <code>accumulate()</code> elebora un input iterabile, passando l'ennesimo e l'ennesimo + 1 elemento ad una funzione e produce il valore di ritorno in luogo dell'input. La funzione predefinita utilizzata per combinare i due valori li aggiunge, quindi <code>accumulate()</code> può essere usata per produrre somme cumulative di serie di input numerici.
+La funzione <code>accumulate()</code> elabora un input iterabile, passando l'ennesimo e l'ennesimo + 1 elemento a una funzione e produce il valore di ritorno in luogo dell'input. La funzione predefinita utilizzata per combinare i due valori li aggiunge, quindi <code>accumulate()</code> può essere usata per produrre somme cumulative di serie di input numerici.
 </testo_normale>
 <py_code>
 # itertools_accumulate.py
@@ -697,7 +697,7 @@ print(list(accumulate(range(5))))
 print(list(accumulate('abcde')))
 </py_code>
 <testo_normale>
-Quando usata con una sequenza di valori non interi, i risultati dipendono da quel che significa "aggiungere" due elementi assieme. Il secondo esempio dello script mostra come quando <code>accumulte()</code> riceve in input una stringa ciascuna risposta costituisce un prefisso più lungo di quella stringa.
+Quando usata con una sequenza di valori non interi, i risultati dipendono da quel che significa "aggiungere" due elementi assieme. Il secondo esempio dello script mostra come quando <code>accumulate()</code> riceve in input una stringa ciascuna risposta costituisce un prefisso più lungo di quella stringa.
 </testo_normale>
 <py_output>
 $ python3 itertools_accumulate.py
@@ -756,7 +756,7 @@ for card in DECK:
         print()
 </py_code>
 <testo_normale>
-I valori generati da <code>product()</code> sono tuple, con i membri presi da ciascun iterabile passato come argomento, nell'ordine nel quale vengono passati. La prima tupla ritorna il pirmo valore da ciascun iterabile. L'ultimo iterabile passato a <code>product()</code> viene elaborato per primo, seguito dal penultimo e così via. Il risultato è che i valori ritornati sono nell'ordine del primo iterabile, poi del successivo e così via.
+I valori generati da <code>product()</code> sono tuple, con i membri presi da ciascun iterabile passato come argomento, nell'ordine nel quale vengono passati. La prima tupla ritorna il primo valore da ciascun iterabile. L'ultimo iterabile passato a <code>product()</code> viene elaborato per primo, seguito dal penultimo e così via. Il risultato è che i valori ritornati sono nell'ordine del primo iterabile, poi del successivo e così via.
 </testo_normale>
 <testo_normale>
 I questo esempio, le carte sono ordinate per valore, quindi per seme.
@@ -885,7 +885,7 @@ print('Coppie:\n')
 show(permutations('abcd', r=2))
 </py_code>
 <testo_normale>
-Si usa l'argomento <code>r</code> per limitare la lunghezza ed il numero di permutazioni individuali ritornate.
+Si usa l'argomento <code>r</code> per limitare la lunghezza e il numero di permutazioni individuali ritornate.
 </testo_normale>
 <py_output>
 $ python3 itertools_permutations.py

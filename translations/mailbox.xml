@@ -62,7 +62,7 @@ Questo e' il secondo corpo.
 Leggere una Casella di Posta mbox
 </titolo_3>
 <testo_normale>
-Per leggere una casella di posta esistente, la si apra e si tratti l'oggetto <code>mbox</code> come un dizionario. Le chiavi sono valori arbitrari definiti dall'isatnza <code>mailbox</code> e non hanno un particolare significato se non quello di fungere da identificatori interni per gli oggetti messaggio.
+Per leggere una casella di posta esistente, la si apra e si tratti l'oggetto <code>mbox</code> come un dizionario. Le chiavi sono valori arbitrari definiti dall'istanza <code>mailbox</code> e non hanno un particolare significato se non quello di fungere da identificatori interni per gli oggetti messaggio.
 </testo_normale>
 <py_code>
 # mailbox_mbox_read.py
@@ -107,13 +107,13 @@ Ci sono 3 righe.
 Maildir
 </titolo_2>
 <testo_normale>
-Il formato Maildir fu creato per elimiare il problema di modifiche concorrenti ad un file mbox. Invece che usare un file singolo, la casella di posta è organizzata come directory nella quale ciascun messaggio è contenuto nel suo proprio file. Questo consente anche un annidamento delle caselle di posta, quindi la API per una casella di posta Mailbox è estesa con metodi che lavorano con sottocartelle
+Il formato Maildir fu creato per eliminare il problema di modifiche concorrenti a un file mbox. Invece che usare un file singolo, la casella di posta è organizzata come directory nella quale ciascun messaggio è contenuto nel suo proprio file. Questo consente anche un annidamento delle caselle di posta, quindi la API per una casella di posta Mailbox è estesa con metodi che lavorano con sottocartelle
 </testo_normale>
 <titolo_3>
 Creare una Casella di Posta Maildir
 </titolo_3>
 <testo_normale>
-La sola reale differenza tra la creazione di una <code>Maildir</code> rispetto ad una <code>mbox</code> è che l'argomento per il costruttore è un nome di directory invece che un nome di file. Come prima, se la casella di posta non esiste, viene creata quando vengono aggiunti i messaggi.
+La sola reale differenza tra la creazione di una <code>Maildir</code> rispetto a una <code>mbox</code> è che l'argomento per il costruttore è un nome di directory invece che un nome di file. Come prima, se la casella di posta non esiste, viene creata quando vengono aggiunti i messaggi.
 </testo_normale>
 <py_code>
 # mailbox_maildir_create.py
@@ -358,7 +358,7 @@ Altri Formati
 </testo_normale>
 <vedi_anche>
 https://docs.python.org/3.7/library/mailbox.html|mailbox|La documentazione della libreria standard per questo modulo.
-riferimenti_moduli_modificati.html|Note di portabilità da Python 2 a 3 per mailbox|
+riferimenti_moduli_modificati.html#25|Note di portabilità da Python 2 a 3 per mailbox|
 https://www.wikiwand.com/en/Mbox|Mbox|Pagina di wikipedia per il formato Mbox (inglese)
 https://www.wikiwand.com/en/Maildir|Maildir|Pagina di wikipedia per il formato Maildir (inglese)
 #|email|Il modulo <strong>email</strong>

@@ -13,6 +13,8 @@ from app.models import GeneratorConfig, Article, Category
 from app.routes.main import main
 from app.site_builder.builder import set_builder_conf
 
+crsf = CSRFProtect()
+
 
 def create_app(fs: str = 'settings.py'):
     app = Flask(__name__)
@@ -22,7 +24,6 @@ def create_app(fs: str = 'settings.py'):
     else:
         app.config.from_object(DevConfig)
 
-    crsf = CSRFProtect()
     crsf.init_app(app)
 
     # Server-side session config

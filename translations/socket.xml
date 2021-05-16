@@ -16,28 +16,28 @@ Fornisce accesso alla comunicazione di rete
 
 </descrizione>
 <testo_normale>
-Il modulo <strong>socket</strong> espone le <a href='https://it.wikipedia.org/wiki/Application_programming_interface' target='_blank'>API</a> C di basso livello per la comunicazione tramite una rete utilizzando l'interfaccia socket BSD. Comprende la classe <code>Socket</code>, per la gestione dell'effettivo canale dati ed include anche funzioni per svolgere compiti legati alla rete come la conversione di un nome di server in un indirizzo e la formattazione di dati da inviare tramite rete.
+Il modulo <strong>socket</strong> espone le <a href='https://it.wikipedia.org/wiki/Application_programming_interface' target='_blank'>API</a> C di basso livello per la comunicazione tramite una rete utilizzando l'interfaccia socket BSD. Comprende la classe <code>Socket</code>, per la gestione dell'effettivo canale dati e include anche funzioni per svolgere compiti legati alla rete come la conversione di un nome di server in un indirizzo e la formattazione di dati da inviare tramite rete.
 </testo_normale>
 <titolo_2>
 Indirizzamenti, Famiglie di Protocollo e Tipi di Socket
 </titolo_2>
 <testo_normale>
-Un socket è un punto finale di un canale di comunicazione usato dai programmi per passarsi dati reciprocamente in locale oppure attraverso Internet. I socket hanno due proprietà primarie che controllano il modo nel quale sono inviati i dati: la <em>famiglia degli indirizzi</em> controlla il protocollo usato nello strato di rete OSI, ed il <em>tipo di socket</em> controlla il protocollo dello strato di trasporto.
+Un socket è un punto finale di un canale di comunicazione usato dai programmi per passarsi dati reciprocamente in locale oppure attraverso Internet. I socket hanno due proprietà primarie che controllano il modo nel quale sono inviati i dati: la <em>famiglia degli indirizzi</em> controlla il protocollo usato nello strato di rete OSI, e il <em>tipo di socket</em> controlla il protocollo dello strato di trasporto.
 </testo_normale>
 <testo_normale>
-Python supporta tre famiglie di indirizzi. Quello più comune, <code>AF_INET</code>, viene usato per l'indirizzamento Internet IPv4; questi indirizzi sono lunghi quattro byte e sono in genere rappresentati da una sequenza di quattro numeri, uno per ottetto, separati da punti (es. 10.1.1.5 e 127.0.0.1). Questi valori sono più comunmente noti come "indirizzi IP". Al momento della stesura quasi tutto l'indirizzamente Internet viene fatto usando la versione IPv4.
+Python supporta tre famiglie di indirizzi. Quello più comune, <code>AF_INET</code>, viene usato per l'indirizzamento Internet IPv4; questi indirizzi sono lunghi quattro byte e sono in genere rappresentati da una sequenza di quattro numeri, uno per ottetto, separati da punti (es. 10.1.1.5 e 127.0.0.1). Questi valori sono più comunemente noti come "indirizzi IP". Al momento della stesura quasi tutto l'indirizzamento Internet viene fatto usando la versione IPv4.
 </testo_normale>
 <testo_normale>
-<code>AF_INET6</code> viene usato per l'indirizzamento Internet IPv6, che rappresenta la versione della "prossima generazione" del protocollo Internet, e supporta indirizzi di 128 bit, modellamento del traffico e caratteristiche di <a href='https://www.wikiwand.com/it/Instradamento' target='_blank'>instradamento</a> non disponibili sottro IPv4. L'adozione di IPv6 continua a crescere, specialemente con la proliferazione del <a href='https://www.wikiwand.com/it/Cloud_computing' target='_blank'>cloud computing</a> e dei dispositivi extra che vengono aggiunti alla rete attraverso i progetti della <a href='urlhttps://www.wikiwand.com/it/Internet_delle_cose' target='_blank'>Internet delle cose</a>.
+<code>AF_INET6</code> viene usato per l'indirizzamento Internet IPv6, che rappresenta la versione della "prossima generazione" del protocollo Internet, e supporta indirizzi di 128 bit, modellamento del traffico e caratteristiche di <a href='https://www.wikiwand.com/it/Instradamento' target='_blank'>instradamento</a> non disponibili sotto IPv4. L'adozione di IPv6 continua a crescere, specialmente con la proliferazione del <a href='https://www.wikiwand.com/it/Cloud_computing' target='_blank'>cloud computing</a> e dei dispositivi extra che vengono aggiunti alla rete attraverso i progetti della <a href='urlhttps://www.wikiwand.com/it/Internet_delle_cose' target='_blank'>Internet delle cose</a>.
 </testo_normale>
 <testo_normale>
-<code>AF_UNIX</code> è la famiglia di indirizzi dei <a href='https://www.wikiwand.com/it/Socket_di_dominio_locale' target='_blank'>socket di dominio Unix</a> (UDS), un protocollo  di comunicazione inter-processo disponibile sui sistemi POSIX compatibili. L'implementazione di UDS tipicamente consente al sistema opeartivo di passare dati direttamente da processo a processo, senza passare attraverso lo stack di rete. E' più efficiente dell'uso di <code>AF_INET</code>, tuttavia, visto che viene usato il file system come spazio dei nomi per l'indirizzamento, UDS è confinato ai processi sullo stesso sistema. UDS è allettante rispetto ad altri meccanismi <a href='https://www.wikiwand.com/en/Inter-process_communication' target='_blank'>IPC</a>  come le <a href='https://www.wikiwand.com/it/Pipe_(informatica)#/FIFO_o_named_pipe' target='_blank'>named pipe</a> o la memoria condivisa in quanto l'interfaccia di programmazione è la stessa degli IP, quindi l'applicazione può trarre vantaggio da una comunicazione efficiente quando eseguita su host singolo, ma usa lo stesso codice per inviare dati attraverso la rete.
+<code>AF_UNIX</code> è la famiglia di indirizzi dei <a href='https://www.wikiwand.com/it/Socket_di_dominio_locale' target='_blank'>socket di dominio Unix</a> (UDS), un protocollo  di comunicazione inter-processo disponibile sui sistemi POSIX compatibili. L'implementazione di UDS tipicamente consente al sistema operativo di passare dati direttamente da processo a processo, senza passare attraverso lo stack di rete. E' più efficiente dell'uso di <code>AF_INET</code>, tuttavia, visto che viene usato il file system come spazio dei nomi per l'indirizzamento, UDS è confinato ai processi sullo stesso sistema. UDS è allettante rispetto ad altri meccanismi <a href='https://www.wikiwand.com/en/Inter-process_communication' target='_blank'>IPC</a>  come le <a href='https://www.wikiwand.com/it/Pipe_(informatica)#/FIFO_o_named_pipe' target='_blank'>named pipe</a> o la memoria condivisa in quanto l'interfaccia di programmazione è la stessa degli IP, quindi l'applicazione può trarre vantaggio da una comunicazione efficiente quando eseguita su host singolo, ma usa lo stesso codice per inviare dati attraverso la rete.
 </testo_normale>
 <note>
-La costante <code>AF_UNIX</code> viene definita solo sui sitemi che supportano i socket di dominio Unix (UDS)
+La costante <code>AF_UNIX</code> viene definita solo sui sistemi che supportano i socket di dominio Unix (UDS)
 </note>
 <testo_normale>
-Il tipo di socket in genere è <code>SOCK_DGRAM</code> per il datagramma di trasporto orientato ai messaggi oppure <code>SOCK_STREAM</code> per il trasporto orientato ai flussi. I socket datagram sono molto spesso associati al protocollo <a href='urlhttps://www.wikiwand.com/it/User_Datagram_Protocol' target='_blank'>UDP (user datagram protocol)</a>. Essi forniscono un recapito non affidabile di messaggi individuali. I socket orientati ai flussi sono associati al protocollo <a href='https://www.wikiwand.com/it/Transmission_Control_Protocol' target='_blank'>TCP (transission control protocol)</a>. Forniscono flussi di byte fra client e server, assicurando  la consegna dei messaggi o la notifica della mancata consegna tramite gestione di timeout, ritrasmissione ed altre caratteristiche.
+Il tipo di socket in genere è <code>SOCK_DGRAM</code> per il datagramma di trasporto orientato ai messaggi oppure <code>SOCK_STREAM</code> per il trasporto orientato ai flussi. I socket datagram sono molto spesso associati al protocollo <a href='urlhttps://www.wikiwand.com/it/User_Datagram_Protocol' target='_blank'>UDP (user datagram protocol)</a>. Essi forniscono un recapito non affidabile di messaggi individuali. I socket orientati ai flussi sono associati al protocollo <a href='https://www.wikiwand.com/it/Transmission_Control_Protocol' target='_blank'>TCP (tranmission control protocol)</a>. Forniscono flussi di byte fra client e server, assicurando  la consegna dei messaggi o la notifica della mancata consegna tramite gestione di timeout, ritrasmissione e altre caratteristiche.
 </testo_normale>
 <testo_normale>
 La maggior parte dei protocolli applicativi che consegnano un gran numero di dati, tipo HTTP, sono costruiti sopra TCP, visto che semplifica la creazione di applicazioni complesse, quando l'ordinamento dei messaggi e la consegna viene gestita automaticamente. UDP viene comunemente usato per protocolli dove l'ordinamento è meno importante (visto che i messaggi sono auto-contenuti e spesso piccoli, tipo la ricerca dei nomi tramite DNS), oppure per il <em>multicasting</em> (l'invio degli stessi dati a parecchi host). Sia UDP che TCP possono essere usati con gli indirizzamenti IPv4 ed IPv6.
@@ -49,7 +49,7 @@ Il modulo Python <strong>socket</strong> supporta altri tipi di socket ma sono u
 Trovare Host sulla Rete
 </titolo_3>
 <testo_normale>
-<strong>socket</strong> include funzioni per interfacciarsi con i servizi di nome di dominio sulla rete, in modo che un programma possa convertire il nome host di un server nel suo corrispondente indirizzo di rete. Le applicazioni non devono convertire gli indirizzi esplicitamente prima di usarli per la connessione ad un server, ma può essere utile quando si segnalano errori includere l'indirizzo numerico così come il valore del nome utilizzato
+<strong>socket</strong> include funzioni per interfacciarsi con i servizi di nome di dominio sulla rete, in modo che un programma possa convertire il nome host di un server nel suo corrispondente indirizzo di rete. Le applicazioni non devono convertire gli indirizzi esplicitamente prima di usarli per la connessione a un server, ma può essere utile quando si segnalano errori includere l'indirizzo numerico così come il valore del nome utilizzato
 </testo_normale>
 <testo_normale>
 Per trovare il nome dell'host corrente si usa <code>gethostname()</code>-
@@ -70,7 +70,7 @@ $ python3 socket_gethostname.py
 robby-System-Product-Name
 </py_output>
 <testo_normale>
-Si usa <code>gethostbyname()</code> per consultare l'API di risoluzione del nome dell'host del sistema operativo e converitre il nome di un server nel suo indirizzo numerico
+Si usa <code>gethostbyname()</code> per consultare l'API di risoluzione del nome dell'host del sistema operativo e convertire il nome di un server nel suo indirizzo numerico
 </testo_normale>
 <py_code>
 # socket_gethostbyname.py
@@ -100,7 +100,7 @@ www.python.org : 151.101.112.223
 nonesiste : [Errno -2] Name or service not known
 </py_output>
 <testo_normale>
-Per l'accesso ad ulteriori informazinoi sul nome di un server, si usa <code>gethostbyname_ex()</code>, che ritorna il nome host canonico del server, qualunque alias e tutti gli indirizzi IP disponibili che possono essere usati per raggiungerlo.
+Per l'accesso a ulteriori informazioni sul nome di un server, si usa <code>gethostbyname_ex()</code>, che ritorna il nome host canonico del server, qualunque alias e tutti gli indirizzi IP disponibili che possono essere usati per raggiungerlo.
 </testo_normale>
 <py_code>
 # socket_gethostbyname_ex.py
@@ -125,7 +125,7 @@ for host in HOSTS:
     print()
 </py_code>
 <testo_normale>
-L'essere a conoscenza di tutti gli indirizzi IP per un server consente ad un client di implementare il suo proprio <a href='https://www.wikiwand.com/it/Load_balancing' target='_blank'>bilanciatore di carico</a> od algoritmi di <em>fail-over</em>.
+L'essere a conoscenza di tutti gli indirizzi IP per un server consente a un client di implementare il suo proprio <a href='https://www.wikiwand.com/it/Load_balancing' target='_blank'>bilanciatore di carico</a> o algoritmi di <em>fail-over</em>.
 </testo_normale>
 <py_output>
 $ python3 socket_gethostbyname_ex.py
@@ -192,10 +192,10 @@ Indirizzi: ['198.91.81.4']
 Trovare Informazioni sul Servizio
 </titolo_3>
 <testo_normale>
-Oltre agli indirizzi IP, ciascun indirizzo di socket comprende un intero che rappresenta il <em>numero di porta</em>. Molte applicazioni possono essere in esecuzione sullo stesso host, in ascolto su di un singolo indirizzo IP, ma solo un socket alla volta può usare una porta a quell'indirizzo. La combinazione di indirizzo IP, protocollo e numero di porta identifica unicamente un canale di comunicazione ed assicura che i messaggi inviati attraverso un socket arrivino alla corretta destinazione.
+Oltre agli indirizzi IP, ciascun indirizzo di socket comprende un intero che rappresenta il <em>numero di porta</em>. Molte applicazioni possono essere in esecuzione sullo stesso host, in ascolto su di un singolo indirizzo IP, ma solo un socket alla volta può usare una porta a quell'indirizzo. La combinazione di indirizzo IP, protocollo e numero di porta identifica unicamente un canale di comunicazione e assicura che i messaggi inviati attraverso un socket arrivino alla corretta destinazione.
 </testo_normale>
 <testo_normale>
-Alcuni numeri di porta sono pre-allocati per uno specifico protocollo. Ad esempio le comunicazioni tra server email che usano SMTP si svolgono sulla porta numero 25 usando TCP, ed i client ed i server web usano la porta 80 per HTTP. I numeri di porta per i servizi di rete con nomi standardizzati possono essere cercati con <code>getservbyname()</code>.
+Alcuni numeri di porta sono pre-allocati per uno specifico protocollo. Ad esempio le comunicazioni tra server email che usano SMTP si svolgono sulla porta numero 25 usando TCP, e i client e i server web usano la porta 80 per HTTP. I numeri di porta per i servizi di rete con nomi standardizzati possono essere cercati con <code>getservbyname()</code>.
 </testo_normale>
 <py_code>
 # socket_getservbyname.py
@@ -266,7 +266,7 @@ pop3://example.com/
 pop3s://example.com/
 </py_output>
 <testo_normale>
-Il numero assegnato ad un protocollo di trasporto può essere recuperato tramite <code>getprotobyname()</code>.
+Il numero assegnato a un protocollo di trasporto può essere recuperato tramite <code>getprotobyname()</code>.
 </testo_normale>
 <py_code>
 # socket_getprotobyname.py
@@ -489,7 +489,7 @@ I socket possono essere configurati per agire come server in ascolto per messagg
 Server che Ritorna Quanto Ricevuto
 </titolo_3>
 <testo_normale>
-Questo programma di esempio, basato su uno presente nella documantazione della libreria standard, riceve messaggi in arrivo e li ritorna al mittente. Si inizia creando un socket TCP/IP, quindi <code>bind()</code> viene usato per associare il socket all'indirizzo del server. In questo caso, l'indirizzo è <code>localhost</code>, e fa riferimento al server corrente, ed il numero porta è 10000.
+Questo programma di esempio, basato su uno presente nella documentazione della libreria standard, riceve messaggi in arrivo e li ritorna al mittente. Si inizia creando un socket TCP/IP, quindi <code>bind()</code> viene usato per associare il socket all'indirizzo del server. In questo caso, l'indirizzo è <code>localhost</code>, e fa riferimento al server corrente, e il numero porta è 10000.
 </testo_normale>
 <py_code>
 # socket_echo_server.py
@@ -543,7 +543,7 @@ Quando la comunicazione con un client è terminata, la connessione deve essere p
 Client che Riceve Quanto Inviato
 </titolo_3>
 <testo_normale>
-Il programma client imposta un socket in modo diverso da quello server. Invece di collegarsi ad una porta e mettersi in ascolto, usa <code>connect()</code> per attaccare il socket direttamente all'indirizzo remoto.
+Il programma client imposta un socket in modo diverso da quello server. Invece di collegarsi a una porta e mettersi in ascolto, usa <code>connect()</code> per attaccare il socket direttamente all'indirizzo remoto.
 </testo_normale>
 <py_code>
 # socket_echo_client.py
@@ -586,7 +586,7 @@ Dopo che la connessione è stabilita, i dati possono essere inviati attraverso i
 Client e Server Assieme
 </titolo_3>
 <testo_normale>
-Il client ed il server dovrebbero essere eseguiti in finestre di terminale separate, in modo che possano comunicare. Il risultato del server mostra la connessione in arrivo ed i dati, così come la risposta restituita al client.
+Il client e il server dovrebbero essere eseguiti in finestre di terminale separate, in modo che possano comunicare. Il risultato del server mostra la connessione in arrivo e i dati, così come la risposta restituita al client.
 </testo_normale>
 <py_output>
 $ python3 socket_echo_server.py
@@ -621,7 +621,7 @@ chiusura socket
 Facili Connessioni Client
 </titolo_3>
 <testo_normale>
-I client TCP/IP possono risparmiare qualche passo usando la funzione di convenienza <code>create_connection()</code> per connettersi ad un server. La funzione riceve un argomento, una tupla a due valori contenente l'indirizzo del server, e deriva il migliore indirizzo da usare per la connessione.
+I client TCP/IP possono risparmiare qualche passo usando la funzione di convenienza <code>create_connection()</code> per connettersi a un server. La funzione riceve un argomento, una tupla a due valori contenente l'indirizzo del server, e deriva il migliore indirizzo da usare per la connessione.
 </testo_normale>
 <py_code>
 # socket_echo_client_easy.py
@@ -759,7 +759,7 @@ finally:
     sock.close()
 </py_code>
 <testo_normale>
-Dopo aver fatto partire il server con l'argomento <code>hubert</code>, il comando <code>netstat</code> mostra che è in ascolto sull'ìndirizzo dell'host sopra citato.
+Dopo aver fatto partire il server con l'argomento <code>hubert</code>, il comando <code>netstat</code> mostra che è in ascolto sull'indirizzo dell'host sopra citato.
 </testo_normale>
 <py_output>
 $ host hubert.hellfly.net
@@ -862,7 +862,7 @@ Il protocollo UDP (User Datagram Protocol), funziona in modo diverso da TCP/IP. 
 Server che Ritorna Quanto Ricevuto
 </titolo_3>
 <testo_normale>
-Visto che non c'è connessione, <em>per se</em>, il server non deve essere in ascolto per accettare connessioni. Deve semplicemente usare <code>bind()</code> per associare il suo socket ad una porta, quindi attendere i singoli messaggi.
+Visto che non c'è connessione, <em>per se</em>, il server non deve essere in ascolto per accettare connessioni. Deve semplicemente usare <code>bind()</code> per associare il suo socket a una porta, quindi attendere i singoli messaggi.
 </testo_normale>
 <py_code>
 # socket_echo_server_dgram.py
@@ -897,7 +897,7 @@ I messaggi sono letti dal socket usando <code>recvfrom()</code>, e dallo stesso 
 Client che Riceve Quanto Inviato
 </titolo_3>
 <testo_normale>
-Questo client UDP è simile al server, ma non usa <code>bind()</code> per attaccare il suo socket ad un indirizzo. Utilizza <code>sendto()</code> per consegnare i suoi messaggi direttamente al server, e <code>recvfrom()</code> per ricevere la risposta
+Questo client UDP è simile al server, ma non usa <code>bind()</code> per attaccare il suo socket a un indirizzo. Utilizza <code>sendto()</code> per consegnare i suoi messaggi direttamente al server, e <code>recvfrom()</code> per ricevere la risposta
 </testo_normale>
 <py_code>
 # socket_echo_client_dgram.py
@@ -957,7 +957,7 @@ chiusura socket
 Socket Unix Domain (UDS)
 </titolo_2>
 <testo_normale>
-Dalla prospettiva del programmatore ci sono due differenze essenziali tra l'utilizzo di un socket Unix domain ed un socket TCP/IP. La prima è che l'indirizzo di un socket è un percorso nel file system, invece che una tupla che contiene il nome del server e la porta. La seconda è che il nodo creato nel file system per rappresentare il socket persiste dopo che il socket viene chiuso e deve essere rimosso ogni volta che il server viene avviato. L'esempio precedente di un server che restituisce quanto ricevuto può essere aggiornato per usare i socket UDS facendo poche modifiche nella sezione dell'impostazione.
+Dalla prospettiva del programmatore ci sono due differenze essenziali tra l'utilizzo di un socket Unix domain e un socket TCP/IP. La prima è che l'indirizzo di un socket è un percorso nel file system, invece che una tupla che contiene il nome del server e la porta. La seconda è che il nodo creato nel file system per rappresentare il socket persiste dopo che il socket viene chiuso e deve essere rimosso ogni volta che il server viene avviato. L'esempio precedente di un server che restituisce quanto ricevuto può essere aggiornato per usare i socket UDS facendo poche modifiche nella sezione dell'impostazione.
 </testo_normale>
 <testo_normale>
 Il socket deve essere creato con la famiglia di indirizzo <code>AF_UNIX</code>. Il collegamento del socket e la gestione delle connessioni in arrivo funzionano come per i socket TCP/IP.
@@ -1111,7 +1111,7 @@ connessione a ./uds_socket
 Comunicazioni tra Processi Figli e Genitore
 </titolo_3>
 <testo_normale>
-La funzione <code>socketpair()</code> è utile per impostare i socket UDS per la comunicazione tra processi in Unix. Essa crea una coppia di socket connessi che possono essere usati per comunicare tra un processo genitore ed un processo figlio dopo che il figlio viene diramato.
+La funzione <code>socketpair()</code> è utile per impostare i socket UDS per la comunicazione tra processi in Unix. Essa crea una coppia di socket connessi che possono essere usati per comunicare tra un processo genitore e un processo figlio dopo che il figlio viene diramato.
 </testo_normale>
 <py_code>
 # socket_socketpair.py
@@ -1140,7 +1140,7 @@ else:
     child.close()
 </py_code>
 <testo_normale>
-Nella modalità predefinita, un socket UDS viene creato, ma il chiamante può anche passare una famiglia di indirizzi, il tipo socket ed anche le opzioni di protocollo per controllare come i socket vengono creati.
+Nella modalità predefinita, un socket UDS viene creato, ma il chiamante può anche passare una famiglia di indirizzi, il tipo socket e anche le opzioni di protocollo per controllare come i socket vengono creati.
 </testo_normale>
 <py_output>
 $ python3 -u socket_socketpair.py
@@ -1154,10 +1154,10 @@ risposta dal figlio: b'pong'
 Multicast
 </titolo_2>
 <testo_normale>
-Le connessioni da punto-a-punto gestiscono molte esigenze di comunicazione, ma passando la stessa informazione tra molti pari diventa sfidante mano a mano che il numero di connessioni dirette cresce. L'invio separato di messaggi per ciascun destinatario richiede tempo e larghezza di banda supplementare, il che può essere un problema per applicazioni che devono distribuire video od audio. Si acquisisce maggiore efficienza usando <em>multicast</em> per consegnare messaggi a più di una destinazione alla volta, visto che la infrastruttura della rete assicura che i pacchetti siano consegnati a tutti i destinatari.
+Le connessioni da punto-a-punto gestiscono molte esigenze di comunicazione, ma passando la stessa informazione tra molti pari diventa sfidante mano a mano che il numero di connessioni dirette cresce. L'invio separato di messaggi per ciascun destinatario richiede tempo e larghezza di banda supplementare, il che può essere un problema per applicazioni che devono distribuire video o audio. Si acquisisce maggiore efficienza usando <em>multicast</em> per consegnare messaggi a più di una destinazione alla volta, visto che la infrastruttura della rete assicura che i pacchetti siano consegnati a tutti i destinatari.
 </testo_normale>
 <testo_normale>
-I messaggi multicast sono sempre inviati usando UDP, visto che TCP assune una coppia di sistemi comunicanti. Gli indirizzi per multicast, chiamati <em>gruppi multicast</em> sono un sotto insieme nell'intervallo dei normali indirizzi IPv4 (da 224.0.0.0 a 230.255.255.255) riservati al traffico in multicast. Questi indirizzi sono trattati in modo speciale dai router e gli switch di rete, quindi i messaggi inviati al gruppo possono essere distribuiti attraverso Internet a tutti i destinatari che si sono uniti al gruppo.
+I messaggi multicast sono sempre inviati usando UDP, visto che TCP assume una coppia di sistemi comunicanti. Gli indirizzi per multicast, chiamati <em>gruppi multicast</em> sono un sotto insieme nell'intervallo dei normali indirizzi IPv4 (da 224.0.0.0 a 230.255.255.255) riservati al traffico in multicast. Questi indirizzi sono trattati in modo speciale dai router e gli switch di rete, quindi i messaggi inviati al gruppo possono essere distribuiti attraverso Internet a tutti i destinatari che si sono uniti al gruppo.
 </testo_normale>
 <note>
 Alcuni switch e router gestiti hanno il traffico multicast disabilitato nella modalità predefinita. Se si hanno problemi con i programmi di  esempio, si verifichino le  impostazioni hardware di rete.
@@ -1166,7 +1166,7 @@ Alcuni switch e router gestiti hanno il traffico multicast disabilitato nella mo
 Inviare Messaggi Multicast
 </titolo_3>
 <testo_normale>
-Questo client che riceve quanto inviato manderà un messaggio ad un gruppo multicast, poi stamperà tutte le risposte che riceve. Visto che non ha modo di sapere quante risposte attendersi, utilizza un valore predefinito sul socket per evitare un blocco indefinito mentre è in attesa di risposta.
+Questo client che riceve quanto inviato manderà un messaggio a un gruppo multicast, poi stamperà tutte le risposte che riceve. Visto che non ha modo di sapere quante risposte attendersi, utilizza un valore predefinito sul socket per evitare un blocco indefinito mentre è in attesa di risposta.
 </testo_normale>
 <testo_normale>
 Il socket deve inoltre essere configurato con un valore <a href='https://www.wikiwand.com/it/Time_to_live'>time to live</a> (TTL) per i messaggi. TTL controlla quante reti riceveranno il pacchetto. Si imposti il TTL con l'opzione <code>IP_MULTICAST_TTL</code> e <code>setsockopt()</code>. Il valore predefinito <code>1</code> significa che i pacchetti non sono inoltrati dal router oltre il segmento corrente di rete. Il valore può variare fino a <code>255</code> e dovrebbe essere rappresentato da un singolo byte packed.
@@ -1222,7 +1222,7 @@ Il resto del codice di invio sembra quello del client UDP, eccetto che si attend
 Ricevere Messaggi Multicast
 </titolo_3>
 <testo_normale>
-Il primo passo per impostare un ricevitore multicast è creare il socket UDP. Dopo che il normale socket viene creato e collegato ad una porta, può essere aggiunto al gruppo multicast usando <code>setsockopt()</code> per modificare l'opzione <code>IP_ADD_MEMBERSHIP</code>. Il valore dell'opzione è una rappresentazione ad 8-byte packed dell'indirizzo del gruppo multicast seguito dall'interfaccia di rete sulla quale il server dovrebbe porsi in ascolto, identificata dal suo indirizzo IP. In questo caso, il ricevitore ascolta tutte le interfacce usando <code>INADDR_ANY</code>.
+Il primo passo per impostare un ricevitore multicast è creare il socket UDP. Dopo che il normale socket viene creato e collegato a una porta, può essere aggiunto al gruppo multicast usando <code>setsockopt()</code> per modificare l'opzione <code>IP_ADD_MEMBERSHIP</code>. Il valore dell'opzione è una rappresentazione ad 8-byte packed dell'indirizzo del gruppo multicast seguito dall'interfaccia di rete sulla quale il server dovrebbe porsi in ascolto, identificata dal suo indirizzo IP. In questo caso, il ricevitore ascolta tutte le interfacce usando <code>INADDR_ANY</code>.
 </testo_normale>
 <py_code>
 # socket_multicast_receiver.py
@@ -1310,7 +1310,7 @@ https://docs.python.org/3.5/library/socket.html|socket|La documentazione della l
 riferimenti_moduli_modificati.html#socketporting|Note di Portabilità|Note di portabilità per socket
 select.html|select|Il modulo select
 socketserver.html|socketserver|Creare server di rete.
-#|asyncio|Strumenti di concorrenza per I/O asincrono
+asyncio.html|asyncio|Strumenti di concorrenza per I/O asincrono
 #|urllib e urllib2|La maggior parte dei client di rete dovrebbero usare queste librerie più convenienti per accedere alle risorse remote tramite URL
 https://docs.python.org/3/howto/sockets.html|Socket Programming HOWTO|Una guida di Gordon McMillan, compresa nella documentazione della libreria standard
 #|Foundations of Python Network Programming, 3/E|Brandon Rhodes e John Goerzen. Pubblicato da Apress, 2014. ISBN-10: 1430258543.

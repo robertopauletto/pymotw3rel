@@ -19,6 +19,7 @@
 
       <form action="" id="frm{{ k }}" method="post">
         {% for k, v in parameters.items() %}
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
           <div id="{{ k }}" class="col s12">
             {% for item in v %}
               <div class="row">
