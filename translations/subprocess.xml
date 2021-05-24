@@ -224,7 +224,7 @@ else:
     )
 </py_code>
 <testo_normale>
-Questo esempio non imposta <code>check=True</code> in modO che l'output del comando venga catturato e stampato.
+Questo esempio non imposta <code>check=True</code> in modo che l'output del comando venga catturato e stampato.
 </testo_normale>
 <py_output>
 $ python3 subprocess_run_output_error_trap.py
@@ -267,7 +267,7 @@ Ci sono 20 byte in output: 'to stdout\nto stderr\n'
 Sopprimere l'Output
 </titolo_3>
 <testo_normale>
-Nei casi dove l'output non dovrebbe essere mostrato o catturato, si usi <code>DEVNULL</code> per sopprimre il canale di output. Questo esempio sopprime i canali di standard error e output
+Nei casi dove l'output non dovrebbe essere mostrato o catturato, si usi <code>DEVNULL</code> per sopprimere il canale di output. Questo esempio sopprime i canali di standard error e output
 </testo_normale>
 <py_code>
 # subprocess_run_output_error_suppress.py
@@ -696,7 +696,7 @@ FIGLIO   6981: Ricevuto USR1
 Gruppi di Processo / Sessioni
 </titolo_2>
 <testo_normale>
-Se il processo creato da <code>Popen</code> genera dei sotto processi, questi suoi figli non riceveranno alcuno dei segnali inviati al genitore, Questo significa che, quando si usa l'argomento <code>shell</code> per <code>Popen</code>, sarà difficile far terminare il comnando fatto partire dalla <a href='https://www.wikiwand.com/it/Shell_(informatica)' target='_blank'>shell</a> inviandogli un <code>SIGINT</code> o un <code>SIGTERM</code>.
+Se il processo creato da <code>Popen</code> genera dei sotto processi, questi suoi figli non riceveranno alcuno dei segnali inviati al genitore, Questo significa che, quando si usa l'argomento <code>shell</code> per <code>Popen</code>, sarà difficile far terminare il comando fatto partire dalla <a href='https://www.wikiwand.com/it/Shell_(informatica)' target='_blank'>shell</a> inviandogli un <code>SIGINT</code> o un <code>SIGTERM</code>.
 </testo_normale>
 <py_code>
 # subprocess_signal_parent_shell.py
@@ -732,7 +732,7 @@ Il <em>pid</em> usato per inviare il segnale è diverso dal <em>pid</em> del fig
 </testo_normale>
 <lista_ordinata>
 Il programma <code>subprocess_signal_parent_shell.py</code>
-Il processo della <a href='https://www.wikiwand.com/it/Shell_(informatica)' target='_blank'>shell</a> Unix che sta eseguento lo script creato dal programma python principale
+Il processo della <a href='https://www.wikiwand.com/it/Shell_(informatica)' target='_blank'>shell</a> Unix che sta eseguendo lo script creato dal programma python principale
 Il programma <code>signal_child.py</code>
 </lista_ordinata>
 <py_output>
@@ -747,7 +747,7 @@ GENITORE      : Segnalazione al figlio 7374
 FIGLIO   7375: Segnale mai ricevuto
 </py_output>
 <testo_normale>
-Per inviare segnali ai discendenti senza conoscere il loro id di processo si  usa un <a href='https://www.wikiwand.com/it/PID_(Unix)'><em>gruppo di processi</em></a> da associare ai figli in modo che possa essere inviata una segnalazione a tutti insieme. Il gruppo di processi viene creato con <code>os.setpgrp()</code>, che imposta l'identificativo del gruppo di processo pari all'id del processo corrente. Tutti i processi figli ereditano il gruppo di processo dal proprio genitore, e visto che si dovrebbe impostare  solo nella <a href='https://www.wikiwand.com/it/Shell_(informatica)' target='_blank'>shell</a> creata da <code>Popen</code> e i suoi discendenti, non occorre chiamare <code>os.setpgrp()</code> nello stesso processo dove è stato creato <code>Popen</code>. Al contrario la funzione viene passata a <code>Popen</code> come argomento di <code>preexec_fn</code>  in mdodo che possa essere eseguito dopo il <code>fork()</code> all'interno del nuovo processo, prima che usi <code>exec()</code> per eseguire la <a href='https://www.wikiwand.com/it/Shell_(informatica)' target='_blank'>shell</a>. Per inviare segnali all'intero gruppo di processo, usare <code>os.killpg()</code> con il valore <code>pid</code> dell'istanza di <code>Popen</code>.
+Per inviare segnali ai discendenti senza conoscere il loro id di processo si  usa un <a href='https://www.wikiwand.com/it/PID_(Unix)'><em>gruppo di processi</em></a> da associare ai figli in modo che possa essere inviata una segnalazione a tutti insieme. Il gruppo di processi viene creato con <code>os.setpgrp()</code>, che imposta l'identificativo del gruppo di processo pari all'id del processo corrente. Tutti i processi figli ereditano il gruppo di processo dal proprio genitore, e visto che si dovrebbe impostare  solo nella <a href='https://www.wikiwand.com/it/Shell_(informatica)' target='_blank'>shell</a> creata da <code>Popen</code> e i suoi discendenti, non occorre chiamare <code>os.setpgrp()</code> nello stesso processo dove è stato creato <code>Popen</code>. Al contrario la funzione viene passata a <code>Popen</code> come argomento di <code>preexec_fn</code>  in modo che possa essere eseguito dopo il <code>fork()</code> all'interno del nuovo processo, prima che usi <code>exec()</code> per eseguire la <a href='https://www.wikiwand.com/it/Shell_(informatica)' target='_blank'>shell</a>. Per inviare segnali all'intero gruppo di processo, usare <code>os.killpg()</code> con il valore <code>pid</code> dell'istanza di <code>Popen</code>.
 </testo_normale>
 <py_code>
 # subprocess_signal_setpgrp.py

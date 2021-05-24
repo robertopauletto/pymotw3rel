@@ -1,20 +1,38 @@
 document.addEventListener('DOMContentLoaded', function () {
- console.log("Hello!")
-
   const elems = document.querySelectorAll('.sidenav')
   const instances = M.Sidenav.init(elems)
 
   const ddElems = document.querySelectorAll('.dropdown-trigger')
-  const ddInstances = M.Dropdown.init(ddElems, { hover: false })
+  const ddInstances = M.Dropdown.init(ddElems, {hover: false})
 
   const ddCateg = document.querySelectorAll('.dropdown-categ-trigger')
   const ddCategInstances = M.Dropdown.init(ddCateg)
 
-  const configTabElems = document.getElementById("configTabs")
-  const configTabInstance = M.Tabs.init(configTabElems)
+  const toolTipped = document.querySelectorAll('.tooltipped')
+  const toolTippedInstances = M.Tooltip.init(toolTipped)
 
-  const selectItems = document.querySelectorAll('select')
-  const selectInstances = M.FormSelect.init(selectItems)
+  const btnGoTop = document.getElementById('btn-gotop')
 
+  window.onscroll = function () {
+    scrollf()
+  }
+
+  function scrollf() {
+    if (
+      document.body.scrollTop > 120 ||
+      document.documentElement.scrollTop > 120
+    ) {
+      btnGoTop.style.display = 'block'
+    } else {
+      btnGoTop.style.display = 'none'
+    }
+  }
+
+  const autoComp = document.querySelector('.autocomplete-modules')
+  const autoCompInstances = M.Autocomplete.init(autoComp)
 })
 
+function gotoTop() {
+  document.body.scrollTop = 0
+  document.documentElement.scrollTop = 0
+}

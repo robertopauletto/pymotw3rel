@@ -22,7 +22,7 @@ Il modulo <strong>traceback</strong> lavora con lo <a href='https://www.wikiwand
 L'<a href='https://it.wikipedia.org/wiki/Application_programming_interface' target='_blank'>API</a> di alto livello in <strong>traceback</strong> usa istanze di <code>StackSummary</code> e <code>FrameSummary</code> per mantenere una rappresentazione dello stack. Queste classi possono essere costruite da un <em>traceback</em> o dallo stack di esecuzione corrente, quindi elaborate allo stesso modo.
 </testo_normale>
 <testo_normale>
-Le funzioni di basso livello in <strong>traceback</strong> sono suddivise in diverse comuni categorie. Ci sono funzioni per estrarre <em>traceback</em> grezzi dall'ambiente di esecuzione corrente (sia un gestore di eccezione per un <em>traceback</em> che lo stack normale). La tracciatura dello stack estratta è una sequenza di tuple che contengono il nome del file, il numero di riga, il nome della funzione ed il testo della riga di sorgente.
+Le funzioni di basso livello in <strong>traceback</strong> sono suddivise in diverse comuni categorie. Ci sono funzioni per estrarre <em>traceback</em> grezzi dall'ambiente di esecuzione corrente (sia un gestore di eccezione per un <em>traceback</em> che lo stack normale). La tracciatura dello stack estratta è una sequenza di tuple che contengono il nome del file, il numero di riga, il nome della funzione e il testo della riga di sorgente.
 </testo_normale>
 <testo_normale>
 Una volta estratta, la tracciatura dello stack può essere formattata usando funzioni come <code>format_exception()</code>, <code>format_stack()</code>, ecc.; le funzioni di formattazione ritornano una lista di stringhe con messaggi formattati per la stampa. Ci anche sono funzioni scorciatoia per stampare i valori formattati.
@@ -127,7 +127,7 @@ Per elaborare il <em>traceback</em> in qualche altro modo, tipo formattarlo dive
 # traceback_extract_tb.py
 </py_code>
 <testo_normale>
-Il valore ritornato è una lista di voci da ciascun livello dello stack rappresentato da <em>traceback</em>. Ogni voce è una tupla con quattro parti: il nome del file sorgente, il numero di riga in quel file, il nome della funzione ed il testo sorgente da quelle riga, dedotti spazi ed altri caratteri di spaziatura orizzontale o verticale (se la sorgente è disponibile).
+Il valore ritornato è una lista di voci da ciascun livello dello stack rappresentato da <em>traceback</em>. Ogni voce è una tupla con quattro parti: il nome del file sorgente, il numero di riga in quel file, il nome della funzione e il testo sorgente da quelle riga, dedotti spazi e altri caratteri di spaziatura orizzontale o verticale (se la sorgente è disponibile).
 </testo_normale>
 <py_output>
 $ python3 traceback_extract_tb.py
@@ -142,7 +142,7 @@ Ci sono simili insiemi di funzioni per eseguire le stesse operazioni con lo stac
 # traceback_print_stack.py
 </py_code>
 <testo_normale>
-Il risultato assomiglia ad un <em>traceback</em> senza messaggio di errore.
+Il risultato assomiglia a un <em>traceback</em> senza messaggio di errore.
 </testo_normale>
 <py_output>
 $ python3 traceback_print_stack.py

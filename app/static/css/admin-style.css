@@ -2,6 +2,10 @@
   --head-color: #0f277b;
 }
 
+.btn-block {
+    width: 100%;
+}
+
 main {
   margin: 30px 5px;
   min-height: 80vh;

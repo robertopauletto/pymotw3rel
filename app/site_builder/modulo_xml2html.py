@@ -67,7 +67,7 @@ MY_TAGS = {
     'deflist': partial(h.dl),
     'incipit': None,
     'inserito_il': None,
-    'lista': partial(h.ul, class_='browser-default'),
+    'lista': partial(h.ul, class_='collection', parent_class='collection-item'),
     'lista_ordinata': partial(h.ol),
     'lista_ricorsiva': partial(h.ul),
     'mk_xml_code': partial(
@@ -90,7 +90,8 @@ MY_TAGS = {
         script_folder='/dati/dev/python/pymotw3restyling/dumpscripts'
     ),
     'sottotitolo': partial(h.h4),
-    'sql_code': partial(h.code_sql, class_='monospaced-frame console'),
+    'sql_code': partial(h.code_sql,
+                        class_='highlight monospaced-frame code-snippet'),
     # 'tabella_semplice': partial(h.table, with_header=True, class_='table'),
     'tabella_1': None,
     'testo_normale': partial(h.p),
@@ -110,13 +111,15 @@ MY_TAGS = {
         h.table,
         with_header=True,
         splitchar='|',
-        class_='table '
+        class_='table striped blue-grey lighten-4 blue-grey-text '\
+               'text-darken-2 mb-4'
     ),
     'tabella_semplice_con_legenda': partial(
         h.table,
         with_header=True,
         caption=True,
-        class_='table '
+        class_='table striped blue-grey lighten-4 blue-grey-text '\
+               'text-darken-2 mb-4'
     )
 }
 
@@ -370,7 +373,7 @@ def prepara_articolo(seq_elementi: list,
     - il codice per l'indice nella barra destra
     - il codice per il contenuto dell'articolo
     - Il testo per la verifica della sintassi
-    - il codice per la sezione bibliografica (vedi anche)
+    - il codice per la sezione bibliografica ('vedi anche')
     """
     indice = []
     contenuti = []
@@ -383,6 +386,7 @@ def prepara_articolo(seq_elementi: list,
             _raccogli_per_check_sintassi(
                 tag, item['row'], item['buffer'], check_sintassi
             )
+            # Indice articolo su spalla dx
             if tag in tag_ind:
                 item['a_name'] = h.a_name(str(prg))
                 b = " ".join(item['buffer'])
@@ -393,6 +397,7 @@ def prepara_articolo(seq_elementi: list,
                 )
                 contenuti.append(h.section(str(prg), class_='modules-anchor'))
                 prg += 1
+            # verifica se tag è da processare
             if tag in TEMP_FATTI:
                 codice = MY_TAGS[tag](item['buffer'])
                 if tag.lower() == 'vedi_anche':

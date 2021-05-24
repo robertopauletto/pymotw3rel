@@ -82,6 +82,16 @@ def _check_module_list(translated_modules: list,
     return " ".join(retval), set(orig_modules_list).difference(set(retval))
 
 
+@main.route('/module_list', methods=['GET'])
+def module_list():
+    """Elenco di moduli in una text area"""
+    diz = _get_config_items()
+    modules = translated_module_names(diz['tran_dir'])
+    data = '\n'.join(modules)
+    return render_template('module_list.html', modlist=data,
+                           title='Elenco Moduli')
+
+
 @main.route('/generator', methods=['GET', 'POST'])
 def generator():
     """Generatore html articoli"""
@@ -108,7 +118,8 @@ def generator():
             log += f"Il modulo {mod_ko} non esiste o non è stato tradotto\n"
 
         if not module_ok:
-            flash("error", "Nessun modulo con il testo richiesto")
+            flash("error",
+                  f"Nessun modulo corrisponde a {' '.join(module_ko)}")
             return redirect(url_for('main.generator'))
 
         module = module_ok

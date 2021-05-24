@@ -16,7 +16,7 @@ Implementa un database relazionale integrato con supporto SQL
 
 </descrizione>
 <testo_normale>
-Il modulo <strong>sql</strong> implementa una interfaccia conforme <a href='https://www.python.org/dev/peps/pep-0249/' target='_blank'>Python DB-API 2.0</a> a SQLite , un database relazionale con architettura <em>in-process</em>. SQLite è progettato per essere integrato nelle applicazioni, invece di usare un programma server di database separato tipo MySQL, PostgreSQL ed Oracle. E' veloce, rigorosamente testato e flessibile, rendendolo adattto per prototipazione e distribuzione in produzione per alcune applicazioni.
+Il modulo <strong>sql</strong> implementa una interfaccia conforme <a href='https://www.python.org/dev/peps/pep-0249/' target='_blank'>Python DB-API 2.0</a> a SQLite , un database relazionale con architettura <em>in-process</em>. SQLite è progettato per essere integrato nelle applicazioni, invece di usare un programma server di database separato tipo MySQL, PostgreSQL ed Oracle. E' veloce, rigorosamente testato e flessibile, rendendolo adatto per prototipazione e distribuzione in produzione per alcune applicazioni.
 </testo_normale>
 <titolo_2>
 Creare un Database
@@ -50,23 +50,22 @@ Il database esiste, si suppone che esista anche lo schema.
 Il passo successivo dopo la creazione del nuovo file di database, &egrave; quello di creare lo <em>schema</em> per definire le tabelle all'interno del database. Gli esempi che seguono in questa sezione usano tutti lo stesso <em>schema</em> di database con delle tabelle per la gestione di compiti. I dettagli dello <em>schema</em> del database sono presentati nelle tabelle seguenti:
 </testo_normale>
 <testo_normale>
-<strong>Tabella progetto</strong>
+<strong><br>Tabella progetto:</strong>
 </testo_normale>
 <tabella_semplice>
-Colonna;Tipo;Descrizione
+COLONNA;TIPO;DESCRIZIONE
 nome;testo;Nome del progetto
 descrizione;testo;Descrizione dettagliata del progetto
 scadenza;data;Data di scadenza per l'intero progetto
 </tabella_semplice>
 <testo_normale>
-
 </testo_normale>
 <testo_normale>
-<strong>Tabella compito</strong>
+<strong><br>Tabella compito:</strong>
 </testo_normale>
 <tabella_semplice>
-Colonna;Tipo;Descrizione
-id;numerico;Identifcativo univoco del compito
+COLONNA;TIPO;DESCRIZIONE
+id;numerico;Identificativo univoco del compito
 priorita;intero;Priorità numerica valore più basso = priorità maggiore
 dettagli;testo;Descrizione completa del compito
 stato;testo;Stato del compito (uno tra 'nuovo', 'da finire', 'finito', 'eliminato')
@@ -163,10 +162,10 @@ $ python3 sqlite3_row_factory.py
 Usare Variabili con le Interrogazioni
 </titolo_2>
 <testo_normale>
-L'uso di interrogazioni definite come stringhe letterali incorporate in un  programma non consente mutamenti. Ad esempio, quando viene aggiunto un altro progetto al database l'interrogazione per mostrare i primi cinque compiti dovrebbe essere aggiornata in modo che possa funzionare per entrambi i progetti. Un modo per aggiungere maggiore flessibilit&agrave; &egrave; è la costruzione dell'istruzione SQL con l'interrogazione desiderata combinando i valori in Python. Tuttavia, costruire in questo modo una stringa di interrogazione &egrave; pericoloso, e dovrebbe essere evitato. Sbagliare la costruzione di una sequenza di escape per i caratteri speciali nelle parti variabili dell'interrogazione pu&ograve; risultare in un errore di analisi in SQL, o peggio in una classe di vulnerabilit&agrave; alla sicurezza nota come <a href='http://www.wikiwand.com/it/SQL_injection'>attaco SQL-injection</a>, che consente di eseguire istruzioni SQL arbitrarie nel database.
+L'uso di interrogazioni definite come stringhe letterali incorporate in un  programma non consente mutamenti. Ad esempio, quando viene aggiunto un altro progetto al database l'interrogazione per mostrare i primi cinque compiti dovrebbe essere aggiornata in modo che possa funzionare per entrambi i progetti. Un modo per aggiungere maggiore flessibilit&agrave; &egrave; è la costruzione dell'istruzione SQL con l'interrogazione desiderata combinando i valori in Python. Tuttavia, costruire in questo modo una stringa di interrogazione &egrave; pericoloso, e dovrebbe essere evitato. Sbagliare la costruzione di una sequenza di escape per i caratteri speciali nelle parti variabili dell'interrogazione pu&ograve; risultare in un errore di analisi in SQL, o peggio in una classe di vulnerabilit&agrave; alla sicurezza nota come <a href='http://www.wikiwand.com/it/SQL_injection'>attacco SQL-injection</a>, che consente di eseguire istruzioni SQL arbitrarie nel database.
 </testo_normale>
 <testo_normale>
-Il modo giusto per usare valori dinamici con le interrogazioni &egrave; tramite <em>variabili ospiti</em> passate ad <code>execute()</code> assieme all'istruzione SQL. Un valore segnaposto in SQL viene sostiuito dal valore nella variabile ospite quando viene eseguita l'istruzione. L'uso di variabili ospite al posto dell'inserimento di valori arbitrari nell'istruzione SQL prima che sia analizzata evita gli attacchi <em>SQL-injection</em> perch&egrave; non esiste possibilit&agrave; che valori non affidabili possano influenzare il modo in cui l'istruzione SQL viene analizzata. SQLite supporta due forme di interrogazioni con segnaposto, posizionali e nominali.
+Il modo giusto per usare valori dinamici con le interrogazioni &egrave; tramite <em>variabili ospiti</em> passate ad <code>execute()</code> assieme all'istruzione SQL. Un valore segnaposto in SQL viene sostituito dal valore nella variabile ospite quando viene eseguita l'istruzione. L'uso di variabili ospite al posto dell'inserimento di valori arbitrari nell'istruzione SQL prima che sia analizzata evita gli attacchi <em>SQL-injection</em> perch&egrave; non esiste possibilit&agrave; che valori non affidabili possano influenzare il modo in cui l'istruzione SQL viene analizzata. SQLite supporta due forme di interrogazioni con segnaposto, posizionali e nominali.
 </testo_normale>
 <titolo_3>
 Parametri Posizionali
@@ -342,7 +341,7 @@ Una delle funzionalit&agrave; chiave dei database relazionali &egrave; l'uso del
 Preservare le Modifiche
 </titolo_3>
 <testo_normale>
-Le modifiche al database, sia tramite istruzioni di <code>insert</code> che di <code>update</code> devono essere salvate chiamando esplicitamente <code>commit()</code>. Questo requisito fornisce a una applicazione la possibilit&agrave; di effettuare parecchie modifiche collegate, in modo che siano conservarte <em>atomicamente</em> invece che in modo incrementale, evitando situazioni nelle quali aggiornamenti parziali possano essere visti da client diversi in connessione simultanea al database.
+Le modifiche al database, sia tramite istruzioni di <code>insert</code> che di <code>update</code> devono essere salvate chiamando esplicitamente <code>commit()</code>. Questo requisito fornisce a una applicazione la possibilit&agrave; di effettuare parecchie modifiche collegate, in modo che siano conservate <em>atomicamente</em> invece che in modo incrementale, evitando situazioni nelle quali aggiornamenti parziali possano essere visti da client diversi in connessione simultanea al database.
 </testo_normale>
 <testo_normale>
 L'effetto della chiamata di <code>commit()</code> pu&ograve; essere visto con un programma che usa parecchie connessioni al database. Una nuova riga viene inserita con la prima connessione, quindi vengono effettuati due tentativi di leggere la riga inserita usando connessioni separate.
@@ -375,7 +374,7 @@ $ python3 sqlite3_transaction_rollback.py
 Livelli di Isolamento
 </titolo_3>
 <testo_normale>
-<strong>sqlite3</strong> supporta tre modalit&agrave; di blocco, chiamate <em>livelli di isolamento</em> che controllano la tecnica usata per prevenire modifiche incompatibili tra le connessioni. Il livello di isolamento viene impostato passando una stringa all'argomentoo <code>isolation_level</code> quando viene aperta una connessione, in modo che diverse connessioni possano usare diversi valori.
+<strong>sqlite3</strong> supporta tre modalit&agrave; di blocco, chiamate <em>livelli di isolamento</em> che controllano la tecnica usata per prevenire modifiche incompatibili tra le connessioni. Il livello di isolamento viene impostato passando una stringa all'argomento <code>isolation_level</code> quando viene aperta una connessione, in modo che diverse connessioni possano usare diversi valori.
 </testo_normale>
 <testo_normale>
 Questo programma dimostra l'effetto di diversi livelli di isolamento sull'ordine di eventi nei <a href='https://www.wikiwand.com/it/Thread_(informatica)' target='_blank'>thread</a>     usando connessioni separate allo stesso database. Vengono creati quattro thread. Due scrivono le modifiche al database aggiornando righe esistenti. Le altre tentano di leggere tutte le righe della tabella <code>compito</code>.
@@ -499,7 +498,7 @@ Aggregazione Personalizzata
 Una funzione di aggregazione raccoglie molte parti di dati individuali e li sintetizza in un qualche modo. Esempi di funzioni di aggregazione <em>built-in</em> sono <code>avg()</code> (media), <code>min()</code> (minimo), <code>max()</code> (massimo) e <code>count()</code> (conteggio).
 </testo_normale>
 <testo_normale>
-L'API per gli aggregatori usati da <strong>sqlite3</strong> &egrave; definita in termini di una classe con due metodi. Il metodo <code>step()</code> viene chiamato una volta per ogni valore di dato mentre l'interrogazione viene elaborata. Il metodo <code>finalize()</code> viene chiamato una volta alla fine dell'interogazione e dovrebbre restituire il valore aggregato. Questo esempio implementa un aggregatore che ottiene la <a href='https://www.wikiwand.com/it/Moda_(statistica)' target='_blank'>moda</a>, vale a dire  il valore che appare pi&ugrave; frequentemente nell'input.
+L'API per gli aggregatori usati da <strong>sqlite3</strong> &egrave; definita in termini di una classe con due metodi. Il metodo <code>step()</code> viene chiamato una volta per ogni valore di dato mentre l'interrogazione viene elaborata. Il metodo <code>finalize()</code> viene chiamato una volta alla fine dell'interrogazione e dovrebbe restituire il valore aggregato. Questo esempio implementa un aggregatore che ottiene la <a href='https://www.wikiwand.com/it/Moda_(statistica)' target='_blank'>moda</a>, vale a dire  il valore che appare pi&ugrave; frequentemente nell'input.
 </testo_normale>
 <py_code>
 # sqlite3_create_aggregate.py

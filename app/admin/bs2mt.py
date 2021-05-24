@@ -9,7 +9,8 @@ import re
 from shutil import copy
 from typing import Generator, Union, Any, List, Tuple
 
-__doc__ = "bs2mt.py"
+__doc__ = "utilità usate nella conversione bootstrap->materialize e revisione" \
+          "del materiale"
 
 logging.basicConfig(filename='/tmp/scan_alerts.txt', filemode="a",
                     level=logging.DEBUG)
@@ -61,6 +62,18 @@ def scan_alerts(filepattern: str):
     _print_report(result, True)
     print(' '.join(
         sorted(os.path.splitext(rep.filename)[0] for rep in result)))
+
+
+def find_text_in_translations(filepattern, text):
+    result = []
+    filenames = sorted(_get_filenames(filepattern), key=lambda x: x.lower())
+    for filename in filenames:
+        with open(filename) as fh:
+            for i, row in enumerate(fh.readlines()):
+                if text in row:
+                    result.append(f"File {filename}, Row {i+1}")
+                    logging.info(f"File {filename}, Row {i+1}")
+    return result
 
 
 def fix_conj(filepattern: str, tran_fld: str, bkroot_fld: str, preview: bool):
@@ -171,9 +184,11 @@ def _get_dict_from_conj_reports(results: List[Report]):
 
 if __name__ == '__main__':
     # scan_alerts(GLOB_PATTERN + '/*.xml')
-    fix_conj(
-        TRAN_FOLDER_PATTERN + '/[s]*.xml',
-        TRAN_FOLDER_PATTERN,
-        TRAN_BK_ROOT,
-        False
-    )
+    # fix_conj(
+    #     TRAN_FOLDER_PATTERN + '/[a]sync*.xml',
+    #     TRAN_FOLDER_PATTERN,
+    #     TRAN_BK_ROOT,
+    #     False
+    # )
+    res = find_text_in_translations(TRAN_FOLDER_PATTERN + '/*.xml', '<lista')
+    print('\n'.join(res))

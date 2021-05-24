@@ -94,7 +94,7 @@ Il valore di <code>t.pattern</code> è una espressione regolare compilata, ma la
 $ python3 string_template_defaultpattern.py
 </py_output>
 <testo_normale>
-Questo esempio definisce un nuovo schema per creare un nuovo tipo di modello, usando come sintassi della varibile <code>{{var}}}</code>.
+Questo esempio definisce un nuovo schema per creare un nuovo tipo di modello, usando come sintassi della variabile <code>{{var}}}</code>.
 </testo_normale>
 <py_code>
 # string_template_newsyntax.py
@@ -109,7 +109,7 @@ $ python3 string_template_newsyntax.py
 Formatter
 </titolo_2>
 <testo_normale>
-La classe <code>Formatter</code> implementa le stesse specifiche di linguaggio del metodo <code>str.format()</code>. Tra le sue caratteristiche la coercizione del tipo, l'allineamento, i riferimenti ad attributo e campi, argomenti di modello nominativi e posizionali e opzioni di formattazione specifiche per tipo. La maggior parte delle volte il metodo <code>format()</code> costituisce una interfaccia più conveniente per queste caratteristiche, ma <code>Formatter</code> è fornito come modo per costruire sottoclassi, per casi dove le variazioni sono necesarie.
+La classe <code>Formatter</code> implementa le stesse specifiche di linguaggio del metodo <code>str.format()</code>. Tra le sue caratteristiche la coercizione del tipo, l'allineamento, i riferimenti ad attributo e campi, argomenti di modello nominativi e posizionali e opzioni di formattazione specifiche per tipo. La maggior parte delle volte il metodo <code>format()</code> costituisce una interfaccia più conveniente per queste caratteristiche, ma <code>Formatter</code> è fornito come modo per costruire sottoclassi, per casi dove le variazioni sono necessarie.
 </testo_normale>
 <titolo_2>
 Costanti

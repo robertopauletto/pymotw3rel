@@ -19,13 +19,13 @@ Funzioni per la manipolazione del tempo di <a href='https://www.wikiwand.com/it/
 Il modulo <code>time</code> fornisce l'accesso a parecchi tipi di <a href='https://www.wikiwand.com/it/Clock'>clock</a>, utili per scopi diversi. Chiamate di sistema standard come <code>time()</code> ritornano il tempo "orologio" di sistema.  L'orologio monotonico (<code>monotonic()</code>) può essere usato per misurare il tempo impiegato da un processo con un lungo tempo di esecuzione in quanto è garantito che non andrà mai indietro, anche se l'orario di sistema cambia. Per un test delle prestazioni <code>perf_counter()</code> fornisce accesso al clock con la risoluzione più alta disponibile per rendere più accurate le misurazioni di tempi brevi. Il tempo di CPU è disponibile tramite <code>time()</code>, e <code>process_time()</code> ritorna l'orario del processore e del sitema combinati.
 </testo_normale>
 <note>
-Le implementazioni espongono le funzioni della libreria C per manipolare date ed orari. Visto che sono legate all'implementazione C sottostante, alcuni dettagli (tipo l'inizio dell'epoca ed il valore massimo di data supportato) sono specifici alla piattaforma. Fare riferimento alla documentazione della libreria per più completi dettagli.
+Le implementazioni espongono le funzioni della libreria C per manipolare date e orari. Visto che sono legate all'implementazione C sottostante, alcuni dettagli (tipo l'inizio dell'epoca e il valore massimo di data supportato) sono specifici alla piattaforma. Fare riferimento alla documentazione della libreria per più completi dettagli.
 </note>
 <titolo_2>
 Confrontare Clock
 </titolo_2>
 <testo_normale>
-I dettagli di implementazione per i clock variano da piattaforma a piattaforma. Si usa <code>get_clock_info()</code> per avere accesso ad informaizioni di base circa l'implementazione corrente, compresa la risoluzione del clock.
+I dettagli di implementazione per i clock variano da piattaforma a piattaforma. Si usa <code>get_clock_info()</code> per avere accesso a informaizioni di base circa l'implementazione corrente, compresa la risoluzione del clock.
 </testo_normale>
 <py_code>
 # time_get_clock_info.py
@@ -144,7 +144,7 @@ L'ora è          : Sun Dec  4 10:31:53 2016
 Clock Monotonici
 </titolo_2>
 <testo_normale>
-Visto che <code>time()</code> si rivolge all'orologio di sistema e quest'ultimo può essere modificato dall'utente o da servizi di sistema per la sincronizzazione di orologi su molteplici computer, chiamando <code>time()</code> ripetutamente si potrebbero ottenere valori che vanno avanti ed indietro. Il che potrebbe produrre un comportamento inatteso qualora si vogliano misurare durate oppure utilizzare questi tempi per calcoli. Per evitare queste situazioni si usa <code>monotonic()</code>, che ritorna sempre valori che vanno in avanti
+Visto che <code>time()</code> si rivolge all'orologio di sistema e quest'ultimo può essere modificato dall'utente o da servizi di sistema per la sincronizzazione di orologi su molteplici computer, chiamando <code>time()</code> ripetutamente si potrebbero ottenere valori che vanno avanti e indietro. Il che potrebbe produrre un comportamento inatteso qualora si vogliano misurare durate oppure utilizzare questi tempi per calcoli. Per evitare queste situazioni si usa <code>monotonic()</code>, che ritorna sempre valori che vanno in avanti
 </testo_normale>
 <py_code>
 # time_monotonic.py
@@ -272,7 +272,7 @@ for i in range(5):
         iter_elapsed, loop_elapsed))
 </py_code>
 <testo_normale>
-Così come per <code>monotonic()</code>, l'epoca per <code>perf_counter()</code> è indefinita, ed i valori sono destinati all'uso per confrontare e calcolare valori, non tempi assoluti.
+Così come per <code>monotonic()</code>, l'epoca per <code>perf_counter()</code> è indefinita, e i valori sono destinati all'uso per confrontare e calcolare valori, non tempi assoluti.
 </testo_normale>
 <py_output>
 $ python3  time_perf_counter.py
@@ -287,7 +287,7 @@ Sun Dec  4 16:32:10 2016 : 0.310 1.592
 Componenti di Time
 </titolo_2>
 <testo_normale>
-Convervare il tempo come secondi trascorsi puù essere utile in alcune situazioni, ma ci sono volte nelle quali si deve avere accesso ai singoli campi di una data (anno, mese, ecc.). Il modulo <strong>time</strong> definisce <code>struct_time</code> per mantenere i valori di data ed ora con i componenti separati in modo da essere facilmente accessibili. Ci sono parecchie funzioni che lavorano con i valori di <code>struct_time</code> invece che con i valori a virgola mobile.
+Convervare il tempo come secondi trascorsi puù essere utile in alcune situazioni, ma ci sono volte nelle quali si deve avere accesso ai singoli campi di una data (anno, mese, ecc.). Il modulo <strong>time</strong> definisce <code>struct_time</code> per mantenere i valori di data e ora con i componenti separati in modo da essere facilmente accessibili. Ci sono parecchie funzioni che lavorano con i valori di <code>struct_time</code> invece che con i valori a virgola mobile.
 </testo_normale>
 <py_code>
 # time_struct.py
@@ -348,7 +348,7 @@ Lavorare con i Fusi Orari
 Le funzioni per determinare il tempo corrente dipendono dall'avere impostato il fuso orario, sia da un programma che usando l'impostazione predefinita del fuso orario del sistema. La modifica del fuso orario non modifica l'orario effettivo, ma solo il modo in cui viene rappresentato.
 </testo_normale>
 <testo_normale>
-Per modificare il fuso orario, si imposta la variabile di ambiente <code>TZ</code>, quindi si chiama <code>tzset()</code>. Si può specificare il fuso orario  dettagliatamente, fino all'inizio ed alla fine dell'ora legale; è in genere più semplice usare il nome del fuso orario e lasciare che le librerie sottostanti ricavino le altre informazioni.
+Per modificare il fuso orario, si imposta la variabile di ambiente <code>TZ</code>, quindi si chiama <code>tzset()</code>. Si può specificare il fuso orario  dettagliatamente, fino all'inizio e alla fine dell'ora legale; è in genere più semplice usare il nome del fuso orario e lasciare che le librerie sottostanti ricavino le altre informazioni.
 </testo_normale>
 <testo_normale>
 In questo esempio il programma modifica il fuso orario con alcuni diversi valori e mostra come le modifiche si ripercuotono sulle altre impostazioni nel modulo time.
@@ -383,7 +383,7 @@ for zone in ZONES:
     show_zone_info()
 </py_code>
 <testo_normale>
-Il fuso orario predefinito per l'esecuzione di questo script è Europe/Rome (fuso del traduttore - n.d.t). L'indicazione di altri fusi orari nell'esempo modificano il nome della zona (tzname), il flag dell'impostazione dell'ora legale (DST) ed i valori di scostamento per quel fuso orario dal meridiano di Greenwich (Zone).
+Il fuso orario predefinito per l'esecuzione di questo script è Europe/Rome (fuso del traduttore - n.d.t). L'indicazione di altri fusi orari nell'esempo modificano il nome della zona (tzname), il flag dell'impostazione dell'ora legale (DST) e i valori di scostamento per quel fuso orario dal meridiano di Greenwich (Zone).
 </testo_normale>
 <py_output>
 $ python3 time_timezone.py
@@ -411,7 +411,7 @@ Europe/Moscow :
 Elaborare e Formattare gli Orari
 </titolo_2>
 <testo_normale>
-Le due funzioni <code>strptime()</code> e <code>strftime()</code> si occupano della conversione tra <code>struct_time</code> e la rappresentazione stringa degli orari. E' a disposizione un lungo elenco di istruzioni di formattazione per supportare input ed output in diversi stili. La lista completa si trova nella documentazione della libreria per il modulo <strong>time</strong>.
+Le due funzioni <code>strptime()</code> e <code>strftime()</code> si occupano della conversione tra <code>struct_time</code> e la rappresentazione stringa degli orari. E' a disposizione un lungo elenco di istruzioni di formattazione per supportare input e output in diversi stili. La lista completa si trova nella documentazione della libreria per il modulo <strong>time</strong>.
 </testo_normale>
 <testo_normale>
 Questo esempio converte il tempo corrente da una stringa verso una <code>struct_time</code> e viceversa.
@@ -467,7 +467,7 @@ Formattato: Sun Dec 11 13:10:40 2016
 <vedi_anche>
 https://docs.python.org/3.5/library/time.html|time|La documentazione della libreria standard per questo modulo.
 riferimenti_moduli_modificati.html#time_porting|Note di portabilità per time|
-datetime.html|datetime|Il modulo datetime include altre classi per eseguire calcoli con date ed ora.
+datetime.html|datetime|Il modulo datetime include altre classi per eseguire calcoli con date e ora.
 calendar.html|calendar|Lavora con funzioni di data a più alto livello per produrre calendari o calcolare eventi ricorrenti.
 https://www.wikiwand.com/it/Fuso_orario|Fuso orario|La pagina Wikipedia sul fuso orario
 </vedi_anche>

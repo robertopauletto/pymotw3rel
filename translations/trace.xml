@@ -16,7 +16,7 @@ Controlla quali istruzioni e funzioni sono eseguite quando il programma è in es
 
 </descrizione>
 <testo_normale>
-Il modulo <strong>trace</strong> è utile per comprendere il modo nel quale un programma viene eseguito. Osserva le istruzioni eseguite, produce report di copertura ed aiuta ad investigare le relazioni tra funzioni che si chiamano le une con le altre.
+Il modulo <strong>trace</strong> è utile per comprendere il modo nel quale un programma viene eseguito. Osserva le istruzioni eseguite, produce report di copertura e aiuta a investigare le relazioni tra funzioni che si chiamano le une con le altre.
 </testo_normale>
 <titolo_2>
 Programma di esempio
@@ -37,7 +37,7 @@ La funzione <code>recurse()</code> chiama se stessa fino a che l'argomento <code
 Tracciare l'Esecuzione
 </titolo_2>
 <testo_normale>
-E' facile usare <strong>trace</strong> direttamente dalla riga di comando. Le istruzioni che vengono eseguite mentre il programma gira vengono stampate se viene fornita l'opzione <code>--trace</code>. Questo esempio ignora anche la locazione della libreria standard di Python per evitare la tracciatura di <a href='importlib.html' targer='_blank'>importlib</a> ed altri moduli che potrebbero essere più interessanti includere in un altro esempio, ma che in questo caso farebbero solo confusione nella stampa dei risultati.
+E' facile usare <strong>trace</strong> direttamente dalla riga di comando. Le istruzioni che vengono eseguite mentre il programma gira vengono stampate se viene fornita l'opzione <code>--trace</code>. Questo esempio ignora anche la locazione della libreria standard di Python per evitare la tracciatura di <a href='importlib.html' targer='_blank'>importlib</a> e altri moduli che potrebbero essere più interessanti includere in un altro esempio, ma che in questo caso farebbero solo confusione nella stampa dei risultati.
 </testo_normale>
 <py_output>
 $ python3 -m trace --ignore-dir=/usr/lib/python3.5 --trace esempio_trace/main.py
@@ -135,7 +135,7 @@ Nè <code>--listfuncs</code> nè <code>--trackcalls</code> onorano gli argomenti
 Interfaccia di Programmazione
 </titolo_2>
 <testo_normale>
-Per un maggior controllo sulla sua interfaccia, <code>trace</code> può essere chiamato da un altro programma tramite un oggetto <code>Trace</code>. <code>Trace</code> supporta l'impostazione di impianti ed altre dipendenze prima di eseguire una singola funzione od un comando Python da tracciare.
+Per un maggior controllo sulla sua interfaccia, <code>trace</code> può essere chiamato da un altro programma tramite un oggetto <code>Trace</code>. <code>Trace</code> supporta l'impostazione di impianti e altre dipendenze prima di eseguire una singola funzione o un comando Python da tracciare.
 </testo_normale>
 <py_code>
 # trace_run.py
@@ -192,7 +192,7 @@ Per salvare i dati di conteggio per generare report, si usino gli argomenti <cod
 # trace_report.py
 </py_code>
 <testo_normale>
-Si passi un nome di file ad <code>infile</code>  per leggere dati salvati in precedenza, ed un nome di file ad <code>outfile</code> per scrivere i nuovi risultati dopo la tracciatura. Se <code>infile</code> ed <code>outfile</code> sono uguali, si crea l'effetto di aggiornare il file con dati cumulativi.
+Si passi un nome di file ad <code>infile</code>  per leggere dati salvati in precedenza, e un nome di file ad <code>outfile</code> per scrivere i nuovi risultati dopo la tracciatura. Se <code>infile</code> ed <code>outfile</code> sono uguali, si crea l'effetto di aggiornare il file con dati cumulativi.
 </testo_normale>
 <py_output>
 $ python3 trace_report.py
@@ -217,7 +217,7 @@ PARAMETRO;TIPO;DESCRIZIONE
 <code>ignoremods</code>;Sequenza;Lista di moduli e pacchetti da ignorare nella tracciatura della copertura. Predefinito una tupla vuota
 <code>ignoredirs</code>;Sequenza;Lista di directory contenenti moduli e pacchetti da ignorare. Predefinito una tupla vuota
 <code>infile</code>;Stringa;Nome del file contenente i valori di conteggio in cache. Predefinito <code>None</code>
-<code>outfile</code>;Stringa;Nome del file da usare per conservare i file di conteggio. Predefinito <code>None</code> ed i dati non sono conservati.
+<code>outfile</code>;Stringa;Nome del file da usare per conservare i file di conteggio. Predefinito <code>None</code> e i dati non sono conservati.
 </tabella_semplice>
 <vedi_anche>
 https://docs.python.org/3.5/library/trace.html|trace|La documentazione della libreria standard per questo modulo.

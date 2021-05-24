@@ -4,10 +4,10 @@
     {% for message, category in messages %}
       <div class="row dismissible {{ category }} valign-wrapper"
            id="dismissible-{{ loop.index }}">
-        <div class="col s12 l11">
+        <div class="col s12 l10">
           {{ message }}
         </div>
-        <div class="col s12 l1" style="text-align: right;">
+        <div class="col s12 l2" style="text-align: right;">
           <a class="indigo-text text-darken-4" href="#"
              onclick="closeMsg('dismissible-{{ loop.index }}')" ><i
               class="material-icons">clear</i></a>

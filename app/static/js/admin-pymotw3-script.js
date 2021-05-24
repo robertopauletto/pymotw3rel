@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const elems = document.querySelectorAll('.sidenav')
   const instances = M.Sidenav.init(elems)
 
+  const fabElems = document.querySelectorAll('.fixed-action-btn')
+  const fabInstances = M.FloatingActionButton.init(fabElems, {hoverEnabled: false})
+
   const ddElems = document.querySelectorAll('.dropdown-trigger')
   const ddInstances = M.Dropdown.init(ddElems, {hover: false})
 

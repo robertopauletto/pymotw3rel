@@ -37,7 +37,7 @@ La riga 59 di <code>fetch_podcasts.py</code> ha due tabulazioni invece che 8 spa
 # fetch_podcasts.py
 </py_code_lineno>
 <testo_normale>
-Se si vogliono verificare i file ma non si vogliono vedere i dettagli degli errori, si uilizzi l'opzione <code>-q</code> per sopprimere tutte le informazioni a parte il nome del file.
+Se si vogliono verificare i file ma non si vogliono vedere i dettagli degli errori, si utilizzi l'opzione <code>-q</code> per sopprimere tutte le informazioni a parte il nome del file.
 </testo_normale>
 <py_output>
 $ python3 -m tabnanny -q .

@@ -5,6 +5,8 @@ from collections import namedtuple, defaultdict
 import os
 import re
 import subprocess
+from typing import List, Tuple, Any, Union
+
 from app.site_builder.inline_sub import InlineSubs
 from ast import literal_eval
 from app.site_builder.pyg import colora_codice
@@ -104,6 +106,9 @@ class MyHtml(object):
             tag = f"{tag} class={kwargs['class_']}"
             del(kwargs['class_'])
         for row in value:
+            if 'parent_class' in kwargs.keys():
+                kwargs['class'] = kwargs['parent_class']
+                del (kwargs['parent_class'])
             acc.append(self._get_start_end_tag(
                 "li",
                 self._convert(row),
@@ -237,10 +242,10 @@ class MyHtml(object):
         pigmentato = self._codice_xml_con_numerazione(value)
         return self._get_start_end_tag('div', pigmentato, **kwargs)
     
-    def output_console(self, value, **kwargs):
-        """(str) -> str
-
-        Mostra l'output console. Se `value` è una lista con più elementi si
+    def output_console(self, value: Union[str, list], **kwargs) -> str:
+        """
+        Ritorna l'output console di un comando eseguito in una subshell.
+        Se `value` è una lista con più elementi si
         presume che sia il testo di output da rendere. Se `value` contiene
         un solo elemento si assume che sia un comando da eseguire in un
         sottoprocesso per catturare e rendere il suo risultato; in questo
@@ -256,7 +261,11 @@ class MyHtml(object):
         :param kwargs: se chiave *script_folder* deve contenere il percorso
                        nel quale si trova lo script da eseguire, altrimenti si
                        assume la  directory corrente. Se contiene la stringa
-                       `?preproc` esegue il comando che segue.
+                       `?preproc` esegue il comando che segue. In genere
+                       `?preproc` contiene un comando che va eseguito
+                       preventivamente per consentire il regolare sviluppo
+                       dell'esecuzione progressiva degli script python citati
+                       nell'articolo.
                        Se chiave 'subs', deve contenere una lista di tuple il
                        ui primo elemento è il valore da sostituire ed il
                        secondo il nuovo valore
@@ -270,7 +279,7 @@ class MyHtml(object):
                     row for row in value if not row.startswith('?preproc')
                 ]
 
-        if len(value) == 1 and value[0].startswith(('#','$')):
+        if len(value) == 1 and value[0].startswith(('#', '$')):
             # lo script non è nella directory di lavoro?
             script_folder = kwargs.get('script_folder', '.')
             subdir = re.findall(r'\[.*]', value[0])
@@ -293,14 +302,16 @@ class MyHtml(object):
 
     def _sub_angulars(self, testo):
         """Bootstrap non gestisce le parentesi angolari nei tag pre, quindi
-        occorre effettuare manualmente la sostituzione eventuale per l'output
+        occorre effettuare da script la sostituzione eventuale per l'output
         del comando"""
         testo = testo.replace('<', '&lt;')
         testo = testo.replace('>', '&gt;')
         return testo
 
     def _preproc(self, cmds):
-        print(os.path.abspath(os.curdir))
+        """Esegue un comando propedeutico all'esecuzione degli script del
+        modulo. Questo output non viene catturato"""
+        # print(os.path.abspath(os.curdir))
         try:
             for cmd in cmds:
                 subprocess.call(cmd.split()[1:], stderr=open('r.t', mode='a'))

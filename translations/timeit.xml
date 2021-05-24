@@ -22,7 +22,7 @@ Il modulo <strong>timeit</strong> fornisce una semplica interfaccia per determin
 Contenuti del Modulo
 </titolo_2>
 <testo_normale>
-<strong>timeit</strong> definisce una singola classe pubblica, <code>Timer</code>. Il costruttore per <code>Timer</code> riceve una istruzione da cronometrare ed una istruzione di "impostazione" (usata ad esempio per inizializzare variabili). Le istruzioni Python dovrebbero essere stringhe e possono includere ritorni a capo.
+<strong>timeit</strong> definisce una singola classe pubblica, <code>Timer</code>. Il costruttore per <code>Timer</code> riceve una istruzione da cronometrare e una istruzione di "impostazione" (usata ad esempio per inizializzare variabili). Le istruzioni Python dovrebbero essere stringhe e possono includere ritorni a capo.
 </testo_normale>
 <testo_normale>
 Il metodo <code>timeit()</code> esegue una volta l'istruzione di impostazione, poi esegue l'istruzione primaria ripetutamente e ritorna il valore del tempo trascorso. Un argomento di <code>timeit()</code> regola il numero di ripetizioni per l'istruzione; nella modalità predefinita è 1.000.000.
@@ -52,7 +52,7 @@ Quando viene usato <code>repeat()</code>, esso chiama <code>timeit()</code> dive
 Conservare i Valori in un Dizionario
 </titolo_2>
 <testo_normale>
-Questo esempio più complesso  confronta il tempo trascorso per popolare un dizionario con un gran numero di valori utilizzando vari metodi. Per prima cosa sono necessarie alcune costanti per configurare <code>Timer</code>. La variabile <code>setup_statement</code> inizializza una lista di tuple che contengono stringhe ed interi che saranno usati dalle istruzioni principali per costruire dizionari usando le stringhe come chiave e conservando gli interi come valori associati.
+Questo esempio più complesso  confronta il tempo trascorso per popolare un dizionario con un gran numero di valori utilizzando vari metodi. Per prima cosa sono necessarie alcune costanti per configurare <code>Timer</code>. La variabile <code>setup_statement</code> inizializza una lista di tuple che contengono stringhe e interi che saranno usati dalle istruzioni principali per costruire dizionari usando le stringhe come chiave e conservando gli interi come valori associati.
 </testo_normale>
 <testo_normale>
 Il programma di esempio è <code>timeit_dictionary.py</code> e viene di seguito illustrato nelle sue componenti principali:
@@ -87,7 +87,7 @@ print()
 Per stabilire una linea base, la prima configurazione provata usa <code>__setitem__()</code>. Tutte le altre varianti evitano di sovrascrivere valori se sono già nel dizionario, quindi questa versione dell'esempio dovrebbe essere la più veloce.
 </testo_normale>
 <testo_normale>
-Il primo argomento di <code>Timer</code> è una stringa multi riga, con spazi conservati in modo che possa essere interpretata correttamente quando eseguita. Il secondo argomento è una costante impostata per inizializzare la lista di valori ed il dizionario.
+Il primo argomento di <code>Timer</code> è una stringa multi riga, con spazi conservati in modo che possa essere interpretata correttamente quando eseguita. Il secondo argomento è una costante impostata per inizializzare la lista di valori e il dizionario.
 </testo_normale>
 <py_code>
 # Usa __setitem__ senza prima verificare se i valori esistono

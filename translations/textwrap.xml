@@ -50,7 +50,7 @@ print('Nessuna deindentazione:\n')
 print(textwrap.fill(sample_text, width=50))
 </py_code>
 <testo_normale>
-I risultati sono molto meno che desiderabili. Il testo ora è giustificato a sinistra, ma la prima riga mantiene la sua indentazione e gli spazi davanti ad ogni susseguente riga sono incorporati nel paragrafo
+I risultati sono molto meno che desiderabili. Il testo ora è giustificato a sinistra, ma la prima riga mantiene la sua indentazione e gli spazi davanti a ogni susseguente riga sono incorporati nel paragrafo
 </testo_normale>
 <py_output>
 $ python3 textwrap_fill.py
@@ -167,7 +167,7 @@ print('Blocco marcato:\n')
 print(final)
 </py_code>
 <testo_normale>
-Il blocco di testo viene separato ad ogni interruzione di riga, il prefisso viene aggiunto ad ogni riga che contenga testo, quindi le righe sono assemblate nuovamente in una nuova stringa, quindi restituite.
+Il blocco di testo viene separato a ogni interruzione di riga, il prefisso viene aggiunto a ogni riga che contenga testo, quindi le righe sono assemblate nuovamente in una nuova stringa, quindi restituite.
 </testo_normale>
 <py_output>
 $ python3 textwrap_indent.py
@@ -183,7 +183,7 @@ Blocco marcato:
 > Secondo paragrafo dopo una riga vuota.
 </py_output>
 <testo_normale>
-Per controllare quale riga riceve il nuovo prefisso, si passi un <em>callable</em> come argomento predicato di <code>indent()</code>. Il <em>callable</em> sarà chiamato per ciascuna riga di testo ed il prefisso verrà aggiunto per quelle righe dove il valore ritornato è <code>True</code>
+Per controllare quale riga riceve il nuovo prefisso, si passi un <em>callable</em> come argomento predicato di <code>indent()</code>. Il <em>callable</em> sarà chiamato per ciascuna riga di testo e il prefisso verrà aggiunto per quelle righe dove il valore ritornato è <code>True</code>
 </testo_normale>
 <py_code>
 # textwrap_indent_predicate.py
@@ -263,7 +263,7 @@ I valori di indentazione possono comprendere anche caratteri diversi da spazi. L
 Troncare un Testo Lungo
 </titolo_2>
 <testo_normale>
-Per troncare il testo per creare un sommario od anteprima, si utilizza <code>shorten()</code>. Tutti i tipi di spazio esistenti (tabulatori, ritorni a capo e serie consecutive di spazi) sono ridotti ad un singolo spazio. Poi il testo viene troncato ad una lunghezza minore od uguale a quella richiesta, rispettando i confini delle parole in modo che non vengano incluse parole parziali.
+Per troncare il testo per creare un sommario o anteprima, si utilizza <code>shorten()</code>. Tutti i tipi di spazio esistenti (tabulatori, ritorni a capo e serie consecutive di spazi) sono ridotti a un singolo spazio. Poi il testo viene troncato a una lunghezza minore o uguale a quella richiesta, rispettando i confini delle parole in modo che non vengano incluse parole parziali.
 </testo_normale>
 <py_code>
 # textwrap_shorten.py
