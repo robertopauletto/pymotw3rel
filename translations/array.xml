@@ -20,7 +20,7 @@ Gestire sequenze di dati numerici di tipo fisso con efficacia
 Il modulo <strong>array</strong> definisce una struttura di dati in sequenza che ricorda parecchio una <code>list</code> a eccezione del fatto che tutti i membri devono essere dello stesso tipo primitivo. I tipi supportati sono tutti quelli numerici o altri tipi primitivi con dimensione fissa tipo i bytes.
 </testo_normale>
 <tabella_semplice>
-Codice;Tipo;Dimensione Minima (byte)
+CODICE;TIPO;DIMENSIONE MINIMA (byte)
 b;int;1
 B;int;1
 h;signed short;2

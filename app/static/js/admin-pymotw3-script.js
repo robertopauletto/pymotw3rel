@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-  console.log("Hello from js!")
-
   const elems = document.querySelectorAll('.sidenav')
   const instances = M.Sidenav.init(elems)
 
@@ -21,15 +19,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
   loadModuleAutocompletion(populateModuleAutocompletion)
 
+
 })
 
 function populateModuleAutocompletion(cdata) {
   const autoComp = document.querySelector('.autocomplete')
-  console.log(cdata)
+  // console.log(cdata)
   const autoCompInstances = M.Autocomplete.init(autoComp, {
     data: cdata
   })
-  console.log({autoCompInstances})
+  // console.log({autoCompInstances})
 }
 
 function loadModuleAutocompletion(callback) {
@@ -49,4 +48,32 @@ function closeMsg(elementId) {
   const flashMessage = document.getElementById(elementId)
   const parent = flashMessage.parentNode
   parent.removeChild(flashMessage)
+}
+
+function sortModuleList() {
+  const modList = document.getElementById('modlist')
+  const elements = modList.innerHTML.split('\n')
+  const elemSorted = elements.sort((a, b) =>
+    a.toLocaleLowerCase().localeCompare(b.toLocaleLowerCase())
+  )
+  modList.innerHTML = elemSorted.join('\n')
+}
+
+function muduleListStringify1() {
+  const modList = document.getElementById('modlist')
+  const elements = modList.innerHTML.split('\n').join(',')
+  console.log(elements)
+  document.execCommand("copy")
+}
+
+async function muduleListStringify(charsep=' ') {
+  const modList = document.getElementById('modlist')
+  const elements = modList.innerHTML.split('\n').join(charsep)
+  console.log(elements)
+  try {
+    await navigator.clipboard.writeText(elements)
+    // M.Toast({html: 'Stringa moduli copiata'})
+  } catch {
+    console.log("Pasting error!")
+  }
 }

@@ -113,16 +113,17 @@ def generator():
     if form.validate_on_submit():
         tmplog = ""
         module = form.modules.data
-        module_ok, module_ko = _check_module_list(translated_modules, module)
-        for mod_ko in module_ko:
-            log += f"Il modulo {mod_ko} non esiste o non è stato tradotto\n"
+        if not module.startswith('riferimenti'):
+            module_ok, module_ko = _check_module_list(translated_modules, module)
+            for mod_ko in module_ko:
+                log += f"Il modulo {mod_ko} non esiste o non è stato tradotto\n"
 
-        if not module_ok:
-            flash("error",
-                  f"Nessun modulo corrisponde a {' '.join(module_ko)}")
-            return redirect(url_for('main.generator'))
+            if not module_ok:
+                flash("error",
+                      f"Nessun modulo corrisponde a {' '.join(module_ko)}")
+                return redirect(url_for('main.generator'))
 
-        module = module_ok
+            module = module_ok
         if module:
             logger.info(f"Generazione di {module} iniziata")
             log += f"Generazione di {module} iniziata\n"

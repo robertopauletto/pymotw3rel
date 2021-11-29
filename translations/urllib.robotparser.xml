@@ -16,13 +16,13 @@ Elabora il file robots.txt utilizzato per controllare gli spider internet
 
 </descrizione>
 <testo_normale>
-Il modulo <strong>robotparser</strong> implementa un elaboratore per il formato di file <code>robots.txt</code>, compresa una funzione per verificare se un dato <a href='https://www.wikiwand.com/it/User_agent' target='_blank'>user agent</a> può accedere ad una risorsa. E' concepito per l'uso in spider che "si comportano bene", od altre applicazioni <a href='https://www.wikiwand.com/it/Crawler' target='_blank'>crawler</a> che devono essere in qualche modo limitate.
+Il modulo <strong>robotparser</strong> implementa un elaboratore per il formato di file <code>robots.txt</code>, compresa una funzione per verificare se un dato <a href='https://www.wikiwand.com/it/User_agent' target='_blank'>user agent</a> può accedere a una risorsa. E' concepito per l'uso in spider che "si comportano bene", o altre applicazioni <a href='https://www.wikiwand.com/it/Crawler' target='_blank'>crawler</a> che devono essere in qualche modo limitate.
 </testo_normale>
 <titolo_2>
 robots.txt
 </titolo_2>
 <testo_normale>
-Il formato file <code>robots.txt</code> è un semplice sistema di controllo di accesso basato su testo semplice per programmi che accedono automaticamente a risorse web ("spider", "crawler", ecc.). Il file è composto da records che specificano l'ientificativo dell'<a href='https://www.wikiwand.com/it/User_agent' target='_blank'>user agent</a> per il programma seguito da un elenco di URL (o prefissi URL) ai quali l'agente non può accedere.
+Il formato file <code>robots.txt</code> è un semplice sistema di controllo di accesso basato su testo semplice per programmi che accedono automaticamente a risorse web ("spider", "crawler", ecc.). Il file è composto da records che specificano l'identificativo dell'<a href='https://www.wikiwand.com/it/User_agent' target='_blank'>user agent</a> per il programma seguito da un elenco di URL (o prefissi URL) ai quali l'agente non può accedere.
 </testo_normale>
 <testo_normale>
 Questo è il file <code>robots.txt</code> per il sito <code>https://pymotw.com</code>:
@@ -42,10 +42,10 @@ Disallow: /codehosting/
 Previene l'accesso ad alcune parti del sito che sono costose da elaborare e sovraccaricherebbero il server se il motore di ricerca cercasse di indicizzarle. Per un insieme di esempi più esaustivo fare riferimento a <a href='http://www.robotstxt.org/orig.html' target='_blank'>The Web Robots Page</a>.
 </testo_normale>
 <titolo_2>
-Verficare i Permessi di Accesso
+Verificare i Permessi di Accesso
 </titolo_2>
 <testo_normale>
-Utilizzando i dati esposti qui sopra, un semplice <a href='https://www.wikiwand.com/it/Crawler' target='_blank'>crawler</a> potrebber verificare se gli sia consentito o meno scaricare una pagina usando <code>RobotFileParser.can_fetch()</code>.
+Utilizzando i dati esposti qui sopra, un semplice <a href='https://www.wikiwand.com/it/Crawler' target='_blank'>crawler</a> potrebbero verificare se gli sia consentito o meno scaricare una pagina usando <code>RobotFileParser.can_fetch()</code>.
 </testo_normale>
 <py_code>
 # urllib_robotparser_simple.py
@@ -96,7 +96,7 @@ $ python3 urllib_robotparser_simple.py
 Spider che Vivono a Lungo
 </titolo_2>
 <testo_normale>
-Una applicazione che impiega un lungo periodo di tempo per elaborare le risorse che scarica o che viene costretta ad effettuare pause tra gli scaricamenti dovrebbere cercare dei nuovi file <code>robots.txt</code> periodicamente in base all'età del contenuto che è già stato scaricato. Questo dato non viene gestito automaticamente ma ci sono metodi di comodo per facilitare la tracciatura.
+Una applicazione che impiega un lungo periodo di tempo per elaborare le risorse che scarica o che viene costretta a effettuare pause tra gli scaricamenti dovrebbero cercare dei nuovi file <code>robots.txt</code> periodicamente in base all'età del contenuto che è già stato scaricato. Questo dato non viene gestito automaticamente ma ci sono metodi di comodo per facilitare la tracciatura.
 </testo_normale>
 <py_code>
 # urllib_robotparser_longlived.py

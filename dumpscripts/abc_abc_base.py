@@ -1,4 +1,5 @@
 # abc_abc_base.py
+
 import abc
 
 
@@ -6,8 +7,8 @@ class PluginBase(abc.ABC):
 
     @abc.abstractmethod
     def load(self, input):
-        """Ottiene i dati dalla sorgente in pinput
-        e ritona un oggetto
+        """Ottiene i dati dalla sorgente in input
+        e ritorna un oggetto
         """
 
     @abc.abstractmethod

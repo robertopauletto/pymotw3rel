@@ -1,6 +1,3 @@
-#!/usr/binf/env python
-# -*- coding: UTF-8 -*-
-
 # abc_concrete_method.py
 
 import abc

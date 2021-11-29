@@ -82,7 +82,7 @@ Il testo del messaggio viene assemblato, quindi scritto a <code>wfile</code>, l'
 Per eseguire il gestore di richiesta nel server, lo si passi al costruttore di <code>HTTPServer</code>, come indicato nella parte <code>__main__</code> del codice di esempio qui sopra.
 </testo_normale>
 <testo_normale>
-Per par partire il server:
+Per far partire il server:
 </testo_normale>
 <py_output>
 $ python3 http_server_GET.py

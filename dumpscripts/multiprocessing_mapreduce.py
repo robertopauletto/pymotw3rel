@@ -12,8 +12,8 @@ class SimpleMapReduce:
         map_func
 
           Funzione che mappa gli input a dati intermedi. Riceve
-          come argomento un valore in input e ritorna un tupla
-          con la chiave ed il valore che devono essere ridotti.
+          come argomento un valore in input e ritorna una tupla
+          con la chiave e il valore da ridurre.
 
         reduce_func
 
@@ -24,7 +24,7 @@ class SimpleMapReduce:
 
         num_workers
 
-          Il numero di esecutiori da creare nel pool. Il valore
+          Il numero di esecutori da creare nel pool. Il valore
           predefinito è il numero di CPU disponibili nell'host
           corrente.
         """
@@ -34,7 +34,7 @@ class SimpleMapReduce:
 
     def partition(self, mapped_values):
         """Sistema i valori mappati in base alle loro chiavi.
-        Ritorna una sequanza non ordinata di tuple con una chiave
+        Ritorna una sequenza non ordinata di tuple con una chiave
         e una sequenza di valori
         """
         partitioned_data = collections.defaultdict(list)
@@ -43,14 +43,14 @@ class SimpleMapReduce:
         return partitioned_data.items()
 
     def __call__(self, inputs, chunksize=1):
-        """Elabora l'input tramite le funzioni di mae e reduce
+        """Elabora l'input tramite le funzioni di map e reduce
         passate.
 
         inputs
-          Un iterabile che contiene i dati ininput da elaborare
+          Un iterabile che contiene i dati in input da elaborare
 
         chunksize=1
-          La porzione di dati in put da passare a ciascun esecutore
+          La porzione di dati in input da passare a ciascun esecutore
           Può essere usato per sintonizzare le prestazioni durante
           la fase di mappatura.
         """

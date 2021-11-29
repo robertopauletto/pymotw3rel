@@ -34,6 +34,7 @@ In questo esempio si cerca il file del database prima di aprirlo con <code>conne
 Quando si esegue lo script per due volte si dimostra che esso crea il file vuoto, se non esiste.
 </testo_normale>
 <py_output>
+?preproc dumpscripts/_sqlite_clear_db.sh
 $ ls *.db
 
 ls: cannot access 'todo.db': No such file or directory
@@ -50,7 +51,7 @@ Il database esiste, si suppone che esista anche lo schema.
 Il passo successivo dopo la creazione del nuovo file di database, &egrave; quello di creare lo <em>schema</em> per definire le tabelle all'interno del database. Gli esempi che seguono in questa sezione usano tutti lo stesso <em>schema</em> di database con delle tabelle per la gestione di compiti. I dettagli dello <em>schema</em> del database sono presentati nelle tabelle seguenti:
 </testo_normale>
 <testo_normale>
-<strong><br>Tabella progetto:</strong>
+<strong><br>Tabella progetto</strong>:
 </testo_normale>
 <tabella_semplice>
 COLONNA;TIPO;DESCRIZIONE
@@ -61,7 +62,7 @@ scadenza;data;Data di scadenza per l'intero progetto
 <testo_normale>
 </testo_normale>
 <testo_normale>
-<strong><br>Tabella compito:</strong>
+<strong><br>Tabella compito</strong>:
 </testo_normale>
 <tabella_semplice>
 COLONNA;TIPO;DESCRIZIONE

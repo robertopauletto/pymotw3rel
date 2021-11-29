@@ -3,7 +3,7 @@
 import os
 import tempfile
 
-print('Crezione di un nome di file con PID:')
+print('Creazione di un nome di file con PID:')
 filename = '/tmp/indovina_il_nome.{}.txt'.format(os.getpid())
 with open(filename, 'w+b') as temp:
     print('temp:')

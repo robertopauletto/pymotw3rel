@@ -1,7 +1,5 @@
-#!/usr/binf/env python
-# -*- coding: UTF-8 -*-
-
 # abc_register.py
+
 import abc
 from abc_base import PluginBase
 

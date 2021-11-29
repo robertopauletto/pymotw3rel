@@ -1,5 +1,4 @@
-#!/usr/binf/env python
-# -*- coding: UTF-8 -*-
+# abc_find_subclasses.py
 
 import abc
 from abc_base import PluginBase
@@ -8,4 +7,3 @@ import abc_register
 
 for sc in PluginBase.__subclasses__():
     print sc.__name__
-    

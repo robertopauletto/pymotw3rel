@@ -16,7 +16,7 @@ class Consumer(multiprocessing.Process):
         while True:
             next_task = self.task_queue.get()
             if next_task is None:
-                # Pilloa avvelenata provoca l'arresto
+                # Pillola avvelenata provoca l'arresto
                 print('{}: In uscita'.format(proc_name))
                 self.task_queue.task_done()
                 break

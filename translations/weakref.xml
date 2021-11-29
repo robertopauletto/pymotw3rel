@@ -17,7 +17,7 @@ Fa riferimento a un oggetto "costoso", ma consente che la sua memoria sia reclam
 In informatica, un riferimento debole (weak reference) è un riferimento che non protegge l'oggetto referenziato dall'essere raccolto da un <a href='https://www.wikiwand.com/it/Garbage_collection'>garbage collector</a> al contrario di un riferimento forte (<em>strong reference</em>). Un oggetto referenziato solo da un riferimento debole, vale a dire che "ogni catena di riferimenti che raggiunge l'oggetto comprende almeno un riferimento debole come collegamento", viene considerato <em>weakly reachable</em> e può essere trattato come irraggiungibile, pertanto può essere raccolto dal garbage collector in qualsiasi momento. Python, assieme ad altri linguaggi (Java, C#, Perl, Lisp, Shell) ha un garbage collector che supporta vari livelli di riferimento debole.
 </note>
 <testo_normale>
-Il modulo <strong>weakref</strong> supporta riferimenti deboli a oggetti. Un normale riferimento incrementa il contatore dei riferimenti all'oggetto e lo preserva dall'essere raccolto dal <a href='https://www.wikiwand.com/it/Garbage_collection'>garbage collector</a>. Questo comportamento non sempre è desiderabile, sia quando possa essere presente un riferimento circolare oppure quando si costruisce una cache di oggetti che dovrebbero essere eliminati quando è necessaria della memoria. Un riferimento debole è un puntamento ad un oggetto che non lo esclude dell'essere pulito automaticamente.
+Il modulo <strong>weakref</strong> supporta riferimenti deboli a oggetti. Un normale riferimento incrementa il contatore dei riferimenti all'oggetto e lo preserva dall'essere raccolto dal <a href='https://www.wikiwand.com/it/Garbage_collection'>garbage collector</a>. Questo comportamento non sempre è desiderabile, sia quando possa essere presente un riferimento circolare oppure quando si costruisce una cache di oggetti che dovrebbero essere eliminati quando è necessaria della memoria. Un riferimento debole è un puntamento a un oggetto che non lo esclude dell'essere pulito automaticamente.
 </testo_normale>
 <titolo_2>
 Riferimenti
@@ -141,7 +141,7 @@ $ python3 weakref_finalize.py
 on_finalize(('argumento extra',))
 </py_output>
 <testo_normale>
-L'istanza di <code>finalize</code> ha un proprietà scrivibile chiamata <code>atexit</code> per controllare il <a href='https://it.wikipedia.org/wiki/Callback' target='_blank'>callback</a> vengo invocato mentr il programma è in uscita, se non è già stato chiamato.
+L'istanza di <code>finalize</code> ha un proprietà scrivibile chiamata <code>atexit</code> per controllare il <a href='https://it.wikipedia.org/wiki/Callback' target='_blank'>callback</a> vengo invocato mentre il programma è in uscita, se non è già stato chiamato.
 </testo_normale>
 <py_code>
 # weakref_finalize_atexit.py

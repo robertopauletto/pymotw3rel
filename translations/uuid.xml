@@ -16,7 +16,7 @@ Implementa gli Identificatori Universalmente Univoci (Universally Unique Identif
 
 </descrizione>
 <testo_normale>
-<a href='http://tools.ietf.org/html/rfc4122.html'>RFC 4122</a> definisce un sistema per creare Identificatori Universalmente Univoci (UUID) per risorse in modo che non richieda mantenerne traccia tramite la gestione di un archivio centralizzato. I valori UUID sono lunghi 128 bit e come recita la guida di riferimento, "possono garantire l'univocit&agrave; attraverso lo spazio ed il tempo". Sono utili per generare identificatori per documenti, host, applicazioni client, ed altre situazioni nelle quali sia necessario un valore univoco. La <a href='https://www.wikiwand.com/it/Request_for_Comments'>RFC</a> &egrave; in particolare orientata verso la creazione di uno spazio dei nomi chiamato "Uniform Resource Name" e copre tre algoritmi principali:
+<a href='http://tools.ietf.org/html/rfc4122.html'>RFC 4122</a> definisce un sistema per creare Identificatori Universalmente Univoci (UUID) per risorse in modo che non richieda mantenerne traccia tramite la gestione di un archivio centralizzato. I valori UUID sono lunghi 128 bit e come recita la guida di riferimento, "possono garantire l'univocit&agrave; attraverso lo spazio e il tempo". Sono utili per generare identificatori per documenti, host, applicazioni client, e altre situazioni nelle quali sia necessario un valore univoco. La <a href='https://www.wikiwand.com/it/Request_for_Comments'>RFC</a> &egrave; in particolare orientata verso la creazione di uno spazio dei nomi chiamato "Uniform Resource Name" e copre tre algoritmi principali:
 </testo_normale>
 <lista>
 Uso degli indirizzi IEEE 802 MAC come fonte di univocit&agrave;
@@ -24,13 +24,13 @@ Uso dei numeri pseudo-casuali
 Uso di stringhe note in combinazione con <a href='https://it.wikipedia.org/wiki/Hash'>hashing</a> crittografico
 </lista>
 <testo_normale>
-In tutti i casi il valore di origine viene combinato con il <a href='https://www.wikiwand.com/it/Clock'>clock</a> di sistema ed una sequenza di valori di <a href='https://www.wikiwand.com/it/'>clock</a> usati per mantenere univocit&agrave; nel caso che il <a href='https://www.wikiwand.com/it/Clock'>clock</a> sia messo indietro.
+In tutti i casi il valore di origine viene combinato con il <a href='https://www.wikiwand.com/it/Clock'>clock</a> di sistema e una sequenza di valori di <a href='https://www.wikiwand.com/it/'>clock</a> usati per mantenere univocit&agrave; nel caso che il <a href='https://www.wikiwand.com/it/Clock'>clock</a> sia messo indietro.
 </testo_normale>
 <titolo_2>
 UUID 1 - Indirizzi IEEE 802 MAC
 </titolo_2>
 <testo_normale>
-Nella versione UUID 1 valori sono calcolati usndo l'<a href='https://www.wikiwand.com/it/Indirizzo_MAC'>indirizzo MAC</a> dell'host. Il modulo <strong>uuid</strong> usa <code>getnode()</code> per recuperare il valore <a href='https://www.wikiwand.com/it/Indirizzo_MAC'>MAC</a> del sistema corrente:
+Nella versione UUID 1 valori sono calcolati usando l'<a href='https://www.wikiwand.com/it/Indirizzo_MAC'>indirizzo MAC</a> dell'host. Il modulo <strong>uuid</strong> usa <code>getnode()</code> per recuperare il valore <a href='https://www.wikiwand.com/it/Indirizzo_MAC'>MAC</a> del sistema corrente:
 </testo_normale>
 <py_code>
 # uuid_getnode.py
@@ -243,7 +243,7 @@ $ python3 uuid_uuid4.py
 Lavorare con Oggetti UUID
 </titolo_2>
 <testo_normale>
-Oltre a generare nuovi valori UUID, si possono anche elaborare stringhe in formati standard per creare oggetti UUID. Questo rende facile la gestione di operazioni di contronto e ordinamento.
+Oltre a generare nuovi valori UUID, si possono anche elaborare stringhe in formati standard per creare oggetti UUID. Questo rende facile la gestione di operazioni di confronto e ordinamento.
 </testo_normale>
 <py_code>
 # uuid_uuid_objects.py

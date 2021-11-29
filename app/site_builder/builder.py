@@ -263,7 +263,8 @@ def create_privacy_page(template_name: str) -> None:
 
     privacy_content = builder_conf['privacy_content']
     render_dic = {'indice': indice, 'last_ten': last_ten,
-                  'privacy_content': privacy_content}
+                  'privacy_content': privacy_content,
+                  'titolo_pagina': 'Privacy (PyMOTW-it 3)'}
 
     build(template_name, render_dic,
           os.path.join(builder_conf["html_dir"],
@@ -298,7 +299,11 @@ def crea_pagine_indice(template_name, file_indice, mod_per_pagina, footer):
     for pagina, moduli in moduli_per_pagina.items():
         indice = Indice(moduli, footer, categ_per_indice, pagina, pagine)
 
-        render_dic = {'indice': indice, 'last_ten': last_ten}
+        render_dic = {
+            'indice': indice,
+            'last_ten': last_ten,
+            'titolo_pagina': 'Privacy (PyMOTW-it 3)'
+        }
         fn = '{}{}.html'.format(
             file_indice, '_' + str(pagina) if pagina else ''
         )
@@ -355,7 +360,7 @@ def crea_pagina_modulo(template_name: str, file_modulo: str,
     m = DjModulo(indice, main_content, vedi_anche, modulo, footer, zipfile)
 
     fn += '.html'
-    dic = {'modulo': m, }
+    dic = {'modulo': m, 'titolo_pagina': f"{modulo.nome} (PyMOTW-it 3)"}
 
     build(template_name, dic, os.path.join(builder_conf["html_dir"], fn))
     return is_ind, check_sintassi
@@ -397,10 +402,17 @@ def abbina_cronologia(cronologia, moduli, data_fmt='%d.%m.%Y'):
             print(modulo.nome)
 
 
-def crea_feed_rss(base_path, outfile, title, description=''):
-    """(list of tuple, str, str, str, str)
+def crea_feed_rss(base_path: str, outfile: str, title: str,
+                  description: str, xml_declarations: list):
+    """
+    Scrive un feed rss contentente l'elenco dei moduli presenti nel sito
 
-    Scrive un file rss per il sito
+    :param base_path:
+    :param outfile:
+    :param title:
+    :param description: non necessaria
+    :param xml_declarations: dichiarazioni diverse da `<?xml version ...?>`
+    :return:
     """
     moduli = elenco_per_indice(builder_conf['tran_dir'])
     cronology = os.path.join(
@@ -414,14 +426,14 @@ def crea_feed_rss(base_path, outfile, title, description=''):
                           else r'/home/robby/tmpdebug')
     local_feed = os.path.join(folder, outfile)
     outfile = urljoin(base_path, outfile)
-    feed = Feed(title, outfile, description)
+    feed = Feed(title, outfile, description, xml_declarations)
     for modulo in moduli_ordinati:
         assert isinstance(modulo, Modulo)
         link_guid = urljoin(base_path, modulo.url)
         item = FeedItem(
             title=modulo.nome_per_rss,
             lnk=link_guid,
-            descr=modulo.descrizione,
+            descr=xml2html.striphtml(modulo.descrizione),
             date=datetime.datetime.combine(
                 modulo.data_pub, datetime.datetime.min.time(),
             ),
@@ -488,7 +500,8 @@ def crea_tabella_indice(template_name: str):
         'modulo': m,
         'idx': diz_indice,
         'indice': indice,
-        'last_ten': last_ten
+        'last_ten': last_ten,
+        'titolo_pagina': 'Privacy (PyMOTW-it 3)'
     }
     build(template_name, dic, os.path.join(builder_conf["html_dir"], fn))
 
@@ -602,7 +615,8 @@ def build_index():
         builder_conf["rss_remote_root_folder"],
         builder_conf["rss_feed_name"],
         builder_conf["rss_feed_title"],
-        builder_conf["rss_feed_descr"]
+        builder_conf["rss_feed_descr"],
+        builder_conf['rss_feed_directives'].split('\n')
     )
     crea_pagine_indice(
         builder_conf["template_index_name"],

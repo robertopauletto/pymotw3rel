@@ -16,7 +16,7 @@ Elaborare un Documento XML
 I documenti XML elaborati sono rappresentati in memoria da oggetti <code>ElementTree</code> e <code>Element</code> connessi in una struttura ad albero basata sul modo nel quale i nodi nel documento XML sono annidati.
 </testo_normale>
 <testo_normale>
-L'elaborazione di un intero documento con <code>parse()</code> ritorna una istanza di <code>ElementTree</code>. L'alberatura conosce tutto circa i dati del documento in input, e i nodi dell'albero possono essere cercati o manipolati sul posto. Mentra questa flessibilità può rendere il lavoro con i documenti elaborati più conveniente, tipicamente richiede più memoria rispetto a un approccio di elaborazione basato su  eventi, visto che l'intero documento deve essere caricato tutto in una  volta.
+L'elaborazione di un intero documento con <code>parse()</code> ritorna una istanza di <code>ElementTree</code>. L'alberatura conosce tutto circa i dati del documento in input, e i nodi dell'albero possono essere cercati o manipolati sul posto. Mentre questa flessibilità può rendere il lavoro con i documenti elaborati più conveniente, tipicamente richiede più memoria rispetto a un approccio di elaborazione basato su  eventi, visto che l'intero documento deve essere caricato tutto in una  volta.
 </testo_normale>
 <testo_normale>
 L'impronta di memoria di piccoli, semplici documenti come questo elenco di podcast rappresentati con il formato <a href='https://www.wikiwand.com/it/OPML' target='_blank'>OPML</a>  non è significativo.
@@ -100,7 +100,7 @@ Questa versione è limitata alla struttura esistente, tuttavia, quindi se i nodi
 Elaborare gli Attributi dei Nodi
 </titolo_2>
 <testo_normale>
-Gli elementi ritornati da <code>findall()</code> e <code>iter()</code> sono oggetti <code>Element</code>, ognuno di essi rappresentante un node nell'albero XML. Ogni <code>Element</code> ha attributi per accedere ai dati estratti dall'XML. La cosa può esere illustrata con un esempio in qualche modo più contenuto del file in input.
+Gli elementi ritornati da <code>findall()</code> e <code>iter()</code> sono oggetti <code>Element</code>, ognuno di essi rappresentante un node nell'albero XML. Ogni <code>Element</code> ha attributi per accedere ai dati estratti dall'XML. La cosa può essere illustrata con un esempio in qualche modo più contenuto del file in input.
 </testo_normale>
 <mk_xml_code_lineno>
 <?xml version="1.0" encoding="UTF-8"?>
@@ -154,7 +154,7 @@ $ python3 ElementTree_entity_references.py
 Monitorare Eventi Durante l'Elaborazione
 </titolo_2>
 <testo_normale>
-L'altra API per elaborare documenti XML è basata sugli eventi. L'elaboratore genera eventi <code>start</code> per l'apertura ed eventi <code>end</code> per la chiusura di tag. I dati possono essere estratti dal documento durante la fase di elaborazione iterando sul flusso di eventi, il che è conveniente se non è necessario manipolare l'intero documento successivamente e non serve mantere l'intero documento elaborato in memoria.
+L'altra API per elaborare documenti XML è basata sugli eventi. L'elaboratore genera eventi <code>start</code> per l'apertura ed eventi <code>end</code> per la chiusura di tag. I dati possono essere estratti dal documento durante la fase di elaborazione iterando sul flusso di eventi, il che è conveniente se non è necessario manipolare l'intero documento successivamente e non serve mantenere l'intero documento elaborato in memoria.
 </testo_normale>
 <testo_normale>
 Gli eventi possono essere uno tra:
@@ -185,7 +185,7 @@ Lo stile di elaborazione a eventi è più naturale per talune operazioni, come l
 # ElementTree_write_podcast_csv.py
 </py_code>
 <testo_normale>
-Questo programma di conversione non deve mantenere l'intero file di input elaborato in memoria, e l'elaborazone di ciascun nodo mano a mano che viene rilevato è più efficiente
+Questo programma di conversione non deve mantenere l'intero file di input elaborato in memoria, e l'elaborazione di ciascun nodo mano a mano che viene rilevato è più efficiente
 </testo_normale>
 <py_output>
 $ python3 ElementTree_write_podcast_csv.py
@@ -194,10 +194,10 @@ $ python3 ElementTree_write_podcast_csv.py
 Creare un Costruttore di Albero Personalizzato
 </titolo_2>
 <testo_normale>
-Un modo potenzialmente più efficaCe di gestire eventi di elaborazione è sostituire il comportamento standard del costruttore di albero con una versione personalizzata. L'elaboratore <code>XMLParser</code> usa <code>TreeBuilder</code> per elaborare l'XML e chiamare metodi su una classe destinazione per salvare i risultati. Il risultato usuale è una istanza di <code>ElementTree</code> creata in modalità predefinita dalla classe <code>TreeBuilder</code>. La sostituzione di <code>TreeBuilder</code> con un'altra classe consente di ricevere eventi prima che i nodi <code>Element</code> vengano istanziati, risparmiando quella porzione di elaborazione.
+Un modo potenzialmente più efficace di gestire eventi di elaborazione è sostituire il comportamento standard del costruttore di albero con una versione personalizzata. L'elaboratore <code>XMLParser</code> usa <code>TreeBuilder</code> per elaborare l'XML e chiamare metodi su una classe destinazione per salvare i risultati. Il risultato usuale è una istanza di <code>ElementTree</code> creata in modalità predefinita dalla classe <code>TreeBuilder</code>. La sostituzione di <code>TreeBuilder</code> con un'altra classe consente di ricevere eventi prima che i nodi <code>Element</code> vengano istanziati, risparmiando quella porzione di elaborazione.
 </testo_normale>
 <testo_normale>
-Questo convetitore XML -> CSV dalla sezione precedente può essre reimplementato come costruttore di albero
+Questo convertitore XML -> CSV dalla sezione precedente può essere reimplementato come costruttore di albero
 </testo_normale>
 <py_code>
 # ElementTree_podcast_csv_treebuilder.py
@@ -218,7 +218,7 @@ Per lavorare piccole parti di testo XML, specialmente stringhe letterali che pot
 # ElementTree_XML.py
 </py_code>
 <testo_normale>
-Al contrario di <code>parse()</code> il valore ritoranto è una istanza di <code>Element</code> invece che di <code>ElementTree</code>. <code>Element</code> supporta direttamente il protocollo di iterazione, quindi non serve chiamare <code>getiterato()</code>
+Al contrario di <code>parse()</code> il valore ritornato è una istanza di <code>Element</code> invece che di <code>ElementTree</code>. <code>Element</code> supporta direttamente il protocollo di iterazione, quindi non serve chiamare <code>getiterator()</code>
 </testo_normale>
 <py_output>
 $ python3 ElementTree_XML.py
@@ -290,7 +290,7 @@ L'esempio precedente creava nodi con tag e contenuto testo, ma non impostava att
 # ElementTree_csv_to_xml.py
 </py_code>
 <testo_normale>
-Questo esempio usa due tecniche per impostare i valori di attributo dei nuovi nodi. Il nodo radice viene configurato usando <code>set()</code> per cambiare un attributo alla volta. Ai nodi podcasto vengono assegnati tutti i propri attributi in una sola volta passando un dizionario al codice che costruisce il nodo
+Questo esempio usa due tecniche per impostare i valori di attributo dei nuovi nodi. Il nodo radice viene configurato usando <code>set()</code> per cambiare un attributo alla volta. Ai nodi podcast vengono assegnati tutti i propri attributi in una sola volta passando un dizionario al codice che costruisce il nodo
 </testo_normale>
 <py_output>
 $ python3 ElementTree_csv_to_xml.py
@@ -323,7 +323,7 @@ In questo caso il nodo con tag <code>root</code> creato elaborando la stringa XM
 $ python3 ElementTree_extend_node.py
 </py_output>
 <testo_normale>
-E' importante capire che <code>extend()</code> non modifica alcuna relazione esistente padre-figlio tra i nodi. Se i valori passati a <code>extend()</code> esistono già da qualche parte nell'albero, essi saranno conservati, e ci saranno ripetizioni nel risulato.
+E' importante capire che <code>extend()</code> non modifica alcuna relazione esistente padre-figlio tra i nodi. Se i valori passati a <code>extend()</code> esistono già da qualche parte nell'albero, essi saranno conservati, e ci saranno ripetizioni nel risultato.
 </testo_normale>
 <py_code>
 # ElementTree_extend_node_copy.py

@@ -16,7 +16,7 @@ Funzioni per la manipolazione del tempo di <a href='https://www.wikiwand.com/it/
 
 </descrizione>
 <testo_normale>
-Il modulo <code>time</code> fornisce l'accesso a parecchi tipi di <a href='https://www.wikiwand.com/it/Clock'>clock</a>, utili per scopi diversi. Chiamate di sistema standard come <code>time()</code> ritornano il tempo "orologio" di sistema.  L'orologio monotonico (<code>monotonic()</code>) può essere usato per misurare il tempo impiegato da un processo con un lungo tempo di esecuzione in quanto è garantito che non andrà mai indietro, anche se l'orario di sistema cambia. Per un test delle prestazioni <code>perf_counter()</code> fornisce accesso al clock con la risoluzione più alta disponibile per rendere più accurate le misurazioni di tempi brevi. Il tempo di CPU è disponibile tramite <code>time()</code>, e <code>process_time()</code> ritorna l'orario del processore e del sitema combinati.
+Il modulo <code>time</code> fornisce l'accesso a parecchi tipi di <a href='https://www.wikiwand.com/it/Clock'>clock</a>, utili per scopi diversi. Chiamate di sistema standard come <code>time()</code> ritornano il tempo "orologio" di sistema.  L'orologio monotonico (<code>monotonic()</code>) può essere usato per misurare il tempo impiegato da un processo con un lungo tempo di esecuzione in quanto è garantito che non andrà mai indietro, anche se l'orario di sistema cambia. Per un test delle prestazioni <code>perf_counter()</code> fornisce accesso al clock con la risoluzione più alta disponibile per rendere più accurate le misurazioni di tempi brevi. Il tempo di CPU è disponibile tramite <code>time()</code>, e <code>process_time()</code> ritorna l'orario del processore e del sistema combinati.
 </testo_normale>
 <note>
 Le implementazioni espongono le funzioni della libreria C per manipolare date e orari. Visto che sono legate all'implementazione C sottostante, alcuni dettagli (tipo l'inizio dell'epoca e il valore massimo di data supportato) sono specifici alla piattaforma. Fare riferimento alla documentazione della libreria per più completi dettagli.
@@ -25,7 +25,7 @@ Le implementazioni espongono le funzioni della libreria C per manipolare date e 
 Confrontare Clock
 </titolo_2>
 <testo_normale>
-I dettagli di implementazione per i clock variano da piattaforma a piattaforma. Si usa <code>get_clock_info()</code> per avere accesso a informaizioni di base circa l'implementazione corrente, compresa la risoluzione del clock.
+I dettagli di implementazione per i clock variano da piattaforma a piattaforma. Si usa <code>get_clock_info()</code> per avere accesso a informazioni di base circa l'implementazione corrente, compresa la risoluzione del clock.
 </testo_normale>
 <py_code>
 # time_get_clock_info.py
@@ -59,7 +59,7 @@ for clock_name, func, translation in available_clocks:
     )
 </py_code>
 <testo_normale>
-Questo (e tutti gli esempi che seguono) è il risultato per un pc con processore x86_64 con sistema operativo Ubuntu, per un Mac OS X, ad esempio, gli orologi sono implemntati con chiamate sottostanti diverse - n.d.t.
+Questo (e tutti gli esempi che seguono) è il risultato per un pc con processore x86_64 con sistema operativo Ubuntu, per un Mac OS X, ad esempio, gli orologi sono implementati con chiamate sottostanti diverse - n.d.t.
 </testo_normale>
 <py_output>
 $ python3 time_get_clock_info.py
@@ -159,7 +159,7 @@ print('fine      : {:>9.2f}'.format(end))
 print('intervallo: {:>9.2f}'.format(end - start))
 </py_code>
 <testo_normale>
-Il punto di partenza del clock monotonico non è definito, quindi i valori restituiti sono utili solo per fare calcoli con altri valori di clock. In questo esempio la durata dell'attesa (<code>time.sleep(0.1)</code>) è misurata utilzzando <code>monotonic()</code>
+Il punto di partenza del clock monotonico non è definito, quindi i valori restituiti sono utili solo per fare calcoli con altri valori di clock. In questo esempio la durata dell'attesa (<code>time.sleep(0.1)</code>) è misurata utilizzando <code>monotonic()</code>
 </testo_normale>
 <py_output>
 $ python3 time_monotonic.py
@@ -287,7 +287,7 @@ Sun Dec  4 16:32:10 2016 : 0.310 1.592
 Componenti di Time
 </titolo_2>
 <testo_normale>
-Convervare il tempo come secondi trascorsi puù essere utile in alcune situazioni, ma ci sono volte nelle quali si deve avere accesso ai singoli campi di una data (anno, mese, ecc.). Il modulo <strong>time</strong> definisce <code>struct_time</code> per mantenere i valori di data e ora con i componenti separati in modo da essere facilmente accessibili. Ci sono parecchie funzioni che lavorano con i valori di <code>struct_time</code> invece che con i valori a virgola mobile.
+Conservare il tempo come secondi trascorsi può essere utile in alcune situazioni, ma ci sono volte nelle quali si deve avere accesso ai singoli campi di una data (anno, mese, ecc.). Il modulo <strong>time</strong> definisce <code>struct_time</code> per mantenere i valori di data e ora con i componenti separati in modo da essere facilmente accessibili. Ci sono parecchie funzioni che lavorano con i valori di <code>struct_time</code> invece che con i valori a virgola mobile.
 </testo_normale>
 <py_code>
 # time_struct.py
@@ -383,7 +383,7 @@ for zone in ZONES:
     show_zone_info()
 </py_code>
 <testo_normale>
-Il fuso orario predefinito per l'esecuzione di questo script è Europe/Rome (fuso del traduttore - n.d.t). L'indicazione di altri fusi orari nell'esempo modificano il nome della zona (tzname), il flag dell'impostazione dell'ora legale (DST) e i valori di scostamento per quel fuso orario dal meridiano di Greenwich (Zone).
+Il fuso orario predefinito per l'esecuzione di questo script è Europe/Rome (fuso del traduttore - n.d.t). L'indicazione di altri fusi orari nell'esempio modificano il nome della zona (tzname), il flag dell'impostazione dell'ora legale (DST) e i valori di scostamento per quel fuso orario dal meridiano di Greenwich (Zone).
 </testo_normale>
 <py_output>
 $ python3 time_timezone.py
@@ -466,7 +466,7 @@ Formattato: Sun Dec 11 13:10:40 2016
 </py_output>
 <vedi_anche>
 https://docs.python.org/3.5/library/time.html|time|La documentazione della libreria standard per questo modulo.
-riferimenti_moduli_modificati.html#time_porting|Note di portabilità per time|
+riferimenti_moduli_modificati.html#45|Note di portabilità per time|
 datetime.html|datetime|Il modulo datetime include altre classi per eseguire calcoli con date e ora.
 calendar.html|calendar|Lavora con funzioni di data a più alto livello per produrre calendari o calcolare eventi ricorrenti.
 https://www.wikiwand.com/it/Fuso_orario|Fuso orario|La pagina Wikipedia sul fuso orario

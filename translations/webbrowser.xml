@@ -34,7 +34,7 @@ webbrowser.open(
 )
 </py_code>
 <testo_normale>
-L'URL viene aperto in una finestra del browser, che viene sollevata alla sommità dello <a href='https://www.wikiwand.com/it/Pila_(informatica)' target='_blank'>stackr</a>  di finestre. La documentazione dice che verrà usata una finestra esistente, se possibile, ma il reale comportamento dipende dalle impostazioni del browser. Utilizzando Chrome con Linux Ubuntu viene aperta una nuova scheda nell'istanza aperta del browser.
+L'URL viene aperto in una finestra del browser, che viene sollevata alla sommità dello <a href='https://www.wikiwand.com/it/Pila_(informatica)' target='_blank'>stack</a>  di finestre. La documentazione dice che verrà usata una finestra esistente, se possibile, ma il reale comportamento dipende dalle impostazioni del browser. Utilizzando Chrome con Linux Ubuntu viene aperta una nuova scheda nell'istanza aperta del browser.
 </testo_normale>
 <titolo_2>
 Finestre contro Schede
@@ -89,7 +89,7 @@ Se nessuno dei nomi in <code>BROWSER</code> funziona, <code>webbrowser</code> ri
 Interfaccia da Riga di Comando
 </titolo_2>
 <testo_normale>
-Tutte le caratteristiche del modulo sono anche disponiblii tramite la riga di comando oltre che all'interno del proprio programma Python.
+Tutte le caratteristiche del modulo sono anche disponibili tramite la riga di comando oltre che all'interno del proprio programma Python.
 </testo_normale>
 <py_output>
 $ python3 -m webbrowser

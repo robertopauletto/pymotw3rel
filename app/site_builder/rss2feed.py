@@ -103,6 +103,7 @@ class RSS2Feed:
         """Return the XML for the feed.
 
         :param pretty_print: if `True` returns a pretty print representation
+        :param encoding: optional encoding type
         :returns: XML representation of the RSS feed
         """
         return self._document.toxml(encoding) \

@@ -61,7 +61,7 @@ $ python3 traceback_stacksummary.py
 # traceback_framesummary.py
 </py_code>
 <testo_normale>
-Ogni <code>FrameSummary</code> descrive una struttura dello stack, incluse informazioni circa la locazione del contesto di eseczuione nei file sorgente del programma.
+Ogni <code>FrameSummary</code> descrive una struttura dello stack, incluse informazioni circa la locazione del contesto di esecuzione nei file sorgente del programma.
 </testo_normale>
 <py_output>
 $ python3 traceback_framesummary.py
@@ -85,7 +85,7 @@ $ python3 traceback_tracebackexception.py
 API di Eccezione di Basso Livello
 </titolo_2>
 <testo_normale>
-Un altro modo di gestire la segnalazione di eccezioni è tramite <code>print_exec()</code>. Utilizza <code>sys.exc_info()</code> per ottenere le informazioni dell'eccezione per il <a href='https://www.wikiwand.com/it/Processo_(informatica)#/Processi_e_thread' target='_blank'>thread</a>, formatta il risultato e stampa il testo verso <code>sys.stderr</code> nella modalità predefinta.
+Un altro modo di gestire la segnalazione di eccezioni è tramite <code>print_exec()</code>. Utilizza <code>sys.exc_info()</code> per ottenere le informazioni dell'eccezione per il <a href='https://www.wikiwand.com/it/Processo_(informatica)#/Processi_e_thread' target='_blank'>thread</a>, formatta il risultato e stampa il testo verso <code>sys.stderr</code> nella modalità predefinita.
 </testo_normale>
 <py_code>
 # traceback_print_exc.py
@@ -174,6 +174,6 @@ $ python3 traceback_extract_stack.py
 <vedi_anche>
 https://docs.python.org/3.5/library/traceback.html|traceback|La documentazione della libreria standard per questo modulo.
 inspect.html|inspect|Il modulo inspect include altre funzioni per sondare stutture nello stack
-#|cgitb  (Di prossima traduzione)|Un altro modulo per formattare <em>traceback</em>
+cgitb.html|cgitb|Un altro modulo per formattare gradevolmente i <em>traceback</em>
 </vedi_anche>
 </documento_tradotto>

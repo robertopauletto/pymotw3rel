@@ -9,7 +9,7 @@
 <!-- tag <lista> ogni riga all'interno del tag rappresenta una riga di una lista non ordinata'-->
 <documento_tradotto>
 <titolo_1>
-zipfile - Accede ad un Archivio ZIP
+zipfile - Accede a un Archivio ZIP
 </titolo_1>
 <descrizione>
 Legge e scrive file compressi ZIP
@@ -22,7 +22,7 @@ Il modulo <strong>zipfile</strong> può essere usato per manipolare file di arch
 Verificare file ZIP
 </titolo_2>
 <testo_normale>
-La funzione <code>is_zipfile()</code> ritorna un booleano che indica se il nome di file passato come argomento faccia riferimento o meno ad un archivio ZIP valido.
+La funzione <code>is_zipfile()</code> ritorna un booleano che indica se il nome di file passato come argomento faccia riferimento o meno a un archivio ZIP valido.
 </testo_normale>
 <py_code>
 #  zipfile_is_zipfile.py
@@ -91,7 +91,7 @@ $ python3 zipfile_read.py
 Creare Nuovi Archivi
 </titolo_2>
 <testo_normale>
-Per creare un nuovo archivio, is istanzi <code>ZipFile</code> con modalità <code>'w'</code>. Qualunque file esistente verrà troncato e verrà inizializzato un nuovo archivio. Per aggiungere file si usi il metodo <code>write()</code>.
+Per creare un nuovo archivio, si istanzi <code>ZipFile</code> con modalità <code>'w'</code>. Qualunque file esistente verrà troncato e verrà inizializzato un nuovo archivio. Per aggiungere file si usi il metodo <code>write()</code>.
 </testo_normale>
 <py_code>
 # zipfile_write.py
@@ -118,7 +118,7 @@ $ python3 zipfile_write_compression.py
 Usare Nomi di Membri di Archivio Sostitutivi
 </titolo_2>
 <testo_normale>
-Per aggiungere un file ad un archivio usando un nome diverso da quello originale si usi l'argomento <code>arcname</code> per <code>write()</code>.
+Per aggiungere un file a un archivio usando un nome diverso da quello originale si usi l'argomento <code>arcname</code> per <code>write()</code>.
 </testo_normale>
 <py_code>
 # zipfile_write_arcname.py
@@ -133,7 +133,7 @@ $ python3 zipfile_write_arcname.py
 Scrivere Dati da Sorgenti Diverse da File
 </titolo_2>
 <testo_normale>
-Talvolta è necessario scrivere verso un archivio ZIP usando dati che non provengono da un file esistente. Piuttosto che scrivere dati ad un file, quindi aggiungere lo stesso al file ZIP, si usi il metodo <code>writestr()</code> che aggiunge una stringa di byte all'archivio direttamente.
+Talvolta è necessario scrivere verso un archivio ZIP usando dati che non provengono da un file esistente. Piuttosto che scrivere dati a un file, quindi aggiungere lo stesso al file ZIP, si usi il metodo <code>writestr()</code> che aggiunge una stringa di byte all'archivio direttamente.
 </testo_normale>
 <py_code>
 # zipfile_writestr.py
@@ -148,7 +148,7 @@ $ python3 zipfile_writestr.py
 Scrivere con una Istanza di ZipInfo
 </titolo_2>
 <testo_normale>
-Normalmente la data di modifica viene calcolata quando un file od una stringa vengono aggiunti all'archivio. Una istanza di <code>ZipInfo</code> può essere passata a <code>writestr()</code> per definire la data di modifica ed altri metadati.
+Normalmente la data di modifica viene calcolata quando un file o una stringa vengono aggiunti all'archivio. Una istanza di <code>ZipInfo</code> può essere passata a <code>writestr()</code> per definire la data di modifica e altri metadati.
 </testo_normale>
 <py_code>
 # zipfile_writestr_zipinfo.py
@@ -163,7 +163,7 @@ $ python3 zipfile_writestr_zipinfo.py
 Aggiungere File
 </titolo_2>
 <testo_normale>
-Oltre alla creazione di nuovi archivi, è possibile aggiungere in un archivio esistente, oppure aggiungere un archivio ad un file esistente (tipo un file <code>a.exe</code> per un archivio auto estraente). Per aprire un archivio per aggiungere un file si usi la modalità <code>'a'</code>.
+Oltre alla creazione di nuovi archivi, è possibile aggiungere in un archivio esistente, oppure aggiungere un archivio a un file esistente (tipo un file <code>a.exe</code> per un archivio auto estraente). Per aprire un archivio per aggiungere un file si usi la modalità <code>'a'</code>.
 </testo_normale>
 <py_code>
 # zipfile_append.py
@@ -178,13 +178,13 @@ $ python3 zipfile_append.py
 Archivi ZIP Python
 </titolo_2>
 <testo_normale>
-Python può importare moduli all'interno di un file ZIP usando <strong>zipimport</strong>, se questi archivi sono in <code>sys.path</code>. La classe <code>PyZipFile</code> può essere usata per costruire un modulo adatto per l'utilizzo con questa modalità. Il metodo supplementare <code>writepy()</code> dice a <code>PyZipFile</code> di cercare file con suffisso <code>.py</code> nella directory ed aggiungere i corrispondenti file con estensione <code>.pyo</code> o <code>.pyc</code> all'archivio. Se nessuna delle forme compilate esiste, file creato ed aggiunto un file <code>.pyc</code>.
+Python può importare moduli all'interno di un file ZIP usando <strong>zipimport</strong>, se questi archivi sono in <code>sys.path</code>. La classe <code>PyZipFile</code> può essere usata per costruire un modulo adatto per l'utilizzo con questa modalità. Il metodo supplementare <code>writepy()</code> dice a <code>PyZipFile</code> di cercare file con suffisso <code>.py</code> nella directory e aggiungere i corrispondenti file con estensione <code>.pyo</code> o <code>.pyc</code> all'archivio. Se nessuna delle forme compilate esiste, file creato e aggiunto un file <code>.pyc</code>.
 </testo_normale>
 <py_code>
 # zipfile_pyzipfile.py
 </py_code>
 <testo_normale>
-Con l'attributo di debut di <code>PyZipFile</code> impostato a 3, viene abilitato un debug verboso ed il risultato viene prodotto mentre compile ogni file <code>.py</code> che trova.
+Con l'attributo di debut di <code>PyZipFile</code> impostato a 3, viene abilitato un debug verboso e il risultato viene prodotto mentre compile ogni file <code>.py</code> che trova.
 </testo_normale>
 <py_output>
 $ python3 zipfile_pyzipfile.py
@@ -193,12 +193,12 @@ $ python3 zipfile_pyzipfile.py
 Limitazioni
 </titolo_2>
 <testo_normale>
-Il modulo <strong>zipfile</strong> non supporta file ZIP con commenti aggiunti, od archivi multi disco. Supporta file ZIP più grandi di 4 GB che usano le estensioni ZIP64
+Il modulo <strong>zipfile</strong> non supporta file ZIP con commenti aggiunti, o archivi multi disco. Supporta file ZIP più grandi di 4 GB che usano le estensioni ZIP64
 </testo_normale>
 <vedi_anche>
 https://docs.python.org/3.6/library/zipfile.html|zipfile|La documentazione della libreria standard per questo modulo.
 zlib.html|zlib|Libreria di compressione ZIP
-#|tarfile (Di prossima traduzione)|Legge e scrive file tar
-#|zipimport (Di prossima traduzione) |Importa moduli Python da archivi ZIP
+tarfile.html|tarfile|Legge e scrive file tar
+zipimport.html|zipimport|Importa moduli Python da archivi ZIP
 </vedi_anche>
 </documento_tradotto>

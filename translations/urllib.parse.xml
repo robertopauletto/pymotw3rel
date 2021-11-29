@@ -42,7 +42,7 @@ $ python3 urllib_parse_urlparse.py
 ParseResult(scheme='http', netloc='netloc', path='/path', params='param', query='query=arg', fragment='frag')
 </py_output>
 <testo_normale>
-Sebbene il valore ritornato agisca come una tupla, in realtà è basato su una <a href='namedtuple.html' target='_blank'>namedtuple</a>, una sottoclasse di <code>tuple</code> che supporta l'accesso alle parti dell'URL tramite attributi nominali e numerici. Oltre ad essere più facile da usare per gli sviluppatori, l'<a href='https://it.wikipedia.org/wiki/Application_programming_interface' target='_blank'>API</a> offre accesso a parecchi valori non disponiibli nell'<a href='https://it.wikipedia.org/wiki/Application_programming_interface' target='_blank'>API</a> di <code>tuple</code>.
+Sebbene il valore ritornato agisca come una tupla, in realtà è basato su una <a href='namedtuple.html' target='_blank'>namedtuple</a>, una sottoclasse di <code>tuple</code> che supporta l'accesso alle parti dell'URL tramite attributi nominali e numerici. Oltre a essere più facile da usare per gli sviluppatori, l'<a href='https://it.wikipedia.org/wiki/Application_programming_interface' target='_blank'>API</a> offre accesso a parecchi valori non disponibili nell'<a href='https://it.wikipedia.org/wiki/Application_programming_interface' target='_blank'>API</a> di <code>tuple</code>.
 </testo_normale>
 <py_code>
 # urllib_parse_urlparseattrs.py
@@ -63,7 +63,7 @@ print('nome host   :', parsed.hostname)
 print('porta       :', parsed.port)
 </py_code>
 <testo_normale>
-<code>username</code> e <code>password</code>  sono disponibili se presenti nell'URL elaborato, ed impostati a <code>None</code> in caso contrario. <code>hostname</code> ha lo stesso valore di <code>netloc</code>, in caratteri minuscoli e con il valore della porta eliminato, <code>port</code> viene convertito in un intero se presente ed a <code>None</code> altrimenti.
+<code>username</code> e <code>password</code>  sono disponibili se presenti nell'URL elaborato, e impostati a <code>None</code> in caso contrario. <code>hostname</code> ha lo stesso valore di <code>netloc</code>, in caratteri minuscoli e con il valore della porta eliminato, <code>port</code> viene convertito in un intero se presente e a <code>None</code> altrimenti.
 </testo_normale>
 <py_output>
 $ python3 urllib_parse_urlparseattrs.py
@@ -132,7 +132,7 @@ print('url      :', d.url)
 print('frammento:', d.fragment)
 </py_code>
 <testo_normale>
-Il valore ritornato è un oggetto <code>DefragResult</code>, basato su <code>namedtuple</code>, che contiene l'URL base ed il frammento.
+Il valore ritornato è un oggetto <code>DefragResult</code>, basato su <code>namedtuple</code>, che contiene l'URL base e il frammento.
 </testo_normale>
 <py_output>
 $ python3 urllib_parse_urldefrag.py
@@ -330,7 +330,7 @@ print('parse_qs :', parse_qs(encoded))
 print('parse_qsl:', parse_qsl(encoded))
 </py_code>
 <testo_normale>
-Il valore di ritorno da <code>parse_qs()</code> è un dizionario che mappa nomi con valori, mentre <code>parse_qsl()</code> ritorna una lista di tuple che contengono un nome ed un valore.
+Il valore di ritorno da <code>parse_qs()</code> è un dizionario che mappa nomi con valori, mentre <code>parse_qsl()</code> ritorna una lista di tuple che contengono un nome e un valore.
 </testo_normale>
 <py_output>
 $ python3 urllib_parse_parse_qs.py

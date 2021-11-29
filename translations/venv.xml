@@ -36,13 +36,13 @@ $ pyvenv /tmp/demovenv
 
 </py_output>
 <testo_normale>
-E' preferibile usare la prima versione poichè è richiesta esplicitamente la selezione di un interprete Python, in modo che non ci sia confusione circa il numero di versione od il percorso di importazione associato al risultante ambiente virtuale.
+E' preferibile usare la prima versione poichè è richiesta esplicitamente la selezione di un interprete Python, in modo che non ci sia confusione circa il numero di versione o il percorso di importazione associato al risultante ambiente virtuale.
 </testo_normale>
 <titolo_2>
 Contenuti di un Ambiente Virtuale
 </titolo_2>
 <testo_normale>
-Ciascun ambiente virtuale contiene una directory <code>bin</code>, dove sono installati l'interprete locale e qualsiasi script eseguibile, una directory <code>include</code> per i file collegati alla costruzione di estensioni C, ed una directory <code>lib</code>, con una locazione <code>site-packages</code> separata per l'installazione dei pacchetti.
+Ciascun ambiente virtuale contiene una directory <code>bin</code>, dove sono installati l'interprete locale e qualsiasi script eseguibile, una directory <code>include</code> per i file collegati alla costruzione di estensioni C, e una directory <code>lib</code>, con una locazione <code>site-packages</code> separata per l'installazione dei pacchetti.
 </testo_normale>
 <py_output>
 $ ls -F /tmp/demoenv
@@ -89,7 +89,7 @@ Un ambiente virtuale è più utile con strumenti come <code>pip</code> o <code>s
 Usare Ambienti Virtuali
 </titolo_2>
 <testo_normale>
-Gli ambienti virtuali sono comunemente usati per eseguire versioni diverse di  programmi oppure per verificare una data versione di un programma con versioni diverse delle sue dipendenze. Ad esempio prima di eseguire un upgrade da una versione di <a href='http://www.sphinx-doc.org/en/stable/' target='_blank'>Sphinx</a> ad un'altra, è utile verificare i file di documentazione in input usando sia la vecchia che la nuova versione.
+Gli ambienti virtuali sono comunemente usati per eseguire versioni diverse di  programmi oppure per verificare una data versione di un programma con versioni diverse delle sue dipendenze. Ad esempio prima di eseguire un upgrade da una versione di <a href='http://www.sphinx-doc.org/en/stable/' target='_blank'>Sphinx</a> a un'altra, è utile verificare i file di documentazione in input usando sia la vecchia che la nuova versione.
 </testo_normale>
 <py_output>
 $ python3 -m venv /tmp/sphinx1
@@ -177,6 +177,6 @@ https://docs.python.org/3.5/library/venv.html|venv|La documentazione della libre
 https://www.python.org/dev/peps/pep-0405|PEP 405|Ambienti Virtuali Python
 https://pypi.python.org/pypi/virtualenv|virtualenv|Una versione di ambienti virtuali Python che funziona per Python 2 e 3.
 https://pypi.python.org/pypi/virtualenvwrapper|virtualenvwrapper|un insieme di wrapper di shell per virtualenv per facilitare la gestione di un gran numero di ambienti.
-http://www.sphinx-doc.org/en/stable/|Sphinx|Uno strumento per convertire file in input in formato reStructuredText in HTML, LaTex ed altri formati per l'utilizzo.
+http://www.sphinx-doc.org/en/stable/|Sphinx|Uno strumento per convertire file in input in formato reStructuredText in HTML, LaTex e altri formati per l'utilizzo.
 </vedi_anche>
 </documento_tradotto>

@@ -15,7 +15,7 @@ with sqlite3.connect(db_filename) as conn:
     """)
     name, description, deadline = cursor.fetchone()
 
-    print('Dettagli del progetto {} ({})\n scadenza %s'.format(
+    print('Dettagli del progetto {} ({})\n scadenza {}'.format(
         description, name, deadline))
 
     cursor.execute("""

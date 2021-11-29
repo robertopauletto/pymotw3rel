@@ -11,7 +11,6 @@ data = 'français'
 utf8 = data.encode('utf-8')
 print('Parte com UTF-8     :', to_hex(utf8, 1))
 
-
 # Imposta un buffer in uscita, quindi lo incapsula come EncodedFile.
 output = io.BytesIO()
 encoded_file = codecs.EncodedFile(output, data_encoding='utf-8',

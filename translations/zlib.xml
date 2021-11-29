@@ -46,13 +46,13 @@ L'asterisco nel risultato evidenzia le righe dove i dati compressi occupano più
 $ python3 zlib_lengths.py
 </py_output>
 <testo_normale>
-<strong>zlib</strong> supporta diversi livelli di compressione, consentendo un bilanciamento tra il costo computazionale e l'ammontare della riduzione di spazio. Il livello di compressione predefinito, <code>zlib.Z_DEFAULT_COMPRESSION</code> è <code>-1</code>  e corrisponde ad un valore inserito nel codice che rappresenta un compromesso tra prestazioni e compressione. Attualmente corrisponde al livello 6.
+<strong>zlib</strong> supporta diversi livelli di compressione, consentendo un bilanciamento tra il costo computazionale e l'ammontare della riduzione di spazio. Il livello di compressione predefinito, <code>zlib.Z_DEFAULT_COMPRESSION</code> è <code>-1</code>  e corrisponde a un valore inserito nel codice che rappresenta un compromesso tra prestazioni e compressione. Attualmente corrisponde al livello 6.
 </testo_normale>
 <py_code>
 # zlib_compresslevel.py
 </py_code>
 <testo_normale>
-Il livello 0 equivale a nessuna compressione. Il livello 9 richiede il maggior sforzo di calcolo e produce il risultato più ridotto. Come mostra l'esempio, la stessa dimesione di riduzione può essere ottenuta da più livelli di compressione dato lo stesso input.
+Il livello 0 equivale a nessuna compressione. Il livello 9 richiede il maggior sforzo di calcolo e produce il risultato più ridotto. Come mostra l'esempio, la stessa dimensione di riduzione può essere ottenuta da più livelli di compressione dato lo stesso input.
 </testo_normale>
 <py_output>
 $ python3 zlib_compresslevel.py
@@ -97,7 +97,7 @@ Oltre alle funzioni di compressione e decompressione, <strong>zlib</strong> incl
 # zlib_checksums.py
 </py_code>
 <testo_normale>
-Entrambe le funzioni richiedono gli stessi argomenti, una stringa di byte che contiene i dati ed un valore opzionale da usare come punto di partenza per la cifra di controllo. Esse ritornano un intero con segno a 32 bit che può anche essere ripassato su chiamate successive come nuovo punto di partenza per produrre una cifra di controllo <em>corrente</em>
+Entrambe le funzioni richiedono gli stessi argomenti, una stringa di byte che contiene i dati e un valore opzionale da usare come punto di partenza per la cifra di controllo. Esse ritornano un intero con segno a 32 bit che può anche essere ripassato su chiamate successive come nuovo punto di partenza per produrre una cifra di controllo <em>corrente</em>
 </testo_normale>
 <py_output>
 $ python3 zlib_checksums.py
@@ -112,13 +112,13 @@ Il server qui sotto utilizza un compressore di flusso per rispondere a richieste
 # zlib_server.py
 </py_code>
 <testo_normale>
-Ha una spezzettatura artificale sul posto per illustrare il comportamento di <em>buffering</em> che si verifica quando i dati passati a <code>compress()</code> o <code>decompress()</code> non risultano in un blocco completo di dati compressi o decompressi in uscita.
+Ha una spezzettatura artificiale sul posto per illustrare il comportamento di <em>buffering</em> che si verifica quando i dati passati a <code>compress()</code> o <code>decompress()</code> non risultano in un blocco completo di dati compressi o decompressi in uscita.
 </testo_normale>
 <testo_normale>
-Il client si connette al <em>socket</em> e richiede un file. Poi esegue un ciclo, ricevendo blocchi di dati compressi. Visto che un blocco potrebbe non contenere sufficienti informazioni per decomprimerlo interamente, il resto dei dati ricevuti in precedenza viene combinato con i nuovi dati e passato al decompressore. Mano a mano che i dati sono decompressi, sono aggiunti ad un <em>buffer</em>, il contenuto del quale viene confrontato con il contenuto del file alla fine del ciclo di elaborazione.
+Il client si connette al <em>socket</em> e richiede un file. Poi esegue un ciclo, ricevendo blocchi di dati compressi. Visto che un blocco potrebbe non contenere sufficienti informazioni per decomprimerlo interamente, il resto dei dati ricevuti in precedenza viene combinato con i nuovi dati e passato al decompressore. Mano a mano che i dati sono decompressi, sono aggiunti a un <em>buffer</em>, il contenuto del quale viene confrontato con il contenuto del file alla fine del ciclo di elaborazione.
 </testo_normale>
 <avvertimento>
-Il server ha delle ovvie carenze di sicurezza. Non eseguirlo su un server in una internet aperta od in qualsivoglia ambiente dove la sicurezza potrebbe essere un problema.
+Il server ha delle ovvie carenze di sicurezza. Non eseguirlo su un server in una internet aperta o in qualsivoglia ambiente dove la sicurezza potrebbe essere un problema.
 </avvertimento>
 <py_output>
 $ python3 zlib_server.py

@@ -6,23 +6,32 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-.card-content h2 {
-  margin-top: 1rem;
+p {
+  padding-bottom: 10px;
+}
+dt {
+  font-weight: 700 !important;
+}
+
+.mb-2 {
+  margin-bottom: 0.8rem;
+}
+
+.mb-4 {
+  margin-bottom: 1.6rem;
 }
 
 #jumbo p {
   margin-bottom: 5px;
 }
 
+/* Bottone download file esempi */
 #filednl {
   margin-bottom: 0.8rem;
 }
 
-.mb-2 {
-  margin-bottom: 0.8rem;
-}
-.mb-4 {
-  margin-bottom: 1.6rem;
+.card-content h2 {
+  margin-top: 1rem;
 }
 
 #main {
@@ -63,9 +72,11 @@ body {
   font-weight: 500;
 }
 
+
 h2, h3, h4, h5, h6 {
   color: var(--head-color);
   font-weight: 700;
+  padding-top: 10px;
 }
 
 h2 {
@@ -99,7 +110,7 @@ pre {
 }
 
 .snip {
-  font-family: monospace;
+  font-family: 'Roboto Mono', monospace;
   background-color: #DEDCDC;
 }
 
@@ -107,23 +118,23 @@ pre {
 /* sezione vedere anche */
 .see-also {
   padding: 50px;
-
 }
 
 
-/* Formattazione colorazione console e sintassi */
+/* Formattazione colorazione cosole e sintassi */
+
 .monospaced-frame {
   margin-top: 1.1rem;
-  margin-bottom: 1.1rem;
+  margin-bottom: 1.3rem;
   overflow-y: scroll;
   padding: 10px;
   max-height: 400px;
+
 }
 
 .console {
     color: #63de00;
     background-color: #000;
-    padding: 10px;
 }
 
 .code-snippet {
@@ -209,7 +220,11 @@ pre {
 .highlight .vi { color: #40ffff } /* Name.Variable.Instance */
 .highlight .vm { color: #40ffff } /* Name.Variable.Magic */
 .highlight .il { color: #3677a9 } /* Literal.Number.Integer.Long */
+
+
+
 /* --- fine  */
+
 /* Pagina Tabella moduli tradotti */
 
 .modules-index {
@@ -226,6 +241,7 @@ pre {
   margin-top: -80px;
 }
 
+
 @media only screen and (min-width: 900px) {
   .fixed-sidebar {
     position: fixed;
@@ -238,7 +254,8 @@ pre {
 /* In pagina indice e sidebar articolo sottoline link
    in quanto a volte è su due righe e può confondere */
 .fixed-sidebar a:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  font-size: 17px;
 }
 
 .dropdown-categ-trigger:hover  {
@@ -257,7 +274,6 @@ table {
   padding-left: 8px;
 }
 
-/* Alert divs */
 .alert {
   margin: 1.8rem 0.4rem;
   padding: 1rem 0.8rem !important;
@@ -277,7 +293,6 @@ table {
   background-color: #ffcdd2;
 }
 
-
 #btn-gotop {
   display: none;
   position: fixed;
@@ -290,6 +305,7 @@ table {
   padding: 15px;
   border-radius: 10px;
   border: 1px solid white;
+
   font-size: 1.2rem;
 }
 
@@ -309,4 +325,8 @@ table {
     font-size: 1.2rem;
     opacity: 0.5;
   }
+}
+
+#module-sidebar li {
+  margin-bottom: 4px;
 }

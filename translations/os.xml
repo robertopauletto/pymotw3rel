@@ -879,7 +879,7 @@ $ python3 os_strerror.py
 </py_output>
 <vedi_anche>
 https://docs.python.org/3.5/library/os.html|os|La documentazione della libreria standard per questo modulo.
-riferimenti_moduli_modificati.html#porting-os|Note di portabilità per os|
+riferimenti_moduli_modificati.html#28|Note di portabilità per os|
 https://pymotw.com/3/signal/index.html#module-signal|signal|Dettaglio delle tecniche di gestione del segnale (in corso di traduzione)
 https://pymotw.com/3/subprocess/index.html#module-subprocess|subprocess|Il modulo subprocess sostituisce os.popen() (in corso di traduzione)
 https://pymotw.com/3/multiprocessing/index.html#module-multiprocessing|multiprocessing|Il modulo multiprocessing facilita il lavoro con ulteriori processi (in corso di traduzione)

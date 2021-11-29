@@ -196,14 +196,186 @@ $ python3 codecs_encode_error.py backslashreplace
 Errori di Decodifica
 </titolo_2>
 <testo_normale>
-
+E' possibile incorrere in errori durante la decodifica dei dati, specialmente se è usata la codifica sbagliata.
 </testo_normale>
+<py_code>
+# codecs_decode_error.py
+</py_code>
+<testo_normale>
+Come per la codifica, la modalità di gestione errore <code>strict</code> solleva una eccezione se il flusso di byte non può essere decodificato propriamente. In questo caso un <code>UnicodeDecodeError</code> viene generato tentando di convertire parte del BOM UTF-16 in un carattere usando il decodificatore UTF-8.
+</testo_normale>
+<py_output>
+$ python3 codecs_decode_error.py strict
+</py_output>
+<testo_normale>
+Passare alla modalità <code>ignore</code> fa sì che il decodificatore ignori i byte non validi. Il risultato comunque non è ancora quello atteso, visto che vengono inclusi byte nulli.
+</testo_normale>
+<py_output>
+$ python3 codecs_decode_error.py replace
+</py_output>
+<titolo_2>
+Traduzioni in Codifica
+</titolo_2>
+<testo_normale>
+Sebbene la maggior parte delle applicazioni internamente lavora con dati <code>str</code>, la decodifica o codifica è parte di una operazione di I/O; ci sono volte nelle quali modificando la codifica di un file senza passare per quel formato dati intermedio è utile. <code>EncodedFile()</code> riceve un file handle di apertura usando una codifica e lo incapsula in una classe che trascodifica i dati in un'altra codifica quando si verifica una operazione I/O.
+</testo_normale>
+<py_code>
+# codecs_encodedfile.py
+</py_code>
+<titolo_2>
+Codifiche Non Unicode
+</titolo_2>
+<testo_normale>
+Sebbene la maggior parte degli esempi precedenti utilizza codifiche Unicode, codecs può essere usato per molti altri tipi di trascodifiche. Ad esempio Python comprende codec per lavorare con i formati dato base-64, bzip2, ROT-13, ZIP e altri.
+</testo_normale>
+<py_code>
+# codecs_rot13.py
+</py_code>
+<testo_normale>
+Qualsiasi trasformazione che possa essere espressa come una funzione che riceve un singolo argomento e ritorna una stringa Unicode o byte può essere registrata come un codec. Ad esempio per il codec '<code>rot_13</code>', l'input dovrebbe essere una stringa Unicode e l'output sarà anch'esso una stringa Unicode.
+</testo_normale>
+<py_output>
+$ python3 codecs_rot13.py
+</py_output>
+<testo_normale>
+Utilizzando <strong>codecs</strong> per impacchettare un flusso di dati si ha a disposizione una interfaccia più semplice che lavorare direttamente con <a href="zlib.html">zlib</a>.
+</testo_normale>
+<py_code>
+# codecs_zlib.py
+</py_code>
+<testo_normale>
+Non tutti i tipi di compressione o sistemi di codifica supportano la lettura di una porzione di dati attraverso l'interfaccia del flusso usando <code>readline()</code> oppure <code>read()</code> visto che occorre trovare la fine di un segmento compresso per espanderlo. Se un programma può contenere l'intero insieme di dati non compressi in memoria, si utilizzino le caratteristiche di accesso incrementale della libreria di compressione invece di <strong>codecs</strong>.
+</testo_normale>
+<py_output>
+$ python3 codecs_zlib.py
+</py_output>
+<titolo_2>
+Codifica Incrementale
+</titolo_2>
+<testo_normale>
+Alcune delle codifiche fornite, specialmente <code>bz2</code> e <code>zlib</code> potrebbero modificare considerevolmente la lunghezza del flusso di dati durante la lavorazione. Per insiemi di dati molto grandi, queste codifiche operano meglio in modalità incrementale, lavorando su piccole porzioni di dati alla volta. Le API <code>IncrementalEncoder</code> e <code>IncrementalDecoder</code> sono progettate a questo scopo.
+</testo_normale>
+<py_code>
+# codecs_incremental_bz2.py
+</py_code>
+<testo_normale>
+Ogni volta che dati sono passati al codificatore o decodificatore viene aggiornato il proprio stato interno. Quando lo stato interno è consistente (così come definito dal codec), i dati sono restituiti e lo stato viene reimpostato. Fino a quel punto le chiamate a <code>encode()</code> o <code>decode()</code> non ritorneranno alcun dato. Quando l'ultimo bit di dati è stato ricevuto, l'argomento <code>final</code> dovrebbe essere impostato a <code>True</code> in modo che il codec sappia come far fuoriuscire i dati rimasti nel proprio buffer.
+</testo_normale>
+<py_output>
+$ python3 codecs_incremental_bz2.py
+</py_output>
+<titolo_2>
+Dati Unicode e la Comunicazione in Rete
+</titolo_2>
+<testo_normale>
+I socket di rete sono flussi di byte, e a differenza dei flussi standard in input ed output non supportano òa codifica nella modalità predefinita. Questo significa che i programmi che vogliono inviare o ricevere dati Unicode tramite una rete devono codificarli in byte prima di scriverli in un socket. Questo server ripete i dati che riceve al mittente.
+</testo_normale>
+<py_code>
+# codecs_socket_fail.py
+</py_code>
+<testo_normale>
+Si sarebbe potuto codificare esplicitamente i dati prima di ogni chiamata a <code>send()</code>, ma la mancanza di una chiamata a <code>send()</code> avrebbe generato un errore di codifica.
+</testo_normale>
+<py_output>
+$ python3 codecs_socket_fail.py
+</py_output>
+<testo_normale>
+Si usi <code>makefile()</code> per ottenere un handle di tipo file per il socket, quindi lo si impacchetti in un lettore o scrittore basato su flusso, il che fa sì che le stringhe Unicode siano codificate durante l'entrata e l'uscita dal socket.
+</testo_normale>
+<py_code>
+# codecs_socket.py
+</py_code>
+<testo_normale>
+Questo esempio usa <code>PassThrough</code> per mostrare come i dati siano codificati prima di essere inviati, e come la risposta sia decodificata dopo che è stata ricevuta nel client.
+</testo_normale>
+<py_output>
+$ python3 codecs_socket.py
+</py_output>
+<titolo_2>
+Definire un Codec Personalizzato
+</titolo_2>
+<testo_normale>
+Visto che Python è già fornito id un gran numero di codecs standard, è improbabile che un'applicazione debba definire un codificatore o decodificatore personalizzato. Quando è necessario, tuttavia, ci sono parecchie classi base in <strong>codecs</strong> che facilitano il processo.
+</testo_normale>
+<testo_normale>
+Il primo passo è di capire la natura della trasformazione descritta dal codificatore. Questi esempi usano una codifica "inverticaps", che converte le lettere maiuscole in minuscole e viceversa. Ecco una semplice definizione di una funzione di codifica che esegue questa trasformazione data una stringa in input.
+</testo_normale>
+<py_code>
+# codecs_invertcaps.py
+</py_code>
+<testo_normale>
+In questo caso il codificatore ed il decodificatore sono la stessa funzione (così come nel caso con <code>ROT-13</code>).
+</testo_normale>
+<py_output>
+$ python3 codecs_invertcaps.py
+</py_output>
+<testo_normale>
+Sebbene sia facile da comprendere, questa implementazione non è efficiente, specialmente per stringhe di testo molto grandi. Fortunatamente <strong>codecs</strong> comprende alcune funzioni di convenienza per creare codecs basati su <em>mappe di caratteri</em> tipo inverticaps. Una codifica di un mappa di caratteri è composta da due dizionari. La <em>mappa di codifica</em> converte i valori dei caratteri dalla stringa in input in valori byte in uscita e la <em>mappa di decodifica</em> funziona all'opposto. Prima si crea la mappa di decodifica, pui si usa <code>make_encoding_map()</code> per converirla in una mappa di codifica. Le funzioni C <code>charmap_encode()</code> e <code>charmap_decode()</code> usano le mappe per convertire i propri dati in input efficientemente.
+</testo_normale>
+<py_code>
+# codecs_invertcaps_charmap.py
+</py_code>
+<testo_normale>
+Sebbene le mappe di codifica e decodifica a per inverticaps siano le stesse, potrebbe non essere sempre il caso. <code>make_encoding_map()</code> rileva situazioni dove più di un carattere in input è codificato con lo stesso byte in output e sostituisce il valore di codifica con <code>None</code> per marcare la codifica come indefinita.
+</testo_normale>
+<py_output>
+$ python3 codecs_invertcaps_charmap.py
+</py_output>
+<testo_normale>
+La mappa di caratteri di codifica e decodifica supporta tutti i metodi standard di gestione errori descritti in precedenza, quindi non è necessario lavoro supplementare per conformarsi a quella parte dell'API.
+</testo_normale>
+<py_code>
+# codecs_invertcaps_error.py
+</py_code>
+<testo_normale>
+Visto che il code point Unicode per il pi greco non è nella mappa di codifica, la modalità di gestione dell'errore strict solleva una eccezione.
+</testo_normale>
+<py_output>
+$ python3 codecs_invertcaps_error.py
+</py_output>
+<testo_normale>
+Dopo che le mappe di codifica e decodifica sono state definite, occorre impostare qualche altra classe, e la codifica dovrebbe essere registrata. <code>register()</code> aggiunge una funzione di ricerca al registro in modo che quando un utente vuole usare la codifica, <strong>codecs</strong> può localizzarla. La funzione di ricerca deve ricevere una singola stringa come argomento con il nome della codifica, e ritornare un oggetto <code>CodecInfo</code> se la codifica è nota, oppure <code>None</code> in caso contrario.
+</testo_normale>
+<py_code>
+# codecs_register.py
+</py_code>
+<testo_normale>
+Possono essere registrate multiple funzioni di ricerca, ciascuna della quali sarà chiamata a turno fino a che una ritorna un <code>CodecInfo</code> oppure la lista viene esaurita. La funzione di ricerca interna registrata da <strong>codecs</strong> sa come caricare i codec standard, tipo UTF-8 da <code>encodings</code>, in modo che questi nomi non saranno mai passati alle funzioni di ricerca personalizzate.
+</testo_normale>
+<py_output>
+$ python3 codecs_register.py
+</py_output>
+<testo_normale>
+L'istanza di <code>CodecInfo</code> ritornata dalla funzione di ricerca dice a <strong>codecs</strong> come codificare e decodificare usando tutti i diversi meccanismi supportati: stateless, incrementali e stream. <strong>codecs</strong> include classi base per aiutare nell'impostazione di una mappa di caratteri di codifica. Questo esempio mette insieme tutti i pezzi per registrare una funzione di ricerca che ritorna una istanza di <code>CodecInfo</code> configurata per il codec inverticaps.
+</testo_normale>
+<py_code>
+# codecs_invertcaps_register.py
+</py_code>
+<testo_normale>
+La classe base per il codificatore/decodificatore stateless è <code>Codec</code>. Si sovrascrivono <code></code>encode()</code> e <code>decode()</code> con una nuova implementazione (in questo caso, chiamando <code>charmap_encode()</code> e <code>charmap_decode()</code> rispettivamente). Ciascun metodo deve ritornare una tupla che contiene i dati trasformati e il numero di byte in input o caratteri consumati. Convenientemente, <code>charmap_encode()</code> e <code>charmap_decode()</code> ritornano già quelle informazioni.
+</testo_normale>
+<testo_normale>
+<code>IncrementalEncoder</code> e <code>IncrementalDecoder</code> servono come classi base per le interfacce incrementali. I metodi <code>encode()</code> e <code>decode()</code> delle classi incrementali sono definiti in modo tale che ritornano solo i dati effettivamente trasformati. Ogni informazione circa la gestione del buffer viene mantenuta come stato interno. La codifica inverticaps non necessita di gestire un buffer di dati (usa una mappatura uno-a-uno). Per codifiche che producono un diverso ammontare di output a seconda dei dati in elaborazione, tipo gli algoritmi di compressione, <code>BufferedIncrementalEncoder</code> e <code>BufferedIncrementalDecoder</code> sono classi base più appropriate, visto che gestiscono la porzione non elaborata dell'input.
+</testo_normale>
+<testo_normale>
+Anche a <code>StreamReader</code> e <code>StreamWriter</code> servono i metodi <code>encode()</code> e <code>decode()</code>, visto che ci si attende che ritornino gli stessi valori della versione da <code>Codec</code> è possibile usare l'ereditarietà multipla per questa implementazione.
+</testo_normale>
+<py_output>
+$ python3 codecs_invertcaps_register.py
+</py_output>
 <vedi_anche>
-http://docs.python.org/library/gettext.html|gettext|La documentazione della libreria standard per questo modulo
+http://docs.python.org/library/codecs.html|codecs|La documentazione della libreria standard per questo modulo
 locale.html|locale|Altri strumenti di localizzazione
-http://www.gnu.org/software/gettext/|GNU gettext|I formati del catalogo messaggi, API, ecc. per questo modulo sono tutti basati sul pacchetto gettext originale da GNU. I formati del file catalogo sono compatibili, e gli script da riga di comando hanno opzioni simili (se non identiche). Il <a href='http://www.gnu.org/software/gettext/manual/gettext.html'>manuale GNU gettext</a> (in inglese - n.d.t.) ha una descrizione dettagliata sui formati di file e descrive le versioni GNU degli strumenti per lavorarci.
-http://legacy.python.org/workshops/1997-10/proceedings/loewis.html|Internazionalizzare Python|Un documento di Martin von Löwis (in inglese - n.d.t.) riguardo alle tecniche per l'internazionalizzazione delle applicazioni Python.
-http://docs.djangoproject.com/en/dev/topics/i18n/|Internazionalizzare Django|Un'altra buona fonte di informazione (in inglese - n.d.t.) sull'uso di gettext, inclusi esempi reali.
+socketserver.html|socketserver|Per un esempio più dettagliato di un server che ripete quanto ricevuto si veda il modulo socketserver
+https://www.python.org/dev/peps/pep-0100|PEP 100|PEP per l'integrazione di Unicode in Python
+https://docs.python.org/3/howto/unicode.html|Unicode HOWTO|La guida ufficiale per l'utilizzo di Unicode con Python
+https://docs.python.org/3.0/whatsnew/3.0.html#text-vs-data-instead-of-unicode-vs-8-bit|Text vs. Data instead of Unicode vs. 8-bit|Articolo per Python 3.0 nella sezione "What's new" che tratta le modifiche nella gestione del testo.
+http://effbot.org/zone/unicode-objects.htm|Python Unicode Objects|Articolo di Fredrik Lundh circa l'uso di insiemi di caratteri non ASCII in Python 2.0.
+http://evanjones.ca/python-utf8.html|How to Use UTF-8 with Python|Veloce guida di Evan Jones per lavorare con Unicode, inclusi dati XML e Byte-Order Marker.
+http://www.tbray.org/ongoing/When/200x/2003/04/06/Unicode|On the Goodness of Unicode|Introduzione alla internazionalizzazione ed Unicode di Tim Bray.
+http://www.tbray.org/ongoing/When/200x/2003/04/13/Strings|On Character Strings|Uno sguardo alla storia dell'elaborazione di stringhe nei linguaggi di programmazione, di Tim Bray.
+http://www.tbray.org/ongoing/When/200x/2003/04/26/UTF|Characters vs. Bytes|Prima parte del saggio "essay on modern character string processing for computer programmers". Tratta la rappresentazione in memoria del testi in formati diversi dai byte ASCII.
+http://www.w3.org/TR/xml-entity-names/|Characters vs. Bytes|W3C XML Entity Definitions for Characters|Specifiche per la rappresentazione dei riferimenti di carattere che non possono essere rappresentati con una codifica.
 </vedi_anche>
 </documento_tradotto>
 </descrizione>

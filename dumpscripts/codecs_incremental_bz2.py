@@ -1,4 +1,5 @@
 # codecs_incremental_bz2.py
+
 import codecs
 import sys
 
@@ -10,7 +11,6 @@ repetitions = 50
 print('Lung. testo   :', len(text))
 print('Ripetizioni   :', repetitions)
 print('Lung. prevista:', len(text) * repetitions)
-
 
 # Codifica il testo parecchie volte sviluppando un grande ammontare di dati
 encoder = codecs.getincrementalencoder('bz2')()

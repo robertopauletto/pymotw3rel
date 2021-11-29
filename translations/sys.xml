@@ -54,6 +54,46 @@ Il modulo <strong>sys</strong> include un pacchetto di servizi per esaminare o m
 
     </ul>
 </ul>
+<ul>
+    <a href ='#excmng'>Gestione Eccezioni
+    <ul>
+        <a href='#excmng-unhandled'>Eccezioni non Gestite</a>
+        <a href='#excmng-current'>Eccezione Corrente </a>
+        <a href='#excmng-previous'>Eccezione Interattiva Precedente</a>
+    </ul>
+</ul>
+<ul>
+    <a href ='#threadsupp'>Supporto Thread di Basso Livello
+    <ul>
+        <a href='#threadsupp-switch'>Eccezioni non Gestite</a>
+        <a href='#threadsupp-debug'>Eccezione Corrente </a>
+    </ul>
+</ul>
+<ul>
+    <a href ='#modimport'>Moduli e Import
+    <ul>
+        <a href='#modimport-refcount'>Conteggio Riferimenti</a>
+        <a href='#modimport-objsize'>Dimensione Oggetti</a>
+        <a href='#modimport-recursion'>Ricorsione</a>
+        <a href='#modimport-maxval'>Valori Massimi</a>
+        <a href='#modimport-float'>Valori a Virgola Mobile</a>
+        <a href='#modimport-integers'>Valori Interi</a>
+        <a href='#modimport-byteordering'>Ordinamento Byte</a>
+    </ul>
+</ul>
+<ul>
+    <a href ='#tracing'>Tracciare un Programma in Esecuzione
+    <ul>
+        <a href='#tracing-unhandled'>Eccezioni non Gestite</a>
+        <a href='#tracing-current'>Eccezione Corrente </a>
+        <a href='#tracing-previous'>Eccezione Interattiva Precedente</a>
+    </ul>
+</ul>
+
+
+
+
+
 </testo_normale>
 <titolo_2>
 Impostazioni dell'Interprete
@@ -483,7 +523,7 @@ Ordinamento Byte
 # sys_byteorder.py
 </py_code>
 <testo_normale>
-
+Il valore può essere <code>big</code> per big-endian e <code>little</little> per little-endian
 </testo_normale>
 <py_output>
 $ python3 sys_byteorder.py

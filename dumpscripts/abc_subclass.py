@@ -1,6 +1,3 @@
-#!/usr/binf/env python
-# -*- coding: UTF-8 -*-
-
 # abc_subclass.py
 
 import abc
@@ -19,5 +16,5 @@ class SubclassImplementation(PluginBase):
 if __name__ == '__main__':
     print('Sottoclasse:', issubclass(RegisteredImplementation,
                                   PluginBase))
-    print('Instanza:', isinstance(RegisteredImplementation(),
+    print('Istanza:', isinstance(RegisteredImplementation(),
                                   PluginBase))

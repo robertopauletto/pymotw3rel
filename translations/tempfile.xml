@@ -30,7 +30,7 @@ Applicazioni che necessitano di file temporanei per conservare dati, senza condi
 import os
 import tempfile
 
-print('Crezione di un nome di file con PID:')
+print('Creazione di un nome di file con PID:')
 filename = '/tmp/indovina_il_nome.{}.txt'.format(os.getpid())
 with open(filename, 'w+b') as temp:
     print('temp:')
@@ -57,7 +57,7 @@ Questo esempio illustra la differenza tra il creare un file temporaneo usando un
 <py_output>
 $ python3 tempfile_TemporaryFile.py
 
-Crezione di un nome di file con PID:
+Creazione di un nome di file con PID:
 temp:
   <_io.BufferedRandom name='/tmp/indovina_il_nome.16226.txt'>
 temp.name:
@@ -220,7 +220,7 @@ with tempfile.SpooledTemporaryFile(max_size=1000,
     print(temp._rolled, temp._file)
 </py_code>
 <testo_normale>
-In questo esempio, visto che la dimnensione del <a href="https://www.wikiwand.com/it/Buffer">buffer</a> è molto di più grande dei dati stessi, non verrebbe creato alcun file su disco se non venisse chiamato <code>rollover()</code>.
+In questo esempio, visto che la dimensione del <a href="https://www.wikiwand.com/it/Buffer">buffer</a> è molto di più grande dei dati stessi, non verrebbe creato alcun file su disco se non venisse chiamato <code>rollover()</code>.
 </testo_normale>
 <py_output>
 $ python3 tempfile_SpooledTemporaryFile_explicit.py

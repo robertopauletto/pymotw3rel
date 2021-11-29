@@ -9,14 +9,14 @@
 <!-- tag <lista> ogni riga all'interno del tag rappresenta una riga di una lista non ordinata'-->
 <documento_tradotto>
 <titolo_1>
-timeit - Cronometra l'esecuzione di piccoli frammenti di codice Python.
+timeit - Cronometra l'Esecuzione di Piccoli Frammenti di Codice Python.
 </titolo_1>
 <descrizione>
 Cronometra l'esecuzione di piccoli frammenti di codice Python
 
 </descrizione>
 <testo_normale>
-Il modulo <strong>timeit</strong> fornisce una semplica interfaccia per determinare il tempo di esecuzione di piccoli frammenti di codice Python. Usa una funzione di cronometraggio specifica alla piattaforma per fornire un calcolo del tempo più accurato possibile e ridurre l'impatto dei costi di partenza e chiusura dello script rispetto al calcolo del tempo eseguendo il codice ripetutamente.
+Il modulo <strong>timeit</strong> fornisce una semplice interfaccia per determinare il tempo di esecuzione di piccoli frammenti di codice Python. Usa una funzione di cronometraggio specifica alla piattaforma per fornire un calcolo del tempo più accurato possibile e ridurre l'impatto dei costi di partenza e chiusura dello script rispetto al calcolo del tempo eseguendo il codice ripetutamente.
 </testo_normale>
 <titolo_2>
 Contenuti del Modulo
@@ -168,13 +168,13 @@ KeyError   :  53.17 usec/pass   0.05 usec/item
 "not in"   :  43.53 usec/pass   0.04 usec/item
 </py_output>
 <testo_normale>
-Il risultato potrebbe variare in base alla macchina nella quale viene eseguito lo script e in base a quali altri programmi sono in esecuzione nel sistema. Si esperimenti con le variabili <code>range_size</code> e <code>count</code>, visto che combinazioni diverse produrrano diversi risultati.
+Il risultato potrebbe variare in base alla macchina nella quale viene eseguito lo script e in base a quali altri programmi sono in esecuzione nel sistema. Si esperimenti con le variabili <code>range_size</code> e <code>count</code>, visto che combinazioni diverse produrranno diversi risultati.
 </testo_normale>
 <titolo_2>
 Da Riga di Comando
 </titolo_2>
 <testo_normale>
-Oltre all'interfaccia da programma, <code>timeit</code> fornisce una interfaccia da riga di comando per provare i moduli senza orchestazione.
+Oltre all'interfaccia da programma, <code>timeit</code> fornisce una interfaccia da riga di comando per provare i moduli senza orchestrazione.
 </testo_normale>
 <testo_normale>
 Per eseguire il modulo si utilizzi l'opzione <code>-m</code> dell'interprete Pyhton per trovare il modulo e considerarlo come il programma principale. Per ottenere aiuto per il modulo ad esempio:

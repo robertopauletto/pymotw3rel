@@ -3,7 +3,7 @@
 import tarfile
 import time
 
-with tarfile.open('example.tar', 'r') as t:
+with tarfile.open('esempio.tar', 'r') as t:
     for member_info in t.getmembers():
         print(member_info.name)
         print('  Modificato:', time.ctime(member_info.mtime))

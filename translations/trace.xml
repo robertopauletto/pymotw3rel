@@ -37,10 +37,10 @@ La funzione <code>recurse()</code> chiama se stessa fino a che l'argomento <code
 Tracciare l'Esecuzione
 </titolo_2>
 <testo_normale>
-E' facile usare <strong>trace</strong> direttamente dalla riga di comando. Le istruzioni che vengono eseguite mentre il programma gira vengono stampate se viene fornita l'opzione <code>--trace</code>. Questo esempio ignora anche la locazione della libreria standard di Python per evitare la tracciatura di <a href='importlib.html' targer='_blank'>importlib</a> e altri moduli che potrebbero essere più interessanti includere in un altro esempio, ma che in questo caso farebbero solo confusione nella stampa dei risultati.
+E' facile usare <strong>trace</strong> direttamente dalla riga di comando. Le istruzioni che vengono eseguite mentre il programma gira vengono stampate se viene fornita l'opzione <code>--trace</code>. Questo esempio ignora anche la locazione della libreria standard di Python (riferita all'interprete Python utilizzato - in questo caso <code>/usr/lib/python3.8</code> - n.d.t.) per evitare la tracciatura di <a href='importlib.html' targer='_blank'>importlib</a> e altri moduli che potrebbero essere più interessanti da includere in un altro esempio, ma che in questo caso farebbero solo confusione nella stampa dei risultati.
 </testo_normale>
 <py_output>
-$ python3 -m trace --ignore-dir=/usr/lib/python3.5 --trace esempio_trace/main.py
+$ python3 -m trace --ignore-dir=/usr/lib/python3.8 --trace esempio_trace/main.py
 </py_output>
 <testo_normale>
 La prima parte del risultato mostra le operazioni di impostazione effettuate da <code>trace</code> . Il resto mostra l'entrata in ciascuna funzione, compreso il modulo dove la funzione risiede, quindi le righe del file sorgente così come sono eseguite. <code>recurse()</code> viene eseguita tre volte, come ci si attende in base al modo di chiamata in <code>main()</code>.
@@ -49,7 +49,7 @@ La prima parte del risultato mostra le operazioni di impostazione effettuate da 
 Copertura del Codice
 </titolo_2>
 <testo_normale>
-Eseguendo <code>trace</code> da riga di comando con l'opzione <code>--count</code> verranno prodttie informazioni di copertura di codice, dettagliando quali righe sono state eseguite e quali sono state saltate. Visto che un programma complesso in genere è composto da diversi file, viene prodotto un report di copertura separato per ciascuno. Nella modalità predefinita i file di report sono scritti nella stessa directory del modulo, attribuendogli il nome del modulo con estensione <code>.cover</code> invece che <code>.py</code>.
+Eseguendo <code>trace</code> da riga di comando con l'opzione <code>--count</code> verranno prodotte informazioni di copertura di codice, dettagliando quali righe sono state eseguite e quali sono state saltate. Visto che un programma complesso in genere è composto da diversi file, viene prodotto un report di copertura separato per ciascuno. Nella modalità predefinita i file di report sono scritti nella stessa directory del modulo, attribuendogli il nome del modulo con estensione <code>.cover</code> invece che <code>.py</code>.
 </testo_normale>
 <py_output>
 $ python3 -m trace --count esempio_trace/main.py
@@ -59,12 +59,33 @@ Sono prodotti due file in output, <code>esempio_trace/main.cover</code> :
 </testo_normale>
 <py_code>
 # esempio_trace/main.cover
+    1: from recurse import recurse
+      
+       
+    1: def main():
+    1:     print('Questo è il programma principale.')
+    1:     recurse(2)
+       
+       
+    1: if __name__ == '__main__':
+    1:     main()
+
 </py_code>
 <testo_normale>
 ed <code>esempio_trace/recurse.cover</code>
 </testo_normale>
 <py_code>
 # esempio_trace/recurse.cover
+       
+    1: def recurse(level):
+    3:     print('recurse({})'.format(level))
+    3:     if level:
+    2:         recurse(level - 1)
+       
+       
+    1: def not_called():
+           print('Questa funzione non viene mai chiamata.')
+
 </py_code>
 <note>
 Sebbene la riga <code>recurse(level):</code> abbia un conteggio di 1, non significa che quella funzione è stata eseguita una sola volta. Significa che la <em>definizione</em> della funzione è stata eseguita una volta. Lo stesso vale per <code>not_called():</code> visto che la definizione della funzione è comunque valutata anche se la stessa non viene mai chiamata.
@@ -73,30 +94,22 @@ Sebbene la riga <code>recurse(level):</code> abbia un conteggio di 1, non signif
 E' anche possibile eseguire il programma diverse volte, forse con diverse opzioni, per salvare i dati di copertura e produrre un report combinato. La prima volta che  <code>trace</code> viene eseguito con un file in uscita, riporta un errore quando tenta di caricare dati esistenti da combinare con i nuovi risultati prima di creare il file.
 </testo_normale>
 <py_output>
-$ python3 -m trace --coverdir coverdir3 --count --file coverdir3/coverage_report.dat esempio_trace/main.py
+$ python3 -m trace --coverdir coverdir1 --count --file coverdir1/coverage_report.dat esempio_trace/main.py
 
 Questo è il programma principale.
 recurse(2)
 recurse(1)
 recurse(0)
-Skipping counts file 'coverdir3/coverage_report.dat': [Errno 2] No such file or directory: 'coverdir3/coverage_report.dat'
-
-$ python3 -m trace --coverdir coverdir3 --count --file coverdir3/coverage_report.dat esempio_trace/main.py
-
-Questo è il programma principale.
-recurse(2)
-recurse(1)
-recurse(0)
-
-$ python3 -m trace --coverdir coverdir3 --count --file coverdir3/coverage_report.dat esempio_trace/main.py
-
-Questo è il programma principale.
-recurse(2)
-recurse(1)
-recurse(0)
-
-$ ls coverdir3
-coverage_report.dat
+Skipping counts file 'coverdir1/coverage_report.dat': [Errno 2] No such file or directory: 'coverdir1/coverage_report.dat'
+</py_output>
+<py_output>
+$ python3 -m trace --coverdir coverdir1 --count --file coverdir1/coverage_report.dat esempio_trace/main.py
+</py_output>
+<py_output>
+$ python3 -m trace --coverdir coverdir1 --count --file coverdir1/coverage_report.dat esempio_trace/main.py
+</py_output>
+<py_output>
+$ ls coverdir1
 </py_output>
 <testo_normale>
 Per produrre report una volta che le informazioni di copertura sono registrate nei file <code>.cover</code> si usi l'opzione <code>--report</code>
@@ -109,6 +122,15 @@ Visto che il programma viene eseguito tre volte, il report di copertura mostra v
 </testo_normale>
 <py_code>
 # coverdir1/esempio_trace.recurse.cover
+       
+    3: def recurse(level):
+    9:     print('recurse({})'.format(level))
+    9:     if level:
+    6:         recurse(level - 1)
+       
+       
+    3: def not_called():
+>>>>>>     print('Questa funzione non viene mai chiamata.')
 </py_code>
 <titolo_2>
 Relazioni tra Chiamate
@@ -184,6 +206,16 @@ Il file in uscita contiene
 </testo_normale>
 <py_code>
 # coverdir2/esempio_trace.recurse.cover
+       
+>>>>>> def recurse(level):
+    3:     print('recurse({})'.format(level))
+    3:     if level:
+    2:         recurse(level - 1)
+       
+       
+>>>>>> def not_called():
+>>>>>>     print('Questa funzione non viene mai chiamata.')
+
 </py_code>
 <testo_normale>
 Per salvare i dati di conteggio per generare report, si usino gli argomenti <code>infile</code> e <code>outfile</code> di <code>Trace</code>.
@@ -221,7 +253,7 @@ PARAMETRO;TIPO;DESCRIZIONE
 </tabella_semplice>
 <vedi_anche>
 https://docs.python.org/3.5/library/trace.html|trace|La documentazione della libreria standard per questo modulo.
-#|Tracciare un programma in fase di esecuzione|Il modulo sys include servizi per aggiungere una funzione di tracciatura personalizzata all'interprete in fase di esecuzione (in corso di traduzione)
+|Tracciare un programma in fase di esecuzione|Il modulo sys include servizi per aggiungere una funzione di tracciatura personalizzata all'interprete in fase di esecuzione (in corso di traduzione)
 http://nedbatchelder.com/code/modules/coverage.html|coverage.py|Il modulo coverage di Neil Batchelder.
 http://darcs.idyll.org/~t/projects/figleaf/doc/|figleaf|L'applicazione di copertura di Titus Brown
 </vedi_anche>

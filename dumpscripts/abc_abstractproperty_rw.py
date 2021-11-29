@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: UTF-8 -*-
-
 # abc_abstractproperty_rw.py
 
 import abc

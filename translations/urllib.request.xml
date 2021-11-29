@@ -16,7 +16,7 @@ Una libreria per aprire URL che può esserer estesa per definire gestori di prot
 
 </descrizione>
 <testo_normale>
-Il modulo <strong>urllib.reuqest</strong> fornisce una <a href='https://it.wikipedia.org/wiki/Application_programming_interface' target='_blank'>API</a> per utilizzare le risorse Internet identificate da URL. E' progettoto per essere esteso da singole applicazioni per supportare nuovi protocolli o per aggiungere varianti a protocolli esistenti (tipo la gestione dell'autenticazione base HTTP)
+Il modulo <strong>urllib.request</strong> fornisce una <a href='https://it.wikipedia.org/wiki/Application_programming_interface' target='_blank'>API</a> per utilizzare le risorse Internet identificate da URL. E' progettato per essere esteso da singole applicazioni per supportare nuovi protocolli o per aggiungere varianti a protocolli esistenti (tipo la gestione dell'autenticazione base HTTP)
 </testo_normale>
 <titolo_2>
 HTTP GET
@@ -96,7 +96,7 @@ print('---------------')
 print(data)
 </py_code>
 <testo_normale>
-Il server di esempio accetta valori in arrivo e formatta una risposta in testo semplice da restituire. Il valore di ritorno da <code>urlopen()</code> fornisce accesso alle intestazioni (<em>headers</em>) dal server HTTP tramite il metodo <code>info()</code> ed i dati per le risorse remote con metodi come <code>read()</code> e <code>readlines()</code>.
+Il server di esempio accetta valori in arrivo e formatta una risposta in testo semplice da restituire. Il valore di ritorno da <code>urlopen()</code> fornisce accesso alle intestazioni (<em>headers</em>) dal server HTTP tramite il metodo <code>info()</code> e i dati per le risorse remote con metodi come <code>read()</code> e <code>readlines()</code>.
 </testo_normale>
 <py_output>
 $ python3 urllib_request_urlopen.py
@@ -173,7 +173,7 @@ User-Agent=Python-urllib/3.5
 Codificare Argomenti
 </titolo_2>
 <testo_normale>
-Gli argomenti possono essere passati al server codificandoli con <code>urllib.parse.urlencode()</code> ed accodati all'URL.
+Gli argomenti possono essere passati al server codificandoli con <code>urllib.parse.urlencode()</code> e accodati all'URL.
 </testo_normale>
 <py_code>
 # urllib_request_http_get_args.py
@@ -305,7 +305,7 @@ url = 'http://localhost:8080/'
 print(request.urlopen(url, encoded_args).read().decode('utf-8'))
 </py_code>
 <testo_normale>
-Il server può decodificare i dati del form ed accedere ai singoli valori per nome.
+Il server può decodificare i dati del form e accedere ai singoli valori per nome.
 </testo_normale>
 <py_output>
 $ python3 urllib_request_urlopen_post.py
@@ -582,10 +582,10 @@ Dati del form:
 Creare Gestori di Protocollo Personalizzati
 </titolo_2>
 <testo_normale>
-<code>urllib.request</code> ha un supporto <em>built-in</em> per accssso HTTP(S), FTP e locale. Per aggiungere supporto ad altri tipi di URL, occorre registrare un altro gestore di protocollo. Ad esempio per supportare URL che puntano a file che si trovano su server <a href='https://www.wikiwand.com/en/Network_File_System' target='_blank'>NFS</a>  remoti, senza richiedere agli utenti di montare il percorso prima di accedere al file, si crei una classe derivata da <code>BaseHandler</code>  con un metodo <code>nfs_open()</code>.
+<code>urllib.request</code> ha un supporto <em>built-in</em> per accesso HTTP(S), FTP e locale. Per aggiungere supporto ad altri tipi di URL, occorre registrare un altro gestore di protocollo. Ad esempio per supportare URL che puntano a file che si trovano su server <a href='https://www.wikiwand.com/en/Network_File_System' target='_blank'>NFS</a>  remoti, senza richiedere agli utenti di montare il percorso prima di accedere al file, si crei una classe derivata da <code>BaseHandler</code>  con un metodo <code>nfs_open()</code>.
 </testo_normale>
 <testo_normale>
-Il metodo <code>open()</code> specifico per il protocollo  riceve un singolo argomento, l'istanza di <code>Request</code>, e dovrebbe ritornare un oggetto con un metodo <code>read()</code> che possa essere usato per leggere i dati, un metodo <code>info()</code> per ritornare le intestazioni di risposta, e <code>geturl()</code> per ritornare l'effettivo URL del file che si sta per leggere. Un semplice modo per farlo è di creare una istanza di <code>urllib.response.addinfourl</code>, passare le intestazioni, l'URL, e l'<span class='mousetip' title='un simbolo (o un handle oppure un indirizzo di memoria fisica) a cui il programma farà riferimento nelle successive operazioni sul file'>handle</span> del file aperto nel costrutttore.
+Il metodo <code>open()</code> specifico per il protocollo  riceve un singolo argomento, l'istanza di <code>Request</code>, e dovrebbe ritornare un oggetto con un metodo <code>read()</code> che possa essere usato per leggere i dati, un metodo <code>info()</code> per ritornare le intestazioni di risposta, e <code>geturl()</code> per ritornare l'effettivo URL del file che si sta per leggere. Un semplice modo per farlo è di creare una istanza di <code>urllib.response.addinfourl</code>, passare le intestazioni, l'URL, e l'<span class='mousetip' title='un simbolo (o un handle oppure un indirizzo di memoria fisica) a cui il programma farà riferimento nelle successive operazioni sul file'>handle</span> del file aperto nel costruttore.
 </testo_normale>
 <py_code>
 # urllib_request_nfs_handler.py

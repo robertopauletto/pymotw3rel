@@ -19,7 +19,7 @@
 
 <documento_tradotto>
 <titolo_1>
-warnings - Avvisi non fatali
+warnings - Avvisi Non Fatali
 </titolo_1>
 <descrizione>
 Fornisce avvertimenti non fatali all'utente circa problemi incontrati durante l'esecuzione di un programma.
@@ -110,7 +110,7 @@ Il programma di esempio che segue genera due avvertimenti.
 # warnings_filter.py
 </py_code>
 <testo_normale>
-Uno degli avvertimenti può essre ignorato usando l'argomento di filtro da riga di comando
+Uno degli avvertimenti può essere ignorato usando l'argomento di filtro da riga di comando
 </testo_normale>
 <py_output>
 $ python3 -W "ignore:non mostrare:UserWarning::0" warnings_filtering.py
@@ -176,7 +176,7 @@ Similarmente, <code>module</code> sopprimer&agrave; messaggi ripetuti dallo stes
 Funzioni di Consegna Messaggio Alternative
 </titolo_2>
 <testo_normale>
-Normalmente i messaggi vengono stampati verso <code>sys.stderr</code>. E' possibilie modificare questo comportamento sostituendo la funzione <code>showwarning()</code> all'interno del modulo <strong>warnings</strong>. Ad esempio se si vuole che i messaggi siano destinati ad un file di log invece che al canale di errore standard, si rimpiazzi <code>showwarnings()</code> con una funzione che registra gli avvertimenti.
+Normalmente i messaggi vengono stampati verso <code>sys.stderr</code>. E' possibile modificare questo comportamento sostituendo la funzione <code>showwarning()</code> all'interno del modulo <strong>warnings</strong>. Ad esempio se si vuole che i messaggi siano destinati a un file di log invece che al canale di errore standard, si rimpiazzi <code>showwarnings()</code> con una funzione che registra gli avvertimenti.
 </testo_normale>
 <py_code>
 # warnings_showwarning.py
@@ -212,7 +212,7 @@ Nella modalità predefinita il messaggio di avvertimento include la riga sorgent
 # warnings_warn_stacklevel.py
 </py_code_lineno>
 <testo_normale>
-In questo esempio <code>warn()</code> deve risalire 2 livelli di stack, uno per se stesso ed un altro per <code>old_function()</code>
+In questo esempio <code>warn()</code> deve risalire 2 livelli di stack, uno per se stesso e un altro per <code>old_function()</code>
 </testo_normale>
 <py_output>
 $ python3 warnings_warn_stacklevel.py
@@ -220,7 +220,7 @@ $ python3 warnings_warn_stacklevel.py
 <vedi_anche>
 https://docs.python.org/3.7/library/warnings.html|warnings|La documentazione della libreria standard per questo modulo
 https://www.python.org/dev/peps/pep-0230|PEP 230|Warning Framework
-#|eccezioni|Classi base per eccezioni ed avvertimenti
+#|exceptions|Classi base per eccezioni e avvertimenti
 logging.html|logging|Un meccanismo alternativo per consegnare messaggi è di scriverli nel registro.
 </vedi_anche>
 </documento_tradotto>
