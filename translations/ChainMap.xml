@@ -228,7 +228,7 @@ m1["c"] = C
 m2["c"] = E
 </py_output>
 <vedi_anche>
-https://docs.python.org/3.5/library/collections.html#collections.ChainMap|ChainMap|La documentazione standard della libreria per questo modulo
+https://docs.python.org/3.5/library/collections.html#collections.ChainMap|ChainMap|La documentazione della libreria standard per questo modulo
 riferimenti_moduli_modificati.htm#pn_collections|Note di Portabilità|Note di portabilità per collections.
 </vedi_anche>
 </documento_tradotto>

@@ -20,7 +20,7 @@ Il modulo <strong>gettext</strong>fornisce una pura implementazione Python compa
 I cataloghi di messaggi possono essere usati per fornire interfacce internazionalizzate per un programma, mostrando messaggi nella lingua appropriata per l'utente. Possono anche essere usati per altr personalizzazioni di messaggi, compreso lo  "<a href='https://www.wikiwand.com/it/Skin_(informatica)' target='_blank'>skinning</a>" di un interfaccia per diversi contenitori o partner.
 </testo_normale>
 <note>
-Sebbene la documentazione della libreria standard dice che tutto quello che serve è incluso in Python, ho scoperto (Doug Hellman - n.d.t.) che pygettext.py si rifiuta di estrarre messaggi racchiusi in una chiamata a ungettext, anche quando si usano quelle che sembrerebbero le appropriate opzioni di riga di comando. Quindi ho finito per installare gli strumenti GNU gettext dalla sorgente, ed usare invece xgettext
+Sebbene la documentazione della libreria standard dica che tutto quello che serve è incluso in Python, ho scoperto (Doug Hellman - n.d.t.) che pygettext.py si rifiuta di estrarre messaggi racchiusi in una chiamata a ungettext, anche quando si usano quelle che sembrerebbero le appropriate opzioni di riga di comando. Quindi ho finito per installare gli strumenti GNU gettext dalla sorgente, ed usare invece xgettext
 </note>
 <titolo_2>
 Sguardo di Insieme del Flusso di Lavoro di Traduzione
@@ -184,7 +184,8 @@ Cataloghi: ['locale/en_CA/LC_MESSAGES/example.mo',
 $ LANGUAGE=en_US:en_CA python3 gettext_find.py
 
 Cataloghi: ['locale/en_US/LC_MESSAGES/example.mo',
-'locale/en_CA/LC_MESSAGES/example.mo']py_output>
+'locale/en_CA/LC_MESSAGES/example.mo']
+</py_output>
 <testo_normale>
 Sebbene <code>find()</code> mostri l'elenco completo dei cataloghi, solo il primo nella sequenza viene effettivamente caricato per la ricerca dei messaggi.
 </testo_normale>

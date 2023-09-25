@@ -124,7 +124,7 @@ Risposta del server: b'(\\HasNoChildren \\Archive) "." INBOX.Archive'
 Risposta analizzata: ('\\HasNoChildren \\Archive', '.', 'INBOX.Archive')
 </py_output>
 <testo_normale>
-<code>list()</code> riceve argomenti per specificare caselle in parti della gerarchia, Ad esempio per elemcare le sottocartelle di <code>Esempio</code> si passi "<code>INBOX.Esempio</code>" come argomento di <code>directory</code>
+<code>list()</code> riceve argomenti per specificare caselle in parti della gerarchia, Ad esempio per elencare le sottocartelle di <code>Esempio</code> si passi "<code>INBOX.Esempio</code>" come argomento di <code>directory</code>
 </testo_normale>
 <py_code>
 # imaplib_list_subfolders.py
@@ -360,7 +360,7 @@ Un altro modo per recuperare le intestaioni è <code>BODY[HEADERS]</code>, ma qu
 # imaplib_fetch_raw.py
 </py_code>
 <testo_normale>
-Il valore di ritorno di <code>FETCH</code>è stato parzialmente analizzato, quindi è talvolta più complicato lavorarci rispetto al valore di ritorno da <code>list()</code>. Attivando il debug, si ottengono le interazioni complete tra il client e il server per ben comprenderne il meccanismo.
+Il valore di ritorno di <code>FETCH</code> è stato parzialmente analizzato, quindi è talvolta più complicato lavorarci rispetto al valore di ritorno da <code>list()</code>. Attivando il debug, si ottengono le interazioni complete tra il client e il server per ben comprenderne il meccanismo.
 </testo_normale>
 <py_output>
 $ python3 imaplib_fetch_raw.py
@@ -447,7 +447,7 @@ $ python3 imaplib_fetch_raw.py
   07:14.56 BYE response: b'Logging out'
 </py_output>
 <testo_normale>
-La risposta per il comando <code>FETCH</code> inizia con i segnalatori, quindi indica la dimnensione di dati di intestazione. Il client costruisce una tupla con la risposta per il messaggio, quindi chiude la sequenza con una singola stringa che contiene la parentesi chiusa "<code>')'</code>" che il server invia alla fine della risposta recuperata. A causa della formattazione, potrebbe essere più semplice recuperare le diverse parti di informazione separatamente, oppure ricombinare la risposta ed elaborarla verso il client.
+La risposta per il comando <code>FETCH</code> inizia con i segnalatori, quindi indica la dimensione di dati di intestazione. Il client costruisce una tupla con la risposta per il messaggio, quindi chiude la sequenza con una singola stringa che contiene la parentesi chiusa "<code>')'</code>" che il server invia alla fine della risposta recuperata. A causa della formattazione, potrebbe essere più semplice recuperare le diverse parti di informazione separatamente, oppure ricombinare la risposta ed elaborarla verso il client.
 </testo_normale>
 <py_code>
 # imaplib_fetch_separately.py
@@ -577,7 +577,7 @@ test@robyp.x10host.com C60cP26vS8tl
 Messaggi di partenza: b'1 2'
 Messaggi corrispondenti: 2
 Segnalatori prima: [b'2 (FLAGS (\\Seen))']
-Segnalatori after: [b'2 (FLAGS (\\Deleted \\Seen))']
+Segnalatori dopo: [b'2 (FLAGS (\\Deleted \\Seen))']
 Cancellati definitivamente: [b'2']
 Messaggi rimasti: b'1'
 </py_output>

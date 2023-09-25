@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-cd /home/robby/Dropbox/Code/python/pymotw-it3.0/dumpscripts
-python3 -m tabnanny -v fetch_podcasts.py
+cd /dati/dev/python/pymotw3restyling/dumpscripts
+xgettext -L Python -d gettext_plural -o gettext_plural.pot gettext_plural.py

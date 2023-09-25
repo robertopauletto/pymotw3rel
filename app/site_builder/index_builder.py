@@ -7,7 +7,7 @@ import re
 import traceback
 from typing import List
 
-from django.utils.encoding import smart_text
+from django.utils.encoding import smart_str
 
 from app.site_builder.my_html import MyHtml
 from app.site_builder.modulo import Modulo

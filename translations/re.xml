@@ -1315,8 +1315,8 @@ Con split:
 4 'Paragrafo tre.'
 </py_output>
 <vedi_anche>
-https://docs.python.org/3.5/library/re.html|re|La documentazione standard della libreria per questo modulo
-https://docs.python.org/3.5/howto/regex.html|Regular Expression HOWTO|Introduzione alle espressioni regolari per gli sviluppatori di Python di Andrew Kuchling
+https://docs.python.org/3/library/re.html|re|La documentazione della libreria standard per questo modulo
+https://docs.python.org/3/howto/regex.html|Regular Expression HOWTO|Introduzione alle espressioni regolari per gli sviluppatori di Python di Andrew Kuchling
 http://kodos.sourceforge.net/|Kodos|Uno strumento di verifica interattivo delle espressioni regolari di Phil Schwartz.
 http://pythex.org/|pythex|Uno strumento web per verificare le espressioni regolari di Gabriel Rodriguez. Ispirato da Rubular.
 https://www.wikiwand.com/it/Espressione_regolare|Espressione Regolare|La voce di Wikipedia sull'argomento

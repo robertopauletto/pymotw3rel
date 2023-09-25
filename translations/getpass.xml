@@ -17,7 +17,7 @@ Chiede all'utente un valore, in genere una password, senza emettere sullo scherm
 
 </descrizione>
 <testo_normale>
-Molti programmi che interagiscono con l'utente attraverso un terminale devono richiedere una password senza mostrare nello schermo quello l'utente sta digitando. Il modulo <strong>getpass</strong> fornisce un modo portabile per gestire in sicurezza queste richieste
+Molti programmi che interagiscono con l'utente attraverso un terminale devono richiedere una password senza mostrare nello schermo quello che l'utente sta digitando. Il modulo <strong>getpass</strong> fornisce un modo portabile per gestire in sicurezza queste richieste
 </testo_normale>
 <titolo_2>
 Esempio

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-24 21:33+0200\n"
+"POT-Creation-Date: 2021-06-03 09:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,9 +18,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: gettext_plural.py:9
-#, python-format
-msgid "%(num)d significa singolare."
-msgid_plural "%(num)d significa plurale."
-msgstr[0] "In it_IT, %(num)d è singolare."
-msgstr[1] "In it_IT, %(num)d è plurale."
+#: gettext_plural.py:8
+#, python-brace-format
+msgid "{num} significa singolare."
+msgid_plural "{num} significa plurale."
+msgstr[0] ""
+msgstr[1] ""

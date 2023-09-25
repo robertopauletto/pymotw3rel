@@ -28,7 +28,7 @@ with imaplib_connect.open_connection() as c:
 
     # Quali sono i segnalatori adesso?
     typ, response = c.fetch(msg_ids, '(FLAGS)')
-    print('Segnalatori after:', response)
+    print('Segnalatori dopo:', response)
 
     # Really delete the message.
     typ, response = c.expunge()

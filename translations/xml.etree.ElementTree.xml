@@ -239,7 +239,7 @@ $ python3 ElementTree_XMLID.py
 Costruire Documenti con Nodi Element
 </titolo_2>
 <testo_normale>
-Oltre alle capacità di elaborazione, <strong>xml.etree.ElementTree</strong> supporta anche la creazione di documenti XML ben formati partendo da oggetti <code>Elemento</code> costruiti in una applicazione. La classe <code>Element</code> usata quanto si elabora un documento sa anche come generare una forma serializzata del suo contenuto, che poi può essere scritta verso un file o altro canale dati.
+Oltre alle capacità di elaborazione, <strong>xml.etree.ElementTree</strong> supporta anche la creazione di documenti XML ben formati partendo da oggetti <code>Element</code> costruiti in una applicazione. La classe <code>Element</code> usata quanto si elabora un documento sa anche come generare una forma serializzata del suo contenuto, che poi può essere scritta verso un file o altro canale dati.
 </testo_normale>
 <testo_normale>
 Ci sono tre funzioni di aiuto utili alla creazione di una gerarchia di nodi <code>Element</code>. <code>Element()</code> crea un nodo standard, <code>SubElement()</code> attacca un nuovo nodo a un genitore, <code>Comment()</code> crea un nodo che viene serializzato usando la sintassi XML per i commenti.

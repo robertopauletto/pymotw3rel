@@ -417,7 +417,7 @@ TIPO CACHE: <class 'weakref.WeakValueDictionary'>
 La documentazione standard per <a href='https://docs.python.org/3.5/library/weakref.html'>weakref</a> contiene questo avvertimento:<br /><br />Cautela: Visto un un <code>WeakValueDictionary</code> è costruito sopra un dizionario Python, non deve mutare dimensione quando ci si itera sopra. Il che può essere difficile assicurare per un <code>WeakValueDictionary</code> visto che le azioni eseguite dal programma durante l'iterazione possono fare sì che gli elementi nel dizionario scompaiano "magicamente" (come effetto collaterale della raccolta del garbage collector)
 </avvertimento>
 <vedi_anche>
-https://docs.python.org/3.7/library/weakref.html|weakref|La documentazione standard della libreria per questo modulo.
+https://docs.python.org/3/library/weakref.html|weakref|La documentazione della libreria standard per questo modulo.
 gc.html|gc|Il modulo gc è l'interfaccia al garbage collector dell'interprete.
 https://www.python.org/dev/peps/pep-0205|PEP 205|Proposta di miglioramento per i riferimenti deboli (in inglese)
 </vedi_anche>

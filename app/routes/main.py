@@ -222,15 +222,15 @@ def article(key):
     if request.method == 'POST' and request.form['filter_text']:
         articles = Article.query.filter(
             Article.title.contains(request.form['filter_text'])
-        ).paginate(page, 10, False)
+        ).paginate(page=page, per_page=10, count=False)
     else:
         if key and re.match(r'^\d+$', key):
             articles = Article.query.filter_by(
                 categ_id=int(key)
-            ).paginate(page, 10, False)
+            ).paginate(page=page, per_page=10, count=False)
         else:
             articles = Article.query.paginate(
-                page, 10, False
+                page=page, per_page=10, count=False
             )
     next_url = url_for('main.article', key=key, page=articles.next_num) \
         if articles.has_next else None

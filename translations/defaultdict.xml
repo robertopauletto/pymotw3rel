@@ -41,7 +41,7 @@ foo => bar
 bar => valore predefinito
 </py_output>
 <vedi_anche>
-https://docs.python.org/3.5/library/collections.html#collections.defaultdict|defaultdict|La documentazione standard della libreria per questo modulo
+https://docs.python.org/3.5/library/collections.html#collections.defaultdict|defaultdict|La documentazione della libreria standard per questo modulo
 https://docs.python.org/3.5/library/collections.html#collections.defaultdict|defaultdict examples|Esempio dell'uso di defaultdict dalla documentazione della libreria standard
 http://jtauber.com/blog/2008/02/27/evolution_of_default_dictionaries_in_python/|Evolution of Default Dictionaries in Python|Discussione sul blog di James Tauber di come <code>defaultdict</code> riporti diversi mezzi di inizializzazione di dizionari
 </vedi_anche>

@@ -970,7 +970,7 @@ cc cd
 dd
 </py_output>
 <vedi_anche>
-https://docs.python.org/3.5/library/itertools.html|itertools|La documentazione standard della libreria per questo modulo.
+https://docs.python.org/3/library/itertools.html|itertools|La documentazione della libreria standard per questo modulo.
 riferimenti_moduli_modificati.html#itertools_porting|Note di portabilità per itertools|
 http://www.standardml.org/Basis/|The Standard ML Basis Library|La libreria per SML (in inglese)
 http://www.haskell.org/definition/|Definition of Haskell and the Standard Libraries|Definizione di Haskell e librerie standard (in inglese).

@@ -250,7 +250,7 @@ D1: deque([97, 8, 32], maxlen=3)
 D2: deque([32, 8, 97], maxlen=3)
 </py_output>
 <vedi_anche>
-https://docs.python.org/3.5/library/collections.html#collections.deque|deque|La documentazione standard della libreria per questo modulo
+https://docs.python.org/3/library/collections.html#collections.deque|deque|La documentazione della libreria standard per questo modulo
 http://en.wikipedia.org/wiki/Deque|WikiPedia: Deque|Una discussione sulla struttura dati della deque.
 </vedi_anche>
 </documento_tradotto>

@@ -9,7 +9,9 @@ import re
 from shutil import copyfile
 from typing import Any
 
-from django.utils.encoding import smart_text
+import django.utils.encoding
+from django.utils.encoding import smart_str
+# django.utils.encoding.smart_text = smart_str
 
 from app.site_builder.my_html import MyHtml
 from app.site_builder.comprimi_esempi import comprimi
@@ -393,7 +395,7 @@ def prepara_articolo(seq_elementi: list,
                 # if '3' in tag:
                 #     b = "&nbsp;&nbsp;&nbsp;&nbsp;" + b
                 indice.append(
-                    h.a("#" + str(prg), smart_text(b, encoding='utf-8'))
+                    h.a("#" + str(prg), smart_str(b, encoding='utf-8'))
                 )
                 contenuti.append(h.section(str(prg), class_='modules-anchor'))
                 prg += 1
@@ -415,7 +417,8 @@ def prepara_articolo(seq_elementi: list,
 
 def striphtml(data):
     p = re.compile(r'<.*?>')
-    return p.sub('', smart_text(data, encoding='utf-8'))
+    tmp = smart_str(data, encoding='utf-8')
+    return p.sub('', tmp)
 
 
 def render_articolo(file_xml: str, example_folder: str, zip_folder: str,

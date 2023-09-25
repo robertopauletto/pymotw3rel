@@ -3,9 +3,9 @@
 from flask_wtf import FlaskForm
 from wtforms import (
     BooleanField, StringField, TextAreaField, SubmitField,
-    SelectField
+    SelectField, DateField
 )
-from wtforms.fields.html5 import DateField
+
 from wtforms.validators import DataRequired, InputRequired, NumberRange\
     , ValidationError
 # from flask_ckeditor import CKEditorField

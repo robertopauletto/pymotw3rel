@@ -51,7 +51,7 @@ etc = root / '/etc/'
 print(etc)
 </py_code>
 <testo_normale>
-Come mostra il valore di <code>root</code> nel risultato dell'esempio, l'operatore combina i valori di percorso così come sono passati, e non normalizza il risultato quando contiene il riferimento alla directory genitore <code>".."</code>. Tuttavia, se un segmento inizia con il separatore di percorso, viene interpretato come un nuovo riferimento a "root" allo stesso modo della funzione <code>os.path.join()</code>. Separatori di percorso supplementari sono rimessi dal mezzo del valore del percorso, come in <code>etc</code> in questo esempio.
+Come mostra il valore di <code>root</code> nel risultato dell'esempio, l'operatore combina i valori di percorso così come sono passati, e non normalizza il risultato quando contiene il riferimento alla directory genitore <code>".."</code>. Tuttavia, se un segmento inizia con il separatore di percorso, viene interpretato come un nuovo riferimento a "root" allo stesso modo della funzione <code>os.path.join()</code>. Separatori di percorso supplementari sono rimossi dal mezzo del valore del percorso, come in <code>etc</code> in questo esempio.
 </testo_normale>
 <py_output>
 $ python3 pathlib_operator.py
@@ -613,7 +613,7 @@ Fine  : Sat Aug 19 16:59:44 2017
 Permessi
 </titolo_2>
 <testo_normale>
-Sui sistemi tipo Unix, i permessi dei file possono essere cambiati usando <code>chmod()</code>, passando il modo come intero. I valori possono essere costruiti usando le costanti definite nel modulo <strong>stat</strong>. Questo esempio agisce sul bit del permesso di esecuzione per l'utente alternandone il valore.
+Sui sistemi tipo Unix, i permessi dei file possono essere cambiati usando <code>chmod()</code>, passando il modo come intero. I valori possono essere costruiti usando le costanti definite nel modulo <strong>stat</strong>. Questo esempio agisce sul bit del permesso di esecuzione per l'utente alterandone il valore.
 </testo_normale>
 <py_code>
 # pathlib_chmod.py
@@ -647,7 +647,7 @@ after_permissions = stat.S_IMODE(f.stat().st_mode)
 print('Dopo: {:o}'.format(after_permissions))
 </py_code>
 <testo_normale>
-Questo script assume che sia abbiano i privilegi necessari per modificare il modo del file quando viene eseguito.
+Questo script assume che si abbiano i privilegi necessari per modificare il modo del file quando viene eseguito.
 </testo_normale>
 <py_output>
 $ python3 pathlib_chmod.py

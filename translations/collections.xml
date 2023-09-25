@@ -29,7 +29,7 @@ Elenco Tipi di Dato
 - <a href="collections_abc.html">collections.abc - classi base astratte per contenitori</a>
 </lista>
 <vedi_anche>
-http://docs.python.org/3.5/library/collections.html|collections|La documentazione standard della libreria per questo modulo
+http://docs.python.org/3/library/collections.html|collections|La documentazione della libreria standard per questo modulo
 riferimenti_moduli_modificati.htm#pn_collections|Note di Portabilità|Note di portabilità per collections.
 </vedi_anche>
 </documento_tradotto>

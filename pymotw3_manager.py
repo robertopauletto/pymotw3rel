@@ -20,7 +20,7 @@ if __name__ == '__main__':
         myapp = create_app()
         logger.info('App creata')
         logger.info(f'Ambiente: {os.getenv("FLASK_ENV")}')
-        myapp.run(debug=True)
+        myapp.run(debug=True, port=3067)
     except Exception as exc:
         print(exc)
         logger.exception(exc)

@@ -156,7 +156,7 @@ a A
 c C
 </py_output>
 <vedi_anche>
-https://docs.python.org/3.5/library/collections.html#collections.OrderedDict|OrderedDict|La documentazione standard della libreria per questo modulo
-https://docs.python.org/3.5/using/cmdline.html#envvar-PYTHONHASHSEED|PYTHONHASHSEED|Variabile di ambiente per controllare il seme del valore casuale aggiunto all'algoritomo di hash per la locazione delle chiavi nel dizionario.
+https://docs.python.org/3/library/collections.html#collections.OrderedDict|OrderedDict|La documentazione della libreria standard per questo modulo
+https://docs.python.org/3weak/using/cmdline.html#envvar-PYTHONHASHSEED|PYTHONHASHSEED|Variabile di ambiente per controllare il seme del valore casuale aggiunto all'algoritomo di hash per la locazione delle chiavi nel dizionario.
 </vedi_anche>
 </documento_tradotto>

@@ -243,7 +243,7 @@ def crea_nuovo_articolo(filetemplate, outfile, categoria, nome_modulo, scopo,
     return os.path.abspath(outfile)
 
 
-def create_privacy_page(template_name: str) -> None:
+def create_privacy_page(template_name: str) -> list:
     """
     :param template_name:
     :return:

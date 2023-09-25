@@ -12,7 +12,7 @@ Definisce e usa classi base per verifiche di interfaccia
 Perchè usare le Classi Base Astratte?
 </titolo_2>
 <testo_normale>
-Le classi base astratte sono una forma di verifica di interfaccia più stretta delle verifiche individuali con <a href='https://docs.python.org/3/library/functions.html#hasattr' target='_blank'>hasattr()</a>.per particolari metodi.
+Le classi base astratte sono una forma di verifica di interfaccia più stretta delle verifiche individuali con <a href='https://docs.python.org/3/library/functions.html#hasattr' target='_blank'>hasattr()</a> per particolari metodi.
 Definendo una classe base astratta si può definire una <a href='http://it.wikipedia.org/wiki/Application_programming_interface'  target='_blank'>API</a> comune per un insieme di sottoclassi. Questa capacità è specialmente utile in situazioni dove qualcuno che non ha dimestichezza con il codice di una applicazione andrà a fornire estensioni <em>plug-in</em>, ma può anche essere d'aiuto quando si lavora in squadra con un grande numero di componenti oppure con una base di codice molto vasta, dove mantenere traccia di tutte le classi è difficile o non possibile.
 </testo_normale>
 <titolo_2>

@@ -1,10 +1,10 @@
        # esempio_trace/recurse.py
        
-    3: def recurse(level):
-    9:     print('recurse({})'.format(level))
-    9:     if level:
-    6:         recurse(level - 1)
+   12: def recurse(level):
+   36:     print('recurse({})'.format(level))
+   36:     if level:
+   24:         recurse(level - 1)
        
        
-    3: def not_called():
+   12: def not_called():
 >>>>>>     print('Questa funzione non viene mai chiamata.')

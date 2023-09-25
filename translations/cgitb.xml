@@ -64,7 +64,7 @@ Nel caso di questo codice con un errore <code>ZeroDivisionError</code> è eviden
 Alla fine del risultato viene anche incluso il dettaglio completo dell'oggetto di eccezione (nel caso abbia altri attributi oltre a <code>message</code> che potrebbero essere utili per il <a href='urlhttps://www.wikiwand.com/it/Debugging' target='_blank'>debugging</a>  e la forma originale dello scaricamento del <em>traceback</em>).
 </testo_normale>
 <titolo_2>
-Variabili Locali nel Traaceback
+Variabili Locali nel Traceback
 </titolo_2>
 <testo_normale>
 Il codice in <strong>cgitb</strong> che esamina le variabili usate nella struttura dello stack che conduce all'errore è sufficientemente intelligente per valutare gli attributi dell'oggetto e per visualizzarli.

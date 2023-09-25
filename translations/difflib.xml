@@ -309,7 +309,7 @@ s1 == s2: True
 SequenceMatcher funziona con classi personalizzate, così come per i tipi built-in, fintanto che gli elementi possono essere utilizzati in funzioni di <a href="https://it.wikipedia.org/wiki/Hash_table" targe='_blank'>hash</a>.
 </testo_normale>
 <vedi_anche>
-http://docs.python.org/3.5/library/difflib.html|difflib|La documentazione standard della libreria per questo modulo
+http://docs.python.org/3.5/library/difflib.html|difflib|La documentazione della libreria standard per questo modulo
 http://www.ddj.com/documents/s=1103/ddj8807c/|Pattern Matching: The Gestalt Approach|Discussione su di un algoritmo simile di John W. Ratcliff e D. E. Metzener pubblicato nel Dr. Dobb's Journal del luglio 1988 (in inglese).
 </vedi_anche>
 </documento_tradotto>

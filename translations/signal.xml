@@ -348,7 +348,7 @@ Fri Feb  3 20:39:28 2017 Uscita normale
 <vedi_anche>
 https://docs.python.org/3.5/library/signal.html|signal|La documentazione della libreria standard per questo modulo.
 https://www.python.org/dev/peps/pep-0475|PEP 475|Falliti tentativi di ripetere chiamate di sistema con EINTR
-subprocess.html|subprocess|In corso di traduzione
+subprocess.html|subprocess|Genera Processi Addizionali
 os.html#os_fork|Creare Processi con os.fork()|La funzione <code>kill()</code> può essere usata per inviare segnali tra processi
 </vedi_anche>
 </documento_tradotto>

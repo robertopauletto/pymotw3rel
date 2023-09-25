@@ -1,5 +1,6 @@
 # __init__.py
 
+import datetime
 import logging
 import os
 
@@ -42,6 +43,11 @@ def create_app(fs: str = 'settings.py'):
 
     app.register_blueprint(main)
 
+    @app.context_processor
+    def inject_current_year():
+        print(datetime.date.today().year)
+        return {"current_year": datetime.date.today().year}
+
     # Acquisizione della configurazione per il generatore e altri dati
     # di configurazione
     with app.app_context():
@@ -51,4 +57,3 @@ def create_app(fs: str = 'settings.py'):
             diz[obj.conf_key] = obj.conf_value
         set_builder_conf(diz)
     return app
-
