@@ -5,7 +5,7 @@ import os
 
 os.mkdir('outdir')
 with tarfile.open('esempio.tar', 'r') as t:
-   def is_within_directory(directory, target):
+    def is_within_directory(directory, target):
 
         abs_directory = os.path.abspath(directory)
         abs_target = os.path.abspath(target)
@@ -14,6 +14,7 @@ with tarfile.open('esempio.tar', 'r') as t:
 
         return prefix == abs_directory
 
+
     def safe_extract(tar, path=".", members=None, *, numeric_owner=False):
 
         for member in tar.getmembers():
@@ -21,6 +22,8 @@ with tarfile.open('esempio.tar', 'r') as t:
             if not is_within_directory(path, member_path):
                 raise Exception("Attempted Path Traversal in Tar File")
 
-        tar.extractall(path, members, numeric_owner=numeric_owner) 
+        tar.extractall(path, members, numeric_owner=numeric_owner)
 
+
+    safe_extract(t, "outdir")
 print(os.listdir('outdir'))

@@ -1,0 +1,8 @@
+[user]
+	email = roberto.pauletto@gmail.com
+	name = Roberto Pauletto
+[color]
+	ui = true
+[core]
+	editor = pico
+	excludesfile = /home/robby/.gitignore_global
