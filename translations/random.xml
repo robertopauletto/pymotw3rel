@@ -59,7 +59,7 @@ for i in range(5):
 print()
 </py_code>
 <testo_normale>
-Si passano i valori minimi e massimi ed <code>uniform()</code> adatta i valori restituiti da <code>random()</code> usando la formula <code>min + (max - min) * random()</code>.
+Si passano i valori minimi e massimi e <code>uniform()</code> adatta i valori restituiti da <code>random()</code> usando la formula <code>min + (max - min) * random()</code>.
 </testo_normale>
 <py_output>
 $ python3 random_uniform.py
@@ -70,7 +70,7 @@ $ python3 random_uniform.py
 Utilizzare un valore seme (Seeding)
 </titolo_2>
 <testo_normale>
-<code>random()</code> produce valori diversi ogni volta che viene invocato ed ha un periodo di tempo molto largo prima che un qualsiasi numero venga ripetuto. Questo è utile per produrre valori univoci o variazioni, ma ci sono volte nelle quali è utile avere lo stesso insieme di dati a disposizione per essere elaborato in diversi modi. Una tecnica è quella di utilizzare un programma per generare valori casuali e salvarli per essere elaborati come passo separato; il che potrebbe non essere praticabile per  una vasta mole di dati, quindi <strong>random</strong> comprende la funzione <code>seed()</code> per inizializzare un generatore pseudocasuale in modo da produrre un insieme di valori atteso.
+<code>random()</code> produce valori diversi ogni volta che viene invocato e ha un periodo di tempo molto largo prima che un qualsiasi numero venga ripetuto. Questo è utile per produrre valori univoci o variazioni, ma ci sono volte nelle quali è utile avere lo stesso insieme di dati a disposizione per essere elaborato in diversi modi. Una tecnica è quella di utilizzare un programma per generare valori casuali e salvarli per essere elaborati come passo separato; il che potrebbe non essere praticabile per  una vasta mole di dati, quindi <strong>random</strong> comprende la funzione <code>seed()</code> per inizializzare un generatore pseudocasuale in modo da produrre un insieme di valori atteso.
 </testo_normale>
 <py_code>
 # random_seed.py

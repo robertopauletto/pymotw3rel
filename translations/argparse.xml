@@ -38,7 +38,7 @@ L'azione predefinita è la memorizzazione del valore dell'argomento. In questo c
 Analizzare una Riga di Comando
 </titolo_2>
 <testo_normale>
-Una volta che tutti gli argomenti sono definiti, si può analizzare la riga di comando passando una sequenza di stringhe di argomento a <code>parse_args()</code>. Nella modalità predefinita, gli argomenti sono recuperati da <code>sys.argv[1:]</code>, ma può usata una qualsiasi lista di stringhe. Le opzioni sono elaborate usando la sintassi GNU/POSIX, in modo che opzioni e valori di argomenti possano essere mescolati nella sequenza.
+Una volta che tutti gli argomenti sono definiti, si può analizzare la riga di comando passando una sequenza di stringhe di argomento a <code>parse_args()</code>. Nella modalità predefinita, gli argomenti sono recuperati da <code>sys.argv[1:]</code>, ma si può usare una qualsiasi lista di stringhe. Le opzioni sono elaborate usando la sintassi GNU/POSIX, in modo che opzioni e valori di argomenti possano essere mescolati nella sequenza.
 </testo_normale>
 <testo_normale>
 Il valore restituito da <code>parse_args()</code> è un <code>Namespace</code> che contiene gli argomenti del comando. L'oggetto contiene i valori degli argomenti come attributi, in modo che se l'argomento <code>dest</code> è <code>"miaopzione"</code>, al suo valore si potrà accedere come <code>args.miaopzione</code>
